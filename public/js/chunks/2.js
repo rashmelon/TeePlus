@@ -1379,42 +1379,36 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getData: function getData(InitialTime) {
+      /*this.$vs.loading({container: this.$refs.browse, scale: 0.5});
+      this.$store.dispatch('notification/getData', '')
+      .then(response => {
+      this.$vs.loading.close(this.$refs.browse);
+      this.resultTime = Date.now() - InitialTime;
+      this.unreadNotifications = response.data.data;
+      })
+      .catch(error => {
+      console.log(error);
+      this.$vs.loading.close(this.$refs.browse);
+      this.$vs.notify({
+      		title: 'Error',
+      		text: error.response.data.error,
+      		iconPack: 'feather',
+      		icon: 'icon-alert-circle',
+      		color: 'danger'
+      });
+      });*/
+    },
+    markAllAsRead: function markAllAsRead() {
       var _this = this;
 
       this.$vs.loading({
         container: this.$refs.browse,
         scale: 0.5
       });
-      this.$store.dispatch('notification/getData', '').then(function (response) {
-        _this.$vs.loading.close(_this.$refs.browse);
-
-        _this.resultTime = Date.now() - InitialTime;
-        _this.unreadNotifications = response.data.data;
-      }).catch(function (error) {
-        console.log(error);
-
+      this.$store.dispatch('notification/markAsRead', '').then(function (response) {
         _this.$vs.loading.close(_this.$refs.browse);
 
         _this.$vs.notify({
-          title: 'Error',
-          text: error.response.data.error,
-          iconPack: 'feather',
-          icon: 'icon-alert-circle',
-          color: 'danger'
-        });
-      });
-    },
-    markAllAsRead: function markAllAsRead() {
-      var _this2 = this;
-
-      this.$vs.loading({
-        container: this.$refs.browse,
-        scale: 0.5
-      });
-      this.$store.dispatch('notification/markAsRead', '').then(function (response) {
-        _this2.$vs.loading.close(_this2.$refs.browse);
-
-        _this2.$vs.notify({
           title: 'Success',
           text: response.data.message,
           iconPack: 'feather',
@@ -1422,13 +1416,13 @@ __webpack_require__.r(__webpack_exports__);
           color: 'success'
         });
 
-        _this2.unreadNotifications = [];
+        _this.unreadNotifications = [];
       }).catch(function (error) {
         console.log(error);
 
-        _this2.$vs.loading.close(_this2.$refs.browse);
+        _this.$vs.loading.close(_this.$refs.browse);
 
-        _this2.$vs.notify({
+        _this.$vs.notify({
           title: 'Error',
           text: error.response.data.error,
           iconPack: 'feather',

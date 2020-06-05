@@ -3,14 +3,10 @@
 		<vx-card ref="browse" title="categories List" collapse-action >
 			<vs-table
 				pagination
-				max-items="50"
 				search
+				max-items="50"
 				:data="categories"
 			>
-				<template slot="header">
-					<vs-button v-if="can('browse-employee')" to="/dashboard/category/create" size="small" icon-pack="feather" icon="icon-plus">Create
-						Category</vs-button>
-				</template>
 				<template slot="thead">
 					<vs-th>#</vs-th>
 					<vs-th>Image</vs-th>
@@ -19,8 +15,9 @@
 					<vs-th>Created At</vs-th>
 					<vs-th>Action</vs-th>
 				</template>
+
 				<template slot-scope="{data}">
-					<vs-tr :key="index" v-for="(category, index) in categories">
+					<vs-tr :key="index" v-for="(category, index) in data">
 						<vs-td :data="categories[index].id">
 							{{ categories[index].id }}
 						</vs-td>
