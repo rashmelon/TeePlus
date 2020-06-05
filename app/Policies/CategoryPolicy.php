@@ -5,7 +5,7 @@ namespace App\Policies;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class EmployeePolicy
+class CategoryPolicy
 {
     use HandlesAuthorization;
 
@@ -21,26 +21,26 @@ class EmployeePolicy
 
     public function index()
     {
-        return request()->user()->hasPermissionTo('browse-employee');
+        return request()->user()->hasPermissionTo('browse-category');
     }
 
     public function store()
     {
-        return request()->user()->hasPermissionTo('create-employee');
+        return request()->user()->hasPermissionTo('create-category');
     }
 
     public function show()
     {
-        return request()->user()->hasPermissionTo('view-employee');
+        return request()->user()->hasPermissionTo('view-category');
     }
 
     public function update()
     {
-        return request()->user()->hasPermissionTo('edit-employee');
+        return request()->user()->hasPermissionTo('edit-category');
     }
 
     public function destroy()
     {
-        return request()->user()->hasPermissionTo('delete-employee');
+        return request()->user()->hasPermissionTo('delete-category');
     }
 }

@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
     use HasApiTokens, Notifiable, HasRoles;
 
@@ -19,7 +19,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'image', 'email_verified_at', 'agency_id', 'birth_date', 'gender', 'phone', 'phone_verified_at'
+        'name', 'email', 'password'
     ];
 
     /**
@@ -31,7 +31,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'password', 'remember_token', 'pivot'
     ];
 
-    protected $with = ['roles'];
+    protected $with = ['roles', 'image'];
 
     /**
      * The attributes that should be cast to native types.
@@ -42,53 +42,15 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function agency()
+    public function image()
     {
-        return $this->belongsTo(Agency::class, 'agency_id');
-    }
-
-    public function questions()
-    {
-        return $this->hasMany(Question::class);
-    }
-
-    public function replies()
-    {
-        return $this->hasMany(Reply::class);
-    }
-
-    public function bookings()
-    {
-        return $this->hasMany(Booking::class);
-    }
-
-    public function reviews()
-    {
-        return $this->hasMany(Review::class);
-    }
-
-    public function apiPasswordReset()
-    {
-        return $this->hasMany(ApiPasswordReset::class);
+        return $this->morphOne(Media::class, 'mediable')->where('relation', 'image');
     }
 
     public function scopeEmployees($query)
     {
         return $query->whereHas('roles', function ($query) {
-            $query->where('is_core', 0)->where('name', '!=', 'Customer');
+            $query->where('is_core', 0);
         });
     }
-
-    public function likedPackages()
-    {
-        return $this->belongsToMany(Package::class, 'user_package');
-    }
-
-    public function upcomingLikedPackages()
-    {
-        return $this->likedPackages()
-            ->where('date', '>', Carbon::today()->addDays(5))
-            ->where('date', '<=', Carbon::today()->addDays(6));
-    }
-
 }

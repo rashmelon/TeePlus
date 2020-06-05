@@ -33,13 +33,11 @@ class MediaTransformer extends TransformerAbstract
      */
     public function transform(Media $media=null)
     {
-        if ($media){
-            $data = [];
+        $data = [];
 
-            $data['url'] = config('app.url').config('paths.image.get').$media['url'];
+        $data['url'] = config('app.url').'/storage/'.config('paths.'.$media['mediable_type'].'.'.$media['relation']).'/'.$media['url'];
+        $data['name'] = $media['name'];
 
-            return $data;
-        }
-        return  [];
+        return $data;
     }
 }

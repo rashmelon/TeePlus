@@ -15,7 +15,7 @@
         <div class="vx-row" ref="browse">
             <div class="vx-col w-full sm:w-1/2 md:w-1/3 mb-base" v-for="employee in employees">
                 <vx-card class="p-2">
-                    <vs-avatar class="mx-auto mb-6 block" size="80px" :src="employee.image" />
+                    <vs-avatar class="mx-auto mb-6 block" size="80px" :src="employee.image? employee.image.url:''" />
                     <div class="text-center">
                         <h4>{{ employee.name }}</h4>
                         <p class="text-grey">{{ employee.roles[0].name }}</p>

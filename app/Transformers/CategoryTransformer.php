@@ -2,10 +2,10 @@
 
 namespace App\Transformers;
 
-use App\User;
+use App\Category;
 use League\Fractal\TransformerAbstract;
 
-class UserTransformer extends TransformerAbstract
+class CategoryTransformer extends TransformerAbstract
 {
     /**
      * List of resources to automatically include
@@ -28,20 +28,18 @@ class UserTransformer extends TransformerAbstract
     /**
      * A Fractal transformer.
      *
-     * @param User $user
+     * @param Category $category
      * @return array
      */
-    public function transform(User $user)
+    public function transform(Category $category)
     {
-        $data = $user->toArray();
-
-        return $data;
+        return $category->toArray();
     }
 
-    public function includeImage(User $user)
+    public function includeImage(Category $category)
     {
-        if ($user->image){
-            return $this->item($user->image, new MediaTransformer(), 'no-data');
+        if ($category->image){
+            return $this->item($category->image, new MediaTransformer(), 'no-data');
         }
         return $this->null();
     }

@@ -72239,19 +72239,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   getAll: function getAll(filters) {
     //filters=?paginate=5&sortAsc=id
-    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("employee".concat(filters));
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("user".concat(filters));
   },
   view: function view(id) {
-    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("employee/".concat(id));
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("user/".concat(id));
   },
   create: function create(data) {
-    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].post("employee", data);
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].post("user", data);
   },
   update: function update(id, data) {
-    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].post("employee/".concat(id), data);
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].post("user/".concat(id), data);
   },
   delete: function _delete(id) {
-    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].delete("employee/".concat(id));
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].delete("user/".concat(id));
   }
 });
 
@@ -72786,7 +72786,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     // =============================================================================
     path: '',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./layouts/main/Main.vue */ "./resources/js/src/layouts/main/Main.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(3), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./layouts/main/Main.vue */ "./resources/js/src/layouts/main/Main.vue"));
     },
     beforeEnter: guard,
     children: [// =============================================================================
@@ -72813,7 +72813,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/package',
       name: 'package',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ./views/package/browse.vue */ "./resources/js/src/views/package/browse.vue"));
+        return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/package/browse.vue */ "./resources/js/src/views/package/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -72857,7 +72857,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/employee',
       name: 'employee',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./views/employee/browse.vue */ "./resources/js/src/views/employee/browse.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./views/employee/browse.vue */ "./resources/js/src/views/employee/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -72878,7 +72878,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/employee/create',
       name: 'add-employee',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/employee/create.vue */ "./resources/js/src/views/employee/create.vue"));
+        return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./views/employee/create.vue */ "./resources/js/src/views/employee/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -72903,7 +72903,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/employee/:id',
       name: 'view-employee',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/employee/view.vue */ "./resources/js/src/views/employee/view.vue"));
+        return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/employee/view.vue */ "./resources/js/src/views/employee/view.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -72928,7 +72928,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/employee/:id/edit',
       name: 'edit-employee',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/employee/edit.vue */ "./resources/js/src/views/employee/edit.vue"));
+        return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/employee/edit.vue */ "./resources/js/src/views/employee/edit.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -72953,7 +72953,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/agency',
       name: 'agency',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./views/agency/browse.vue */ "./resources/js/src/views/agency/browse.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./views/agency/browse.vue */ "./resources/js/src/views/agency/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -72974,7 +72974,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/agency/create',
       name: 'add-agency',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/agency/create.vue */ "./resources/js/src/views/agency/create.vue"));
+        return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/agency/create.vue */ "./resources/js/src/views/agency/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -72999,7 +72999,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/agency/:id',
       name: 'view-agency',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./views/agency/view.vue */ "./resources/js/src/views/agency/view.vue"));
+        return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./views/agency/view.vue */ "./resources/js/src/views/agency/view.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73024,7 +73024,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/agency/:id/edit',
       name: 'edit-agency',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/agency/edit.vue */ "./resources/js/src/views/agency/edit.vue"));
+        return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/agency/edit.vue */ "./resources/js/src/views/agency/edit.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73138,7 +73138,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/profile',
       name: 'profile',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./views/profile/profile */ "./resources/js/src/views/profile/profile.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(13)]).then(__webpack_require__.bind(null, /*! ./views/profile/profile */ "./resources/js/src/views/profile/profile.vue"));
       },
       beforeEnter: guard,
       meta: {

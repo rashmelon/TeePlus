@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EmployeeRequest extends FormRequest
+class CategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,25 +26,16 @@ class EmployeeRequest extends FormRequest
         $segments = request()->segments();
         if (sizeof($segments) == 2){
             return [
-                'email' => 'required|email|unique:users,email',
-                'password' => 'required|min:8',
                 'name' => 'required',
-                'image' => 'max:2048|mimes:jpeg,png',
-                'role' => 'required|exists:roles,name',
-                'agency_id' => 'exists:agencies,id',
-                'birth_date' => 'date',
-                'gender' => '',
-                'phone' => '',
+                'description' => 'required',
+                'image' => ''
             ];
         }
         else if (sizeof($segments) == 3){
             return [
-                'email' => 'email|unique:users,email,'.$segments[2],
-                'password' => 'min:8',
                 'name' => '',
-                'image' => 'max:2048|mimes:jpeg,png',
-                'role' => 'exists:roles,name',
-                'agency_id' => 'exists:agencies,id',
+                'description' => '',
+                'image' => ''
             ];
         }
     }
