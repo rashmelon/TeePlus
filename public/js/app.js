@@ -72786,16 +72786,14 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     // =============================================================================
     path: '',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./layouts/main/Main.vue */ "./resources/js/src/layouts/main/Main.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(3), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./layouts/main/Main.vue */ "./resources/js/src/layouts/main/Main.vue"));
     },
-    beforeEnter: guard,
     children: [// =============================================================================
     // Theme Routes
     // =============================================================================
     {
       path: '/dashboard',
       name: 'home',
-      beforeEnter: guard,
       component: function component() {
         return __webpack_require__.e(/*! import() */ 24).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/src/views/Home.vue"));
       },
@@ -72813,9 +72811,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/package',
       name: 'package',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ./views/package/browse.vue */ "./resources/js/src/views/package/browse.vue"));
+        return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/package/browse.vue */ "./resources/js/src/views/package/browse.vue"));
       },
-      beforeEnter: guard,
       meta: {
         breadcrumb: [{
           title: 'Home',
@@ -72836,7 +72833,6 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       component: function component() {
         return Promise.all(/*! import() */[__webpack_require__.e(22), __webpack_require__.e(12)]).then(__webpack_require__.bind(null, /*! ./views/package/create.vue */ "./resources/js/src/views/package/create.vue"));
       },
-      beforeEnter: guard,
       meta: {
         breadcrumb: [{
           title: 'Home',
@@ -72857,9 +72853,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/employee',
       name: 'employee',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./views/employee/browse.vue */ "./resources/js/src/views/employee/browse.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./views/employee/browse.vue */ "./resources/js/src/views/employee/browse.vue"));
       },
-      beforeEnter: guard,
       meta: {
         breadcrumb: [{
           title: 'Home',
@@ -72878,9 +72873,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/employee/create',
       name: 'add-employee',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/employee/create.vue */ "./resources/js/src/views/employee/create.vue"));
+        return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./views/employee/create.vue */ "./resources/js/src/views/employee/create.vue"));
       },
-      beforeEnter: guard,
       meta: {
         breadcrumb: [{
           title: 'Home',
@@ -72903,9 +72897,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/employee/:id',
       name: 'view-employee',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/employee/view.vue */ "./resources/js/src/views/employee/view.vue"));
+        return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/employee/view.vue */ "./resources/js/src/views/employee/view.vue"));
       },
-      beforeEnter: guard,
       meta: {
         breadcrumb: [{
           title: 'Home',
@@ -72928,9 +72921,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/employee/:id/edit',
       name: 'edit-employee',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/employee/edit.vue */ "./resources/js/src/views/employee/edit.vue"));
+        return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/employee/edit.vue */ "./resources/js/src/views/employee/edit.vue"));
       },
-      beforeEnter: guard,
       meta: {
         breadcrumb: [{
           title: 'Home',
@@ -72950,12 +72942,57 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
         permission: 'edit-employee'
       }
     }, {
+      path: '/dashboard/category',
+      name: 'category',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 26).then(__webpack_require__.bind(null, /*! ./views/category/browse.vue */ "./resources/js/src/views/category/browse.vue"));
+      },
+      meta: {
+        breadcrumb: [{
+          title: 'Home',
+          url: '/dashboard',
+          i18n: 'Home'
+        }, {
+          title: 'Category',
+          active: true,
+          i18n: 'Category'
+        }],
+        pageTitle: 'Category',
+        pageTitle_i18n: 'Category',
+        permission: 'browse-employee' //temperory
+
+      }
+    }, {
+      path: '/dashboard/category/create',
+      name: 'create-category',
+      component: function component() {
+        return Promise.all(/*! import() */[__webpack_require__.e(22), __webpack_require__.e(25)]).then(__webpack_require__.bind(null, /*! ./views/category/create.vue */ "./resources/js/src/views/category/create.vue"));
+      },
+      meta: {
+        breadcrumb: [{
+          title: 'Home',
+          url: '/dashboard',
+          i18n: 'Home'
+        }, {
+          title: 'Category',
+          url: '/dashboard/category',
+          i18n: 'Category'
+        }, {
+          title: 'Create',
+          active: true,
+          i18n: 'Create'
+        }],
+        pageTitle: 'Create Category',
+        pageTitle_i18n: 'Create Category',
+        permission: 'create-employee' //temperory
+
+      }
+    }, {
       path: '/dashboard/agency',
       name: 'agency',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./views/agency/browse.vue */ "./resources/js/src/views/agency/browse.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./views/agency/browse.vue */ "./resources/js/src/views/agency/browse.vue"));
       },
-      beforeEnter: guard,
       meta: {
         breadcrumb: [{
           title: 'Home',
@@ -72974,9 +73011,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/agency/create',
       name: 'add-agency',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/agency/create.vue */ "./resources/js/src/views/agency/create.vue"));
+        return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/agency/create.vue */ "./resources/js/src/views/agency/create.vue"));
       },
-      beforeEnter: guard,
       meta: {
         breadcrumb: [{
           title: 'Home',
@@ -72999,9 +73035,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/agency/:id',
       name: 'view-agency',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./views/agency/view.vue */ "./resources/js/src/views/agency/view.vue"));
+        return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./views/agency/view.vue */ "./resources/js/src/views/agency/view.vue"));
       },
-      beforeEnter: guard,
       meta: {
         breadcrumb: [{
           title: 'Home',
@@ -73024,9 +73059,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/agency/:id/edit',
       name: 'edit-agency',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/agency/edit.vue */ "./resources/js/src/views/agency/edit.vue"));
+        return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/agency/edit.vue */ "./resources/js/src/views/agency/edit.vue"));
       },
-      beforeEnter: guard,
       meta: {
         breadcrumb: [{
           title: 'Home',
@@ -73051,7 +73085,6 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       component: function component() {
         return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./views/settings/Role/Roles.vue */ "./resources/js/src/views/settings/Role/Roles.vue"));
       },
-      beforeEnter: guard,
       meta: {
         breadcrumb: [{
           title: 'Home',
@@ -73071,7 +73104,6 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       component: function component() {
         return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/settings/Role/Create.vue */ "./resources/js/src/views/settings/Role/Create.vue"));
       },
-      beforeEnter: guard,
       meta: {
         breadcrumb: [{
           title: 'Home',
@@ -73094,7 +73126,6 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       component: function component() {
         return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/settings/Role/View.vue */ "./resources/js/src/views/settings/Role/View.vue"));
       },
-      beforeEnter: guard,
       meta: {
         breadcrumb: [{
           title: 'Home',
@@ -73117,7 +73148,6 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       component: function component() {
         return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/settings/Role/Edit.vue */ "./resources/js/src/views/settings/Role/Edit.vue"));
       },
-      beforeEnter: guard,
       meta: {
         breadcrumb: [{
           title: 'Home',
@@ -73138,9 +73168,8 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/profile',
       name: 'profile',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./views/profile/profile */ "./resources/js/src/views/profile/profile.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(13)]).then(__webpack_require__.bind(null, /*! ./views/profile/profile */ "./resources/js/src/views/profile/profile.vue"));
       },
-      beforeEnter: guard,
       meta: {
         breadcrumb: [{
           title: 'Home',
@@ -73217,9 +73246,9 @@ function can(permission) {
   return hasPermission;
 }
 
-function guard(to, from, next) {
+router.beforeEach(function (to, from, next) {
   if (_store_store__WEBPACK_IMPORTED_MODULE_2__["default"].state.auth.accessToken) {
-    console.log(_store_store__WEBPACK_IMPORTED_MODULE_2__["default"].state.auth.accessToken);
+    // console.log(store.state.auth.accessToken);
     _http_axios_index_js__WEBPACK_IMPORTED_MODULE_3__["default"].defaults.headers.common['Authorization'] = "Bearer ".concat(_store_store__WEBPACK_IMPORTED_MODULE_2__["default"].state.auth.accessToken.accessToken);
 
     if (new Date(Date.now()) < new Date(_store_store__WEBPACK_IMPORTED_MODULE_2__["default"].state.auth.accessToken.token.expires_at)) {
@@ -73230,8 +73259,7 @@ function guard(to, from, next) {
   } else {
     next('/dashboard/login');
   }
-}
-
+});
 /* harmony default export */ __webpack_exports__["default"] = (router);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
@@ -74567,19 +74595,19 @@ __webpack_require__.r(__webpack_exports__);
 ==========================================================================================*/
 // MAIN COLORS - VUESAX THEME COLORS
 var colors = {
-  primary: '#7367F0',
-  success: '#28C76F',
-  danger: '#EA5455',
+  primary: '#186478',
+  success: '#1ec78f',
+  danger: '#ea6958',
   warning: '#FF9F43',
-  dark: '#1E1E1E'
+  dark: '#0b151f'
 }; // CONFIGS
 
 var themeConfig = {
-  disableCustomizer: false,
+  disableCustomizer: true,
   // options[Boolean] : true, false(default)
-  disableThemeTour: false,
+  disableThemeTour: true,
   // options[Boolean] : true, false(default)
-  footerType: "static",
+  footerType: "hidden",
   // options[String]  : static(default) / sticky / hidden
   hideScrollToTop: false,
   // options[Boolean] : true, false(default)
@@ -74589,7 +74617,7 @@ var themeConfig = {
   // options[String]  : HEX color / rgb / rgba / Valid HTML Color name - (default: #fff)
   navbarType: "floating",
   // options[String]  : floating(default) / static / sticky / hidden
-  routerTransition: "zoom-fade",
+  routerTransition: "slide-fade",
   // options[String]  : zoom-fade / slide-fade / fade-bottom / fade / zoom-out / none(default)
   rtl: false,
   // options[Boolean] : true, false(default)
@@ -74631,9 +74659,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuesax__WEBPACK_IMPORTED_MODULE_1
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Work\Tee Plus\Tee Plus\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\Work\Tee Plus\Tee Plus\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! D:\Work\Tee Plus\Tee Plus\resources\assets\css\main.css */"./resources/assets/css/main.css");
+__webpack_require__(/*! D:\TeePlus\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\TeePlus\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! D:\TeePlus\resources\assets\css\main.css */"./resources/assets/css/main.css");
 
 
 /***/ })

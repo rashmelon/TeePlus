@@ -1,5 +1,5 @@
 <template>
-    <div class="vx-col w-full mb-base" v-if="can('browse-package')">
+    <div class="vx-col w-full mb-base">
         <vx-card ref="browse" title="Packages List" collapse-action refreshContentAction @refresh="getPackages">
             <vs-table search :data="packages">
                 <template slot="header">

@@ -107,96 +107,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "create",
-  mounted: function mounted() {
-    this.getFoods();
-    this.getCities();
-  },
+  mounted: function mounted() {},
   computed: {
     validateForm: function validateForm() {
-      return !this.errors.any() && this.form.title !== "" && this.form.date !== '' && this.form.price !== '' && this.form.days !== '' && this.form.nights !== '' && this.form.season !== '' && this.form.description !== '' && this.form.food_id !== '' && this.form.total_tickets !== '' && this.form.start_city !== '' && this.form.end_city !== '' && this.form.currency !== '';
+      return !this.errors.any() && this.form.title !== "" && this.form.date !== '';
     }
   },
   data: function data() {
@@ -206,98 +124,14 @@ __webpack_require__.r(__webpack_exports__);
       cities: [],
       form: {
         home_page: false,
-        title: '',
-        date: '',
-        price: 0,
-        currency: '',
-        days: 0,
-        nights: 0,
-        season: '',
-        description: '',
-        images: [],
-        schedule: [],
-        inclusions: [],
-        exclusions: [],
-        accommodations: [],
-        food_id: 0,
-        total_tickets: 0,
-        start_city_id: 0,
-        end_city_id: 0
+        title: ''
       },
       uploadedImage: null,
       is_requesting: false
     };
   },
-  components: {
-    FormWizard: vue_form_wizard__WEBPACK_IMPORTED_MODULE_0__["FormWizard"],
-    TabContent: vue_form_wizard__WEBPACK_IMPORTED_MODULE_0__["TabContent"]
-  },
+  components: {},
   methods: {
-    getFoods: function getFoods() {
-      var _this = this;
-
-      this.$store.dispatch('food/getData', '').then(function (response) {
-        _this.food = response.data.data;
-      }).catch(function (error) {
-        console.log(error);
-      });
-    },
-    getCities: function getCities() {
-      var _this2 = this;
-
-      this.$store.dispatch('city/getData', '?country=egypt').then(function (response) {
-        _this2.cities = response.data.data;
-      }).catch(function (error) {
-        console.log(error);
-      });
-    },
-    addSchedule: function addSchedule() {
-      this.form.schedule.push({
-        day_number: this.form.schedule.length,
-        description: ''
-      });
-    },
-    removeSchedule: function removeSchedule(index) {
-      if (this.form.schedule.length > 0) {
-        this.form.schedule.splice(index, 1);
-      }
-    },
-    addInclusion: function addInclusion() {
-      this.form.inclusions.push({
-        name: ''
-      });
-    },
-    removeInclusion: function removeInclusion(index) {
-      if (this.form.inclusions.length > 0) {
-        this.form.inclusions.splice(index, 1);
-      }
-    },
-    addExclusion: function addExclusion() {
-      this.form.exclusions.push({
-        name: ''
-      });
-    },
-    removeExclusion: function removeExclusion(index) {
-      if (this.form.exclusions.length > 0) {
-        this.form.exclusions.splice(index, 1);
-      }
-    },
-    addAccommodation: function addAccommodation() {
-      this.form.accommodations.push({
-        city: '',
-        hotel: '',
-        rate: 1,
-        nights: 1,
-        dbl: 0,
-        sgl: 0,
-        child: 0
-      });
-    },
-    removeAccommodation: function removeAccommodation(index) {
-      if (this.form.accommodations.length > 0) {
-        this.form.accommodations.splice(index, 1);
-      }
-    },
     uploadImages: function uploadImages(e) {
       var selectedImages = e.target.files;
 
@@ -312,8 +146,6 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     create: function create() {
-      var _this3 = this;
-
       this.is_requesting = true;
       var form_data = new FormData();
 
@@ -327,30 +159,16 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
 
-      this.$store.dispatch('package/create', form_data).then(function (response) {
-        _this3.$router.push("/dashboard/package");
-
-        _this3.$vs.notify({
-          title: 'Success',
-          text: response.data.message,
-          iconPack: 'feather',
-          icon: 'icon-check',
-          color: 'success'
-        });
-      }).catch(function (error) {
-        console.log(error);
-
-        _this3.$vs.notify({
-          title: 'Error',
-          text: error.response.data.errors[Object.keys(error.response.data.errors)[0]][0],
-          iconPack: 'feather',
-          icon: 'icon-alert-circle',
-          color: 'danger'
-        });
+      this.$vs.notify({
+        title: 'Error',
+        text: 'not yet handled',
+        iconPack: 'feather',
+        icon: 'icon-alert-circle',
+        color: 'danger'
       });
     },
     previewImage: function previewImage(event) {
-      var _this4 = this;
+      var _this = this;
 
       // Reference to the DOM input element
       var input = event.target; // Ensure that you have a file before attempting to read it
@@ -362,8 +180,8 @@ __webpack_require__.r(__webpack_exports__);
         reader.onload = function (e) {
           // Note: arrow function used here, so that "this.imageData" refers to the imageData of Vue component
           // Read image as base64 and set to imageData
-          _this4.uploadedImage = e.target.result;
-          _this4.form.image = input.files;
+          _this.uploadedImage = e.target.result;
+          _this.form.image = input.files;
         }; // Start the reader job - read file as a data url (base64 format)
 
 
@@ -440,7 +258,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.can("create-package")
+    _vm.can("create-employee")
       ? _c(
           "div",
           { staticClass: "vx-col w-full mb-base" },
@@ -512,7 +330,7 @@ var render = function() {
                             },
                             [
                               _vm._v(
-                                "\n                                    Date\n                                "
+                                "\n                                Date\n                            "
                               )
                             ]
                           ),

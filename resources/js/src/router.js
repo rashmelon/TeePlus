@@ -20,7 +20,6 @@ const router = new Router({
     // =============================================================================
             path: '',
             component: () => import('./layouts/main/Main.vue'),
-            beforeEnter: guard,
             children: [
         // =============================================================================
         // Theme Routes
@@ -28,7 +27,6 @@ const router = new Router({
                 {
                   path: '/dashboard',
                   name: 'home',
-                  beforeEnter: guard,
                   component: () => import('./views/Home.vue'),
                   meta: {
                       breadcrumb: [
@@ -42,7 +40,6 @@ const router = new Router({
                     path: '/dashboard/package',
                     name: 'package',
                     component: () => import('./views/package/browse.vue'),
-                    beforeEnter: guard,
                     meta: {
                         breadcrumb: [
                             { title: 'Home', url: '/dashboard', i18n: 'Home' },
@@ -57,7 +54,6 @@ const router = new Router({
                     path: '/dashboard/package/create',
                     name: 'create-package',
                     component: () => import('./views/package/create.vue'),
-                    beforeEnter: guard,
                     meta: {
                         breadcrumb: [
                             { title: 'Home', url: '/dashboard', i18n: 'Home' },
@@ -73,7 +69,6 @@ const router = new Router({
                     path: '/dashboard/employee',
                     name: 'employee',
                     component: () => import('./views/employee/browse.vue'),
-                    beforeEnter: guard,
                     meta: {
                         breadcrumb: [
                             { title: 'Home', url: '/dashboard', i18n: 'Home' },
@@ -88,7 +83,6 @@ const router = new Router({
                     path: '/dashboard/employee/create',
                     name: 'add-employee',
                     component: () => import('./views/employee/create.vue'),
-                    beforeEnter: guard,
                     meta: {
                         breadcrumb: [
                             { title: 'Home', url: '/dashboard', i18n: 'Home' },
@@ -104,7 +98,6 @@ const router = new Router({
                     path: '/dashboard/employee/:id',
                     name: 'view-employee',
                     component: () => import('./views/employee/view.vue'),
-                    beforeEnter: guard,
                     meta: {
                         breadcrumb: [
                             { title: 'Home', url: '/dashboard', i18n: 'Home' },
@@ -120,7 +113,6 @@ const router = new Router({
                     path: '/dashboard/employee/:id/edit',
                     name: 'edit-employee',
                     component: () => import('./views/employee/edit.vue'),
-                    beforeEnter: guard,
                     meta: {
                         breadcrumb: [
                             { title: 'Home', url: '/dashboard', i18n: 'Home' },
@@ -132,11 +124,50 @@ const router = new Router({
                         permission: 'edit-employee'
                     }
                 },
+
+
+
+                {
+                    path: '/dashboard/category',
+                    name: 'category',
+                    component: () => import('./views/category/browse.vue'),
+                    meta: {
+                        breadcrumb: [
+                            { title: 'Home', url: '/dashboard', i18n: 'Home' },
+                            { title: 'Category', active: true, i18n: 'Category' },
+                        ],
+                        pageTitle: 'Category',
+                        pageTitle_i18n: 'Category',
+                        permission: 'browse-employee' //temperory
+                    }
+                },
+                {
+                    path: '/dashboard/category/create',
+                    name: 'create-category',
+                    component: () => import('./views/category/create.vue'),
+                    meta: {
+                        breadcrumb: [
+                            { title: 'Home', url: '/dashboard', i18n: 'Home' },
+                            { title: 'Category', url:'/dashboard/category', i18n: 'Category' },
+                            { title: 'Create', active: true, i18n: 'Create' },
+                        ],
+                        pageTitle: 'Create Category',
+                        pageTitle_i18n: 'Create Category',
+                        permission: 'create-employee' //temperory
+                    }
+                },
+
+
+
+
+
+
+
+
                 {
                     path: '/dashboard/agency',
                     name: 'agency',
                     component: () => import('./views/agency/browse.vue'),
-                    beforeEnter: guard,
                     meta: {
                         breadcrumb: [
                             { title: 'Home', url: '/dashboard', i18n: 'Home' },
@@ -151,7 +182,6 @@ const router = new Router({
                     path: '/dashboard/agency/create',
                     name: 'add-agency',
                     component: () => import('./views/agency/create.vue'),
-                    beforeEnter: guard,
                     meta: {
                         breadcrumb: [
                             { title: 'Home', url: '/dashboard', i18n: 'Home' },
@@ -167,7 +197,6 @@ const router = new Router({
                     path: '/dashboard/agency/:id',
                     name: 'view-agency',
                     component: () => import('./views/agency/view.vue'),
-                    beforeEnter: guard,
                     meta: {
                         breadcrumb: [
                             { title: 'Home', url: '/dashboard', i18n: 'Home' },
@@ -183,7 +212,6 @@ const router = new Router({
                     path: '/dashboard/agency/:id/edit',
                     name: 'edit-agency',
                     component: () => import('./views/agency/edit.vue'),
-                    beforeEnter: guard,
                     meta: {
                         breadcrumb: [
                             { title: 'Home', url: '/dashboard', i18n: 'Home' },
@@ -199,7 +227,6 @@ const router = new Router({
                     path: '/dashboard/settings/role',
                     name: 'role',
                     component: () => import('./views/settings/Role/Roles.vue'),
-                    beforeEnter: guard,
                     meta: {
                         breadcrumb: [
                             { title: 'Home', url: '/dashboard'},
@@ -214,7 +241,6 @@ const router = new Router({
                     path: '/dashboard/settings/role/create',
                     name: 'create-role',
                     component: () => import('./views/settings/Role/Create.vue'),
-                    beforeEnter: guard,
                     meta: {
                         breadcrumb: [
                             { title: 'Home', url: '/dashboard'},
@@ -230,7 +256,6 @@ const router = new Router({
                     path: '/dashboard/settings/role/:id',
                     name: 'view-role',
                     component: () => import('./views/settings/Role/View.vue'),
-                    beforeEnter: guard,
                     meta: {
                         breadcrumb: [
                             { title: 'Home', url: '/dashboard'},
@@ -246,7 +271,6 @@ const router = new Router({
                     path: '/dashboard/settings/role/edit/:id',
                     name: 'edit-role',
                     component: () => import('./views/settings/Role/Edit.vue'),
-                    beforeEnter: guard,
                     meta: {
                         breadcrumb: [
                             { title: 'Home', url: '/dashboard'},
@@ -262,7 +286,6 @@ const router = new Router({
                     path: '/dashboard/profile',
                     name: 'profile',
                     component: () => import('./views/profile/profile'),
-                    beforeEnter: guard,
                     meta: {
                         breadcrumb: [
                             { title: 'Home', url: '/dashboard'},
@@ -271,7 +294,6 @@ const router = new Router({
                         pageTitle: "Profile"
                     }
                 },
-
             ],
         },
     // =============================================================================
@@ -334,9 +356,9 @@ function can(permission) {
     return hasPermission;
 }
 
-function guard(to, from, next) {
+router.beforeEach((to, from, next) => {
     if (store.state.auth.accessToken) {
-        console.log(store.state.auth.accessToken);
+        // console.log(store.state.auth.accessToken);
         axios.defaults.headers.common['Authorization'] = `Bearer ${store.state.auth.accessToken.accessToken}`;
         if (new Date(Date.now()) < new Date(store.state.auth.accessToken.token.expires_at)){
             to.meta.permission===undefined||can(to.meta.permission)?next():next('/dashboard/error-403');
@@ -346,6 +368,7 @@ function guard(to, from, next) {
     } else {
         next('/dashboard/login');
     }
-}
+})
+
 
 export default router

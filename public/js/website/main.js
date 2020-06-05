@@ -608,11 +608,11 @@
         }
 
         /**---------------------------------------
-         *  slider-product-sorting
+         *  slider-category-sorting
         * -------------------------------------*/
-        if($('.slider-product-sorting').length){
+        if($('.slider-category-sorting').length){
             $( function() {
-                $( ".slider-product-sorting" ).slider({
+                $( ".slider-category-sorting" ).slider({
                 range: true,
                 min: 50,
                 max: 2000,
@@ -621,8 +621,8 @@
                 $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
                 }
                 });
-                $( "#amount" ).val( "$" + $( ".slider-product-sorting" ).slider( "values", 0 ) +
-                " - $" + $( ".slider-product-sorting" ).slider( "values", 1 ) );
+                $( "#amount" ).val( "$" + $( ".slider-category-sorting" ).slider( "values", 0 ) +
+                " - $" + $( ".slider-category-sorting" ).slider( "values", 1 ) );
             } );
         }
 

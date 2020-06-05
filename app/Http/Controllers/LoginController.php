@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
+use App\Http\Responses\Facades\ApiResponse;
 use App\Responses\Facades\ResponseFacade;
 use App\Transformers\UserTransformer;
 use App\User;
@@ -17,7 +18,7 @@ class LoginController extends Controller
         $login_credentials = $request->validated();
 
         if (!Auth::guard('web')->attempt($login_credentials)){
-            return ResponseFacade::errorRespond("Invalid Credentials", [
+            return ApiResponse::errorRespond("Invalid Credentials", [
                 'email' =>[
                     'Incorrect email or password'
                 ]
@@ -28,10 +29,10 @@ class LoginController extends Controller
 
         $user = User::where('email', $login_credentials['email'])->with(['roles','roles.permissions', 'permissions'])->first();
 
-        return ResponseFacade::respond("login credentials correct", [
+        return ApiResponse::setMessage("login credentials correct")->setData([
             'user' => fractal($user, new UserTransformer()),
             'access_token' => $user->createToken('token'),
             'token_type' => 'Bearer',
-        ], 200);
+        ])->execute();
     }
 }

@@ -1,11 +1,7 @@
 <template>
     <div>
-        <div v-if="can('create-package')" class="vx-col w-full mb-base">
+        <div v-if="can('create-employee')" class="vx-col w-full mb-base">
             <vx-card ref="create" title="Create Package">
-<!--                <form-wizard color="rgba(var(&#45;&#45;vs-primary), 1)" :title="null" :subtitle="null" finishButtonText="Submit" @on-complete="create">-->
-<!--                    <tab-content title="Package Details" class="mb-5">-->
-
-                        <!-- tab 1 content -->
                 <div class="vx-row">
                     <div class="vx-col md:w-1/2 w-full mt-5">
                         <vs-input label="Package Title" v-model="form.title" class="w-full" />
@@ -90,81 +86,6 @@
                         <vs-button id="btn-create" :disabled="!validateForm" @click="is_requesting?$store.dispatch('viewWaitMessage', $vs):create()" icon-pack="feather" icon="icon-save" type="gradient">Create Package</vs-button>
                     </vs-col>
                 </vs-row>
-<!--                    </tab-content>-->
-
-<!--                    &lt;!&ndash; tab 2 content &ndash;&gt;-->
-<!--                    <tab-content title="Schedule" class="mb-5">-->
-<!--                        <div class="vx-row">-->
-<!--                            <vs-button @click="addSchedule" size="small" icon-pack="feather" icon="icon-add">Add Row</vs-button>-->
-<!--                        </div>-->
-<!--                        <div class="vx-row" v-for="(section, index) in form.schedule">-->
-<!--                            <div class="vx-col md:w-1/2 w-full">-->
-<!--                                <div class="centerx pt-6">-->
-<!--                                    <vs-input-number v-model="section.day_number" label="Day Number:"/>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="vx-col md:w-1/2 w-full">-->
-<!--                                <vs-textarea label="Description" v-model="section.description" />-->
-<!--                            </div>-->
-<!--                            <div class="vx-col w-full">-->
-<!--                                <vs-button class="mt-5" @click="removeSchedule(index)" size="small" icon-pack="feather" color="danger" icon="icon-trash">Remove Row</vs-button>-->
-<!--                            </div>-->
-<!--                            <vs-divider></vs-divider>-->
-<!--                        </div>-->
-<!--                    </tab-content>-->
-
-<!--                    &lt;!&ndash; tab 3 content &ndash;&gt;-->
-<!--                    <tab-content title="Inclusions & Exclusions" class="mb-5">-->
-<!--                        <div class="vx-row">-->
-<!--                            <vs-button @click="addInclusion" size="small" icon-pack="feather" icon="icon-add">Add Inclusion</vs-button>-->
-<!--                        </div>-->
-<!--                        <div class="vx-row" v-for="(inclusion, index) in form.inclusions">-->
-<!--                            <div class="vx-col w-full">-->
-<!--                                <vs-input :label="`Inclusion ${index+1}`" v-model="inclusion.name" class="w-full mt-5" />-->
-<!--                                <vs-button class="mt-5" @click="removeInclusion(index)" size="small" icon-pack="feather" color="danger" icon="icon-trash">Remove Inclusion</vs-button>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <vs-divider></vs-divider>-->
-<!--                        <div class="vx-row">-->
-<!--                            <vs-button @click="addExclusion" size="small" icon-pack="feather" icon="icon-add">Add Exclusion</vs-button>-->
-<!--                        </div>-->
-<!--                        <div class="vx-row" v-for="(inclusion, index) in form.exclusions">-->
-<!--                            <div class="vx-col w-full">-->
-<!--                                <vs-input :label="`Exclusion ${index+1}`" v-model="inclusion.name" class="w-full mt-5" />-->
-<!--                                <vs-button class="mt-5" @click="removeExclusion(index)" size="small" icon-pack="feather" color="danger" icon="icon-trash">Remove Exclusion</vs-button>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </tab-content>-->
-
-<!--                    &lt;!&ndash; tab 4 content &ndash;&gt;-->
-<!--                    <tab-content title="Accommodation" class="mb-5">-->
-<!--                        <div class="vx-row">-->
-<!--                            <vs-button @click="addAccommodation" size="small" icon-pack="feather" icon="icon-add">Add Accommodation</vs-button>-->
-<!--                        </div>-->
-<!--                        <div class="vx-row" v-for="(accommodation, index) in form.accommodations">-->
-<!--                            <div class="vx-col md:w-1/2 w-full mt-5">-->
-<!--                                <vs-input :label="`City`" v-model="accommodation.city" class="w-full mt-5" />-->
-<!--                            </div>-->
-<!--                            <div class="vx-col md:w-1/2 w-full mt-5">-->
-<!--                                <vs-input :label="`Hotel`" v-model="accommodation.hotel" class="w-full mt-5" />-->
-<!--                            </div>-->
-<!--                            <div class="vx-col md:w-1/2 w-full mt-5">-->
-<!--                                <div class="centerx pt-6">-->
-<!--                                    <vs-input-number v-model="accommodation.nights" label="Nights:"/>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="vx-col md:w-1/2 w-full mt-5">-->
-<!--                                <div class="centerx pt-6">-->
-<!--                                    <vs-input-number v-model="accommodation.rate" label="Rate:"/>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="vx-col w-full">-->
-<!--                                <vs-button class="mt-5" @click="removeAccommodation(index)" size="small" icon-pack="feather" color="danger" icon="icon-trash">Remove Row</vs-button>-->
-<!--                            </div>-->
-<!--                            <vs-divider></vs-divider>-->
-<!--                        </div>-->
-<!--                    </tab-content>-->
-<!--                </form-wizard>-->
 
             </vx-card>
         </div>
@@ -177,24 +98,13 @@
     export default {
         name: "create",
         mounted() {
-            this.getFoods();
-            this.getCities();
+
         },
         computed: {
             validateForm() {
                 return !this.errors.any()
                     && this.form.title !== ""
                     && this.form.date !== ''
-                    && this.form.price !== ''
-                    && this.form.days !== ''
-                    && this.form.nights !== ''
-                    && this.form.season !== ''
-                    && this.form.description !== ''
-                    && this.form.food_id !== ''
-                    && this.form.total_tickets !== ''
-                    && this.form.start_city !== ''
-                    && this.form.end_city !== ''
-                    && this.form.currency !== '';
             }
         },
         data: function () {
@@ -205,119 +115,15 @@
                 form: {
                     home_page: false,
                     title: '',
-                    date: '',
-                    price: 0,
-                    currency: '',
-                    days: 0,
-                    nights: 0,
-                    season: '',
-                    description: '',
-                    images: [],
-                    schedule: [
-                    ],
-                    inclusions: [
-                    ],
-                    exclusions: [
-                    ],
-                    accommodations: [
-                    ],
-                    food_id: 0,
-                    total_tickets: 0,
-                    start_city_id: 0,
-                    end_city_id: 0,
                 },
                 uploadedImage: null,
                 is_requesting: false
             }
         },
         components: {
-            FormWizard,
-            TabContent
+
         },
         methods: {
-            getFoods(){
-                this.$store.dispatch('food/getData', '')
-                    .then(response => {
-                        this.food = response.data.data;
-                    })
-                    .catch(error => {
-                        console.log(error);
-                    });
-            },
-
-            getCities(){
-                this.$store.dispatch('city/getData', '?country=egypt')
-                    .then(response => {
-                        this.cities = response.data.data;
-                    })
-                    .catch(error => {
-                        console.log(error);
-                    });
-            },
-
-            addSchedule()
-            {
-                this.form.schedule.push({
-                    day_number:  this.form.schedule.length,
-                    description: ''
-                });
-            },
-
-            removeSchedule(index)
-            {
-                if (this.form.schedule.length>0){
-                    this.form.schedule.splice(index, 1);
-                }
-            },
-
-            addInclusion()
-            {
-                this.form.inclusions.push({
-                    name: ''
-                });
-            },
-
-            removeInclusion(index)
-            {
-                if (this.form.inclusions.length>0){
-                    this.form.inclusions.splice(index, 1);
-                }
-            },
-
-            addExclusion()
-            {
-                this.form.exclusions.push({
-                    name: ''
-                });
-            },
-
-            removeExclusion(index)
-            {
-                if (this.form.exclusions.length>0){
-                    this.form.exclusions.splice(index, 1);
-                }
-            },
-
-            addAccommodation()
-            {
-                this.form.accommodations.push({
-                    city: '',
-                    hotel: '',
-                    rate: 1,
-                    nights: 1,
-                    dbl: 0,
-                    sgl: 0,
-                    child: 0,
-                });
-            },
-
-            removeAccommodation(index)
-            {
-                if (this.form.accommodations.length>0){
-                    this.form.accommodations.splice(index, 1);
-                }
-            },
-
             uploadImages(e)
             {
                 let selectedImages = e.target.files;
@@ -344,27 +150,14 @@
                         form_data.append(key, this.form[key]);
                     }
                 }
-                this.$store.dispatch('package/create', form_data)
-                    .then(response => {
-                        this.$router.push(`/dashboard/package`);
-                        this.$vs.notify({
-                            title: 'Success',
-                            text: response.data.message,
-                            iconPack: 'feather',
-                            icon: 'icon-check',
-                            color: 'success'
-                        });
-                    })
-                    .catch(error => {
-                        console.log(error);
-                        this.$vs.notify({
-                            title: 'Error',
-                            text: error.response.data.errors[Object.keys(error.response.data.errors)[0]][0],
-                            iconPack: 'feather',
-                            icon: 'icon-alert-circle',
-                            color: 'danger'
-                        });
-                    });
+                this.$vs.notify({
+                    title: 'Error',
+                    text: 'not yet handled',
+                    iconPack: 'feather',
+                    icon: 'icon-alert-circle',
+                    color: 'danger'
+                });
+
             },
 
             previewImage: function(event) {
