@@ -18,24 +18,24 @@
 
 				<template slot-scope="{data}">
 					<vs-tr :key="index" v-for="(category, index) in data">
-						<vs-td :data="categories[index].id">
-							{{ categories[index].id }}
+						<vs-td :data="category.id">
+							{{ category.id }}
 						</vs-td>
 
-						<vs-td :data="categories[index].image">
-							{{ categories[index].image}}
+						<vs-td :data="category.image">
+							{{ category.image}}
 						</vs-td>
 
-						<vs-td :data="categories[index].name">
-							{{ categories[index].name}}
+						<vs-td :data="category.name">
+							{{ category.name}}
 						</vs-td>
 
-						<vs-td :data="categories[index].description">
-							{{ categories[index].description}}
+						<vs-td :data="category.description">
+							{{ category.description}}
 						</vs-td>
 
-						<vs-td :data="categories[index].created_at">
-							{{ categories[index].created_at}}
+						<vs-td :data="category.created_at">
+							{{ category.created_at}}
 						</vs-td>
 
 						<vs-td>
@@ -44,7 +44,7 @@
 									<div class="w-1/2 mx-2" v-if="can('edit-employee')">
 										<vs-button :id="`btn-edit-${category.id}`" class="vs-con-loading__container" radius color="warning" type="border"
 										           icon-pack="feather" icon="icon-edit"
-										           @click="is_requesting?$store.dispatch('viewWaitMessage', $vs):confirmEditCategory(category)"></vs-button>
+										           @click=editCategory(category.id)></vs-button>
 									</div>
 									<div class="w-1/2 mx-3" v-if="can('delete-employee')">
 										<vs-button :id="`btn-delete-${category.id}`" class="vs-con-loading__container" radius color="danger" type="border"
@@ -92,7 +92,9 @@
       getCategories() {
         return this.categories
       },
-
+			editCategory(id){
+        this.$router.push({name:'edit-category',params:{'id':id}})
+			},
       confirmDeleteCategory(type) {
         this.$vs.dialog({
           type: 'confirm',
@@ -101,15 +103,6 @@
           text: 'This data can not be retrieved again.',
           accept: this.deleteCategory,
           parameters: [type]
-        });
-      },
-      confirmEditCategory(type) {
-        this.$vs.notify({
-          title: 'Error',
-          text: 'not yet handled',
-          iconPack: 'feather',
-          icon: 'icon-alert-circle',
-          color: 'warning'
         });
       },
 

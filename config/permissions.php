@@ -27,7 +27,6 @@ return [
             'display_name' => 'Delete Employee',
         ],
     ],
-
     'Role' => [
         [
             'name' => 'create-role',

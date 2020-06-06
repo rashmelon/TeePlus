@@ -1,65 +1,130 @@
 <template>
     <div>
         <div v-if="can('create-employee')" class="vx-col w-full mb-base">
-            <vx-card ref="create" title="Create Package">
-                <div class="vx-row">
-                    <div class="vx-col sm:w-1/1 w-full mb-3">
-                        <div class="image-preview" style="display: inline-flex;">
-                            <img alt="employee photo" class="preview" :src="uploadedImage?uploadedImage:'/images/no-image-found.png'">
-                        </div>
-                        <div style="display: inline-flex;position: relative;top: -15px;">
-                            <input id="img-upload" type="file" @change="previewImage" accept="image/*">
-                            <vs-button size="small" icon-pack="feather" icon="icon-upload" type="gradient" onclick="document.getElementById('img-upload').click()">Upload Photo</vs-button>
-                        </div>
-                    </div>
+            <div ref="create" title="Create Category">
 
-
-                    <div class="vx-col md:w-1/1 attributes">
-                        <div class="vx-row single-attribute"
-                             v-for="(attr,index) in form.attributes"
-                             :key="index"
-                        >
-                            <div class="vx-col md:w-1/2 w-full">
-                                <vs-input label="Category Name" v-model="form.attributes[index].name" class="w-full" />
+                <form-wizard color="rgb(var(--vs-primary))" :title="null" :subtitle="null" finishButtonText="Submit" @on-complete="create">
+                    <tab-content title="Category data" class="mb-5">
+                        <vx-card class="vx-row">
+                            <div class="vx-col sm:w-2/2 w-full mb-3">
+                                <div class="image-preview" style="display: inline-flex;">
+                                    <img alt="photo" class="preview" :src="uploadedImage?uploadedImage:'/images/no-image-found.png'">
+                                </div>
+                                <div style="display: inline-flex;position: relative;top: -15px;">
+                                    <input id="img-upload" type="file" @change="previewImage" accept="image/*">
+                                    <vs-button size="small" icon-pack="feather" icon="icon-upload" type="gradient" onclick="document.getElementById('img-upload').click()">Upload Photo</vs-button>
+                                </div>
+                            </div>
+                            <div class="vx-col sm:w-2/2 w-full mb-3">
+                                <vs-input label="Category Name" v-model="form.name" class="w-full" />
                             </div>
 
-                            <div class="vx-col sm:w-1/2 w-full">
-                                <vs-input label="Attribute Name" v-model="form.attributes[index].values" class="w-full" />
+                            <div class="vx-col md:w-1/1 w-full mt-3">
+                                <vs-textarea label="Description" v-model="form.description" />
                             </div>
-                        </div>
-                    </div>
 
+                        </vx-card>
+                    </tab-content>
 
-                    <div class="vx-col sm:w-1/2 w-full mb-3">
-                        <vs-input label="Attribute" v-model="form.name" class="w-full" />
-                    </div>
+                    <tab-content title="Combinations" class="mb-5">
+                        <vx-card class="vx-row">
+                            <div class="vx-col md:w-1/1 w-full mt-3">
+                                <transition-group mode="out-in" name="slide-down">
+                                    <div class="vx-row"  :key="attr.id" v-for="(attr,index) in form.attributes">
+                                        <div class="vx-col md:w-8/12 w-full mb-3">
+                                            <vs-input label="Combination" v-model="attr.combination" class="w-full" />
+                                        </div>
 
-                    <div class="vx-col md:w-1/1 w-full mt-3">
-                        <div class="vx-col w-full mt-3">
-                            <vs-textarea label="Description" v-model="form.description" />
-                        </div>
-                    </div>
-                </div>
+                                        <div class="vx-col md:w-2/12 w-full mb-3">
+                                            <vs-input type="number" label="Price" v-model="attr.price" class="w-full" />
+                                        </div>
 
-                <vs-row vs-align="center" vs-type="flex" vs-justify="center" vs-w="12">
-                    <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="12">
-                        <vs-button
-                          id="btn-create"
-                          :disabled="!validateForm"
-                          @click="is_requesting?$store.dispatch('viewWaitMessage',$vs):create()"
-                          icon-pack="feather"
-                          icon="icon-save"
-                          type="gradient"
-                        >Create Category</vs-button>
-                    </vs-col>
-                </vs-row>
+                                        <div class="vx-col md:w-2/12 w-full mb-3">
+                                            <div class="attribute-actions mt-5">
+                                                <vs-button
+                                                  @click="removeAttribute(index)"
+                                                  v-if="index || ( !index && index> 1)"
+                                                  icon-pack="feather"
+                                                  icon="icon-minus"
+                                                  color="danger"
+                                                  type="border"
+                                                  radius
+                                                  class="ml-2"
+                                                ></vs-button>
 
-            </vx-card>
+                                                <vs-button
+                                                  @click="addAttribute"
+                                                  v-if="index === form.attributes.length-1"
+                                                  icon-pack="feather"
+                                                  icon="icon-plus"
+                                                  color="primary"
+                                                  type="border"
+                                                  radius
+                                                  class="ml-2"
+                                                ></vs-button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </transition-group>
+                            </div>
+                        </vx-card>
+                    </tab-content>
+
+                    <tab-content title="Printing Criteria" class="mb-5">
+                        <vx-card class="vx-row">
+                            <div class="vx-col md:w-1/1 w-full mt-3">
+                                <transition-group mode="out-in" name="slide-down">
+                                    <div class="vx-row"  :key="criteria.id" v-for="(criteria,index) in form.printingCriteria">
+                                        <div class="vx-col md:w-8/12 w-full mb-3">
+                                            <vs-input label="Criteria" v-model="criteria.criteria" class="w-full" />
+                                        </div>
+
+                                        <div class="vx-col md:w-2/12 w-full mb-3">
+                                            <vs-input type="number" label="Price" v-model="criteria.price" class="w-full" />
+                                        </div>
+
+                                        <div class="vx-col md:w-2/12 w-full mb-3">
+                                            <div class="attribute-actions mt-5">
+                                                <vs-button
+                                                  @click="removePrintingCriteria(index)"
+                                                  v-if="index || ( !index && index> 1)"
+                                                  icon-pack="feather"
+                                                  icon="icon-minus"
+                                                  color="danger"
+                                                  type="border"
+                                                  radius
+                                                  class="ml-2"
+                                                ></vs-button>
+
+                                                <vs-button
+                                                  @click="addPrintingCriteria"
+                                                  v-if="index === form.printingCriteria.length-1"
+                                                  icon-pack="feather"
+                                                  icon="icon-plus"
+                                                  color="primary"
+                                                  type="border"
+                                                  radius
+                                                  class="ml-2"
+                                                ></vs-button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </transition-group>
+                            </div>
+                        </vx-card>
+                    </tab-content>
+                </form-wizard>
+
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+    import {FormWizard, TabContent} from 'vue-form-wizard'
+    import 'vue-form-wizard/dist/vue-form-wizard.min.css'
+    import { uuid } from '../../utils'
+
     export default {
         name: "create",
         mounted() {
@@ -76,18 +141,51 @@
                 form: {
                     name: '',
                     description: '',
-                    attributes:[]
+                    attributes:[
+                        {
+                            id: uuid(),
+                            combination:'',
+                            price:''
+                        },
+                    ],
+                    printingCriteria:[
+                        {
+                            id: uuid(),
+                            criteria: '',
+                            price: ''
+                        }
+                    ]
                 },
                 uploadedImage: null,
                 is_requesting: false
             }
         },
         components: {
-
+            FormWizard,
+            TabContent
         },
         methods: {
-            uploadImages(e)
-            {
+            addAttribute(){
+                this.form.attributes.push({
+                    id:uuid(),
+                    name:'',
+                    values:''
+                })
+            },
+            removeAttribute(index) {
+                this.form.attributes.splice(index, 1);
+            },
+            addPrintingCriteria(){
+                this.form.printingCriteria.push({
+                    id:uuid(),
+                    criteria: '',
+                    price: ''
+                })
+            },
+            removePrintingCriteria(index){
+                this.form.printingCriteria.splice(index, 1);
+            },
+            uploadImages(e){
                 let selectedImages = e.target.files;
                 if (!selectedImages.length) {
                     return false;
@@ -99,7 +197,16 @@
             },
 
             create() {
-                this.is_requesting=true;
+                console.log(this.form)
+                this.$vs.notify({
+                    title: 'Error',
+                    text: 'not yet handled',
+                    iconPack: 'feather',
+                    icon: 'icon-alert-circle',
+                    color: 'danger'
+                });
+
+                /*this.is_requesting=true;
                 let form_data = new FormData();
 
                 for (let key in this.form ) {
@@ -112,13 +219,7 @@
                         form_data.append(key, this.form[key]);
                     }
                 }
-                this.$vs.notify({
-                    title: 'Error',
-                    text: 'not yet handled',
-                    iconPack: 'feather',
-                    icon: 'icon-alert-circle',
-                    color: 'danger'
-                });
+                */
 
             },
 
@@ -167,5 +268,10 @@
 
     .vs-input-number {
         width: fit-content;
+    }
+
+    .attribute-actions {
+        align-items: baseline;
+        display: flex;
     }
 </style>

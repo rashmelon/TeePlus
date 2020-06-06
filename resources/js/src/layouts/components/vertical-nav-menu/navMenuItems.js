@@ -31,6 +31,28 @@ export default [
 
 
 
+  {
+    name: "Product",
+    icon: "CoffeeIcon",
+    i18n: "Product",
+    submenu: [
+      {
+        url: "/dashboard/product",
+        name: "Browse",
+        slug: "product",
+        i18n: "Browse",
+        permission: 'browse-employee'
+      },
+      {
+        url: "/dashboard/product/create",
+        name: "Create",
+        slug: "product/create",
+        i18n: "Create",
+        permission: 'browse-employee'
+      },
+    ]
+  },
+
 
   {
       url: "/dashboard/employee",

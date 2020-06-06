@@ -4,7 +4,6 @@ import App from './App.vue'
 
 // Vuesax Component Framework
 import Vuesax from 'vuesax'
-
 Vue.use(Vuesax);
 
 // axios

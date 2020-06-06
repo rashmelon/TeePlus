@@ -1,11 +1,11 @@
 <template>
 	<div class="vx-col w-full mb-base">
-		<vx-card ref="browse" title="categories List" collapse-action >
+		<vx-card ref="browse" title="products List" collapse-action >
 			<vs-table
 				pagination
 				search
 				max-items="50"
-				:data="categories"
+				:data="products"
 			>
 				<template slot="thead">
 					<vs-th>#</vs-th>
@@ -67,7 +67,7 @@
       return {
         searchText: "",
         resultTime: 0,
-        categories: [
+        products: [
           {
             id: 1,
             image: '#',
@@ -86,14 +86,14 @@
       }
     },
     mounted() {
-      this.getCategories();
+      this.getProducts();
     },
     methods: {
-      getCategories() {
-        return this.categories
+      getProducts() {
+        return this.products
       },
 			editCategory(id){
-        this.$router.push({name:'edit-category',params:{'id':id}})
+        // this.$router.push({name:'edit-category',params:{'id':id}})
 			},
       confirmDeleteCategory(type) {
         this.$vs.dialog({
