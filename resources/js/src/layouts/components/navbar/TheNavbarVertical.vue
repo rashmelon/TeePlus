@@ -3,7 +3,7 @@
   <div class="relative">
 
     <div class="vx-navbar-wrapper" :class="classObj">
-
+<!--      :color="navbarColorLocal" :class="textColor"-->
       <vs-navbar class="vx-navbar navbar-custom navbar-skelton" :color="navbarColorLocal" :class="textColor">
 
         <!-- SM - OPEN SIDEBAR BUTTON -->
@@ -14,6 +14,8 @@
         <vs-spacer />
 
         <search-bar />
+
+        <ToggleDarkmode />
 
         <notification-drop-down />
 
@@ -30,6 +32,7 @@ import Bookmarks            from "./components/Bookmarks.vue"
 import SearchBar            from "./components/SearchBar.vue"
 import NotificationDropDown from "./components/NotificationDropDown.vue"
 import ProfileDropDown      from "./components/ProfileDropDown.vue"
+import ToggleDarkmode      from "./components/ToggleDarkmode.vue"
 
 export default {
   name: "the-navbar-vertical",
@@ -44,6 +47,7 @@ export default {
     SearchBar,
     NotificationDropDown,
     ProfileDropDown,
+    ToggleDarkmode
   },
   computed: {
     navbarColorLocal() {

@@ -97,6 +97,7 @@
 													v-for="item in form.printingCriteria"
 													:key="item.id"
 													icon="check" :title="item.criteria" :subtitle="item.price"></vs-list-item>
+
 											</transition-group>
 										</vs-list>
 									</div>
@@ -112,6 +113,7 @@
 </template>
 
 <script>
+	import './../../filters/filters'
   import {FormWizard, TabContent} from 'vue-form-wizard'
   import 'vue-form-wizard/dist/vue-form-wizard.min.css'
   import {uuid} from '../../utils'

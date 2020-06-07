@@ -72096,6 +72096,18 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.filter('filter_tags', function (value
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.filter('k_formatter', function (num) {
   return num > 999 ? (num / 1000).toFixed(1) + 'k' : num;
 });
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.filter('toCurrency', function (value) {
+  if (typeof value !== "number") {
+    return value;
+  }
+
+  var formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0
+  });
+  return formatter.format(value);
+});
 
 /***/ }),
 
@@ -72712,8 +72724,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue */ "./resources/js/src/App.vue");
 /* harmony import */ var vuesax__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuesax */ "./node_modules/vuesax/dist/vuesax.common.js");
 /* harmony import */ var vuesax__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vuesax__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _axios_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./axios.js */ "./resources/js/src/axios.js");
-/* harmony import */ var _themeConfig_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../themeConfig.js */ "./resources/js/themeConfig.js");
+/* harmony import */ var _themeConfig_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../themeConfig.js */ "./resources/js/themeConfig.js");
+/* harmony import */ var _axios_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./axios.js */ "./resources/js/src/axios.js");
 /* harmony import */ var _globalComponents_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./globalComponents.js */ "./resources/js/src/globalComponents.js");
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./router */ "./resources/js/src/router.js");
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./store/store */ "./resources/js/src/store/store.js");
@@ -72733,12 +72745,12 @@ __webpack_require__.r(__webpack_exports__);
  // Vuesax Component Framework
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuesax__WEBPACK_IMPORTED_MODULE_2___default.a); // axios
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuesax__WEBPACK_IMPORTED_MODULE_2___default.a); // Theme Configurations
+
+ // axios
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$http = _axios_js__WEBPACK_IMPORTED_MODULE_3__["default"]; // Theme Configurations
-
- // Globally Registered Components
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$http = _axios_js__WEBPACK_IMPORTED_MODULE_4__["default"]; // Globally Registered Components
 
  // Vue Router
 

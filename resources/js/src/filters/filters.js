@@ -67,3 +67,17 @@ Vue.filter('filter_tags', function(value) {
 Vue.filter('k_formatter', function(num) {
 	return num > 999 ? (num/1000).toFixed(1) + 'k' : num
 });
+
+
+
+Vue.filter('toCurrency', function (value) {
+	if (typeof value !== "number") {
+		return value;
+	}
+	var formatter = new Intl.NumberFormat('en-US', {
+		style: 'currency',
+		currency: 'USD',
+		minimumFractionDigits: 0
+	});
+	return formatter.format(value);
+});

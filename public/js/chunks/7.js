@@ -9,11 +9,12 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_form_wizard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-form-wizard */ "./node_modules/vue-form-wizard/dist/vue-form-wizard.js");
-/* harmony import */ var vue_form_wizard__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_form_wizard__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_form_wizard_dist_vue_form_wizard_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-form-wizard/dist/vue-form-wizard.min.css */ "./node_modules/vue-form-wizard/dist/vue-form-wizard.min.css");
-/* harmony import */ var vue_form_wizard_dist_vue_form_wizard_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_form_wizard_dist_vue_form_wizard_min_css__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils */ "./resources/js/src/utils.js");
+/* harmony import */ var _filters_filters__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../filters/filters */ "./resources/js/src/filters/filters.js");
+/* harmony import */ var vue_form_wizard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-form-wizard */ "./node_modules/vue-form-wizard/dist/vue-form-wizard.js");
+/* harmony import */ var vue_form_wizard__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_form_wizard__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_form_wizard_dist_vue_form_wizard_min_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-form-wizard/dist/vue-form-wizard.min.css */ "./node_modules/vue-form-wizard/dist/vue-form-wizard.min.css");
+/* harmony import */ var vue_form_wizard_dist_vue_form_wizard_min_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_form_wizard_dist_vue_form_wizard_min_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils */ "./resources/js/src/utils.js");
 //
 //
 //
@@ -127,6 +128,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 
@@ -142,24 +145,24 @@ __webpack_require__.r(__webpack_exports__);
         id: 1000,
         name: 'T-shirt',
         combinations: [{
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+          id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
           combination: 'Combination 1',
           price: '150'
         }, {
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+          id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
           combination: 'Combination 2',
           price: '100'
         }, {
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+          id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
           combination: 'Combination 3',
           price: '120'
         }],
         printingCriteria: [{
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+          id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
           criteria: 'B/W',
           price: '15'
         }, {
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+          id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
           criteria: 'Color',
           price: '30'
         }]
@@ -167,24 +170,24 @@ __webpack_require__.r(__webpack_exports__);
         id: 1001,
         name: 'Hoodie',
         combinations: [{
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+          id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
           combination: 'Combination 8',
           price: '150'
         }, {
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+          id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
           combination: 'Combination 7',
           price: '100'
         }, {
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+          id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
           combination: 'Combination 5',
           price: '120'
         }],
         printingCriteria: [{
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+          id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
           criteria: 'B/W',
           price: '15'
         }, {
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+          id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
           criteria: 'Color',
           price: '30'
         }]
@@ -192,20 +195,20 @@ __webpack_require__.r(__webpack_exports__);
         id: 1002,
         name: 'Mug',
         combinations: [{
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+          id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
           combination: 'Magic',
           price: '50'
         }, {
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+          id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
           combination: 'Normal',
           price: '25'
         }],
         printingCriteria: [{
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+          id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
           criteria: 'B/W',
           price: '15'
         }, {
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+          id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
           criteria: 'Color',
           price: '30'
         }]
@@ -213,20 +216,20 @@ __webpack_require__.r(__webpack_exports__);
         id: 1003,
         name: 'Mouse Pad',
         combinations: [{
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+          id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
           combination: '15*30',
           price: '50'
         }, {
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+          id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
           combination: '30*50',
           price: '100'
         }],
         printingCriteria: [{
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+          id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
           criteria: 'B/W',
           price: '15'
         }, {
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+          id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
           criteria: 'Color',
           price: '30'
         }]
@@ -248,8 +251,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   components: {
-    FormWizard: vue_form_wizard__WEBPACK_IMPORTED_MODULE_0__["FormWizard"],
-    TabContent: vue_form_wizard__WEBPACK_IMPORTED_MODULE_0__["TabContent"]
+    FormWizard: vue_form_wizard__WEBPACK_IMPORTED_MODULE_1__["FormWizard"],
+    TabContent: vue_form_wizard__WEBPACK_IMPORTED_MODULE_1__["TabContent"]
   },
   methods: {
     resetCombinationAndPrinting: function resetCombinationAndPrinting() {
