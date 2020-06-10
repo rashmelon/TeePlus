@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-if="can('edit-employee')||$store.getters['auth/userData'].id===$route.params.id" class="vx-col w-full mb-base">
-            <vx-card ref="edit" title="Edit Employee">
+            <vx-card ref="edit" id="loading-container" title="Edit Employee">
 
                 <div class="vx-row">
                     <div class="vx-col w-full mb-6">
@@ -81,7 +81,7 @@
             //Get A List Of All Roles.
             getRoles()
             {
-                this.$vs.loading({container: this.$refs.edit.$refs.content, scale: 0.5});
+                this.$vs.loading({container: document.getElementById('loading-container'), scale: 0.5});
                 this.$store.dispatch('rolesAndPermissions/getRoles', '')
                     .then(response => {
                         this.roles = response.data.data;
@@ -103,7 +103,7 @@
             getEmployeeData() {
                 this.$store.dispatch('employee/view', this.$route.params.id)
                     .then(response => {
-                        this.$vs.loading.close(this.$refs.edit.$refs.content);
+                        this.$vs.loading.close(document.getElementById('loading-container'));
                         this.form = response.data.data;
                         this.form.role = response.data.data.roles[0].name;
                         this.uploadedImage = this.form.image?this.form.image:'/images/avatar-s-11.png';

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Responses\Facades\ApiResponse;
 use App\IndexResponse;
 use App\Responses\Facades\ResponseFacade;
 use App\Transformers\NotificationTransformer;
@@ -20,12 +21,7 @@ class NotificationController extends Controller
      */
     public function index()
     {
-        return ResponseFacade::indexRespond(
-            fractal(
-                request()->user()->unreadNotifications
-                , new NotificationTransformer()
-            )
-        );
+        return ApiResponse::indexRespond(request()->user()->unreadNotifications,  NotificationTransformer::class)->execute();
     }
 
     /**
@@ -37,6 +33,6 @@ class NotificationController extends Controller
     {
         request()->user()->unreadNotifications->markAsRead();
 
-        return ResponseFacade::respond('Marked All as Read');
+        return ApiResponse::setMessage('Marked All as Read')->execute();
     }
 }

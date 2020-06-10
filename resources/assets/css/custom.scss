@@ -28,6 +28,19 @@ img.preview-large{
   border: 1px solid #DDD;
   padding: 5px;
 }
+
+img.preview {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid #DDD;
+  padding: 5px;
+}
+
+
 .vue-form-wizard .wizard-header{
   padding: 0;
 }
+
+

@@ -18,21 +18,19 @@ class LoginController extends Controller
         $login_credentials = $request->validated();
 
         if (!Auth::guard('web')->attempt($login_credentials)){
-            return ApiResponse::errorRespond("Invalid Credentials", [
+            return ApiResponse::errorRespond([
                 'email' =>[
                     'Incorrect email or password'
                 ]
-            ], Response::HTTP_UNAUTHORIZED);
-//            return response()->json(, Response::HTTP_UNAUTHORIZED);
-//            return $this->respond('Incorrect email or password', [], Response::HTTP_UNAUTHORIZED);
+            ], "Invalid Credentials")->execute();
         }
 
         $user = User::where('email', $login_credentials['email'])->with(['roles','roles.permissions', 'permissions'])->first();
 
         return ApiResponse::setMessage("login credentials correct")->setData([
-            'user' => fractal($user, new UserTransformer()),
-            'access_token' => $user->createToken('token'),
-            'token_type' => 'Bearer',
-        ])->execute();
+                'user' => fractal($user, new UserTransformer()),
+                'access_token' => $user->createToken('token'),
+                'token_type' => 'Bearer',
+            ])->execute();
     }
 }

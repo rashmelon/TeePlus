@@ -136,33 +136,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "create",
-  mounted: function mounted() {},
-  computed: {
-    validateForm: function validateForm() {
-      return !this.errors.any() && this.form.name !== '';
-    }
-  },
+  name: "edit",
   data: function data() {
     return {
-      form: {
-        name: '',
-        description: '',
-        attributes: [{
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
-          combination: '',
-          price: ''
-        }],
-        printingCriteria: [{
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
-          criteria: '',
-          price: ''
-        }]
-      },
+      form: {},
       uploadedImage: null,
       is_requesting: false
     };
@@ -171,7 +176,32 @@ __webpack_require__.r(__webpack_exports__);
     FormWizard: vue_form_wizard__WEBPACK_IMPORTED_MODULE_0__["FormWizard"],
     TabContent: vue_form_wizard__WEBPACK_IMPORTED_MODULE_0__["TabContent"]
   },
+  mounted: function mounted() {
+    this.getCategory();
+  },
   methods: {
+    getCategory: function getCategory() {
+      var _this = this;
+
+      // this.$vs.loading({container: this.$refs.loadingContainer.$el, scale: 0.5});
+      this.$store.dispatch('category/view', this.$route.params.id).then(function (response) {
+        _this.form = response.data.data; // preview used image
+
+        if (_this.form.image) {
+          _this.uploadedImage = _this.form.image.url;
+        }
+      }).catch(function (error) {
+        console.log(error);
+
+        _this.$vs.notify({
+          title: 'Error',
+          text: error.response.data.error,
+          iconPack: 'feather',
+          icon: 'icon-alert-circle',
+          color: 'danger'
+        });
+      });
+    },
     addAttribute: function addAttribute() {
       this.form.attributes.push({
         id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
@@ -192,44 +222,8 @@ __webpack_require__.r(__webpack_exports__);
     removePrintingCriteria: function removePrintingCriteria(index) {
       this.form.printingCriteria.splice(index, 1);
     },
-    uploadImages: function uploadImages(e) {
-      var selectedImages = e.target.files;
-
-      if (!selectedImages.length) {
-        return false;
-      }
-
-      this.form.images = [];
-
-      for (var i = 0; i < selectedImages.length; i++) {
-        this.form.images.push(selectedImages[i]);
-      }
-    },
-    create: function create() {
-      console.log(this.form);
-      this.$vs.notify({
-        title: 'Error',
-        text: 'not yet handled',
-        iconPack: 'feather',
-        icon: 'icon-alert-circle',
-        color: 'danger'
-      });
-      /*this.is_requesting=true;
-      let form_data = new FormData();
-       for (let key in this.form ) {
-          if ((key === 'images') && this.form.hasOwnProperty(key)){
-              for (let i=0; i<this.form[key].length; i++){
-                  form_data.append(key+'[]', this.form[key][i]);
-              }
-          }
-          else {
-              form_data.append(key, this.form[key]);
-          }
-      }
-      */
-    },
     previewImage: function previewImage(event) {
-      var _this = this;
+      var _this2 = this;
 
       // Reference to the DOM input element
       var input = event.target; // Ensure that you have a file before attempting to read it
@@ -241,13 +235,69 @@ __webpack_require__.r(__webpack_exports__);
         reader.onload = function (e) {
           // Note: arrow function used here, so that "this.imageData" refers to the imageData of Vue component
           // Read image as base64 and set to imageData
-          _this.uploadedImage = e.target.result;
-          _this.form.image = input.files;
+          _this2.uploadedImage = e.target.result;
+          _this2.form.image = input.files;
         }; // Start the reader job - read file as a data url (base64 format)
 
 
         reader.readAsDataURL(input.files[0]);
       }
+    },
+    edit: function edit() {
+      var _this3 = this;
+
+      this.$validator.validateAll().then(function (result) {
+        if (result) {
+          // if form have no errors
+          _this3.is_requesting = true;
+          var form_data = new FormData();
+
+          for (var key in _this3.form) {
+            if (key === 'image' && _this3.form.hasOwnProperty(key)) {
+              if (_this3.form[key]) {
+                for (var i = 0; i < _this3.form[key].length; i++) {
+                  form_data.append(key, _this3.form[key][i]);
+                }
+              }
+            } else {
+              form_data.append(key, _this3.form[key]);
+            }
+          }
+
+          _this3.$store.dispatch('category/update', {
+            id: _this3.$route.params.id,
+            data: form_data
+          }).then(function (response) {
+            _this3.$vs.notify({
+              title: 'Success',
+              text: response.data.message,
+              iconPack: 'feather',
+              icon: 'icon-check',
+              color: 'success'
+            });
+
+            _this3.$router.push({
+              name: 'category'
+            });
+          }).catch(function (error) {
+            _this3.$vs.notify({
+              title: 'Error',
+              text: error.response.data.error,
+              iconPack: 'feather',
+              icon: 'icon-alert-circle',
+              color: 'danger'
+            });
+          });
+        } else {
+          _this3.$vs.notify({
+            title: 'Error',
+            text: 'Fix form validation errors',
+            iconPack: 'feather',
+            icon: 'icon-alert-circle',
+            color: 'danger'
+          });
+        }
+      });
     }
   }
 });
@@ -266,7 +316,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".image-preview {\n  font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n  top: 6px;\n  position: relative;\n}[dir=ltr] .image-preview {\n  padding-right: 20px;\n}[dir=rtl] .image-preview {\n  padding-left: 20px;\n}\n#img-upload {\n  display: none;\n}\nimg.preview {\n  width: 55px;\n  height: 55px;\n}\n[dir] img.preview {\n  border-radius: 50%;\n  background-color: white;\n  border: 1px solid #DDD;\n  padding: 5px;\n}\n.vs-input-number {\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n}\n.attribute-actions {\n  -webkit-box-align: baseline;\n          align-items: baseline;\n  display: -webkit-box;\n  display: flex;\n}\n", ""]);
+exports.push([module.i, ".image-preview {\n  font-family: \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n  top: 6px;\n  position: relative;\n}[dir=ltr] .image-preview {\n  padding-right: 20px;\n}[dir=rtl] .image-preview {\n  padding-left: 20px;\n}\n#img-upload {\n  display: none;\n}\n.vs-input-number {\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n}\n.attribute-actions {\n  -webkit-box-align: baseline;\n          align-items: baseline;\n  display: -webkit-box;\n  display: flex;\n}\n", ""]);
 
 // exports
 
@@ -319,11 +369,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.can("edit-employee")
+    _vm.can("edit-category")
       ? _c("div", { staticClass: "vx-col w-full mb-base" }, [
           _c(
             "div",
-            { ref: "create", attrs: { title: "Edit Category" } },
+            { ref: "loadingContainer", attrs: { title: "Create Category" } },
             [
               _c(
                 "form-wizard",
@@ -334,7 +384,7 @@ var render = function() {
                     subtitle: null,
                     finishButtonText: "Submit"
                   },
-                  on: { "on-complete": _vm.create }
+                  on: { "on-complete": _vm.edit }
                 },
                 [
                   _c(
@@ -344,7 +394,7 @@ var render = function() {
                       _c("vx-card", { staticClass: "vx-row" }, [
                         _c(
                           "div",
-                          { staticClass: "vx-col sm:w-2/2 w-full mb-3" },
+                          { staticClass: "vx-col md:w-6/6 w-full mb-3" },
                           [
                             _c(
                               "div",
@@ -354,12 +404,12 @@ var render = function() {
                               },
                               [
                                 _c("img", {
-                                  staticClass: "preview",
+                                  staticClass: "preview-large",
                                   attrs: {
-                                    alt: "photo",
                                     src: _vm.uploadedImage
                                       ? _vm.uploadedImage
-                                      : "/images/no-image-found.png"
+                                      : "/images/no-image-found.png",
+                                    alt: "photo"
                                   }
                                 })
                               ]
@@ -367,19 +417,13 @@ var render = function() {
                             _vm._v(" "),
                             _c(
                               "div",
-                              {
-                                staticStyle: {
-                                  display: "inline-flex",
-                                  position: "relative",
-                                  top: "-15px"
-                                }
-                              },
+                              { staticClass: "d-block mt-3" },
                               [
                                 _c("input", {
                                   attrs: {
+                                    accept: "image/*",
                                     id: "img-upload",
-                                    type: "file",
-                                    accept: "image/*"
+                                    type: "file"
                                   },
                                   on: { change: _vm.previewImage }
                                 }),
@@ -388,15 +432,19 @@ var render = function() {
                                   "vs-button",
                                   {
                                     attrs: {
-                                      size: "small",
-                                      "icon-pack": "feather",
                                       icon: "icon-upload",
-                                      type: "gradient",
+                                      "icon-pack": "feather",
                                       onclick:
-                                        "document.getElementById('img-upload').click()"
+                                        "document.getElementById('img-upload').click()",
+                                      size: "small",
+                                      type: "gradient"
                                     }
                                   },
-                                  [_vm._v("Upload Photo")]
+                                  [
+                                    _vm._v(
+                                      "Upload Photo\n                                "
+                                    )
+                                  ]
                                 )
                               ],
                               1
@@ -409,8 +457,16 @@ var render = function() {
                           { staticClass: "vx-col sm:w-2/2 w-full mb-3" },
                           [
                             _c("vs-input", {
+                              directives: [
+                                {
+                                  name: "validate",
+                                  rawName: "v-validate",
+                                  value: "required",
+                                  expression: "'required'"
+                                }
+                              ],
                               staticClass: "w-full",
-                              attrs: { label: "Category Name" },
+                              attrs: { label: "Category Name", name: "name" },
                               model: {
                                 value: _vm.form.name,
                                 callback: function($$v) {
@@ -418,7 +474,23 @@ var render = function() {
                                 },
                                 expression: "form.name"
                               }
-                            })
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: _vm.errors.has("name"),
+                                    expression: "errors.has('name')"
+                                  }
+                                ],
+                                staticClass: "text-danger text-sm"
+                              },
+                              [_vm._v(_vm._s(_vm.errors.first("name")))]
+                            )
                           ],
                           1
                         ),
@@ -428,7 +500,19 @@ var render = function() {
                           { staticClass: "vx-col md:w-1/1 w-full mt-3" },
                           [
                             _c("vs-textarea", {
-                              attrs: { label: "Description" },
+                              directives: [
+                                {
+                                  name: "validate",
+                                  rawName: "v-validate",
+                                  value: "required",
+                                  expression: "'required'"
+                                }
+                              ],
+                              staticClass: "mb-0",
+                              attrs: {
+                                label: "Description",
+                                name: "description"
+                              },
                               model: {
                                 value: _vm.form.description,
                                 callback: function($$v) {
@@ -436,7 +520,23 @@ var render = function() {
                                 },
                                 expression: "form.description"
                               }
-                            })
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                directives: [
+                                  {
+                                    name: "show",
+                                    rawName: "v-show",
+                                    value: _vm.errors.has("description"),
+                                    expression: "errors.has('description')"
+                                  }
+                                ],
+                                staticClass: "text-danger text-sm"
+                              },
+                              [_vm._v(_vm._s(_vm.errors.first("description")))]
+                            )
                           ],
                           1
                         )
@@ -454,6 +554,20 @@ var render = function() {
                           "div",
                           { staticClass: "vx-col md:w-1/1 w-full mt-3" },
                           [
+                            !_vm.form.attributes
+                              ? _c("vs-button", {
+                                  staticClass: "ml-2",
+                                  attrs: {
+                                    "icon-pack": "feather",
+                                    icon: "icon-plus",
+                                    color: "primary",
+                                    type: "border",
+                                    radius: ""
+                                  },
+                                  on: { click: _vm.addAttribute }
+                                })
+                              : _vm._e(),
+                            _vm._v(" "),
                             _c(
                               "transition-group",
                               { attrs: { mode: "out-in", name: "slide-down" } },

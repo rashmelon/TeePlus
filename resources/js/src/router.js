@@ -79,7 +79,7 @@ const router = new Router({
             ],
             pageTitle: 'Employee',
             pageTitle_i18n: 'Employee',
-            permission: 'browse-employee'
+            // permission: 'browse-employee'
           }
         },
         {
@@ -95,7 +95,7 @@ const router = new Router({
             ],
             pageTitle: 'Add Employee',
             pageTitle_i18n: 'AddEmployee',
-            permission: 'create-employee'
+            // permission: 'create-employee'
           }
         },
         {
@@ -111,7 +111,7 @@ const router = new Router({
             ],
             pageTitle: 'Edit Employee',
             pageTitle_i18n: 'editEmployee',
-            permission: 'view-employee'
+            // permission: 'view-employee'
           }
         },
         {
@@ -127,7 +127,7 @@ const router = new Router({
             ],
             pageTitle: 'Edit Employee',
             pageTitle_i18n: 'editEmployee',
-            permission: 'edit-employee'
+            // permission: 'edit-employee'
           }
         },
 
@@ -144,7 +144,7 @@ const router = new Router({
             ],
             pageTitle: 'Category',
             pageTitle_i18n: 'Category',
-            permission: 'browse-employee' //temperory
+            permission: 'browse-category' //temperory
           }
         },
         {
@@ -160,7 +160,7 @@ const router = new Router({
             ],
             pageTitle: 'Create Category',
             pageTitle_i18n: 'Create Category',
-            permission: 'create-employee' //temperory
+            permission: 'create-category' //temperory
           }
         },
         {
@@ -176,7 +176,7 @@ const router = new Router({
             ],
             pageTitle: 'Edit Category',
             pageTitle_i18n: 'Edit Category',
-            permission: 'edit-employee' //temperory
+            permission: 'edit-category' //temperory
           }
         },
 
@@ -193,7 +193,7 @@ const router = new Router({
             ],
             pageTitle: 'Product',
             pageTitle_i18n: 'Product',
-            permission: 'browse-employee' //temperory
+            // permission: 'browse-category' //temperory
           }
         },
         {
@@ -209,74 +209,11 @@ const router = new Router({
             ],
             pageTitle: 'Create Product',
             pageTitle_i18n: 'Create Product',
-            permission: 'create-employee' //temperory
+            // permission: 'create-category' //temperory
           }
         },
 
 
-        {
-          path: '/dashboard/agency',
-          name: 'agency',
-          component: () => import('./views/agency/browse.vue'),
-          beforeEnter: guard,
-          meta: {
-            breadcrumb: [
-              {title: 'Home', url: '/dashboard', i18n: 'Home'},
-              {title: 'Agency', active: true, i18n: 'Agency'},
-            ],
-            pageTitle: 'Agency',
-            pageTitle_i18n: 'Agency',
-            permission: 'browse-agency'
-          }
-        },
-        {
-          path: '/dashboard/agency/create',
-          name: 'add-agency',
-          component: () => import('./views/agency/create.vue'),
-          beforeEnter: guard,
-          meta: {
-            breadcrumb: [
-              {title: 'Home', url: '/dashboard', i18n: 'Home'},
-              {title: 'Agency', url: '/dashboard/agency', i18n: 'Agency'},
-              {title: 'Add Agency', active: true, i18n: 'AddAgency'},
-            ],
-            pageTitle: 'Add Agency',
-            pageTitle_i18n: 'AddAgency',
-            permission: 'create-agency'
-          }
-        },
-        {
-          path: '/dashboard/agency/:id',
-          name: 'view-agency',
-          component: () => import('./views/agency/view.vue'),
-          beforeEnter: guard,
-          meta: {
-            breadcrumb: [
-              {title: 'Home', url: '/dashboard', i18n: 'Home'},
-              {title: 'Agency', url: '/dashboard/agency', i18n: 'Agency'},
-              {title: 'Agency', active: true, i18n: 'AgencyProfile'},
-            ],
-            pageTitle: 'View Agency',
-            pageTitle_i18n: 'viewAgency',
-            permission: 'view-agency'
-          }
-        },
-        {
-          path: '/dashboard/agency/:id/edit',
-          name: 'edit-agency',
-          component: () => import('./views/agency/edit.vue'),
-          beforeEnter: guard,
-          meta: {
-            breadcrumb: [
-              {title: 'Home', url: '/dashboard', i18n: 'Home'},
-              {title: 'Agency', url: '/dashboard/agency', i18n: 'Agency'},
-              {title: 'Edit Agency', active: true, i18n: 'editAgency'},
-            ],
-            pageTitle: 'Edit Agency',
-            pageTitle_i18n: 'editAgency',
-            permission: 'edit-agency'
-          }
-        },
         {
           path: '/dashboard/settings/role',
           name: 'role',
@@ -353,6 +290,10 @@ const router = new Router({
             pageTitle: "Profile"
           }
         },
+
+
+
+
       ],
     },
     // =============================================================================

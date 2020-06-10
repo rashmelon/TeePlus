@@ -1,30 +1,30 @@
 <?php
 return [
-    'Employee' => [
+    'User' => [
         [
-            'name' => 'create-employee',
+            'name' => 'create-user',
             'guard_name' => 'api',
-            'display_name' => 'Create Employee',
+            'display_name' => 'Create User',
         ],
         [
-            'name' => 'browse-employee',
+            'name' => 'browse-user',
             'guard_name' => 'api',
-            'display_name' => 'Browse Employee',
+            'display_name' => 'Browse User',
         ],
         [
-            'name' => 'view-employee',
+            'name' => 'view-user',
             'guard_name' => 'api',
-            'display_name' => 'View Employee',
+            'display_name' => 'View User',
         ],
         [
-            'name' => 'edit-employee',
+            'name' => 'edit-user',
             'guard_name' => 'api',
-            'display_name' => 'Edit Employee',
+            'display_name' => 'Edit User',
         ],
         [
-            'name' => 'delete-employee',
+            'name' => 'delete-user',
             'guard_name' => 'api',
-            'display_name' => 'Delete Employee',
+            'display_name' => 'Delete User',
         ],
     ],
     'Role' => [
@@ -66,5 +66,33 @@ return [
             'guard_name' => 'api',
             'display_name' => 'View Permission',
         ]
+    ],
+
+    'Category' => [
+        [
+            'name' => 'create-category',
+            'guard_name' => 'api',
+            'display_name' => 'Create Category',
+        ],
+        [
+            'name' => 'browse-category',
+            'guard_name' => 'api',
+            'display_name' => 'Browse Category',
+        ],
+        [
+            'name' => 'view-category',
+            'guard_name' => 'api',
+            'display_name' => 'View Category',
+        ],
+        [
+            'name' => 'edit-category',
+            'guard_name' => 'api',
+            'display_name' => 'Edit Category',
+        ],
+        [
+            'name' => 'delete-category',
+            'guard_name' => 'api',
+            'display_name' => 'Delete Category',
+        ],
     ],
 ];

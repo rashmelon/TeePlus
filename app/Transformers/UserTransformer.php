@@ -13,7 +13,7 @@ class UserTransformer extends TransformerAbstract
      * @var array
      */
     protected $defaultIncludes = [
-        //
+        'image'
     ];
 
     /**
@@ -22,7 +22,7 @@ class UserTransformer extends TransformerAbstract
      * @var array
      */
     protected $availableIncludes = [
-
+        'image'
     ];
 
     /**
@@ -34,8 +34,15 @@ class UserTransformer extends TransformerAbstract
     public function transform(User $user)
     {
         $data = $user->toArray();
-        $data['image'] = $data['image']? config('paths.image.get').$data['image']:null;
 
         return $data;
+    }
+
+    public function includeImage(User $user)
+    {
+        if ($user->image){
+            return $this->item($user->image, new MediaTransformer(), 'no-data');
+        }
+        return $this->null();
     }
 }

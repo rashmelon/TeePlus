@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="can('create-employee')" class="vx-col w-full mb-base">
+        <div class="vx-col w-full mb-base">
             <vx-card ref="create" title="Personal Information">
 
                 <div class="vx-row">
@@ -177,7 +177,6 @@
 
 <style>
     .image-preview {
-        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
         padding-right: 20px;
         top: 6px;
         position: relative;

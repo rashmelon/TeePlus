@@ -1,26 +1,44 @@
 <template>
     <div>
-        <div v-if="can('create-employee')" class="vx-col w-full mb-base">
+        <div v-if="can('create-category')" class="vx-col w-full mb-base">
             <div ref="create" title="Create Category">
 
                 <form-wizard color="rgb(var(--vs-primary))" :title="null" :subtitle="null" finishButtonText="Submit" @on-complete="create">
                     <tab-content title="Category data" class="mb-5">
                         <vx-card class="vx-row">
-                            <div class="vx-col sm:w-2/2 w-full mb-3">
+                            <div class="vx-col md:w-6/6 w-full mb-3">
                                 <div class="image-preview" style="display: inline-flex;">
-                                    <img alt="photo" class="preview" :src="uploadedImage?uploadedImage:'/images/no-image-found.png'">
+                                    <img :src="uploadedImage?uploadedImage:'/images/no-image-found.png'" alt="photo" class="preview-large">
                                 </div>
-                                <div style="display: inline-flex;position: relative;top: -15px;">
-                                    <input id="img-upload" type="file" @change="previewImage" accept="image/*">
-                                    <vs-button size="small" icon-pack="feather" icon="icon-upload" type="gradient" onclick="document.getElementById('img-upload').click()">Upload Photo</vs-button>
+                                <div class="d-block mt-3">
+                                    <input @change="previewImage" accept="image/*" id="img-upload" type="file">
+                                    <vs-button icon="icon-upload" icon-pack="feather" onclick="document.getElementById('img-upload').click()" size="small"
+                                               type="gradient">Upload Photo
+                                    </vs-button>
                                 </div>
                             </div>
                             <div class="vx-col sm:w-2/2 w-full mb-3">
-                                <vs-input label="Category Name" v-model="form.name" class="w-full" />
+                                <vs-input
+                                  label="Category Name"
+                                  v-model="form.name"
+                                  class="w-full"
+                                  v-validate="'required'"
+                                  name="name"
+                                />
+                                <span class="text-danger text-sm"  v-show="errors.has('name')">{{ errors.first('name') }}</span>
                             </div>
 
                             <div class="vx-col md:w-1/1 w-full mt-3">
-                                <vs-textarea label="Description" v-model="form.description" />
+                                <vs-textarea
+                                  label="Description"
+                                  v-model="form.description"
+                                  name="description"
+                                  v-validate="'required'"
+                                  class="mb-0"
+                                />
+                                <span class="text-danger text-sm"  v-show="errors.has('description')">{{ errors.first('description')
+                                    }}</span>
+
                             </div>
 
                         </vx-card>
@@ -127,15 +145,6 @@
 
     export default {
         name: "create",
-        mounted() {
-
-        },
-        computed: {
-            validateForm() {
-                return !this.errors.any()
-                && this.form.name !== ''
-            }
-        },
         data: function () {
             return {
                 form: {
@@ -154,7 +163,8 @@
                             criteria: '',
                             price: ''
                         }
-                    ]
+                    ],
+                    image:null
                 },
                 uploadedImage: null,
                 is_requesting: false
@@ -185,44 +195,6 @@
             removePrintingCriteria(index){
                 this.form.printingCriteria.splice(index, 1);
             },
-            uploadImages(e){
-                let selectedImages = e.target.files;
-                if (!selectedImages.length) {
-                    return false;
-                }
-                this.form.images = [];
-                for (let i = 0; i < selectedImages.length; i++) {
-                    this.form.images.push(selectedImages[i]);
-                }
-            },
-
-            create() {
-                console.log(this.form)
-                this.$vs.notify({
-                    title: 'Error',
-                    text: 'not yet handled',
-                    iconPack: 'feather',
-                    icon: 'icon-alert-circle',
-                    color: 'danger'
-                });
-
-                /*this.is_requesting=true;
-                let form_data = new FormData();
-
-                for (let key in this.form ) {
-                    if ((key === 'images') && this.form.hasOwnProperty(key)){
-                        for (let i=0; i<this.form[key].length; i++){
-                            form_data.append(key+'[]', this.form[key][i]);
-                        }
-                    }
-                    else {
-                        form_data.append(key, this.form[key]);
-                    }
-                }
-                */
-
-            },
-
             previewImage: function(event) {
                 // Reference to the DOM input element
                 var input = event.target;
@@ -240,7 +212,61 @@
                     // Start the reader job - read file as a data url (base64 format)
                     reader.readAsDataURL(input.files[0]);
                 }
-            }
+            },
+
+            create() {
+                this.$validator.validateAll().then(result => {
+                    if (result) {
+                        // if form have no errors
+                        this.is_requesting=true;
+                        let form_data = new FormData();
+
+                        for (let key in this.form ) {
+                            if (this.form[key]) {
+                                for (let i=0; i<this.form[key].length; i++){
+                                    form_data.append(key, this.form[key][i]);
+                                }
+                            }
+                            else {
+                                form_data.append(key, this.form[key]);
+                            }
+                        }
+                        this.$store.dispatch('category/create', form_data)
+                          .then(response => {
+                              this.$vs.notify({
+                                  title: 'Success',
+                                  text: response.data.message,
+                                  iconPack: 'feather',
+                                  icon: 'icon-check',
+                                  color: 'success'
+                              });
+                              this.$router.push({name: 'category'});
+
+                          })
+                          .catch(error => {
+                              console.log(error);
+                              this.$vs.notify({
+                                  title: 'Error',
+                                  text: error.response.data.errors[Object.keys(error.response.data.errors)[0]][0],
+                                  iconPack: 'feather',
+                                  icon: 'icon-alert-circle',
+                                  color: 'danger'
+                              });
+                          });
+                    } else {
+                        this.$vs.notify({
+                            title: 'Error',
+                            text: 'Fix form validation errors',
+                            iconPack: 'feather',
+                            icon: 'icon-alert-circle',
+                            color: 'danger'
+                        });
+                    }
+
+                })
+
+            },
+
         }
     }
 </script>
@@ -257,14 +283,6 @@
         display: none;
     }
 
-    img.preview {
-        width: 55px;
-        height: 55px;
-        border-radius: 50%;
-        background-color: white;
-        border: 1px solid #DDD;
-        padding: 5px;
-    }
 
     .vs-input-number {
         width: fit-content;

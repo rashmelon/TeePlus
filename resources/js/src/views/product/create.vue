@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class=" w-full mb-base" v-if="can('create-employee')">
+		<div class=" w-full mb-base" v-if="can('create-category')">
 			<div ref="create" title="Create Category">
 
 				<form-wizard :subtitle="null" :title="null" @on-complete="create" color="rgb(var(--vs-primary))" finishButtonText="Submit">

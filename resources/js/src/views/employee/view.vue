@@ -5,7 +5,7 @@
                 <vs-row v-if="employee">
                     <vs-row class="mb-5">
                         <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="12">
-                            <vs-avatar class="mx-auto mb-2 block" size="120px" :src="employee.image" />
+                            <vs-avatar class="mx-auto mb-2 block" size="120px" :src="employee.image?employee.image.url:''" />
                         </vs-col>
                     </vs-row>
                     <vs-row class="mb-2">

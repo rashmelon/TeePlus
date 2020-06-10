@@ -1,5 +1,14 @@
 <template>
 	<div class="vx-col w-full mb-base">
+
+		<div class="centerx">
+			<vs-row>
+				<vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="9">
+					<b class="text-left vx-col w-full">{{products.length}} results found in {{resultTime}}ms</b>
+				</vs-col>
+			</vs-row>
+		</div>
+
 		<vx-card ref="browse" title="products List" collapse-action >
 			<vs-table
 				pagination
@@ -7,6 +16,12 @@
 				max-items="50"
 				:data="products"
 			>
+
+				<template slot="header">
+					<vs-button :to="{name: 'create-product'}" vs-w="3" color="primary" type="filled" icon-pack="feather"
+					           icon="icon-plus">Add Product</vs-button>
+				</template>
+
 				<template slot="thead">
 					<vs-th>#</vs-th>
 					<vs-th>Image</vs-th>
