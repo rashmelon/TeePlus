@@ -1,11 +1,12 @@
 <template>
     <div>
-        <div v-if="can('edit-employee')||$store.getters['auth/userData'].id===$route.params.id" class="vx-col w-full mb-base">
-            <vx-card ref="edit" id="loading-container" title="Edit Employee">
+        <div v-if="can('edit-user')||$store.getters['auth/userData'].id===$route.params.id" class="vx-col w-full mb-base">
+            <vx-card ref="edit" id="loading-container" title="Edit user">
 
                 <div class="vx-row">
                     <div class="vx-col w-full mb-6">
-                        <vs-select label="Employee Role" autocomplete label-placeholder="Employee Role" icon-pack="feather" icon="icon-chevron-down"  color="primary" class="w-full" v-model="form.role">
+                        <vs-select label="user Role" autocomplete label-placeholder="user Role" icon-pack="feather"
+                                   icon="icon-chevron-down"  color="primary" class="w-full" v-model="form.role">
                             <vs-select-item :key="index" :value="item.name" :text="item.name" v-for="(item, index) in roles" />
                         </vs-select>
                     </div>
@@ -14,18 +15,21 @@
                 <div class="vx-row">
                     <div class="vx-col sm:w-1/2 w-full mb-6">
                         <div class="image-preview" style="display: inline-flex;">
-                            <img v-if="uploadedImage" alt="employee photo" class="preview" :src="uploadedImage">
+                            <img v-if="uploadedImage" alt="user photo" class="preview" :src="uploadedImage">
                         </div>
                         <div style="display: inline-flex;position: relative;top: -15px;">
                             <input id="img-upload" type="file" @change="previewImage" accept="image/*">
-                            <vs-button size="small" icon-pack="feather" icon="icon-upload" type="gradient" onclick="document.getElementById('img-upload').click()">Upload Employee Photo</vs-button>
+                            <vs-button size="small" icon-pack="feather" icon="icon-upload" type="gradient"
+                                       onclick="document.getElementById('img-upload').click()">Upload user Photo</vs-button>
                         </div>
                     </div>
                 </div>
 
                 <div class="vx-row">
                     <div class="vx-col sm:w-1/2 w-full mb-6">
-                        <vs-input name="name" v-validate="'required|min:3'" :danger="errors.has('name')" val-icon-danger="clear" :danger-text="errors.first('name')" class="w-full" icon-pack="feather" icon="icon-user" label-placeholder="Employee Name" v-model="form.name" />
+                        <vs-input name="name" v-validate="'required|min:3'" :danger="errors.has('name')" val-icon-danger="clear"
+                                  :danger-text="errors.first('name')" class="w-full" icon-pack="feather" icon="icon-user"
+                                  label-placeholder="user Name" v-model="form.name" />
                     </div>
                     <div class="vx-col sm:w-1/2 w-full mb-6">
                         <vs-input name="email" v-validate="'required|email'" :danger="errors.has('email')" val-icon-danger="clear" :danger-text="errors.first('email')" class="w-full" icon-pack="feather" icon="icon-mail" label-placeholder="Email" v-model="form.email" />
@@ -43,7 +47,9 @@
 
                 <vs-row vs-align="center" vs-type="flex" vs-justify="center" vs-w="12">
                     <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="12">
-                        <vs-button id="btn-edit" :disabled="!validateForm" @click="is_requesting?$store.dispatch('viewWaitMessage', $vs):edit()" icon-pack="feather" icon="icon-save" type="gradient">Edit Employee</vs-button>
+                        <vs-button id="btn-edit" :disabled="!validateForm"
+                                   @click="is_requesting?$store.dispatch('viewWaitMessage', $vs):edit()" icon-pack="feather"
+                                   icon="icon-save" type="gradient">Edit user</vs-button>
                     </vs-col>
                 </vs-row>
             </vx-card>
@@ -53,7 +59,7 @@
 
 <script>
     export default {
-        name: "edit-employee",
+        name: "edit-user",
         mounted() {
             this.getRoles();
         },
@@ -85,7 +91,7 @@
                 this.$store.dispatch('rolesAndPermissions/getRoles', '')
                     .then(response => {
                         this.roles = response.data.data;
-                        this.getEmployeeData();
+                        this.getuserData();
                         this.form.role = this.roles[0].name;
                     })
                     .catch(error => {
@@ -100,8 +106,8 @@
                     });
             },
 
-            getEmployeeData() {
-                this.$store.dispatch('employee/view', this.$route.params.id)
+            getuserData() {
+                this.$store.dispatch('user/view', this.$route.params.id)
                     .then(response => {
                         this.$vs.loading.close(document.getElementById('loading-container'));
                         this.form = response.data.data;
@@ -149,11 +155,11 @@
                     }
                 }
 
-                this.$store.dispatch('employee/update', {id: this.$route.params.id, data: form_data})
+                this.$store.dispatch('user/update', {id: this.$route.params.id, data: form_data})
                     .then(response => {
                         this.is_requesting=false;
                         this.$vs.loading.close(`#btn-edit > .con-vs-loading`);
-                        this.$router.push(`/dashboard/employee/${this.$route.params.id}`);
+                        this.$router.push(`/dashboard/user/${this.$route.params.id}`);
                         this.$vs.notify({
                             title: 'Success',
                             text: response.data.message,

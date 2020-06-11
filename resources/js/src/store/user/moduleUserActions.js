@@ -1,5 +1,5 @@
 
-import employee from "../../http/requests/employee/index"
+import employee from "../../http/requests/user/index"
 
 export default {
     getData({ commit, dispatch }, payload) {

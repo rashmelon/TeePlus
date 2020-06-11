@@ -6876,12 +6876,12 @@ __webpack_require__.r(__webpack_exports__);
   icon: "CoffeeIcon" // permission: 'browse-product'
 
 }, {
-  url: "/dashboard/employee",
-  name: "Employee",
-  slug: "employee",
+  url: "/dashboard/user",
+  name: "User",
+  slug: "user",
   icon: "UserIcon",
-  i18n: "Employee",
-  permission: 'browse-employee'
+  i18n: "User",
+  permission: 'browse-user'
 }, {
   name: "Settings",
   icon: "SettingsIcon",

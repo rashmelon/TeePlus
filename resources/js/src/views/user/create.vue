@@ -126,7 +126,7 @@
                         form_data.append(key, this.form[key]);
                     }
                 }
-                this.$store.dispatch('employee/create', form_data)
+                this.$store.dispatch('user/create', form_data)
                     .then(response => {
                         this.is_requesting=false;
                         this.$vs.loading.close(`#btn-create > .con-vs-loading`);

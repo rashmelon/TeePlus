@@ -68,66 +68,66 @@ const router = new Router({
           }
         },
         {
-          path: '/dashboard/employee',
-          name: 'employee',
-          component: () => import('./views/employee/browse.vue'),
+          path: '/dashboard/user',
+          name: 'user',
+          component: () => import('./views/user/browse.vue'),
           beforeEnter: guard,
           meta: {
             breadcrumb: [
               {title: 'Home', url: '/dashboard', i18n: 'Home'},
-              {title: 'Employee', active: true, i18n: 'Employee'},
+              {title: 'User', active: true, i18n: 'User'},
             ],
-            pageTitle: 'Employee',
-            pageTitle_i18n: 'Employee',
-            // permission: 'browse-employee'
+            pageTitle: 'User',
+            pageTitle_i18n: 'User',
+            permission: 'browse-user'
           }
         },
         {
-          path: '/dashboard/employee/create',
-          name: 'add-employee',
-          component: () => import('./views/employee/create.vue'),
+          path: '/dashboard/user/create',
+          name: 'add-user',
+          component: () => import('./views/user/create.vue'),
           beforeEnter: guard,
           meta: {
             breadcrumb: [
               {title: 'Home', url: '/dashboard', i18n: 'Home'},
-              {title: 'Employee', url: '/dashboard/employee', i18n: 'Employee'},
-              {title: 'Add Employee', active: true, i18n: 'AddEmployee'},
+              {title: 'User', url: '/dashboard/user', i18n: 'User'},
+              {title: 'Add Employee', active: true, i18n: 'AddUser'},
             ],
-            pageTitle: 'Add Employee',
-            pageTitle_i18n: 'AddEmployee',
-            // permission: 'create-employee'
+            pageTitle: 'Add User',
+            pageTitle_i18n: 'AddUser',
+            permission: 'create-user'
           }
         },
         {
-          path: '/dashboard/employee/:id',
-          name: 'view-employee',
-          component: () => import('./views/employee/view.vue'),
+          path: '/dashboard/user/:id',
+          name: 'view-user',
+          component: () => import('./views/user/view.vue'),
           beforeEnter: guard,
           meta: {
             breadcrumb: [
               {title: 'Home', url: '/dashboard', i18n: 'Home'},
-              {title: 'Employee', url: '/dashboard/employee', i18n: 'Employee'},
-              {title: 'Profile', active: true, i18n: 'EmployeeProfile'},
+              {title: 'User', url: '/dashboard/user', i18n: 'User'},
+              {title: 'Profile', active: true, i18n: 'UserProfile'},
             ],
-            pageTitle: 'Edit Employee',
-            pageTitle_i18n: 'editEmployee',
-            // permission: 'view-employee'
+            pageTitle: 'Edit User',
+            pageTitle_i18n: 'editUser',
+            permission: 'view-user'
           }
         },
         {
-          path: '/dashboard/employee/:id/edit',
-          name: 'edit-employee',
-          component: () => import('./views/employee/edit.vue'),
+          path: '/dashboard/user/:id/edit',
+          name: 'edit-user',
+          component: () => import('./views/user/edit.vue'),
           beforeEnter: guard,
           meta: {
             breadcrumb: [
               {title: 'Home', url: '/dashboard', i18n: 'Home'},
-              {title: 'Employee', url: '/dashboard/employee', i18n: 'Employee'},
-              {title: 'Edit Employee', active: true, i18n: 'editEmployee'},
+              {title: 'User', url: '/dashboard/user', i18n: 'User'},
+              {title: 'Edit User', active: true, i18n: 'editUser'},
             ],
-            pageTitle: 'Edit Employee',
-            pageTitle_i18n: 'editEmployee',
-            // permission: 'edit-employee'
+            pageTitle: 'Edit User',
+            pageTitle_i18n: 'editUser',
+            permission: 'edit-user'
           }
         },
 
@@ -144,7 +144,7 @@ const router = new Router({
             ],
             pageTitle: 'Category',
             pageTitle_i18n: 'Category',
-            permission: 'browse-category' //temperory
+            permission: 'browse-category'
           }
         },
         {

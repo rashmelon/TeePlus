@@ -190,7 +190,7 @@ __webpack_require__.r(__webpack_exports__);
         container: this.$refs.view.$refs.content,
         scale: 0.5
       });
-      this.$store.dispatch('employee/view', this.$store.getters['auth/userData'].id).then(function (response) {
+      this.$store.dispatch('user/view', this.$store.getters['auth/userData'].id).then(function (response) {
         _this.employee = response.data.data;
 
         _this.$vs.loading.close(_this.$refs.view.$refs.content);
@@ -803,7 +803,7 @@ var render = function() {
                                 {
                                   attrs: {
                                     to:
-                                      "/dashboard/employee/" +
+                                      "/dashboard/user/" +
                                       _vm.employee.id +
                                       "/edit",
                                     color: "warning",

@@ -3431,7 +3431,7 @@ if(false) {}
     if (!IS_DOM) return;
     mo.observe(observeMutationsRoot, {
       childList: true,
-      priceCombinations: true,
+      attributes: true,
       characterData: true,
       subtree: true
     });

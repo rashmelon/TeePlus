@@ -1,46 +1,51 @@
 <template>
-<!--    <div v-if="can('browse-employee')">-->
+<div v-if="can('browse-user')">
     <div>
         <div class="centerx">
             <vs-row>
                 <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="9">
-                    <b class="text-left vx-col w-full">{{employees.length}} results found in {{resultTime}}ms</b>
+                    <b class="text-left vx-col w-full">{{users.length}} results found in {{resultTime}}ms</b>
                 </vs-col>
-                <vs-col v-if="can('create-employee')" vs-type="flex" vs-justify="center" vs-align="center" vs-w="3">
-                    <vs-button to="/dashboard/employee/create" vs-w="3" color="primary" type="filled" icon-pack="feather" icon="icon-user-plus">&nbsp;&nbsp;Add Employee</vs-button>
+                <vs-col v-if="can('create-user')" vs-type="flex" vs-justify="center" vs-align="center" vs-w="3">
+                    <vs-button to="/dashboard/user/create" vs-w="3" color="primary" type="filled" icon-pack="feather"
+                               icon="icon-user-plus">&nbsp;&nbsp;Add User</vs-button>
                 </vs-col>
             </vs-row>
         </div>
 
         <!-- USER PROFILE CARD 2 - MINIMAL -->
         <div class="vx-row" ref="browse">
-            <div class="vx-col w-full sm:w-1/2 md:w-1/3 mb-base" v-for="employee in employees">
+            <div class="vx-col w-full sm:w-1/2 md:w-1/3 mb-base" v-for="user in users">
                 <vx-card class="p-2">
-                    <vs-avatar class="mx-auto mb-6 block" size="80px" :src="employee.image? employee.image.url:''" />
+                    <vs-avatar class="mx-auto mb-6 block" size="80px" :src="user.image? user.image.url:''" />
                     <div class="text-center">
-                        <h4>{{ employee.name }}</h4>
-                        <p class="text-grey">{{ employee.roles[0].name }}</p>
+                        <h4>{{ user.name }}</h4>
+                        <p class="text-grey">{{ user.roles[0].name }}</p>
                     </div>
                     <br>
                     <div class="text-left vx-col w-full">
                         <i class="fas fa-envelope"></i> {{ $t('Email') || 'Email' }}
-                        <p class="text-grey txt-hover" @click="copyToClipboard(employee.email)">{{ employee.email }}</p>
+                        <p class="text-grey txt-hover" @click="copyToClipboard(user.email)">{{ user.email }}</p>
                     </div>
                     <br>
                     <template slot="footer">
                         <vs-divider />
 
                         <div class="flex justify-between">
-                            <span v-if="can('delete-employee')" class="flex items-center">
+                            <span v-if="can('delete-user')" class="flex items-center">
                                 <vx-tooltip color="danger" :text="$t('Delete') || 'Delete'">
-                                    <vs-button :id="`btn-delete-${employee.id}`" class="vs-con-loading__container" @click="is_requesting?$store.dispatch('viewWaitMessage', $vs):confirmDeleteEmployee(employee)" color="danger" type="filled" icon-pack="feather" icon="icon-trash"></vs-button>
+                                    <vs-button :id="`btn-delete-${user.id}`" class="vs-con-loading__container"
+                                               @click="is_requesting?$store.dispatch('viewWaitMessage', $vs):confirmDeleteUser(user)"
+                                               color="danger" type="filled" icon-pack="feather" icon="icon-trash"></vs-button>
                                 </vx-tooltip>
                             </span>
-                            <span v-if="can('edit-employee')||$store.getters['auth/userData'].id===$route.params.id" class="flex items-center">
-                                <vs-button :to="`/dashboard/employee/${employee.id}/edit`" color="warning" type="filled" icon-pack="feather" icon="icon-edit"></vs-button>
+                            <span v-if="can('edit-user')||$store.getters['auth/userData'].id===$route.params.id" class="flex items-center">
+                                <vs-button :to="`/dashboard/user/${user.id}/edit`" color="warning" type="filled" icon-pack="feather"
+                                           icon="icon-edit"></vs-button>
                             </span>
-                            <span v-if="can('view-employee')||$store.getters['auth/userData'].id===$route.params.id" class="flex items-center">
-                                <vs-button :to="`/dashboard/employee/${employee.id}`" type="gradient" icon-pack="feather" icon="icon-eye">View</vs-button>
+                            <span v-if="can('view-user')||$store.getters['auth/userData'].id===$route.params.id" class="flex items-center">
+                                <vs-button :to="`/dashboard/user/${user.id}`" type="gradient" icon-pack="feather" icon="icon-eye">View
+                                </vs-button>
                             </span>
                         </div>
                     </template>
@@ -48,32 +53,33 @@
             </div>
         </div>
     </div>
+</div>
 </template>
 
 <script>
     import "@fortawesome/fontawesome-free/css/all.css"
     import "@fortawesome/fontawesome-free/js/all.js"
     export default {
-        name: "Employee",
+        name: "User",
         mounted() {
-            this.getEmployeesData(Date.now());
+            this.getUsersData(Date.now());
         },
         data: function (){
             return {
                 searchText: "",
                 resultTime: 0,
-                employees: [],
+                users: [],
                 is_requesting: false
             }
         },
         methods: {
-            getEmployeesData(InitialTime){
+            getUsersData(InitialTime){
                 this.$vs.loading({container: this.$refs.browse, scale: 0.5});
-                this.$store.dispatch('employee/getData', '')
+                this.$store.dispatch('user/getData', '')
                     .then(response => {
                         this.$vs.loading.close(this.$refs.browse);
                         this.resultTime = Date.now() - InitialTime;
-                        this.employees = response.data.data;
+                        this.users = response.data.data;
                     })
                     .catch(error => {
                         console.log(error);
@@ -88,27 +94,27 @@
                     });
             },
 
-            confirmDeleteEmployee(type)
+            confirmDeleteUser(type)
             {
                 this.$vs.dialog({
                     type: 'confirm',
                     color: 'danger',
                     title: `Are you sure!`,
                     text: 'This data can not be retrieved again.',
-                    accept: this.deleteEmployee,
+                    accept: this.deleteUser,
                     parameters: [type]
                 });
             },
 
-            deleteEmployee(params)
+            deleteUser(params)
             {
                 this.is_requesting=true;
                 this.$vs.loading({container: `#btn-delete-${params[0].id}`, color: 'danger', scale: 0.45});
-                this.$store.dispatch('employee/delete', params[0].id)
+                this.$store.dispatch('user/delete', params[0].id)
                     .then(response => {
                         this.is_requesting = false;
                         this.$vs.loading.close(`#btn-delete-${params[0].id} > .con-vs-loading`);
-                        this.employees = this.employees.filter(type => {return type.id !== params[0].id});
+                        this.users = this.users.filter(type => {return type.id !== params[0].id});
                         this.$vs.notify({
                             title: 'Success',
                             text: response.data.message,

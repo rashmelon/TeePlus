@@ -27,12 +27,12 @@ export default [
 
 
   {
-      url: "/dashboard/employee",
-      name: "Employee",
-      slug: "employee",
+      url: "/dashboard/user",
+      name: "User",
+      slug: "user",
       icon: "UserIcon",
-      i18n: "Employee",
-      permission: 'browse-employee'
+      i18n: "User",
+      permission: 'browse-user'
   },
 
 

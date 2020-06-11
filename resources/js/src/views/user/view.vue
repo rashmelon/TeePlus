@@ -1,26 +1,26 @@
 <template>
     <div>
-        <div class="vx-col w-full mb-base" v-if="can('view-employee')||$store.getters['auth/userData'].id===$route.params.id">
+        <div class="vx-col w-full mb-base" v-if="can('view-user')||$store.getters['auth/userData'].id===$route.params.id">
             <vx-card ref="view" title="Personal Information" collapseAction>
-                <vs-row v-if="employee">
+                <vs-row v-if="User">
                     <vs-row class="mb-5">
                         <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="12">
-                            <vs-avatar class="mx-auto mb-2 block" size="120px" :src="employee.image?employee.image.url:''" />
+                            <vs-avatar class="mx-auto mb-2 block" size="120px" :src="User.image?User.image.url:''" />
                         </vs-col>
                     </vs-row>
                     <vs-row class="mb-2">
                         <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="12">
-                            {{employee.name}}
+                            {{User.name}}
                         </vs-col>
                     </vs-row>
                     <vs-row class="mb-2">
                         <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="12">
-                            {{employee.roles[0].name}}
+                            {{User.roles[0].name}}
                         </vs-col>
                     </vs-row>
                     <vs-row class="mb-2">
                         <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="12">
-                            {{employee.email}}
+                            {{User.email}}
                         </vs-col>
                     </vs-row>
                 </vs-row>
@@ -33,20 +33,20 @@
     export default {
         name: "viewData",
         mounted() {
-            this.getEmployeeData();
+            this.getUserData();
         },
         data: () => {
             return {
-                employee: null,
+                User: null,
                 is_requesting: false,
             }
         },
         methods: {
-            getEmployeeData() {
+            getUserData() {
                 this.$vs.loading({container: this.$refs.view.$refs.content, scale: 0.5});
-                this.$store.dispatch('employee/view', this.$route.params.id)
+                this.$store.dispatch('user/view', this.$route.params.id)
                     .then(response => {
-                        this.employee = response.data.data;
+                        this.User = response.data.data;
                         this.$vs.loading.close(this.$refs.view.$refs.content);
                     })
                     .catch(error => {

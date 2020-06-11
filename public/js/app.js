@@ -72336,38 +72336,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/src/http/requests/employee/index.js":
-/*!**********************************************************!*\
-  !*** ./resources/js/src/http/requests/employee/index.js ***!
-  \**********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _axios_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../axios/index.js */ "./resources/js/src/http/axios/index.js");
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  getAll: function getAll(filters) {
-    //filters=?paginate=5&sortAsc=id
-    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("user".concat(filters));
-  },
-  view: function view(id) {
-    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("user/".concat(id));
-  },
-  create: function create(data) {
-    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].post("user", data);
-  },
-  update: function update(id, data) {
-    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].post("user/".concat(id), data);
-  },
-  delete: function _delete(id) {
-    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].delete("user/".concat(id));
-  }
-});
-
-/***/ }),
-
 /***/ "./resources/js/src/http/requests/notification/index.js":
 /*!**************************************************************!*\
   !*** ./resources/js/src/http/requests/notification/index.js ***!
@@ -72468,6 +72436,38 @@ __webpack_require__.r(__webpack_exports__);
   },
   delete: function _delete(id) {
     return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].delete("role/".concat(id));
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/http/requests/user/index.js":
+/*!******************************************************!*\
+  !*** ./resources/js/src/http/requests/user/index.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _axios_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../axios/index.js */ "./resources/js/src/http/axios/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  getAll: function getAll(filters) {
+    //filters=?paginate=5&sortAsc=id
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("user".concat(filters));
+  },
+  view: function view(id) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("user/".concat(id));
+  },
+  create: function create(data) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].post("user", data);
+  },
+  update: function update(id, data) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].post("user/".concat(id), data);
+  },
+  delete: function _delete(id) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].delete("user/".concat(id));
   }
 });
 
@@ -72649,7 +72649,7 @@ __webpack_require__.r(__webpack_exports__);
       is_bookmarked: false
     }, {
       title: 'Employee',
-      url: '/dashboard/employee',
+      url: '/dashboard/user',
       icon: 'UserIcon',
       is_bookmarked: false
     }, {
@@ -72923,7 +72923,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/package',
       name: 'package',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/package/browse.vue */ "./resources/js/src/views/package/browse.vue"));
+        return __webpack_require__.e(/*! import() */ 9).then(__webpack_require__.bind(null, /*! ./views/package/browse.vue */ "./resources/js/src/views/package/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -72944,7 +72944,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/package/create',
       name: 'create-package',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/package/create.vue */ "./resources/js/src/views/package/create.vue"));
+        return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/package/create.vue */ "./resources/js/src/views/package/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -72964,10 +72964,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
         permission: 'create-package'
       }
     }, {
-      path: '/dashboard/employee',
-      name: 'employee',
+      path: '/dashboard/user',
+      name: 'user',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! ./views/employee/browse.vue */ "./resources/js/src/views/employee/browse.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(14)]).then(__webpack_require__.bind(null, /*! ./views/user/browse.vue */ "./resources/js/src/views/user/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -72976,19 +72976,19 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
           url: '/dashboard',
           i18n: 'Home'
         }, {
-          title: 'Employee',
+          title: 'User',
           active: true,
-          i18n: 'Employee'
+          i18n: 'User'
         }],
-        pageTitle: 'Employee',
-        pageTitle_i18n: 'Employee' // permission: 'browse-employee'
-
+        pageTitle: 'User',
+        pageTitle_i18n: 'User',
+        permission: 'browse-user'
       }
     }, {
-      path: '/dashboard/employee/create',
-      name: 'add-employee',
+      path: '/dashboard/user/create',
+      name: 'add-user',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/employee/create.vue */ "./resources/js/src/views/employee/create.vue"));
+        return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/user/create.vue */ "./resources/js/src/views/user/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -72997,23 +72997,23 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
           url: '/dashboard',
           i18n: 'Home'
         }, {
-          title: 'Employee',
-          url: '/dashboard/employee',
-          i18n: 'Employee'
+          title: 'User',
+          url: '/dashboard/user',
+          i18n: 'User'
         }, {
           title: 'Add Employee',
           active: true,
-          i18n: 'AddEmployee'
+          i18n: 'AddUser'
         }],
-        pageTitle: 'Add Employee',
-        pageTitle_i18n: 'AddEmployee' // permission: 'create-employee'
-
+        pageTitle: 'Add User',
+        pageTitle_i18n: 'AddUser',
+        permission: 'create-user'
       }
     }, {
-      path: '/dashboard/employee/:id',
-      name: 'view-employee',
+      path: '/dashboard/user/:id',
+      name: 'view-user',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./views/employee/view.vue */ "./resources/js/src/views/employee/view.vue"));
+        return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./views/user/view.vue */ "./resources/js/src/views/user/view.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73022,23 +73022,23 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
           url: '/dashboard',
           i18n: 'Home'
         }, {
-          title: 'Employee',
-          url: '/dashboard/employee',
-          i18n: 'Employee'
+          title: 'User',
+          url: '/dashboard/user',
+          i18n: 'User'
         }, {
           title: 'Profile',
           active: true,
-          i18n: 'EmployeeProfile'
+          i18n: 'UserProfile'
         }],
-        pageTitle: 'Edit Employee',
-        pageTitle_i18n: 'editEmployee' // permission: 'view-employee'
-
+        pageTitle: 'Edit User',
+        pageTitle_i18n: 'editUser',
+        permission: 'view-user'
       }
     }, {
-      path: '/dashboard/employee/:id/edit',
-      name: 'edit-employee',
+      path: '/dashboard/user/:id/edit',
+      name: 'edit-user',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/employee/edit.vue */ "./resources/js/src/views/employee/edit.vue"));
+        return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/user/edit.vue */ "./resources/js/src/views/user/edit.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73047,23 +73047,23 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
           url: '/dashboard',
           i18n: 'Home'
         }, {
-          title: 'Employee',
-          url: '/dashboard/employee',
-          i18n: 'Employee'
+          title: 'User',
+          url: '/dashboard/user',
+          i18n: 'User'
         }, {
-          title: 'Edit Employee',
+          title: 'Edit User',
           active: true,
-          i18n: 'editEmployee'
+          i18n: 'editUser'
         }],
-        pageTitle: 'Edit Employee',
-        pageTitle_i18n: 'editEmployee' // permission: 'edit-employee'
-
+        pageTitle: 'Edit User',
+        pageTitle_i18n: 'editUser',
+        permission: 'edit-user'
       }
     }, {
       path: '/dashboard/category',
       name: 'category',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./views/category/browse.vue */ "./resources/js/src/views/category/browse.vue"));
+        return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/category/browse.vue */ "./resources/js/src/views/category/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73078,14 +73078,13 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
         }],
         pageTitle: 'Category',
         pageTitle_i18n: 'Category',
-        permission: 'browse-category' //temperory
-
+        permission: 'browse-category'
       }
     }, {
       path: '/dashboard/category/create',
       name: 'create-category',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./views/category/create.vue */ "./resources/js/src/views/category/create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./views/category/create.vue */ "./resources/js/src/views/category/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73111,7 +73110,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/category/edit/:id',
       name: 'edit-category',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./views/category/edit.vue */ "./resources/js/src/views/category/edit.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./views/category/edit.vue */ "./resources/js/src/views/category/edit.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73137,7 +73136,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/product',
       name: 'product',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/product/browse.vue */ "./resources/js/src/views/product/browse.vue"));
+        return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/product/browse.vue */ "./resources/js/src/views/product/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73158,7 +73157,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/product/create',
       name: 'create-product',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./views/product/create.vue */ "./resources/js/src/views/product/create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./views/product/create.vue */ "./resources/js/src/views/product/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73203,7 +73202,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/settings/role/create',
       name: 'create-role',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/settings/Role/Create.vue */ "./resources/js/src/views/settings/Role/Create.vue"));
+        return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./views/settings/Role/Create.vue */ "./resources/js/src/views/settings/Role/Create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73249,7 +73248,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/settings/role/edit/:id',
       name: 'edit-role',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./views/settings/Role/Edit.vue */ "./resources/js/src/views/settings/Role/Edit.vue"));
+        return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/settings/Role/Edit.vue */ "./resources/js/src/views/settings/Role/Edit.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73976,168 +73975,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/src/store/employee/moduleEmployee.js":
-/*!***********************************************************!*\
-  !*** ./resources/js/src/store/employee/moduleEmployee.js ***!
-  \***********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _moduleEmployeeState__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./moduleEmployeeState */ "./resources/js/src/store/employee/moduleEmployeeState.js");
-/* harmony import */ var _moduleEmployeeMutations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moduleEmployeeMutations */ "./resources/js/src/store/employee/moduleEmployeeMutations.js");
-/* harmony import */ var _moduleEmployeeActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moduleEmployeeActions */ "./resources/js/src/store/employee/moduleEmployeeActions.js");
-/* harmony import */ var _moduleEmployeeGetters__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moduleEmployeeGetters */ "./resources/js/src/store/employee/moduleEmployeeGetters.js");
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  namespaced: true,
-  state: _moduleEmployeeState__WEBPACK_IMPORTED_MODULE_0__["default"],
-  mutations: _moduleEmployeeMutations__WEBPACK_IMPORTED_MODULE_1__["default"],
-  actions: _moduleEmployeeActions__WEBPACK_IMPORTED_MODULE_2__["default"],
-  getters: _moduleEmployeeGetters__WEBPACK_IMPORTED_MODULE_3__["default"]
-});
-
-/***/ }),
-
-/***/ "./resources/js/src/store/employee/moduleEmployeeActions.js":
-/*!******************************************************************!*\
-  !*** ./resources/js/src/store/employee/moduleEmployeeActions.js ***!
-  \******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _http_requests_employee_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../http/requests/employee/index */ "./resources/js/src/http/requests/employee/index.js");
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  getData: function getData(_ref, payload) {
-    var commit = _ref.commit,
-        dispatch = _ref.dispatch;
-    return new Promise(function (resolve, reject) {
-      _http_requests_employee_index__WEBPACK_IMPORTED_MODULE_0__["default"].getAll(payload).then(function (response) {
-        resolve(response);
-      }).catch(function (error) {
-        dispatch('handleError', {
-          reject: reject,
-          error: error
-        }, {
-          root: true
-        });
-      });
-    });
-  },
-  view: function view(_ref2, id) {
-    var commit = _ref2.commit,
-        dispatch = _ref2.dispatch;
-    return new Promise(function (resolve, reject) {
-      _http_requests_employee_index__WEBPACK_IMPORTED_MODULE_0__["default"].view(id).then(function (response) {
-        resolve(response);
-      }).catch(function (error) {
-        dispatch('handleError', {
-          reject: reject,
-          error: error
-        }, {
-          root: true
-        });
-      });
-    });
-  },
-  create: function create(_ref3, payload) {
-    var commit = _ref3.commit,
-        dispatch = _ref3.dispatch;
-    return new Promise(function (resolve, reject) {
-      _http_requests_employee_index__WEBPACK_IMPORTED_MODULE_0__["default"].create(payload).then(function (response) {
-        resolve(response);
-      }).catch(function (error) {
-        dispatch('handleError', {
-          reject: reject,
-          error: error
-        }, {
-          root: true
-        });
-      });
-    });
-  },
-  update: function update(_ref4, payload) {
-    var commit = _ref4.commit,
-        dispatch = _ref4.dispatch;
-    return new Promise(function (resolve, reject) {
-      _http_requests_employee_index__WEBPACK_IMPORTED_MODULE_0__["default"].update(payload.id, payload.data).then(function (response) {
-        resolve(response);
-      }).catch(function (error) {
-        dispatch('handleError', {
-          reject: reject,
-          error: error
-        }, {
-          root: true
-        });
-      });
-    });
-  },
-  delete: function _delete(_ref5, id) {
-    var commit = _ref5.commit,
-        dispatch = _ref5.dispatch;
-    return new Promise(function (resolve, reject) {
-      _http_requests_employee_index__WEBPACK_IMPORTED_MODULE_0__["default"].delete(id).then(function (response) {
-        resolve(response);
-      }).catch(function (error) {
-        dispatch('handleError', {
-          reject: reject,
-          error: error
-        }, {
-          root: true
-        });
-      });
-    });
-  }
-});
-
-/***/ }),
-
-/***/ "./resources/js/src/store/employee/moduleEmployeeGetters.js":
-/*!******************************************************************!*\
-  !*** ./resources/js/src/store/employee/moduleEmployeeGetters.js ***!
-  \******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({});
-
-/***/ }),
-
-/***/ "./resources/js/src/store/employee/moduleEmployeeMutations.js":
-/*!********************************************************************!*\
-  !*** ./resources/js/src/store/employee/moduleEmployeeMutations.js ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({});
-
-/***/ }),
-
-/***/ "./resources/js/src/store/employee/moduleEmployeeState.js":
-/*!****************************************************************!*\
-  !*** ./resources/js/src/store/employee/moduleEmployeeState.js ***!
-  \****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({});
-
-/***/ }),
-
 /***/ "./resources/js/src/store/getters.js":
 /*!*******************************************!*\
   !*** ./resources/js/src/store/getters.js ***!
@@ -74804,7 +74641,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions */ "./resources/js/src/store/actions.js");
 /* harmony import */ var vuex_persist__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuex-persist */ "./node_modules/vuex-persist/dist/esm/index.js");
 /* harmony import */ var _auth_moduleAuth__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./auth/moduleAuth */ "./resources/js/src/store/auth/moduleAuth.js");
-/* harmony import */ var _employee_moduleEmployee__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./employee/moduleEmployee */ "./resources/js/src/store/employee/moduleEmployee.js");
+/* harmony import */ var _user_moduleUser__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./user/moduleUser */ "./resources/js/src/store/user/moduleUser.js");
 /* harmony import */ var _package_modulePackage__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./package/modulePackage */ "./resources/js/src/store/package/modulePackage.js");
 /* harmony import */ var _roles_and_permissions_moduleRolesAndPermissions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./roles-and-permissions/moduleRolesAndPermissions */ "./resources/js/src/store/roles-and-permissions/moduleRolesAndPermissions.js");
 /* harmony import */ var _agency_moduleAgency__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./agency/moduleAgency */ "./resources/js/src/store/agency/moduleAgency.js");
@@ -74835,7 +74672,7 @@ var vuexLocal = new vuex_persist__WEBPACK_IMPORTED_MODULE_6__["default"]({
   actions: _actions__WEBPACK_IMPORTED_MODULE_5__["default"],
   modules: {
     auth: _auth_moduleAuth__WEBPACK_IMPORTED_MODULE_7__["default"],
-    employee: _employee_moduleEmployee__WEBPACK_IMPORTED_MODULE_8__["default"],
+    user: _user_moduleUser__WEBPACK_IMPORTED_MODULE_8__["default"],
     package: _package_modulePackage__WEBPACK_IMPORTED_MODULE_9__["default"],
     rolesAndPermissions: _roles_and_permissions_moduleRolesAndPermissions__WEBPACK_IMPORTED_MODULE_10__["default"],
     agency: _agency_moduleAgency__WEBPACK_IMPORTED_MODULE_11__["default"],
@@ -74845,6 +74682,168 @@ var vuexLocal = new vuex_persist__WEBPACK_IMPORTED_MODULE_6__["default"]({
   plugins: [vuexLocal.plugin],
   strict: "development" !== 'production'
 }));
+
+/***/ }),
+
+/***/ "./resources/js/src/store/user/moduleUser.js":
+/*!***************************************************!*\
+  !*** ./resources/js/src/store/user/moduleUser.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _moduleUserState__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./moduleUserState */ "./resources/js/src/store/user/moduleUserState.js");
+/* harmony import */ var _moduleUserMutations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moduleUserMutations */ "./resources/js/src/store/user/moduleUserMutations.js");
+/* harmony import */ var _moduleUserActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moduleUserActions */ "./resources/js/src/store/user/moduleUserActions.js");
+/* harmony import */ var _moduleUserGetters__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moduleUserGetters */ "./resources/js/src/store/user/moduleUserGetters.js");
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: _moduleUserState__WEBPACK_IMPORTED_MODULE_0__["default"],
+  mutations: _moduleUserMutations__WEBPACK_IMPORTED_MODULE_1__["default"],
+  actions: _moduleUserActions__WEBPACK_IMPORTED_MODULE_2__["default"],
+  getters: _moduleUserGetters__WEBPACK_IMPORTED_MODULE_3__["default"]
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/user/moduleUserActions.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/src/store/user/moduleUserActions.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _http_requests_user_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../http/requests/user/index */ "./resources/js/src/http/requests/user/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  getData: function getData(_ref, payload) {
+    var commit = _ref.commit,
+        dispatch = _ref.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_user_index__WEBPACK_IMPORTED_MODULE_0__["default"].getAll(payload).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  view: function view(_ref2, id) {
+    var commit = _ref2.commit,
+        dispatch = _ref2.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_user_index__WEBPACK_IMPORTED_MODULE_0__["default"].view(id).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  create: function create(_ref3, payload) {
+    var commit = _ref3.commit,
+        dispatch = _ref3.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_user_index__WEBPACK_IMPORTED_MODULE_0__["default"].create(payload).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  update: function update(_ref4, payload) {
+    var commit = _ref4.commit,
+        dispatch = _ref4.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_user_index__WEBPACK_IMPORTED_MODULE_0__["default"].update(payload.id, payload.data).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  delete: function _delete(_ref5, id) {
+    var commit = _ref5.commit,
+        dispatch = _ref5.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_user_index__WEBPACK_IMPORTED_MODULE_0__["default"].delete(id).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/user/moduleUserGetters.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/src/store/user/moduleUserGetters.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/user/moduleUserMutations.js":
+/*!************************************************************!*\
+  !*** ./resources/js/src/store/user/moduleUserMutations.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/user/moduleUserState.js":
+/*!********************************************************!*\
+  !*** ./resources/js/src/store/user/moduleUserState.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 
@@ -74935,9 +74934,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuesax__WEBPACK_IMPORTED_MODULE_1
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Work\Tee Plus\Tee Plus\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\Work\Tee Plus\Tee Plus\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! D:\Work\Tee Plus\Tee Plus\resources\assets\css\main.css */"./resources/assets/css/main.css");
+__webpack_require__(/*! D:\TeePlus\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\TeePlus\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! D:\TeePlus\resources\assets\css\main.css */"./resources/assets/css/main.css");
 
 
 /***/ })

@@ -1,18 +1,14 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[9],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/employee/browse.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/employee/browse.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/package/browse.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/package/browse.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _fortawesome_fontawesome_free_css_all_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fortawesome/fontawesome-free/css/all.css */ "./node_modules/@fortawesome/fontawesome-free/css/all.css");
-/* harmony import */ var _fortawesome_fontawesome_free_css_all_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_css_all_css__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/fontawesome-free/js/all.js */ "./node_modules/@fortawesome/fontawesome-free/js/all.js");
-/* harmony import */ var _fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_all_js__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -65,38 +61,69 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Employee",
+  name: "browse",
   mounted: function mounted() {
-    this.getEmployeesData(Date.now());
+    this.getPackages();
   },
   data: function data() {
     return {
       searchText: "",
       resultTime: 0,
-      employees: [],
+      packages: [],
       is_requesting: false
     };
   },
+  props: {
+    payload: {
+      required: false,
+      default: ''
+    }
+  },
   methods: {
-    getEmployeesData: function getEmployeesData(InitialTime) {
+    getPackages: function getPackages() {
       var _this = this;
 
-      this.$vs.loading({
-        container: this.$refs.browse,
-        scale: 0.5
-      });
-      this.$store.dispatch('employee/getData', '').then(function (response) {
-        _this.$vs.loading.close(_this.$refs.browse);
-
-        _this.resultTime = Date.now() - InitialTime;
-        _this.employees = response.data.data;
+      // this.$vs.loading({container: this.$refs.browse, scale: 0.5});
+      this.$store.dispatch('package/getData', this.payload).then(function (response) {
+        // this.$vs.loading.close(this.$refs.browse);
+        _this.packages = response.data.data;
+        console.log(_this.packages);
       }).catch(function (error) {
-        console.log(error);
-
-        _this.$vs.loading.close(_this.$refs.browse);
+        console.log(error); // this.$vs.loading.close(this.$refs.browse);
 
         _this.$vs.notify({
           title: 'Error',
@@ -107,34 +134,17 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
-    confirmDeleteEmployee: function confirmDeleteEmployee(type) {
-      this.$vs.dialog({
-        type: 'confirm',
-        color: 'danger',
-        title: "Are you sure!",
-        text: 'This data can not be retrieved again.',
-        accept: this.deleteEmployee,
-        parameters: [type]
-      });
-    },
-    deleteEmployee: function deleteEmployee(params) {
+    adminClose: function adminClose(index) {
       var _this2 = this;
 
-      this.is_requesting = true;
-      this.$vs.loading({
-        container: "#btn-delete-".concat(params[0].id),
-        color: 'danger',
-        scale: 0.45
-      });
-      this.$store.dispatch('employee/delete', params[0].id).then(function (response) {
-        _this2.is_requesting = false;
+      console.log('data ' + !this.packages[index].admin_close); // taking not because the library triggers on click before changing value
 
-        _this2.$vs.loading.close("#btn-delete-".concat(params[0].id, " > .con-vs-loading"));
-
-        _this2.employees = _this2.employees.filter(function (type) {
-          return type.id !== params[0].id;
-        });
-
+      this.$store.dispatch('package/update', {
+        id: this.packages[index].id,
+        data: {
+          'admin_close': !this.packages[index].admin_close
+        }
+      }).then(function (response) {
         _this2.$vs.notify({
           title: 'Success',
           text: response.data.message,
@@ -143,10 +153,7 @@ __webpack_require__.r(__webpack_exports__);
           color: 'success'
         });
       }).catch(function (error) {
-        console.log(error);
-        _this2.is_requesting = false;
-
-        _this2.$vs.loading.close("#btn-delete-".concat(params[0].id, " > .con-vs-loading"));
+        console.log(error); // this.$vs.loading.close(this.$refs.browse);
 
         _this2.$vs.notify({
           title: 'Error',
@@ -157,48 +164,84 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
-    copyToClipboard: function copyToClipboard(text) {
-      if (window.clipboardData && window.clipboardData.setData) {
-        // IE specific code path to prevent textarea being shown while dialog is visible.
-        this.onCopy();
-        return clipboardData.setData("Text", text);
-      } else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
-        var textarea = document.createElement("textarea");
-        textarea.textContent = text;
-        textarea.style.position = "fixed"; // Prevent scrolling to bottom of page in MS Edge.
+    agencyClose: function agencyClose(index) {
+      var _this3 = this;
 
-        document.body.appendChild(textarea);
-        textarea.select();
+      console.log('data ' + !this.packages[index].agency_close); // taking not because the library triggers on click before changing value
 
-        try {
-          this.onCopy();
-          return document.execCommand("copy"); // Security exception may be thrown by some browsers.
-        } catch (ex) {
-          this.onError();
-          return false;
-        } finally {
-          document.body.removeChild(textarea);
+      this.$store.dispatch('package/update', {
+        id: this.packages[index].id,
+        data: {
+          'agency_close': !this.packages[index].agency_close
         }
-      }
-    },
-    onCopy: function onCopy() {
-      this.$vs.notify({
-        title: 'Success!',
-        text: 'Text copied successfully.',
-        color: 'success',
-        iconPack: 'feather',
-        position: 'bottom-right',
-        icon: 'icon-check-circle'
+      }).then(function (response) {
+        _this3.$vs.notify({
+          title: 'Success',
+          text: response.data.message,
+          iconPack: 'feather',
+          icon: 'icon-check',
+          color: 'success'
+        });
+      }).catch(function (error) {
+        console.log(error); // this.$vs.loading.close(this.$refs.browse);
+
+        _this3.$vs.notify({
+          title: 'Error',
+          text: error.response.data.error,
+          iconPack: 'feather',
+          icon: 'icon-alert-circle',
+          color: 'danger'
+        });
       });
     },
-    onError: function onError() {
-      this.$vs.notify({
-        title: 'Failed!',
-        text: 'Error in copying text.',
+    confirmDeletePackage: function confirmDeletePackage(type) {
+      this.$vs.dialog({
+        type: 'confirm',
         color: 'danger',
-        iconPack: 'feather',
-        position: 'bottom-right',
-        icon: 'icon-alert-circle'
+        title: "Are you sure!",
+        text: 'This data can not be retrieved again.',
+        accept: this.deletePackage,
+        parameters: [type]
+      });
+    },
+    deletePackage: function deletePackage(params) {
+      var _this4 = this;
+
+      this.is_requesting = true;
+      this.$vs.loading({
+        container: "#btn-delete-".concat(params[0].id),
+        color: 'danger',
+        scale: 0.45
+      });
+      this.$store.dispatch('package/delete', params[0].id).then(function (response) {
+        _this4.is_requesting = false;
+
+        _this4.$vs.loading.close("#btn-delete-".concat(params[0].id, " > .con-vs-loading"));
+
+        _this4.packages = _this4.packages.filter(function (type) {
+          return type.id !== params[0].id;
+        });
+
+        _this4.$vs.notify({
+          title: 'Success',
+          text: response.data.message,
+          iconPack: 'feather',
+          icon: 'icon-check',
+          color: 'success'
+        });
+      }).catch(function (error) {
+        console.log(error);
+        _this4.is_requesting = false;
+
+        _this4.$vs.loading.close("#btn-delete-".concat(params[0].id, " > .con-vs-loading"));
+
+        _this4.$vs.notify({
+          title: 'Error',
+          text: error.response.data.error,
+          iconPack: 'feather',
+          icon: 'icon-alert-circle',
+          color: 'danger'
+        });
       });
     }
   }
@@ -206,10 +249,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/employee/browse.vue?vue&type=style&index=0&lang=css&":
-/*!********************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/employee/browse.vue?vue&type=style&index=0&lang=css& ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/package/browse.vue?vue&type=style&index=0&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/package/browse.vue?vue&type=style&index=0&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -225,15 +268,15 @@ exports.push([module.i, ".txt-hover:hover{\n  color: black !important;\n}[dir] .
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/employee/browse.vue?vue&type=style&index=0&lang=css&":
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/employee/browse.vue?vue&type=style&index=0&lang=css& ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/package/browse.vue?vue&type=style&index=0&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/package/browse.vue?vue&type=style&index=0&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--7-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./browse.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/employee/browse.vue?vue&type=style&index=0&lang=css&");
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--7-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./browse.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/package/browse.vue?vue&type=style&index=0&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -255,10 +298,10 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/employee/browse.vue?vue&type=template&id=1b95951e&":
-/*!*****************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/employee/browse.vue?vue&type=template&id=1b95951e& ***!
-  \*****************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/package/browse.vue?vue&type=template&id=cb74cf06&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/package/browse.vue?vue&type=template&id=cb74cf06& ***!
+  \****************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -270,236 +313,377 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      { staticClass: "centerx" },
-      [
-        _c(
-          "vs-row",
-          [
-            _c(
-              "vs-col",
-              {
-                attrs: {
-                  "vs-type": "flex",
-                  "vs-justify": "center",
-                  "vs-align": "center",
-                  "vs-w": "9"
-                }
+  return _vm.can("browse-package")
+    ? _c(
+        "div",
+        { staticClass: "vx-col w-full mb-base" },
+        [
+          _c(
+            "vx-card",
+            {
+              ref: "browse",
+              attrs: {
+                title: "Packages List",
+                "collapse-action": "",
+                refreshContentAction: ""
               },
-              [
-                _c("b", { staticClass: "text-left vx-col w-full" }, [
-                  _vm._v(
-                    _vm._s(_vm.employees.length) +
-                      " results found in " +
-                      _vm._s(_vm.resultTime) +
-                      "ms"
-                  )
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _vm.can("create-employee")
-              ? _c(
-                  "vs-col",
-                  {
-                    attrs: {
-                      "vs-type": "flex",
-                      "vs-justify": "center",
-                      "vs-align": "center",
-                      "vs-w": "3"
-                    }
-                  },
-                  [
-                    _c(
-                      "vs-button",
+              on: { refresh: _vm.getPackages }
+            },
+            [
+              _c(
+                "vs-table",
+                {
+                  attrs: { search: "", data: _vm.packages },
+                  scopedSlots: _vm._u(
+                    [
                       {
-                        attrs: {
-                          to: "/dashboard/employee/create",
-                          "vs-w": "3",
-                          color: "primary",
-                          type: "filled",
-                          "icon-pack": "feather",
-                          icon: "icon-user-plus"
-                        }
-                      },
-                      [_vm._v("  Add Employee")]
-                    )
-                  ],
-                  1
-                )
-              : _vm._e()
-          ],
-          1
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      { ref: "browse", staticClass: "vx-row" },
-      _vm._l(_vm.employees, function(employee) {
-        return _c(
-          "div",
-          { staticClass: "vx-col w-full sm:w-1/2 md:w-1/3 mb-base" },
-          [
-            _c(
-              "vx-card",
-              { staticClass: "p-2" },
-              [
-                _c("vs-avatar", {
-                  staticClass: "mx-auto mb-6 block",
-                  attrs: {
-                    size: "80px",
-                    src: employee.image ? employee.image.url : ""
-                  }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "text-center" }, [
-                  _c("h4", [_vm._v(_vm._s(employee.name))]),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "text-grey" }, [
-                    _vm._v(_vm._s(employee.roles[0].name))
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("div", { staticClass: "text-left vx-col w-full" }, [
-                  _c("i", { staticClass: "fas fa-envelope" }),
-                  _vm._v(
-                    " " +
-                      _vm._s(_vm.$t("Email") || "Email") +
-                      "\r\n                        "
-                  ),
-                  _c(
-                    "p",
-                    {
-                      staticClass: "text-grey txt-hover",
-                      on: {
-                        click: function($event) {
-                          return _vm.copyToClipboard(employee.email)
+                        key: "default",
+                        fn: function(ref) {
+                          var data = ref.data
+                          return _vm._l(_vm.packages, function(
+                            packageData,
+                            index
+                          ) {
+                            return _c(
+                              "vs-tr",
+                              { key: index },
+                              [
+                                _c(
+                                  "vs-td",
+                                  { attrs: { data: packageData.id } },
+                                  [
+                                    _vm._v(
+                                      "\n                        " +
+                                        _vm._s(packageData.id) +
+                                        "\n                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "vs-td",
+                                  { attrs: { data: packageData.title } },
+                                  [
+                                    _vm._v(
+                                      "\n                        " +
+                                        _vm._s(packageData.title) +
+                                        "\n                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _vm.$store.state.auth.AppActiveUser.roles[0]
+                                  .name == "Super Admin"
+                                  ? _c("vs-td", [
+                                      packageData.agency
+                                        ? _c(
+                                            "span",
+                                            {
+                                              attrs: {
+                                                data: packageData.agency.name
+                                              }
+                                            },
+                                            [
+                                              _vm._v(
+                                                "\n                            " +
+                                                  _vm._s(
+                                                    packageData.agency.name
+                                                  ) +
+                                                  "\n                        "
+                                              )
+                                            ]
+                                          )
+                                        : _vm._e()
+                                    ])
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c(
+                                  "vs-td",
+                                  { attrs: { data: packageData.date } },
+                                  [
+                                    _vm._v(
+                                      "\n                        " +
+                                        _vm._s(packageData.date) +
+                                        "\n                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "vs-td",
+                                  { attrs: { data: packageData.price } },
+                                  [
+                                    _vm._v(
+                                      "\n                        " +
+                                        _vm._s(packageData.price) +
+                                        "\n                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "vs-td",
+                                  { attrs: { data: packageData.home_page } },
+                                  [
+                                    _vm._v(
+                                      "\n                        " +
+                                        _vm._s(packageData.home_page) +
+                                        "\n                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _vm.$store.state.auth.AppActiveUser.roles[0]
+                                  .name == "Agency Admin"
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "vx-col md:w-1/2 w-full mt-5"
+                                      },
+                                      [
+                                        _c(
+                                          "ul",
+                                          { staticClass: "switch-container" },
+                                          [
+                                            _c(
+                                              "li",
+                                              [
+                                                _c(
+                                                  "vs-switch",
+                                                  {
+                                                    attrs: { color: "danger" },
+                                                    on: {
+                                                      click: function($event) {
+                                                        return _vm.agencyClose(
+                                                          index
+                                                        )
+                                                      }
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        packageData.agency_close,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          packageData,
+                                                          "agency_close",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "packageData.agency_close"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "span",
+                                                      {
+                                                        attrs: { slot: "on" },
+                                                        slot: "on"
+                                                      },
+                                                      [_vm._v("Disabled")]
+                                                    )
+                                                  ]
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _vm.$store.state.auth.AppActiveUser.roles[0]
+                                  .name == "Super Admin"
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "vx-col md:w-1/2 w-full mt-5"
+                                      },
+                                      [
+                                        _c(
+                                          "ul",
+                                          { staticClass: "switch-container" },
+                                          [
+                                            _c(
+                                              "li",
+                                              [
+                                                _c(
+                                                  "vs-switch",
+                                                  {
+                                                    attrs: { color: "danger" },
+                                                    on: {
+                                                      click: function($event) {
+                                                        return _vm.adminClose(
+                                                          index
+                                                        )
+                                                      }
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        packageData.admin_close,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          packageData,
+                                                          "admin_close",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "packageData.admin_close"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "span",
+                                                      {
+                                                        attrs: { slot: "on" },
+                                                        slot: "on"
+                                                      },
+                                                      [_vm._v("Disabled")]
+                                                    )
+                                                  ]
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c(
+                                  "vs-td",
+                                  { attrs: { data: packageData.created_at } },
+                                  [
+                                    _vm._v(
+                                      "\n                        " +
+                                        _vm._s(packageData.created_at) +
+                                        "\n                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "vs-td",
+                                  [
+                                    _c("vs-row", [
+                                      _c("div", { staticClass: "flex mb-4" }, [
+                                        _vm.can("delete-package")
+                                          ? _c(
+                                              "div",
+                                              { staticClass: "w-1/3 ml-5" },
+                                              [
+                                                _c("vs-button", {
+                                                  staticClass:
+                                                    "vs-con-loading__container",
+                                                  attrs: {
+                                                    id:
+                                                      "btn-delete-" +
+                                                      packageData.id,
+                                                    radius: "",
+                                                    color: "danger",
+                                                    type: "border",
+                                                    "icon-pack": "feather",
+                                                    icon: "icon-trash"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      _vm.is_requesting
+                                                        ? _vm.$store.dispatch(
+                                                            "viewWaitMessage",
+                                                            _vm.$vs
+                                                          )
+                                                        : _vm.confirmDeletePackage(
+                                                            packageData
+                                                          )
+                                                    }
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e()
+                                      ])
+                                    ])
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          })
                         }
                       }
-                    },
-                    [_vm._v(_vm._s(employee.email))]
+                    ],
+                    null,
+                    false,
+                    2809482667
                   )
-                ]),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c(
-                  "template",
-                  { slot: "footer" },
-                  [
-                    _c("vs-divider"),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "flex justify-between" }, [
-                      _vm.can("delete-employee")
+                },
+                [
+                  _c(
+                    "template",
+                    { slot: "header" },
+                    [
+                      _vm.can("browse-package")
                         ? _c(
-                            "span",
-                            { staticClass: "flex items-center" },
-                            [
-                              _c(
-                                "vx-tooltip",
-                                {
-                                  attrs: {
-                                    color: "danger",
-                                    text: _vm.$t("Delete") || "Delete"
-                                  }
-                                },
-                                [
-                                  _c("vs-button", {
-                                    staticClass: "vs-con-loading__container",
-                                    attrs: {
-                                      id: "btn-delete-" + employee.id,
-                                      color: "danger",
-                                      type: "filled",
-                                      "icon-pack": "feather",
-                                      icon: "icon-trash"
-                                    },
-                                    on: {
-                                      click: function($event) {
-                                        _vm.is_requesting
-                                          ? _vm.$store.dispatch(
-                                              "viewWaitMessage",
-                                              _vm.$vs
-                                            )
-                                          : _vm.confirmDeleteEmployee(employee)
-                                      }
-                                    }
-                                  })
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.can("edit-employee") ||
-                      _vm.$store.getters["auth/userData"].id ===
-                        _vm.$route.params.id
-                        ? _c(
-                            "span",
-                            { staticClass: "flex items-center" },
-                            [
-                              _c("vs-button", {
-                                attrs: {
-                                  to:
-                                    "/dashboard/employee/" +
-                                    employee.id +
-                                    "/edit",
-                                  color: "warning",
-                                  type: "filled",
-                                  "icon-pack": "feather",
-                                  icon: "icon-edit"
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.can("view-employee") ||
-                      _vm.$store.getters["auth/userData"].id ===
-                        _vm.$route.params.id
-                        ? _c(
-                            "span",
-                            { staticClass: "flex items-center" },
-                            [
-                              _c(
-                                "vs-button",
-                                {
-                                  attrs: {
-                                    to: "/dashboard/employee/" + employee.id,
-                                    type: "gradient",
-                                    "icon-pack": "feather",
-                                    icon: "icon-eye"
-                                  }
-                                },
-                                [_vm._v("View")]
-                              )
-                            ],
-                            1
+                            "vs-button",
+                            {
+                              attrs: {
+                                to: "/dashboard/package/create",
+                                size: "small",
+                                "icon-pack": "feather",
+                                icon: "icon-plus"
+                              }
+                            },
+                            [_vm._v("Create Package")]
                           )
                         : _vm._e()
-                    ])
-                  ],
-                  1
-                )
-              ],
-              2
-            )
-          ],
-          1
-        )
-      }),
-      0
-    )
-  ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "template",
+                    { slot: "thead" },
+                    [
+                      _c("vs-th", [_vm._v("#")]),
+                      _vm._v(" "),
+                      _c("vs-th", [_vm._v("Name")]),
+                      _vm._v(" "),
+                      _vm.$store.state.auth.AppActiveUser.roles[0].name ==
+                      "Super Admin"
+                        ? _c("vs-th", [_vm._v("Agency")])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("vs-th", [_vm._v("Date")]),
+                      _vm._v(" "),
+                      _c("vs-th", [_vm._v("Price")]),
+                      _vm._v(" "),
+                      _c("vs-th", [_vm._v("Is Featured")]),
+                      _vm._v(" "),
+                      _c("vs-th", [_vm._v("Reservation Status")]),
+                      _vm._v(" "),
+                      _c("vs-th", [_vm._v("Created At")]),
+                      _vm._v(" "),
+                      _c("vs-th", [_vm._v("Action")])
+                    ],
+                    1
+                  )
+                ],
+                2
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -508,18 +692,18 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/src/views/employee/browse.vue":
-/*!****************************************************!*\
-  !*** ./resources/js/src/views/employee/browse.vue ***!
-  \****************************************************/
+/***/ "./resources/js/src/views/package/browse.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/src/views/package/browse.vue ***!
+  \***************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _browse_vue_vue_type_template_id_1b95951e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./browse.vue?vue&type=template&id=1b95951e& */ "./resources/js/src/views/employee/browse.vue?vue&type=template&id=1b95951e&");
-/* harmony import */ var _browse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./browse.vue?vue&type=script&lang=js& */ "./resources/js/src/views/employee/browse.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _browse_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./browse.vue?vue&type=style&index=0&lang=css& */ "./resources/js/src/views/employee/browse.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _browse_vue_vue_type_template_id_cb74cf06___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./browse.vue?vue&type=template&id=cb74cf06& */ "./resources/js/src/views/package/browse.vue?vue&type=template&id=cb74cf06&");
+/* harmony import */ var _browse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./browse.vue?vue&type=script&lang=js& */ "./resources/js/src/views/package/browse.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _browse_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./browse.vue?vue&type=style&index=0&lang=css& */ "./resources/js/src/views/package/browse.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -531,8 +715,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _browse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _browse_vue_vue_type_template_id_1b95951e___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _browse_vue_vue_type_template_id_1b95951e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _browse_vue_vue_type_template_id_cb74cf06___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _browse_vue_vue_type_template_id_cb74cf06___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -542,54 +726,54 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/src/views/employee/browse.vue"
+component.options.__file = "resources/js/src/views/package/browse.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/src/views/employee/browse.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/src/views/employee/browse.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************/
+/***/ "./resources/js/src/views/package/browse.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/src/views/package/browse.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_browse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./browse.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/employee/browse.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_browse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./browse.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/package/browse.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_browse_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/src/views/employee/browse.vue?vue&type=style&index=0&lang=css&":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/src/views/employee/browse.vue?vue&type=style&index=0&lang=css& ***!
-  \*************************************************************************************/
+/***/ "./resources/js/src/views/package/browse.vue?vue&type=style&index=0&lang=css&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/src/views/package/browse.vue?vue&type=style&index=0&lang=css& ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_browse_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--7-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./browse.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/employee/browse.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_browse_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--7-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./browse.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/package/browse.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_browse_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_browse_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_browse_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_browse_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_browse_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
-/***/ "./resources/js/src/views/employee/browse.vue?vue&type=template&id=1b95951e&":
-/*!***********************************************************************************!*\
-  !*** ./resources/js/src/views/employee/browse.vue?vue&type=template&id=1b95951e& ***!
-  \***********************************************************************************/
+/***/ "./resources/js/src/views/package/browse.vue?vue&type=template&id=cb74cf06&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/src/views/package/browse.vue?vue&type=template&id=cb74cf06& ***!
+  \**********************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_browse_vue_vue_type_template_id_1b95951e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./browse.vue?vue&type=template&id=1b95951e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/employee/browse.vue?vue&type=template&id=1b95951e&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_browse_vue_vue_type_template_id_1b95951e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_browse_vue_vue_type_template_id_cb74cf06___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./browse.vue?vue&type=template&id=cb74cf06& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/package/browse.vue?vue&type=template&id=cb74cf06&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_browse_vue_vue_type_template_id_cb74cf06___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_browse_vue_vue_type_template_id_1b95951e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_browse_vue_vue_type_template_id_cb74cf06___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

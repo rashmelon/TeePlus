@@ -11,7 +11,7 @@ import VuexPersistence from 'vuex-persist'
 Vue.use(Vuex);
 
 import moduleAuth from './auth/moduleAuth';
-import moduleEmployee from './employee/moduleEmployee';
+import moduleUser from './user/moduleUser';
 import modulePackage from './package/modulePackage';
 import moduleRolesAndPermissions from './roles-and-permissions/moduleRolesAndPermissions';
 import moduleAgency from "./agency/moduleAgency";
@@ -30,7 +30,7 @@ export default new Vuex.Store({
     actions,
     modules: {
         auth: moduleAuth,
-        employee: moduleEmployee,
+        user: moduleUser,
         package: modulePackage,
         rolesAndPermissions: moduleRolesAndPermissions,
         agency: moduleAgency,
