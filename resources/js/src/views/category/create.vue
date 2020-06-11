@@ -47,15 +47,43 @@
 					<tab-content class="mb-5" title="Combinations">
 						<vx-card class="vx-row">
 							<div class="vx-col md:w-1/1 w-full mt-3">
+								<vs-button
+									@click="addAttribute"
+									class="mb-4"
+									color="primary"
+									icon="icon-plus"
+									icon-pack="feather"
+									size="small"
+									type="filled"
+								>Add Combination
+								</vs-button>
+
+
 								<transition-group mode="out-in" name="slide-down">
 									<div :key="1">
 										<div class="vx-row" v-for="(attr,index) in form.priceCombinations">
 											<div class="vx-col md:w-8/12 w-full mb-3">
-												<vs-input class="w-full" label="Combination" v-model="attr.combination"/>
+												<vs-input
+													:name="'combination-'+index"
+													class="w-full"
+													label="Combination"
+													v-model="attr.combination"
+													v-validate="'required'"
+												/>
+												<span class="text-danger text-sm"
+												      v-show="errors.has('combination-'+index)">{{ errors.first('combination-'+index)}}</span>
+
+
 											</div>
 
 											<div class="vx-col md:w-2/12 w-full mb-3">
-												<vs-input class="w-full" label="Price" type="number" v-model="attr.price"/>
+												<vs-input
+													:name="'price-'+index" class="w-full" label="Price"
+													type="number"
+													v-model="attr.price"
+													v-validate="'required'"
+												/>
+												<span class="text-danger text-sm" v-show="errors.has('price-'+index)">{{errors.first('price-'+index)}}</span>
 											</div>
 
 											<div class="vx-col md:w-2/12 w-full mb-3">
@@ -71,16 +99,6 @@
 														v-if="index || ( !index && index> 1)"
 													></vs-button>
 
-													<vs-button
-														@click="addAttribute"
-														class="ml-2"
-														color="primary"
-														icon="icon-plus"
-														icon-pack="feather"
-														radius
-														type="border"
-														v-if="index === form.priceCombinations.length-1"
-													></vs-button>
 												</div>
 											</div>
 										</div>
@@ -93,15 +111,38 @@
 					<tab-content class="mb-5" title="Printing Criteria">
 						<vx-card class="vx-row">
 							<div class="vx-col md:w-1/1 w-full mt-3">
+
+								<vs-button
+									@click="addPrintingCriteria"
+									class="mb-4"
+									color="primary"
+									icon="icon-plus"
+									icon-pack="feather"
+									size="small"
+									type="filled"
+								>Add Printing Criteria
+								</vs-button>
+
 								<transition-group mode="out-in" name="slide-down">
 									<div :key="2">
 										<div class="vx-row" v-for="(criteria,index) in form.printCriterias">
 											<div class="vx-col md:w-8/12 w-full mb-3">
-												<vs-input class="w-full" label="Criteria" v-model="criteria.criteria"/>
+												<vs-input :name="'criteria-'+index" class="w-full" label="Criteria"
+												          v-model="criteria.criteria"
+												          v-validate="'required'"
+												/>
+												<span class="text-danger text-sm" v-show="errors.has('criteria-'+index)">{{errors.first('criteria-'+index)}}</span>
 											</div>
 
 											<div class="vx-col md:w-2/12 w-full mb-3">
-												<vs-input class="w-full" label="Price" type="number" v-model="criteria.price"/>
+												<vs-input :name="'criteria-price-'+index" class="w-full" label="Price" type="number"
+												          v-model="criteria.price"W
+												          v-validate="'required'"
+												/>
+												<span class="text-danger text-sm"
+												      v-show="errors.has('criteria-price-'+index)">{{errors.first('criteria-price-'+index)
+													}}</span>
+
 											</div>
 
 											<div class="vx-col md:w-2/12 w-full mb-3">
@@ -117,16 +158,6 @@
 														v-if="index || ( !index && index> 1)"
 													></vs-button>
 
-													<vs-button
-														@click="addPrintingCriteria"
-														class="ml-2"
-														color="primary"
-														icon="icon-plus"
-														icon-pack="feather"
-														radius
-														type="border"
-														v-if="index === form.printCriterias.length-1"
-													></vs-button>
 												</div>
 											</div>
 										</div>
@@ -218,32 +249,30 @@
                 form_data.append(key, this.form[key]);
               }
             }
-            console.log(form_data)
-            /*
-																		this.$store.dispatch('category/create', form_data)
-																			.then(response => {
-																					this.$vs.notify({
-																							title: 'Success',
-																							text: response.data.message,
-																							iconPack: 'feather',
-																							icon: 'icon-check',
-																							color: 'success'
-																					});
-																					this.$router.push({name: 'category'});
-																					this.is_requesting=false;
+            this.$store.dispatch('category/create', form_data)
+              .then(response => {
+                this.$vs.notify({
+                  title: 'Success',
+                  text: response.data.message,
+                  iconPack: 'feather',
+                  icon: 'icon-check',
+                  color: 'success'
+                });
+                this.$router.push({name: 'category'});
+                this.is_requesting = false;
 
-																			})
-																			.catch(error => {
-																					console.log(error);
-																					this.$vs.notify({
-																							title: 'Error',
-																							text: error.response.data.errors[Object.keys(error.response.data.errors)[0]][0],
-																							iconPack: 'feather',
-																							icon: 'icon-alert-circle',
-																							color: 'danger'
-																					});
-																					this.is_requesting=false;
-																			});*/
+              })
+              .catch(error => {
+                console.log(error);
+                this.$vs.notify({
+                  title: 'Error',
+                  text: error.response.data.errors[Object.keys(error.response.data.errors)[0]][0],
+                  iconPack: 'feather',
+                  icon: 'icon-alert-circle',
+                  color: 'danger'
+                });
+                this.is_requesting = false;
+              });
           } else {
             this.$vs.notify({
               title: 'Error',

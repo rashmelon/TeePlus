@@ -157,6 +157,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -235,31 +266,33 @@ __webpack_require__.r(__webpack_exports__);
             }
           }
 
-          console.log(form_data);
-          /*
-          						this.$store.dispatch('category/create', form_data)
-          							.then(response => {
-          									this.$vs.notify({
-          											title: 'Success',
-          											text: response.data.message,
-          											iconPack: 'feather',
-          											icon: 'icon-check',
-          											color: 'success'
-          									});
-          									this.$router.push({name: 'category'});
-          									this.is_requesting=false;
-          								})
-          							.catch(error => {
-          									console.log(error);
-          									this.$vs.notify({
-          											title: 'Error',
-          											text: error.response.data.errors[Object.keys(error.response.data.errors)[0]][0],
-          											iconPack: 'feather',
-          											icon: 'icon-alert-circle',
-          											color: 'danger'
-          									});
-          									this.is_requesting=false;
-          							});*/
+          _this2.$store.dispatch('category/create', form_data).then(function (response) {
+            _this2.$vs.notify({
+              title: 'Success',
+              text: response.data.message,
+              iconPack: 'feather',
+              icon: 'icon-check',
+              color: 'success'
+            });
+
+            _this2.$router.push({
+              name: 'category'
+            });
+
+            _this2.is_requesting = false;
+          }).catch(function (error) {
+            console.log(error);
+
+            _this2.$vs.notify({
+              title: 'Error',
+              text: error.response.data.errors[Object.keys(error.response.data.errors)[0]][0],
+              iconPack: 'feather',
+              icon: 'icon-alert-circle',
+              color: 'danger'
+            });
+
+            _this2.is_requesting = false;
+          });
         } else {
           _this2.$vs.notify({
             title: 'Error',
@@ -523,6 +556,22 @@ var render = function() {
                           { staticClass: "vx-col md:w-1/1 w-full mt-3" },
                           [
                             _c(
+                              "vs-button",
+                              {
+                                staticClass: "mb-4",
+                                attrs: {
+                                  color: "primary",
+                                  icon: "icon-plus",
+                                  "icon-pack": "feather",
+                                  size: "small",
+                                  type: "filled"
+                                },
+                                on: { click: _vm.addAttribute }
+                              },
+                              [_vm._v("Add Combination\n\t\t\t\t\t\t\t\t")]
+                            ),
+                            _vm._v(" "),
+                            _c(
                               "transition-group",
                               { attrs: { mode: "out-in", name: "slide-down" } },
                               [
@@ -545,8 +594,19 @@ var render = function() {
                                           },
                                           [
                                             _c("vs-input", {
+                                              directives: [
+                                                {
+                                                  name: "validate",
+                                                  rawName: "v-validate",
+                                                  value: "required",
+                                                  expression: "'required'"
+                                                }
+                                              ],
                                               staticClass: "w-full",
-                                              attrs: { label: "Combination" },
+                                              attrs: {
+                                                name: "combination-" + index,
+                                                label: "Combination"
+                                              },
                                               model: {
                                                 value: attr.combination,
                                                 callback: function($$v) {
@@ -558,7 +618,35 @@ var render = function() {
                                                 },
                                                 expression: "attr.combination"
                                               }
-                                            })
+                                            }),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              {
+                                                directives: [
+                                                  {
+                                                    name: "show",
+                                                    rawName: "v-show",
+                                                    value: _vm.errors.has(
+                                                      "combination-" + index
+                                                    ),
+                                                    expression:
+                                                      "errors.has('combination-'+index)"
+                                                  }
+                                                ],
+                                                staticClass:
+                                                  "text-danger text-sm"
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.errors.first(
+                                                      "combination-" + index
+                                                    )
+                                                  )
+                                                )
+                                              ]
+                                            )
                                           ],
                                           1
                                         ),
@@ -571,8 +659,17 @@ var render = function() {
                                           },
                                           [
                                             _c("vs-input", {
+                                              directives: [
+                                                {
+                                                  name: "validate",
+                                                  rawName: "v-validate",
+                                                  value: "required",
+                                                  expression: "'required'"
+                                                }
+                                              ],
                                               staticClass: "w-full",
                                               attrs: {
+                                                name: "price-" + index,
                                                 label: "Price",
                                                 type: "number"
                                               },
@@ -583,7 +680,35 @@ var render = function() {
                                                 },
                                                 expression: "attr.price"
                                               }
-                                            })
+                                            }),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              {
+                                                directives: [
+                                                  {
+                                                    name: "show",
+                                                    rawName: "v-show",
+                                                    value: _vm.errors.has(
+                                                      "price-" + index
+                                                    ),
+                                                    expression:
+                                                      "errors.has('price-'+index)"
+                                                  }
+                                                ],
+                                                staticClass:
+                                                  "text-danger text-sm"
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.errors.first(
+                                                      "price-" + index
+                                                    )
+                                                  )
+                                                )
+                                              ]
+                                            )
                                           ],
                                           1
                                         ),
@@ -622,25 +747,6 @@ var render = function() {
                                                         }
                                                       }
                                                     })
-                                                  : _vm._e(),
-                                                _vm._v(" "),
-                                                index ===
-                                                _vm.form.priceCombinations
-                                                  .length -
-                                                  1
-                                                  ? _c("vs-button", {
-                                                      staticClass: "ml-2",
-                                                      attrs: {
-                                                        color: "primary",
-                                                        icon: "icon-plus",
-                                                        "icon-pack": "feather",
-                                                        radius: "",
-                                                        type: "border"
-                                                      },
-                                                      on: {
-                                                        click: _vm.addAttribute
-                                                      }
-                                                    })
                                                   : _vm._e()
                                               ],
                                               1
@@ -675,6 +781,26 @@ var render = function() {
                           { staticClass: "vx-col md:w-1/1 w-full mt-3" },
                           [
                             _c(
+                              "vs-button",
+                              {
+                                staticClass: "mb-4",
+                                attrs: {
+                                  color: "primary",
+                                  icon: "icon-plus",
+                                  "icon-pack": "feather",
+                                  size: "small",
+                                  type: "filled"
+                                },
+                                on: { click: _vm.addPrintingCriteria }
+                              },
+                              [
+                                _vm._v(
+                                  "Add Printing Criteria\n\t\t\t\t\t\t\t\t"
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
                               "transition-group",
                               { attrs: { mode: "out-in", name: "slide-down" } },
                               [
@@ -697,8 +823,19 @@ var render = function() {
                                           },
                                           [
                                             _c("vs-input", {
+                                              directives: [
+                                                {
+                                                  name: "validate",
+                                                  rawName: "v-validate",
+                                                  value: "required",
+                                                  expression: "'required'"
+                                                }
+                                              ],
                                               staticClass: "w-full",
-                                              attrs: { label: "Criteria" },
+                                              attrs: {
+                                                name: "criteria-" + index,
+                                                label: "Criteria"
+                                              },
                                               model: {
                                                 value: criteria.criteria,
                                                 callback: function($$v) {
@@ -710,7 +847,35 @@ var render = function() {
                                                 },
                                                 expression: "criteria.criteria"
                                               }
-                                            })
+                                            }),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              {
+                                                directives: [
+                                                  {
+                                                    name: "show",
+                                                    rawName: "v-show",
+                                                    value: _vm.errors.has(
+                                                      "criteria-" + index
+                                                    ),
+                                                    expression:
+                                                      "errors.has('criteria-'+index)"
+                                                  }
+                                                ],
+                                                staticClass:
+                                                  "text-danger text-sm"
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.errors.first(
+                                                      "criteria-" + index
+                                                    )
+                                                  )
+                                                )
+                                              ]
+                                            )
                                           ],
                                           1
                                         ),
@@ -723,10 +888,20 @@ var render = function() {
                                           },
                                           [
                                             _c("vs-input", {
+                                              directives: [
+                                                {
+                                                  name: "validate",
+                                                  rawName: "v-validate",
+                                                  value: "required",
+                                                  expression: "'required'"
+                                                }
+                                              ],
                                               staticClass: "w-full",
                                               attrs: {
+                                                name: "criteria-price-" + index,
                                                 label: "Price",
-                                                type: "number"
+                                                type: "number",
+                                                W: ""
                                               },
                                               model: {
                                                 value: criteria.price,
@@ -739,7 +914,35 @@ var render = function() {
                                                 },
                                                 expression: "criteria.price"
                                               }
-                                            })
+                                            }),
+                                            _vm._v(" "),
+                                            _c(
+                                              "span",
+                                              {
+                                                directives: [
+                                                  {
+                                                    name: "show",
+                                                    rawName: "v-show",
+                                                    value: _vm.errors.has(
+                                                      "criteria-price-" + index
+                                                    ),
+                                                    expression:
+                                                      "errors.has('criteria-price-'+index)"
+                                                  }
+                                                ],
+                                                staticClass:
+                                                  "text-danger text-sm"
+                                              },
+                                              [
+                                                _vm._v(
+                                                  _vm._s(
+                                                    _vm.errors.first(
+                                                      "criteria-price-" + index
+                                                    )
+                                                  )
+                                                )
+                                              ]
+                                            )
                                           ],
                                           1
                                         ),
@@ -776,25 +979,6 @@ var render = function() {
                                                             index
                                                           )
                                                         }
-                                                      }
-                                                    })
-                                                  : _vm._e(),
-                                                _vm._v(" "),
-                                                index ===
-                                                _vm.form.printCriterias.length -
-                                                  1
-                                                  ? _c("vs-button", {
-                                                      staticClass: "ml-2",
-                                                      attrs: {
-                                                        color: "primary",
-                                                        icon: "icon-plus",
-                                                        "icon-pack": "feather",
-                                                        radius: "",
-                                                        type: "border"
-                                                      },
-                                                      on: {
-                                                        click:
-                                                          _vm.addPrintingCriteria
                                                       }
                                                     })
                                                   : _vm._e()
