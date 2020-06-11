@@ -2,9 +2,13 @@
 
 namespace App\Providers;
 
+use App\Policies\PriceCombinationPolicy;
+use App\Policies\PrintCriteriaPolicy;
 use App\Policies\UserPolicy;
 use App\Policies\PermissionPolicy;
 use App\Policies\RolePolicy;
+use App\PriceCombination;
+use App\PrintCriteria;
 use App\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -23,6 +27,8 @@ class AuthServiceProvider extends ServiceProvider
         User::class => UserPolicy::class,
         Role::class => RolePolicy::class,
         Permission::class => PermissionPolicy::class,
+        PriceCombination::class => PriceCombinationPolicy::class,
+        PrintCriteria::class => PrintCriteriaPolicy::class,
     ];
 
     /**

@@ -126,12 +126,13 @@ class CrudResponse
     /**
      * @param Collection $data
      * @param $transformer
+     * @param $includes
      * @param string $message
      * @return CrudResponse
      */
-    public function indexRespond($data, $transformer, $message = "Data fetched successfully")
+    public function indexRespond($data, $transformer, $includes = [], $message = "Data fetched successfully")
     {
-        $this->mapTransformerData(fractal($data, new $transformer));
+        $this->mapTransformerData(fractal($data, new $transformer)->parseIncludes($includes));
         $this->message  = $message;
         return $this;
     }
@@ -139,12 +140,13 @@ class CrudResponse
     /**
      * @param Builder $builder
      * @param $transformer
+     * @param $includes
      * @param string $message
      * @return CrudResponse
      */
-    public function fluentIndexRespond(Builder $builder, $transformer, $message = "Data fetched successfully")
+    public function fluentIndexRespond(Builder $builder, $transformer, $includes = [], $message = "Data fetched successfully")
     {
-        $this->mapTransformerData(fractal((new IndexResponse($builder))->execute(), new $transformer));
+        $this->mapTransformerData(fractal((new IndexResponse($builder))->execute(), new $transformer)->parseIncludes($includes));
         $this->message = $message;
         return $this;
     }
@@ -152,12 +154,13 @@ class CrudResponse
     /**
      * @param Collection $data
      * @param $transformer
+     * @param $includes
      * @param string $message
      * @return CrudResponse
      */
-    public function showRespond($data, $transformer, $message = "Item fetched successfully")
+    public function showRespond($data, $transformer, $includes = [], $message = "Item fetched successfully")
     {
-        $this->mapTransformerData(fractal($data, new $transformer));
+        $this->mapTransformerData(fractal($data, new $transformer)->parseIncludes($includes));
         $this->message  = $message;
         return $this;
     }
@@ -165,12 +168,13 @@ class CrudResponse
     /**
      * @param Collection $data
      * @param $transformer
+     * @param $includes
      * @param string $message
      * @return CrudResponse
      */
-    public function createRespond($data, $transformer, $message = "Item Created successfully")
+    public function createRespond($data, $transformer, $includes = [], $message = "Item Created successfully")
     {
-        $this->mapTransformerData(fractal($data, new $transformer));
+        $this->mapTransformerData(fractal($data, new $transformer)->parseIncludes($includes));
         $this->data = $data;
         $this->message  = $message;
         return $this;
@@ -179,12 +183,13 @@ class CrudResponse
     /**
      * @param Collection $data
      * @param $transformer
+     * @param $includes
      * @param string $message
      * @return CrudResponse
      */
-    public function updateRespond($data,  $transformer, $message = "Item updated successfully")
+    public function updateRespond($data,  $transformer, $includes = [], $message = "Item updated successfully")
     {
-        $this->mapTransformerData(fractal($data, new $transformer));
+        $this->mapTransformerData(fractal($data, new $transformer)->parseIncludes($includes));
         $this->message  = $message;
         return $this;
     }

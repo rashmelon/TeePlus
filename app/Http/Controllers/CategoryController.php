@@ -6,6 +6,8 @@ use App\Category;
 use App\Http\Requests\CategoryRequest;
 use App\Http\Responses\Facades\ApiResponse;
 use App\Media;
+use App\PriceCombination;
+use App\PrintCriteria;
 use App\Transformers\CategoryTransformer;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\JsonResponse;
@@ -49,7 +51,9 @@ class CategoryController extends Controller
     {
         $this->authorize('store', Category::class);
 
-        $category = Category::create($request->validated());
+        $data = $request->validated();
+
+        $category = Category::create($data);
 
         if (\request()->hasFile('image')){
             $file = $request->file('image');
@@ -59,6 +63,22 @@ class CategoryController extends Controller
                 'relation' => 'image'
             ]);
             $category->image()->save($image);
+        }
+
+        foreach (json_decode($data['priceCombinations']) as $combination){
+            $combination = PriceCombination::create([
+                'combination' => $combination->combination,
+                'price' => $combination->price
+            ]);
+            $category->priceCombinations()->save($combination);
+        }
+
+        foreach (json_decode($data['printCriterias']) as $criteria){
+            $criteria = PrintCriteria::create([
+                'criteria' => $criteria->criteria,
+                'price' => $criteria->price
+            ]);
+            $category->printCriterias()->save($criteria);
         }
 
         return ApiResponse::createRespond($category, CategoryTransformer::class)->execute();
@@ -102,6 +122,7 @@ class CategoryController extends Controller
         $this->authorize('update', Category::class);
 
         $category = Category::find($id);
+        $data = $request->validated();
 
         if ($request->hasFile('image')){
             Storage::disk('public')->delete(config('paths.'.Category::class.'.'.'image').'/'.$category->image->url);
@@ -112,7 +133,27 @@ class CategoryController extends Controller
             ]);
         }
 
-        $category->update($request->validated());
+        if (array_key_exists('priceCombinations', $data)){
+            foreach (json_decode($data['priceCombinations']) as $combination){
+                $combination = PriceCombination::create([
+                    'combination' => $combination->combination,
+                    'price' => $combination->price
+                ]);
+                $category->priceCombinations()->save($combination);
+            }
+        }
+
+        if (array_key_exists('printCriterias', $data)) {
+            foreach (json_decode($data['printCriterias']) as $criteria) {
+                $criteria = PrintCriteria::create([
+                    'criteria' => $criteria->criteria,
+                    'price' => $criteria->price
+                ]);
+                $category->printCriterias()->save($criteria);
+            }
+        }
+
+        $category->update($data);
 
         return ApiResponse::updateRespond($category, CategoryTransformer::class)->execute();
     }

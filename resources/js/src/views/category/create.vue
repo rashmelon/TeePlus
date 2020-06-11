@@ -48,38 +48,40 @@
                         <vx-card class="vx-row">
                             <div class="vx-col md:w-1/1 w-full mt-3">
                                 <transition-group mode="out-in" name="slide-down">
-                                    <div class="vx-row"  :key="attr.id" v-for="(attr,index) in form.attributes">
-                                        <div class="vx-col md:w-8/12 w-full mb-3">
-                                            <vs-input label="Combination" v-model="attr.combination" class="w-full" />
-                                        </div>
+                                    <div :key="1">
+                                        <div class="vx-row"  v-for="(attr,index) in form.priceCombinations">
+                                            <div class="vx-col md:w-8/12 w-full mb-3">
+                                                <vs-input label="Combination" v-model="attr.combination" class="w-full" />
+                                            </div>
 
-                                        <div class="vx-col md:w-2/12 w-full mb-3">
-                                            <vs-input type="number" label="Price" v-model="attr.price" class="w-full" />
-                                        </div>
+                                            <div class="vx-col md:w-2/12 w-full mb-3">
+                                                <vs-input type="number" label="Price" v-model="attr.price" class="w-full" />
+                                            </div>
 
-                                        <div class="vx-col md:w-2/12 w-full mb-3">
-                                            <div class="attribute-actions mt-5">
-                                                <vs-button
-                                                  @click="removeAttribute(index)"
-                                                  v-if="index || ( !index && index> 1)"
-                                                  icon-pack="feather"
-                                                  icon="icon-minus"
-                                                  color="danger"
-                                                  type="border"
-                                                  radius
-                                                  class="ml-2"
-                                                ></vs-button>
+                                            <div class="vx-col md:w-2/12 w-full mb-3">
+                                                <div class="attribute-actions mt-5">
+                                                    <vs-button
+                                                        @click="removeAttribute(index)"
+                                                        v-if="index || ( !index && index> 1)"
+                                                        icon-pack="feather"
+                                                        icon="icon-minus"
+                                                        color="danger"
+                                                        type="border"
+                                                        radius
+                                                        class="ml-2"
+                                                    ></vs-button>
 
-                                                <vs-button
-                                                  @click="addAttribute"
-                                                  v-if="index === form.attributes.length-1"
-                                                  icon-pack="feather"
-                                                  icon="icon-plus"
-                                                  color="primary"
-                                                  type="border"
-                                                  radius
-                                                  class="ml-2"
-                                                ></vs-button>
+                                                    <vs-button
+                                                        @click="addAttribute"
+                                                        v-if="index === form.priceCombinations.length-1"
+                                                        icon-pack="feather"
+                                                        icon="icon-plus"
+                                                        color="primary"
+                                                        type="border"
+                                                        radius
+                                                        class="ml-2"
+                                                    ></vs-button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -92,38 +94,40 @@
                         <vx-card class="vx-row">
                             <div class="vx-col md:w-1/1 w-full mt-3">
                                 <transition-group mode="out-in" name="slide-down">
-                                    <div class="vx-row"  :key="criteria.id" v-for="(criteria,index) in form.printingCriteria">
-                                        <div class="vx-col md:w-8/12 w-full mb-3">
-                                            <vs-input label="Criteria" v-model="criteria.criteria" class="w-full" />
-                                        </div>
+                                    <div :key="2">
+                                        <div class="vx-row" v-for="(criteria,index) in form.printCriterias">
+                                            <div class="vx-col md:w-8/12 w-full mb-3">
+                                                <vs-input label="Criteria" v-model="criteria.criteria" class="w-full" />
+                                            </div>
 
-                                        <div class="vx-col md:w-2/12 w-full mb-3">
-                                            <vs-input type="number" label="Price" v-model="criteria.price" class="w-full" />
-                                        </div>
+                                            <div class="vx-col md:w-2/12 w-full mb-3">
+                                                <vs-input type="number" label="Price" v-model="criteria.price" class="w-full" />
+                                            </div>
 
-                                        <div class="vx-col md:w-2/12 w-full mb-3">
-                                            <div class="attribute-actions mt-5">
-                                                <vs-button
-                                                  @click="removePrintingCriteria(index)"
-                                                  v-if="index || ( !index && index> 1)"
-                                                  icon-pack="feather"
-                                                  icon="icon-minus"
-                                                  color="danger"
-                                                  type="border"
-                                                  radius
-                                                  class="ml-2"
-                                                ></vs-button>
+                                            <div class="vx-col md:w-2/12 w-full mb-3">
+                                                <div class="attribute-actions mt-5">
+                                                    <vs-button
+                                                        @click="removePrintingCriteria(index)"
+                                                        v-if="index || ( !index && index> 1)"
+                                                        icon-pack="feather"
+                                                        icon="icon-minus"
+                                                        color="danger"
+                                                        type="border"
+                                                        radius
+                                                        class="ml-2"
+                                                    ></vs-button>
 
-                                                <vs-button
-                                                  @click="addPrintingCriteria"
-                                                  v-if="index === form.printingCriteria.length-1"
-                                                  icon-pack="feather"
-                                                  icon="icon-plus"
-                                                  color="primary"
-                                                  type="border"
-                                                  radius
-                                                  class="ml-2"
-                                                ></vs-button>
+                                                    <vs-button
+                                                        @click="addPrintingCriteria"
+                                                        v-if="index === form.printCriterias.length-1"
+                                                        icon-pack="feather"
+                                                        icon="icon-plus"
+                                                        color="primary"
+                                                        type="border"
+                                                        radius
+                                                        class="ml-2"
+                                                    ></vs-button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -150,16 +154,14 @@
                 form: {
                     name: '',
                     description: '',
-                    attributes:[
+                    priceCombinations:[
                         {
-                            id: uuid(),
                             combination:'',
                             price:''
                         },
                     ],
-                    printingCriteria:[
+                    printCriterias:[
                         {
-                            id: uuid(),
                             criteria: '',
                             price: ''
                         }
@@ -176,24 +178,22 @@
         },
         methods: {
             addAttribute(){
-                this.form.attributes.push({
-                    id:uuid(),
+                this.form.priceCombinations.push({
                     name:'',
                     values:''
                 })
             },
             removeAttribute(index) {
-                this.form.attributes.splice(index, 1);
+                this.form.priceCombinations.splice(index, 1);
             },
             addPrintingCriteria(){
-                this.form.printingCriteria.push({
-                    id:uuid(),
+                this.form.printCriterias.push({
                     criteria: '',
                     price: ''
                 })
             },
             removePrintingCriteria(index){
-                this.form.printingCriteria.splice(index, 1);
+                this.form.printCriterias.splice(index, 1);
             },
             previewImage: function(event) {
                 // Reference to the DOM input element
@@ -207,7 +207,7 @@
                         // Note: arrow function used here, so that "this.imageData" refers to the imageData of Vue component
                         // Read image as base64 and set to imageData
                         this.uploadedImage = e.target.result;
-                        this.form.image = input.files;
+                        this.form.image = input.files[0];
                     };
                     // Start the reader job - read file as a data url (base64 format)
                     reader.readAsDataURL(input.files[0]);
@@ -219,18 +219,18 @@
                     if (result) {
                         // if form have no errors
                         this.is_requesting=true;
+
                         let form_data = new FormData();
 
                         for (let key in this.form ) {
-                            if (this.form[key]) {
-                                for (let i=0; i<this.form[key].length; i++){
-                                    form_data.append(key, this.form[key][i]);
-                                }
+                            if(key === 'priceCombinations' || key === 'printCriterias'){
+                                form_data.append(key, JSON.stringify(this.form[key]));
                             }
                             else {
                                 form_data.append(key, this.form[key]);
                             }
                         }
+
                         this.$store.dispatch('category/create', form_data)
                           .then(response => {
                               this.$vs.notify({
@@ -241,6 +241,7 @@
                                   color: 'success'
                               });
                               this.$router.push({name: 'category'});
+                              this.is_requesting=false;
 
                           })
                           .catch(error => {
@@ -252,6 +253,7 @@
                                   icon: 'icon-alert-circle',
                                   color: 'danger'
                               });
+                              this.is_requesting=false;
                           });
                     } else {
                         this.$vs.notify({

@@ -154,6 +154,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -164,13 +168,11 @@ __webpack_require__.r(__webpack_exports__);
       form: {
         name: '',
         description: '',
-        attributes: [{
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+        priceCombinations: [{
           combination: '',
           price: ''
         }],
-        printingCriteria: [{
-          id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+        printCriterias: [{
           criteria: '',
           price: ''
         }],
@@ -186,24 +188,22 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     addAttribute: function addAttribute() {
-      this.form.attributes.push({
-        id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+      this.form.priceCombinations.push({
         name: '',
         values: ''
       });
     },
     removeAttribute: function removeAttribute(index) {
-      this.form.attributes.splice(index, 1);
+      this.form.priceCombinations.splice(index, 1);
     },
     addPrintingCriteria: function addPrintingCriteria() {
-      this.form.printingCriteria.push({
-        id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
+      this.form.printCriterias.push({
         criteria: '',
         price: ''
       });
     },
     removePrintingCriteria: function removePrintingCriteria(index) {
-      this.form.printingCriteria.splice(index, 1);
+      this.form.printCriterias.splice(index, 1);
     },
     previewImage: function previewImage(event) {
       var _this = this;
@@ -219,7 +219,7 @@ __webpack_require__.r(__webpack_exports__);
           // Note: arrow function used here, so that "this.imageData" refers to the imageData of Vue component
           // Read image as base64 and set to imageData
           _this.uploadedImage = e.target.result;
-          _this.form.image = input.files;
+          _this.form.image = input.files[0];
         }; // Start the reader job - read file as a data url (base64 format)
 
 
@@ -236,10 +236,8 @@ __webpack_require__.r(__webpack_exports__);
           var form_data = new FormData();
 
           for (var key in _this2.form) {
-            if (_this2.form[key]) {
-              for (var i = 0; i < _this2.form[key].length; i++) {
-                form_data.append(key, _this2.form[key][i]);
-              }
+            if (key === 'priceCombinations' || key === 'printCriterias') {
+              form_data.append(key, JSON.stringify(_this2.form[key]));
             } else {
               form_data.append(key, _this2.form[key]);
             }
@@ -257,6 +255,8 @@ __webpack_require__.r(__webpack_exports__);
             _this2.$router.push({
               name: 'category'
             });
+
+            _this2.is_requesting = false;
           }).catch(function (error) {
             console.log(error);
 
@@ -267,6 +267,8 @@ __webpack_require__.r(__webpack_exports__);
               icon: 'icon-alert-circle',
               color: 'danger'
             });
+
+            _this2.is_requesting = false;
           });
         } else {
           _this2.$vs.notify({
@@ -537,120 +539,134 @@ var render = function() {
                             _c(
                               "transition-group",
                               { attrs: { mode: "out-in", name: "slide-down" } },
-                              _vm._l(_vm.form.attributes, function(
-                                attr,
-                                index
-                              ) {
-                                return _c(
+                              [
+                                _c(
                                   "div",
-                                  { key: attr.id, staticClass: "vx-row" },
-                                  [
-                                    _c(
+                                  { key: 1 },
+                                  _vm._l(_vm.form.priceCombinations, function(
+                                    attr,
+                                    index
+                                  ) {
+                                    return _c(
                                       "div",
-                                      {
-                                        staticClass:
-                                          "vx-col md:w-8/12 w-full mb-3"
-                                      },
-                                      [
-                                        _c("vs-input", {
-                                          staticClass: "w-full",
-                                          attrs: { label: "Combination" },
-                                          model: {
-                                            value: attr.combination,
-                                            callback: function($$v) {
-                                              _vm.$set(attr, "combination", $$v)
-                                            },
-                                            expression: "attr.combination"
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "vx-col md:w-2/12 w-full mb-3"
-                                      },
-                                      [
-                                        _c("vs-input", {
-                                          staticClass: "w-full",
-                                          attrs: {
-                                            type: "number",
-                                            label: "Price"
-                                          },
-                                          model: {
-                                            value: attr.price,
-                                            callback: function($$v) {
-                                              _vm.$set(attr, "price", $$v)
-                                            },
-                                            expression: "attr.price"
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "vx-col md:w-2/12 w-full mb-3"
-                                      },
+                                      { staticClass: "vx-row" },
                                       [
                                         _c(
                                           "div",
                                           {
                                             staticClass:
-                                              "attribute-actions mt-5"
+                                              "vx-col md:w-8/12 w-full mb-3"
                                           },
                                           [
-                                            index || (!index && index > 1)
-                                              ? _c("vs-button", {
-                                                  staticClass: "ml-2",
-                                                  attrs: {
-                                                    "icon-pack": "feather",
-                                                    icon: "icon-minus",
-                                                    color: "danger",
-                                                    type: "border",
-                                                    radius: ""
-                                                  },
-                                                  on: {
-                                                    click: function($event) {
-                                                      return _vm.removeAttribute(
-                                                        index
-                                                      )
-                                                    }
-                                                  }
-                                                })
-                                              : _vm._e(),
-                                            _vm._v(" "),
-                                            index ===
-                                            _vm.form.attributes.length - 1
-                                              ? _c("vs-button", {
-                                                  staticClass: "ml-2",
-                                                  attrs: {
-                                                    "icon-pack": "feather",
-                                                    icon: "icon-plus",
-                                                    color: "primary",
-                                                    type: "border",
-                                                    radius: ""
-                                                  },
-                                                  on: {
-                                                    click: _vm.addAttribute
-                                                  }
-                                                })
-                                              : _vm._e()
+                                            _c("vs-input", {
+                                              staticClass: "w-full",
+                                              attrs: { label: "Combination" },
+                                              model: {
+                                                value: attr.combination,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    attr,
+                                                    "combination",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression: "attr.combination"
+                                              }
+                                            })
                                           ],
                                           1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "vx-col md:w-2/12 w-full mb-3"
+                                          },
+                                          [
+                                            _c("vs-input", {
+                                              staticClass: "w-full",
+                                              attrs: {
+                                                type: "number",
+                                                label: "Price"
+                                              },
+                                              model: {
+                                                value: attr.price,
+                                                callback: function($$v) {
+                                                  _vm.$set(attr, "price", $$v)
+                                                },
+                                                expression: "attr.price"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "vx-col md:w-2/12 w-full mb-3"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "attribute-actions mt-5"
+                                              },
+                                              [
+                                                index || (!index && index > 1)
+                                                  ? _c("vs-button", {
+                                                      staticClass: "ml-2",
+                                                      attrs: {
+                                                        "icon-pack": "feather",
+                                                        icon: "icon-minus",
+                                                        color: "danger",
+                                                        type: "border",
+                                                        radius: ""
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.removeAttribute(
+                                                            index
+                                                          )
+                                                        }
+                                                      }
+                                                    })
+                                                  : _vm._e(),
+                                                _vm._v(" "),
+                                                index ===
+                                                _vm.form.priceCombinations
+                                                  .length -
+                                                  1
+                                                  ? _c("vs-button", {
+                                                      staticClass: "ml-2",
+                                                      attrs: {
+                                                        "icon-pack": "feather",
+                                                        icon: "icon-plus",
+                                                        color: "primary",
+                                                        type: "border",
+                                                        radius: ""
+                                                      },
+                                                      on: {
+                                                        click: _vm.addAttribute
+                                                      }
+                                                    })
+                                                  : _vm._e()
+                                              ],
+                                              1
+                                            )
+                                          ]
                                         )
                                       ]
                                     )
-                                  ]
+                                  }),
+                                  0
                                 )
-                              }),
-                              0
+                              ]
                             )
                           ],
                           1
@@ -675,125 +691,138 @@ var render = function() {
                             _c(
                               "transition-group",
                               { attrs: { mode: "out-in", name: "slide-down" } },
-                              _vm._l(_vm.form.printingCriteria, function(
-                                criteria,
-                                index
-                              ) {
-                                return _c(
+                              [
+                                _c(
                                   "div",
-                                  { key: criteria.id, staticClass: "vx-row" },
-                                  [
-                                    _c(
+                                  { key: 2 },
+                                  _vm._l(_vm.form.printCriterias, function(
+                                    criteria,
+                                    index
+                                  ) {
+                                    return _c(
                                       "div",
-                                      {
-                                        staticClass:
-                                          "vx-col md:w-8/12 w-full mb-3"
-                                      },
-                                      [
-                                        _c("vs-input", {
-                                          staticClass: "w-full",
-                                          attrs: { label: "Criteria" },
-                                          model: {
-                                            value: criteria.criteria,
-                                            callback: function($$v) {
-                                              _vm.$set(
-                                                criteria,
-                                                "criteria",
-                                                $$v
-                                              )
-                                            },
-                                            expression: "criteria.criteria"
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "vx-col md:w-2/12 w-full mb-3"
-                                      },
-                                      [
-                                        _c("vs-input", {
-                                          staticClass: "w-full",
-                                          attrs: {
-                                            type: "number",
-                                            label: "Price"
-                                          },
-                                          model: {
-                                            value: criteria.price,
-                                            callback: function($$v) {
-                                              _vm.$set(criteria, "price", $$v)
-                                            },
-                                            expression: "criteria.price"
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "vx-col md:w-2/12 w-full mb-3"
-                                      },
+                                      { staticClass: "vx-row" },
                                       [
                                         _c(
                                           "div",
                                           {
                                             staticClass:
-                                              "attribute-actions mt-5"
+                                              "vx-col md:w-8/12 w-full mb-3"
                                           },
                                           [
-                                            index || (!index && index > 1)
-                                              ? _c("vs-button", {
-                                                  staticClass: "ml-2",
-                                                  attrs: {
-                                                    "icon-pack": "feather",
-                                                    icon: "icon-minus",
-                                                    color: "danger",
-                                                    type: "border",
-                                                    radius: ""
-                                                  },
-                                                  on: {
-                                                    click: function($event) {
-                                                      return _vm.removePrintingCriteria(
-                                                        index
-                                                      )
-                                                    }
-                                                  }
-                                                })
-                                              : _vm._e(),
-                                            _vm._v(" "),
-                                            index ===
-                                            _vm.form.printingCriteria.length - 1
-                                              ? _c("vs-button", {
-                                                  staticClass: "ml-2",
-                                                  attrs: {
-                                                    "icon-pack": "feather",
-                                                    icon: "icon-plus",
-                                                    color: "primary",
-                                                    type: "border",
-                                                    radius: ""
-                                                  },
-                                                  on: {
-                                                    click:
-                                                      _vm.addPrintingCriteria
-                                                  }
-                                                })
-                                              : _vm._e()
+                                            _c("vs-input", {
+                                              staticClass: "w-full",
+                                              attrs: { label: "Criteria" },
+                                              model: {
+                                                value: criteria.criteria,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    criteria,
+                                                    "criteria",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression: "criteria.criteria"
+                                              }
+                                            })
                                           ],
                                           1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "vx-col md:w-2/12 w-full mb-3"
+                                          },
+                                          [
+                                            _c("vs-input", {
+                                              staticClass: "w-full",
+                                              attrs: {
+                                                type: "number",
+                                                label: "Price"
+                                              },
+                                              model: {
+                                                value: criteria.price,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    criteria,
+                                                    "price",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression: "criteria.price"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "vx-col md:w-2/12 w-full mb-3"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "attribute-actions mt-5"
+                                              },
+                                              [
+                                                index || (!index && index > 1)
+                                                  ? _c("vs-button", {
+                                                      staticClass: "ml-2",
+                                                      attrs: {
+                                                        "icon-pack": "feather",
+                                                        icon: "icon-minus",
+                                                        color: "danger",
+                                                        type: "border",
+                                                        radius: ""
+                                                      },
+                                                      on: {
+                                                        click: function(
+                                                          $event
+                                                        ) {
+                                                          return _vm.removePrintingCriteria(
+                                                            index
+                                                          )
+                                                        }
+                                                      }
+                                                    })
+                                                  : _vm._e(),
+                                                _vm._v(" "),
+                                                index ===
+                                                _vm.form.printCriterias.length -
+                                                  1
+                                                  ? _c("vs-button", {
+                                                      staticClass: "ml-2",
+                                                      attrs: {
+                                                        "icon-pack": "feather",
+                                                        icon: "icon-plus",
+                                                        color: "primary",
+                                                        type: "border",
+                                                        radius: ""
+                                                      },
+                                                      on: {
+                                                        click:
+                                                          _vm.addPrintingCriteria
+                                                      }
+                                                    })
+                                                  : _vm._e()
+                                              ],
+                                              1
+                                            )
+                                          ]
                                         )
                                       ]
                                     )
-                                  ]
+                                  }),
+                                  0
                                 )
-                              }),
-                              0
+                              ]
                             )
                           ],
                           1

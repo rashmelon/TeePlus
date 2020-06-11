@@ -28,14 +28,26 @@ class CategoryRequest extends FormRequest
             return [
                 'name' => 'required',
                 'description' => 'required',
-                'image' => ''
+                'image' => 'required',
+                'priceCombinations' => 'required',
+                'priceCombinations.*.combination' => 'required',
+                'priceCombinations.*.price' => 'required',
+                'printCriterias' => 'required',
+                'printCriterias.*.criteria' => 'required',
+                'printCriterias.*.price' => 'required',
             ];
         }
         else if (sizeof($segments) == 3){
             return [
                 'name' => '',
                 'description' => '',
-                'image' => ''
+                'image' => '',
+                'priceCombinations' => '',
+                'priceCombinations.*.combination' => '',
+                'priceCombinations.*.price' => '',
+                'printCriterias' => '',
+                'printCriterias.*.criteria' => '',
+                'printCriterias.*.price' => '',
             ];
         }
     }

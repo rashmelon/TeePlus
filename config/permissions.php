@@ -95,4 +95,60 @@ return [
             'display_name' => 'Delete Category',
         ],
     ],
+
+    'Price Combination' => [
+        [
+            'name' => 'create-price-combination',
+            'guard_name' => 'api',
+            'display_name' => 'Create Price Combination',
+        ],
+        [
+            'name' => 'browse-price-combination',
+            'guard_name' => 'api',
+            'display_name' => 'Browse Price Combination',
+        ],
+        [
+            'name' => 'view-price-combination',
+            'guard_name' => 'api',
+            'display_name' => 'View Price Combination',
+        ],
+        [
+            'name' => 'edit-price-combination',
+            'guard_name' => 'api',
+            'display_name' => 'Edit Price Combination',
+        ],
+        [
+            'name' => 'delete-price-combination',
+            'guard_name' => 'api',
+            'display_name' => 'Delete Price Combination',
+        ],
+    ],
+
+    'Print Criteria' => [
+        [
+            'name' => 'create-print-criteria',
+            'guard_name' => 'api',
+            'display_name' => 'Create Print Criteria',
+        ],
+        [
+            'name' => 'browse-print-criteria',
+            'guard_name' => 'api',
+            'display_name' => 'Browse Print Criteria',
+        ],
+        [
+            'name' => 'view-print-criteria',
+            'guard_name' => 'api',
+            'display_name' => 'View Print Criteria',
+        ],
+        [
+            'name' => 'edit-print-criteria',
+            'guard_name' => 'api',
+            'display_name' => 'Edit Print Criteria',
+        ],
+        [
+            'name' => 'delete-print-criteria',
+            'guard_name' => 'api',
+            'display_name' => 'Delete Print Criteria',
+        ],
+    ],
 ];

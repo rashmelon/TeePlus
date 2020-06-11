@@ -44,7 +44,7 @@
                             <div class="vx-col md:w-1/1 w-full mt-3">
                                 <vs-button
                                   @click="addAttribute"
-                                  v-if="!form.attributes"
+                                  v-if="!form.priceCombinations"
                                   icon-pack="feather"
                                   icon="icon-plus"
                                   color="primary"
@@ -54,7 +54,7 @@
                                 ></vs-button>
 
                                 <transition-group mode="out-in" name="slide-down">
-                                    <div class="vx-row"  :key="attr.id" v-for="(attr,index) in form.attributes">
+                                    <div class="vx-row"  :key="attr.id" v-for="(attr,index) in form.priceCombinations">
                                         <div class="vx-col md:w-8/12 w-full mb-3">
                                             <vs-input label="Combination" v-model="attr.combination" class="w-full" />
                                         </div>
@@ -78,7 +78,7 @@
 
                                                 <vs-button
                                                   @click="addAttribute"
-                                                  v-if="index === form.attributes.length-1"
+                                                  v-if="index === form.priceCombinations.length-1"
                                                   icon-pack="feather"
                                                   icon="icon-plus"
                                                   color="primary"
@@ -98,7 +98,7 @@
                         <vx-card class="vx-row">
                             <div class="vx-col md:w-1/1 w-full mt-3">
                                 <transition-group mode="out-in" name="slide-down">
-                                    <div class="vx-row"  :key="criteria.id" v-for="(criteria,index) in form.printingCriteria">
+                                    <div class="vx-row"  :key="criteria.id" v-for="(criteria,index) in form.printCriterias">
                                         <div class="vx-col md:w-8/12 w-full mb-3">
                                             <vs-input label="Criteria" v-model="criteria.criteria" class="w-full" />
                                         </div>
@@ -122,7 +122,7 @@
 
                                                 <vs-button
                                                   @click="addPrintingCriteria"
-                                                  v-if="index === form.printingCriteria.length-1"
+                                                  v-if="index === form.printCriterias.length-1"
                                                   icon-pack="feather"
                                                   icon="icon-plus"
                                                   color="primary"
@@ -190,24 +190,24 @@
 
             },
             addAttribute(){
-                this.form.attributes.push({
+                this.form.priceCombinations.push({
                     id:uuid(),
                     name:'',
                     values:''
                 })
             },
             removeAttribute(index) {
-                this.form.attributes.splice(index, 1);
+                this.form.priceCombinations.splice(index, 1);
             },
             addPrintingCriteria(){
-                this.form.printingCriteria.push({
+                this.form.printCriterias.push({
                     id:uuid(),
                     criteria: '',
                     price: ''
                 })
             },
             removePrintingCriteria(index){
-                this.form.printingCriteria.splice(index, 1);
+                this.form.printCriterias.splice(index, 1);
             },
             previewImage: function(event) {
                 // Reference to the DOM input element

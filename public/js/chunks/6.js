@@ -203,24 +203,24 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     addAttribute: function addAttribute() {
-      this.form.attributes.push({
+      this.form.priceCombinations.push({
         id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
         name: '',
         values: ''
       });
     },
     removeAttribute: function removeAttribute(index) {
-      this.form.attributes.splice(index, 1);
+      this.form.priceCombinations.splice(index, 1);
     },
     addPrintingCriteria: function addPrintingCriteria() {
-      this.form.printingCriteria.push({
+      this.form.printCriterias.push({
         id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
         criteria: '',
         price: ''
       });
     },
     removePrintingCriteria: function removePrintingCriteria(index) {
-      this.form.printingCriteria.splice(index, 1);
+      this.form.printCriterias.splice(index, 1);
     },
     previewImage: function previewImage(event) {
       var _this2 = this;
@@ -554,7 +554,7 @@ var render = function() {
                           "div",
                           { staticClass: "vx-col md:w-1/1 w-full mt-3" },
                           [
-                            !_vm.form.attributes
+                            !_vm.form.priceCombinations
                               ? _c("vs-button", {
                                   staticClass: "ml-2",
                                   attrs: {
@@ -571,7 +571,7 @@ var render = function() {
                             _c(
                               "transition-group",
                               { attrs: { mode: "out-in", name: "slide-down" } },
-                              _vm._l(_vm.form.attributes, function(
+                              _vm._l(_vm.form.priceCombinations, function(
                                 attr,
                                 index
                               ) {
@@ -661,7 +661,8 @@ var render = function() {
                                               : _vm._e(),
                                             _vm._v(" "),
                                             index ===
-                                            _vm.form.attributes.length - 1
+                                            _vm.form.priceCombinations.length -
+                                              1
                                               ? _c("vs-button", {
                                                   staticClass: "ml-2",
                                                   attrs: {
@@ -709,7 +710,7 @@ var render = function() {
                             _c(
                               "transition-group",
                               { attrs: { mode: "out-in", name: "slide-down" } },
-                              _vm._l(_vm.form.printingCriteria, function(
+                              _vm._l(_vm.form.printCriterias, function(
                                 criteria,
                                 index
                               ) {
@@ -803,7 +804,7 @@ var render = function() {
                                               : _vm._e(),
                                             _vm._v(" "),
                                             index ===
-                                            _vm.form.printingCriteria.length - 1
+                                            _vm.form.printCriterias.length - 1
                                               ? _c("vs-button", {
                                                   staticClass: "ml-2",
                                                   attrs: {
