@@ -1,143 +1,47 @@
 <template>
     <div>
-        <div v-if="can('edit-category')" class="vx-col w-full mb-base">
-            <div ref="loadingContainer" title="Create Category">
+        <div v-if="can('edit-category')" class="w-full mb-base">
+            <div ref="loadingContainer">
 
-                <form-wizard color="rgb(var(--vs-primary))" :title="null" :subtitle="null" finishButtonText="Submit" @on-complete="edit">
-                    <tab-content title="Category data" class="mb-5">
-                        <vx-card class="vx-row">
-                            <div class="vx-col md:w-6/6 w-full mb-3">
-                                <div class="image-preview" style="display: inline-flex;">
-                                    <img :src="uploadedImage?uploadedImage:'/images/no-image-found.png'" alt="photo" class="preview-large">
-                                </div>
-                                <div class="d-block mt-3">
-                                    <input @change="previewImage" accept="image/*" id="img-upload" type="file">
-                                    <vs-button icon="icon-upload" icon-pack="feather" onclick="document.getElementById('img-upload').click()" size="small"
-                                               type="gradient">Upload Photo
-                                    </vs-button>
-                                </div>
+                <vx-card class="my-5" collapse-action>
+                    <div class="vx-row">
+                        <div class="vx-col md:w-6/6 w-full mb-3">
+                            <div class="image-preview" style="display: inline-flex;">
+                                <img :src="uploadedImage?uploadedImage:'/images/no-image-found.png'" alt="photo" class="preview-large">
                             </div>
-                            <div class="vx-col sm:w-2/2 w-full mb-3">
-                                <vs-input label="Category Name" v-model="form.name" class="w-full"
-                                          v-validate="'required'"
-                                          name="name"
-                                />
-                                <span class="text-danger text-sm"  v-show="errors.has('name')">{{ errors.first('name') }}</span>
+                            <div class="d-block mt-3">
+                                <input @change="previewImage" accept="image/*" id="img-upload" type="file">
+                                <vs-button icon="icon-upload" icon-pack="feather" onclick="document.getElementById('img-upload').click()" size="small"
+                                           type="gradient">Upload Photo
+                                </vs-button>
                             </div>
-
-                            <div class="vx-col md:w-1/1 w-full mt-3">
-                                <vs-textarea label="Description"
-                                             v-model="form.description"
-                                             class="mb-0"
-                                             v-validate="'required'"
-                                             name="description"
-                                />
-                                <span class="text-danger text-sm"  v-show="errors.has('description')">{{ errors.first('description')
+                        </div>
+                        <div class="vx-col sm:w-2/2 w-full mb-3">
+                            <vs-input
+                              class="w-full"
+                              label="Category Name"
+                              name="name"
+                              v-model="form.name"
+                              v-validate="'required'"
+                            />
+                            <span class="text-danger text-sm" v-show="errors.has('name')">{{ errors.first('name') }}</span>
+                        </div>
+                        <div class="vx-col md:w-1/1 w-full mt-3">
+                            <vs-textarea
+                              class="mb-0"
+                              label="Description"
+                              name="description"
+                              v-model="form.description"
+                              v-validate="'required'"
+                            />
+                            <span class="text-danger text-sm" v-show="errors.has('description')">{{ errors.first('description')
                                     }}</span>
-                            </div>
 
-                        </vx-card>
-                    </tab-content>
+                        </div>
+                    </div>
+                </vx-card>
 
-                    <tab-content title="Combinations" class="mb-5">
-                        <vx-card class="vx-row">
-                            <div class="vx-col md:w-1/1 w-full mt-3">
-                                <vs-button
-                                  @click="addAttribute"
-                                  v-if="!form.priceCombinations"
-                                  icon-pack="feather"
-                                  icon="icon-plus"
-                                  color="primary"
-                                  type="border"
-                                  radius
-                                  class="ml-2"
-                                ></vs-button>
-
-                                <transition-group mode="out-in" name="slide-down">
-                                    <div class="vx-row"  :key="attr.id" v-for="(attr,index) in form.priceCombinations">
-                                        <div class="vx-col md:w-8/12 w-full mb-3">
-                                            <vs-input label="Combination" v-model="attr.combination" class="w-full" />
-                                        </div>
-
-                                        <div class="vx-col md:w-2/12 w-full mb-3">
-                                            <vs-input type="number" label="Price" v-model="attr.price" class="w-full" />
-                                        </div>
-
-                                        <div class="vx-col md:w-2/12 w-full mb-3">
-                                            <div class="attribute-actions mt-5">
-                                                <vs-button
-                                                  @click="removeAttribute(index)"
-                                                  v-if="index || ( !index && index> 1)"
-                                                  icon-pack="feather"
-                                                  icon="icon-minus"
-                                                  color="danger"
-                                                  type="border"
-                                                  radius
-                                                  class="ml-2"
-                                                ></vs-button>
-
-                                                <vs-button
-                                                  @click="addAttribute"
-                                                  v-if="index === form.priceCombinations.length-1"
-                                                  icon-pack="feather"
-                                                  icon="icon-plus"
-                                                  color="primary"
-                                                  type="border"
-                                                  radius
-                                                  class="ml-2"
-                                                ></vs-button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </transition-group>
-                            </div>
-                        </vx-card>
-                    </tab-content>
-
-                    <tab-content title="Printing Criteria" class="mb-5">
-                        <vx-card class="vx-row">
-                            <div class="vx-col md:w-1/1 w-full mt-3">
-                                <transition-group mode="out-in" name="slide-down">
-                                    <div class="vx-row"  :key="criteria.id" v-for="(criteria,index) in form.printCriterias">
-                                        <div class="vx-col md:w-8/12 w-full mb-3">
-                                            <vs-input label="Criteria" v-model="criteria.criteria" class="w-full" />
-                                        </div>
-
-                                        <div class="vx-col md:w-2/12 w-full mb-3">
-                                            <vs-input type="number" label="Price" v-model="criteria.price" class="w-full" />
-                                        </div>
-
-                                        <div class="vx-col md:w-2/12 w-full mb-3">
-                                            <div class="attribute-actions mt-5">
-                                                <vs-button
-                                                  @click="removePrintingCriteria(index)"
-                                                  v-if="index || ( !index && index> 1)"
-                                                  icon-pack="feather"
-                                                  icon="icon-minus"
-                                                  color="danger"
-                                                  type="border"
-                                                  radius
-                                                  class="ml-2"
-                                                ></vs-button>
-
-                                                <vs-button
-                                                  @click="addPrintingCriteria"
-                                                  v-if="index === form.printCriterias.length-1"
-                                                  icon-pack="feather"
-                                                  icon="icon-plus"
-                                                  color="primary"
-                                                  type="border"
-                                                  radius
-                                                  class="ml-2"
-                                                ></vs-button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </transition-group>
-                            </div>
-                        </vx-card>
-                    </tab-content>
-                </form-wizard>
+                <ShowSingle :catId="$route.params.id"/>
 
             </div>
         </div>
@@ -145,9 +49,7 @@
 </template>
 
 <script>
-    import {FormWizard, TabContent} from 'vue-form-wizard'
-    import 'vue-form-wizard/dist/vue-form-wizard.min.css'
-    import { uuid } from '../../utils'
+    import ShowSingle from '../Combination/ShowSingle'
 
     export default {
         name: "edit",
@@ -159,13 +61,49 @@
             }
         },
         components: {
-            FormWizard,
-            TabContent
+            ShowSingle
         },
         mounted(){
             this.getCategory()
         },
         methods: {
+            addAttribute() {
+                this.form.priceCombinations.push({
+                    combination: '',
+                    price: ''
+                })
+            },
+            removeAttribute(index) {
+                this.form.priceCombinations.splice(index, 1);
+            },
+            addPrintingCriteria() {
+                this.form.printCriterias.push({
+                    criteria: '',
+                    price: ''
+                })
+            },
+            removePrintingCriteria(index) {
+                this.form.printCriterias.splice(index, 1);
+            },
+            previewImage: function(event) {
+                // Reference to the DOM input element
+                var input = event.target;
+                // Ensure that you have a file before attempting to read it
+                if (input.files && input.files[0]) {
+                    // create a new FileReader to read this image and convert to base64 format
+                    var reader = new FileReader();
+                    // Define a callback function to run, when FileReader finishes its job
+                    reader.onload = (e) => {
+                        // Note: arrow function used here, so that "this.imageData" refers to the imageData of Vue component
+                        // Read image as base64 and set to imageData
+                        this.uploadedImage = e.target.result;
+                        this.form.image = input.files;
+                    };
+                    // Start the reader job - read file as a data url (base64 format)
+                    reader.readAsDataURL(input.files[0]);
+                }
+            },
+
             getCategory(){
                 // this.$vs.loading({container: this.$refs.loadingContainer.$el, scale: 0.5});
                 this.$store.dispatch('category/view', this.$route.params.id)
@@ -188,44 +126,6 @@
                       });
                   })
 
-            },
-            addAttribute(){
-                this.form.priceCombinations.push({
-                    id:uuid(),
-                    name:'',
-                    values:''
-                })
-            },
-            removeAttribute(index) {
-                this.form.priceCombinations.splice(index, 1);
-            },
-            addPrintingCriteria(){
-                this.form.printCriterias.push({
-                    id:uuid(),
-                    criteria: '',
-                    price: ''
-                })
-            },
-            removePrintingCriteria(index){
-                this.form.printCriterias.splice(index, 1);
-            },
-            previewImage: function(event) {
-                // Reference to the DOM input element
-                var input = event.target;
-                // Ensure that you have a file before attempting to read it
-                if (input.files && input.files[0]) {
-                    // create a new FileReader to read this image and convert to base64 format
-                    var reader = new FileReader();
-                    // Define a callback function to run, when FileReader finishes its job
-                    reader.onload = (e) => {
-                        // Note: arrow function used here, so that "this.imageData" refers to the imageData of Vue component
-                        // Read image as base64 and set to imageData
-                        this.uploadedImage = e.target.result;
-                        this.form.image = input.files;
-                    };
-                    // Start the reader job - read file as a data url (base64 format)
-                    reader.readAsDataURL(input.files[0]);
-                }
             },
 
             edit() {
@@ -279,7 +179,8 @@
                     }
 
                 })
-            }
+            },
+
 
         }
     }

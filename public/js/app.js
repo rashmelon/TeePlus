@@ -72336,6 +72336,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/src/http/requests/combination/index.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/src/http/requests/combination/index.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _axios_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../axios/index.js */ "./resources/js/src/http/axios/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  getAll: function getAll(filters) {
+    //filters=?paginate=5&sortAsc=id
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("price-combination".concat(filters));
+  },
+  view: function view(id) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("price-combination/".concat(id));
+  },
+  create: function create(data) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].post("price-combination", data);
+  },
+  update: function update(id, data) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].post("price-combination/".concat(id), data);
+  },
+  delete: function _delete(id) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].delete("price-combination/".concat(id));
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/src/http/requests/notification/index.js":
 /*!**************************************************************!*\
   !*** ./resources/js/src/http/requests/notification/index.js ***!
@@ -73084,7 +73116,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/category/create',
       name: 'create-category',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./views/category/create.vue */ "./resources/js/src/views/category/create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(26), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./views/category/create.vue */ "./resources/js/src/views/category/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73110,7 +73142,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/category/edit/:id',
       name: 'edit-category',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./views/category/edit.vue */ "./resources/js/src/views/category/edit.vue"));
+        return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./views/category/edit.vue */ "./resources/js/src/views/category/edit.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73157,7 +73189,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/product/create',
       name: 'create-product',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./views/product/create.vue */ "./resources/js/src/views/product/create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(26), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./views/product/create.vue */ "./resources/js/src/views/product/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73975,6 +74007,168 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/src/store/combination/moduleCombination.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/src/store/combination/moduleCombination.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _moduleCombinationState__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./moduleCombinationState */ "./resources/js/src/store/combination/moduleCombinationState.js");
+/* harmony import */ var _moduleCombinationMutations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moduleCombinationMutations */ "./resources/js/src/store/combination/moduleCombinationMutations.js");
+/* harmony import */ var _moduleCombinationActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moduleCombinationActions */ "./resources/js/src/store/combination/moduleCombinationActions.js");
+/* harmony import */ var _moduleCombinationGetters__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moduleCombinationGetters */ "./resources/js/src/store/combination/moduleCombinationGetters.js");
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: _moduleCombinationState__WEBPACK_IMPORTED_MODULE_0__["default"],
+  mutations: _moduleCombinationMutations__WEBPACK_IMPORTED_MODULE_1__["default"],
+  actions: _moduleCombinationActions__WEBPACK_IMPORTED_MODULE_2__["default"],
+  getters: _moduleCombinationGetters__WEBPACK_IMPORTED_MODULE_3__["default"]
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/combination/moduleCombinationActions.js":
+/*!************************************************************************!*\
+  !*** ./resources/js/src/store/combination/moduleCombinationActions.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _http_requests_combination_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../http/requests/combination/index */ "./resources/js/src/http/requests/combination/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  getData: function getData(_ref, payload) {
+    var commit = _ref.commit,
+        dispatch = _ref.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_combination_index__WEBPACK_IMPORTED_MODULE_0__["default"].getAll(payload).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  view: function view(_ref2, id) {
+    var commit = _ref2.commit,
+        dispatch = _ref2.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_combination_index__WEBPACK_IMPORTED_MODULE_0__["default"].view(id).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  create: function create(_ref3, payload) {
+    var commit = _ref3.commit,
+        dispatch = _ref3.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_combination_index__WEBPACK_IMPORTED_MODULE_0__["default"].create(payload).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  update: function update(_ref4, payload) {
+    var commit = _ref4.commit,
+        dispatch = _ref4.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_combination_index__WEBPACK_IMPORTED_MODULE_0__["default"].update(payload.id, payload.data).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  delete: function _delete(_ref5, id) {
+    var commit = _ref5.commit,
+        dispatch = _ref5.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_combination_index__WEBPACK_IMPORTED_MODULE_0__["default"].delete(id).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/combination/moduleCombinationGetters.js":
+/*!************************************************************************!*\
+  !*** ./resources/js/src/store/combination/moduleCombinationGetters.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/combination/moduleCombinationMutations.js":
+/*!**************************************************************************!*\
+  !*** ./resources/js/src/store/combination/moduleCombinationMutations.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/combination/moduleCombinationState.js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/src/store/combination/moduleCombinationState.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
 /***/ "./resources/js/src/store/getters.js":
 /*!*******************************************!*\
   !*** ./resources/js/src/store/getters.js ***!
@@ -74647,6 +74841,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _agency_moduleAgency__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./agency/moduleAgency */ "./resources/js/src/store/agency/moduleAgency.js");
 /* harmony import */ var _notification_moduleNotification__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./notification/moduleNotification */ "./resources/js/src/store/notification/moduleNotification.js");
 /* harmony import */ var _category_moduleCategory__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./category/moduleCategory */ "./resources/js/src/store/category/moduleCategory.js");
+/* harmony import */ var _combination_moduleCombination__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./combination/moduleCombination */ "./resources/js/src/store/combination/moduleCombination.js");
 
 
 
@@ -74655,6 +74850,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 
 
 
@@ -74677,7 +74873,8 @@ var vuexLocal = new vuex_persist__WEBPACK_IMPORTED_MODULE_6__["default"]({
     rolesAndPermissions: _roles_and_permissions_moduleRolesAndPermissions__WEBPACK_IMPORTED_MODULE_10__["default"],
     agency: _agency_moduleAgency__WEBPACK_IMPORTED_MODULE_11__["default"],
     notification: _notification_moduleNotification__WEBPACK_IMPORTED_MODULE_12__["default"],
-    category: _category_moduleCategory__WEBPACK_IMPORTED_MODULE_13__["default"]
+    category: _category_moduleCategory__WEBPACK_IMPORTED_MODULE_13__["default"],
+    combination: _combination_moduleCombination__WEBPACK_IMPORTED_MODULE_14__["default"]
   },
   plugins: [vuexLocal.plugin],
   strict: "development" !== 'production'

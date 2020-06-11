@@ -300,10 +300,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "vx-card",
-        {
-          ref: "browse",
-          attrs: { title: "categories List", "collapse-action": "" }
-        },
+        { ref: "browse" },
         [
           _c(
             "vs-table",

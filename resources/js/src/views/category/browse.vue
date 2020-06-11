@@ -9,7 +9,7 @@
 			</vs-row>
 		</div>
 
-		<vx-card ref="browse" title="categories List" collapse-action >
+		<vx-card ref="browse">
 			<vs-table
 				pagination
 				search

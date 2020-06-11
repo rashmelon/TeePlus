@@ -548,7 +548,7 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "tab-content",
-                    { staticClass: "mb-5", attrs: { title: "Combinations" } },
+                    { staticClass: "mb-5", attrs: { title: "Combination" } },
                     [
                       _c("vx-card", { staticClass: "vx-row" }, [
                         _c(

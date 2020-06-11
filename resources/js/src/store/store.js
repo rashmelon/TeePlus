@@ -17,6 +17,7 @@ import moduleRolesAndPermissions from './roles-and-permissions/moduleRolesAndPer
 import moduleAgency from "./agency/moduleAgency";
 import moduleNotification from "./notification/moduleNotification";
 import moduleCategory from "./category/moduleCategory";
+import moduleCombination from "./combination/moduleCombination";
 
 
 const vuexLocal = new VuexPersistence({
@@ -36,6 +37,7 @@ export default new Vuex.Store({
         agency: moduleAgency,
         notification: moduleNotification,
         category: moduleCategory,
+        combination: moduleCombination,
     },
     plugins: [vuexLocal.plugin],
     strict: process.env.NODE_ENV !== 'production'

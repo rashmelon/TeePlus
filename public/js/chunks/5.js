@@ -160,6 +160,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -180,33 +219,10 @@ __webpack_require__.r(__webpack_exports__);
     this.getCategory();
   },
   methods: {
-    getCategory: function getCategory() {
-      var _this = this;
-
-      // this.$vs.loading({container: this.$refs.loadingContainer.$el, scale: 0.5});
-      this.$store.dispatch('category/view', this.$route.params.id).then(function (response) {
-        _this.form = response.data.data; // preview used image
-
-        if (_this.form.image) {
-          _this.uploadedImage = _this.form.image.url;
-        }
-      }).catch(function (error) {
-        console.log(error);
-
-        _this.$vs.notify({
-          title: 'Error',
-          text: error.response.data.error,
-          iconPack: 'feather',
-          icon: 'icon-alert-circle',
-          color: 'danger'
-        });
-      });
-    },
     addAttribute: function addAttribute() {
       this.form.priceCombinations.push({
-        id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
-        name: '',
-        values: ''
+        combination: '',
+        price: ''
       });
     },
     removeAttribute: function removeAttribute(index) {
@@ -214,7 +230,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     addPrintingCriteria: function addPrintingCriteria() {
       this.form.printCriterias.push({
-        id: Object(_utils__WEBPACK_IMPORTED_MODULE_2__["uuid"])(),
         criteria: '',
         price: ''
       });
@@ -223,7 +238,7 @@ __webpack_require__.r(__webpack_exports__);
       this.form.printCriterias.splice(index, 1);
     },
     previewImage: function previewImage(event) {
-      var _this2 = this;
+      var _this = this;
 
       // Reference to the DOM input element
       var input = event.target; // Ensure that you have a file before attempting to read it
@@ -235,13 +250,35 @@ __webpack_require__.r(__webpack_exports__);
         reader.onload = function (e) {
           // Note: arrow function used here, so that "this.imageData" refers to the imageData of Vue component
           // Read image as base64 and set to imageData
-          _this2.uploadedImage = e.target.result;
-          _this2.form.image = input.files;
+          _this.uploadedImage = e.target.result;
+          _this.form.image = input.files;
         }; // Start the reader job - read file as a data url (base64 format)
 
 
         reader.readAsDataURL(input.files[0]);
       }
+    },
+    getCategory: function getCategory() {
+      var _this2 = this;
+
+      // this.$vs.loading({container: this.$refs.loadingContainer.$el, scale: 0.5});
+      this.$store.dispatch('category/view', this.$route.params.id).then(function (response) {
+        _this2.form = response.data.data; // preview used image
+
+        if (_this2.form.image) {
+          _this2.uploadedImage = _this2.form.image.url;
+        }
+      }).catch(function (error) {
+        console.log(error);
+
+        _this2.$vs.notify({
+          title: 'Error',
+          text: error.response.data.error,
+          iconPack: 'feather',
+          icon: 'icon-alert-circle',
+          color: 'danger'
+        });
+      });
     },
     edit: function edit() {
       var _this3 = this;
@@ -373,472 +410,153 @@ var render = function() {
       ? _c("div", { staticClass: "vx-col w-full mb-base" }, [
           _c(
             "div",
-            { ref: "loadingContainer", attrs: { title: "Create Category" } },
+            { ref: "loadingContainer" },
             [
               _c(
-                "form-wizard",
+                "vx-card",
                 {
-                  attrs: {
-                    color: "rgb(var(--vs-primary))",
-                    title: null,
-                    subtitle: null,
-                    finishButtonText: "Submit"
-                  },
-                  on: { "on-complete": _vm.edit }
+                  staticClass: "vx-row my-5",
+                  attrs: { "collapse-action": "" }
                 },
                 [
-                  _c(
-                    "tab-content",
-                    { staticClass: "mb-5", attrs: { title: "Category data" } },
-                    [
-                      _c("vx-card", { staticClass: "vx-row" }, [
-                        _c(
-                          "div",
-                          { staticClass: "vx-col md:w-6/6 w-full mb-3" },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass: "image-preview",
-                                staticStyle: { display: "inline-flex" }
-                              },
-                              [
-                                _c("img", {
-                                  staticClass: "preview-large",
-                                  attrs: {
-                                    src: _vm.uploadedImage
-                                      ? _vm.uploadedImage
-                                      : "/images/no-image-found.png",
-                                    alt: "photo"
-                                  }
-                                })
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "d-block mt-3" },
-                              [
-                                _c("input", {
-                                  attrs: {
-                                    accept: "image/*",
-                                    id: "img-upload",
-                                    type: "file"
-                                  },
-                                  on: { change: _vm.previewImage }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "vs-button",
-                                  {
-                                    attrs: {
-                                      icon: "icon-upload",
-                                      "icon-pack": "feather",
-                                      onclick:
-                                        "document.getElementById('img-upload').click()",
-                                      size: "small",
-                                      type: "gradient"
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "Upload Photo\n                                "
-                                    )
-                                  ]
-                                )
-                              ],
-                              1
-                            )
-                          ]
-                        ),
+                  _c("div", { staticClass: "vx-col md:w-6/6 w-full mb-3" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "image-preview",
+                        staticStyle: { display: "inline-flex" }
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "preview-large",
+                          attrs: {
+                            src: _vm.uploadedImage
+                              ? _vm.uploadedImage
+                              : "/images/no-image-found.png",
+                            alt: "photo"
+                          }
+                        })
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "d-block mt-3" },
+                      [
+                        _c("input", {
+                          attrs: {
+                            accept: "image/*",
+                            id: "img-upload",
+                            type: "file"
+                          },
+                          on: { change: _vm.previewImage }
+                        }),
                         _vm._v(" "),
                         _c(
-                          "div",
-                          { staticClass: "vx-col sm:w-2/2 w-full mb-3" },
-                          [
-                            _c("vs-input", {
-                              directives: [
-                                {
-                                  name: "validate",
-                                  rawName: "v-validate",
-                                  value: "required",
-                                  expression: "'required'"
-                                }
-                              ],
-                              staticClass: "w-full",
-                              attrs: { label: "Category Name", name: "name" },
-                              model: {
-                                value: _vm.form.name,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.form, "name", $$v)
-                                },
-                                expression: "form.name"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "span",
-                              {
-                                directives: [
-                                  {
-                                    name: "show",
-                                    rawName: "v-show",
-                                    value: _vm.errors.has("name"),
-                                    expression: "errors.has('name')"
-                                  }
-                                ],
-                                staticClass: "text-danger text-sm"
-                              },
-                              [_vm._v(_vm._s(_vm.errors.first("name")))]
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "vx-col md:w-1/1 w-full mt-3" },
-                          [
-                            _c("vs-textarea", {
-                              directives: [
-                                {
-                                  name: "validate",
-                                  rawName: "v-validate",
-                                  value: "required",
-                                  expression: "'required'"
-                                }
-                              ],
-                              staticClass: "mb-0",
-                              attrs: {
-                                label: "Description",
-                                name: "description"
-                              },
-                              model: {
-                                value: _vm.form.description,
-                                callback: function($$v) {
-                                  _vm.$set(_vm.form, "description", $$v)
-                                },
-                                expression: "form.description"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "span",
-                              {
-                                directives: [
-                                  {
-                                    name: "show",
-                                    rawName: "v-show",
-                                    value: _vm.errors.has("description"),
-                                    expression: "errors.has('description')"
-                                  }
-                                ],
-                                staticClass: "text-danger text-sm"
-                              },
-                              [_vm._v(_vm._s(_vm.errors.first("description")))]
-                            )
-                          ],
-                          1
+                          "vs-button",
+                          {
+                            attrs: {
+                              icon: "icon-upload",
+                              "icon-pack": "feather",
+                              onclick:
+                                "document.getElementById('img-upload').click()",
+                              size: "small",
+                              type: "gradient"
+                            }
+                          },
+                          [_vm._v("Upload Photo\n                            ")]
                         )
-                      ])
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "vx-col sm:w-2/2 w-full mb-3" },
+                    [
+                      _c("vs-input", {
+                        directives: [
+                          {
+                            name: "validate",
+                            rawName: "v-validate",
+                            value: "required",
+                            expression: "'required'"
+                          }
+                        ],
+                        staticClass: "w-full",
+                        attrs: { label: "Category Name", name: "name" },
+                        model: {
+                          value: _vm.form.name,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "name", $$v)
+                          },
+                          expression: "form.name"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.errors.has("name"),
+                              expression: "errors.has('name')"
+                            }
+                          ],
+                          staticClass: "text-danger text-sm"
+                        },
+                        [_vm._v(_vm._s(_vm.errors.first("name")))]
+                      )
                     ],
                     1
                   ),
                   _vm._v(" "),
                   _c(
-                    "tab-content",
-                    { staticClass: "mb-5", attrs: { title: "Combinations" } },
+                    "div",
+                    { staticClass: "vx-col md:w-1/1 w-full mt-3" },
                     [
-                      _c("vx-card", { staticClass: "vx-row" }, [
-                        _c(
-                          "div",
-                          { staticClass: "vx-col md:w-1/1 w-full mt-3" },
-                          [
-                            !_vm.form.priceCombinations
-                              ? _c("vs-button", {
-                                  staticClass: "ml-2",
-                                  attrs: {
-                                    "icon-pack": "feather",
-                                    icon: "icon-plus",
-                                    color: "primary",
-                                    type: "border",
-                                    radius: ""
-                                  },
-                                  on: { click: _vm.addAttribute }
-                                })
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _c(
-                              "transition-group",
-                              { attrs: { mode: "out-in", name: "slide-down" } },
-                              _vm._l(_vm.form.priceCombinations, function(
-                                attr,
-                                index
-                              ) {
-                                return _c(
-                                  "div",
-                                  { key: attr.id, staticClass: "vx-row" },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "vx-col md:w-8/12 w-full mb-3"
-                                      },
-                                      [
-                                        _c("vs-input", {
-                                          staticClass: "w-full",
-                                          attrs: { label: "Combination" },
-                                          model: {
-                                            value: attr.combination,
-                                            callback: function($$v) {
-                                              _vm.$set(attr, "combination", $$v)
-                                            },
-                                            expression: "attr.combination"
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "vx-col md:w-2/12 w-full mb-3"
-                                      },
-                                      [
-                                        _c("vs-input", {
-                                          staticClass: "w-full",
-                                          attrs: {
-                                            type: "number",
-                                            label: "Price"
-                                          },
-                                          model: {
-                                            value: attr.price,
-                                            callback: function($$v) {
-                                              _vm.$set(attr, "price", $$v)
-                                            },
-                                            expression: "attr.price"
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "vx-col md:w-2/12 w-full mb-3"
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "attribute-actions mt-5"
-                                          },
-                                          [
-                                            index || (!index && index > 1)
-                                              ? _c("vs-button", {
-                                                  staticClass: "ml-2",
-                                                  attrs: {
-                                                    "icon-pack": "feather",
-                                                    icon: "icon-minus",
-                                                    color: "danger",
-                                                    type: "border",
-                                                    radius: ""
-                                                  },
-                                                  on: {
-                                                    click: function($event) {
-                                                      return _vm.removeAttribute(
-                                                        index
-                                                      )
-                                                    }
-                                                  }
-                                                })
-                                              : _vm._e(),
-                                            _vm._v(" "),
-                                            index ===
-                                            _vm.form.priceCombinations.length -
-                                              1
-                                              ? _c("vs-button", {
-                                                  staticClass: "ml-2",
-                                                  attrs: {
-                                                    "icon-pack": "feather",
-                                                    icon: "icon-plus",
-                                                    color: "primary",
-                                                    type: "border",
-                                                    radius: ""
-                                                  },
-                                                  on: {
-                                                    click: _vm.addAttribute
-                                                  }
-                                                })
-                                              : _vm._e()
-                                          ],
-                                          1
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              }),
-                              0
-                            )
+                      _c("vs-textarea", {
+                        directives: [
+                          {
+                            name: "validate",
+                            rawName: "v-validate",
+                            value: "required",
+                            expression: "'required'"
+                          }
+                        ],
+                        staticClass: "mb-0",
+                        attrs: { label: "Description", name: "description" },
+                        model: {
+                          value: _vm.form.description,
+                          callback: function($$v) {
+                            _vm.$set(_vm.form, "description", $$v)
+                          },
+                          expression: "form.description"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.errors.has("description"),
+                              expression: "errors.has('description')"
+                            }
                           ],
-                          1
-                        )
-                      ])
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "tab-content",
-                    {
-                      staticClass: "mb-5",
-                      attrs: { title: "Printing Criteria" }
-                    },
-                    [
-                      _c("vx-card", { staticClass: "vx-row" }, [
-                        _c(
-                          "div",
-                          { staticClass: "vx-col md:w-1/1 w-full mt-3" },
-                          [
-                            _c(
-                              "transition-group",
-                              { attrs: { mode: "out-in", name: "slide-down" } },
-                              _vm._l(_vm.form.printCriterias, function(
-                                criteria,
-                                index
-                              ) {
-                                return _c(
-                                  "div",
-                                  { key: criteria.id, staticClass: "vx-row" },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "vx-col md:w-8/12 w-full mb-3"
-                                      },
-                                      [
-                                        _c("vs-input", {
-                                          staticClass: "w-full",
-                                          attrs: { label: "Criteria" },
-                                          model: {
-                                            value: criteria.criteria,
-                                            callback: function($$v) {
-                                              _vm.$set(
-                                                criteria,
-                                                "criteria",
-                                                $$v
-                                              )
-                                            },
-                                            expression: "criteria.criteria"
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "vx-col md:w-2/12 w-full mb-3"
-                                      },
-                                      [
-                                        _c("vs-input", {
-                                          staticClass: "w-full",
-                                          attrs: {
-                                            type: "number",
-                                            label: "Price"
-                                          },
-                                          model: {
-                                            value: criteria.price,
-                                            callback: function($$v) {
-                                              _vm.$set(criteria, "price", $$v)
-                                            },
-                                            expression: "criteria.price"
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "vx-col md:w-2/12 w-full mb-3"
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "attribute-actions mt-5"
-                                          },
-                                          [
-                                            index || (!index && index > 1)
-                                              ? _c("vs-button", {
-                                                  staticClass: "ml-2",
-                                                  attrs: {
-                                                    "icon-pack": "feather",
-                                                    icon: "icon-minus",
-                                                    color: "danger",
-                                                    type: "border",
-                                                    radius: ""
-                                                  },
-                                                  on: {
-                                                    click: function($event) {
-                                                      return _vm.removePrintingCriteria(
-                                                        index
-                                                      )
-                                                    }
-                                                  }
-                                                })
-                                              : _vm._e(),
-                                            _vm._v(" "),
-                                            index ===
-                                            _vm.form.printCriterias.length - 1
-                                              ? _c("vs-button", {
-                                                  staticClass: "ml-2",
-                                                  attrs: {
-                                                    "icon-pack": "feather",
-                                                    icon: "icon-plus",
-                                                    color: "primary",
-                                                    type: "border",
-                                                    radius: ""
-                                                  },
-                                                  on: {
-                                                    click:
-                                                      _vm.addPrintingCriteria
-                                                  }
-                                                })
-                                              : _vm._e()
-                                          ],
-                                          1
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              }),
-                              0
-                            )
-                          ],
-                          1
-                        )
-                      ])
+                          staticClass: "text-danger text-sm"
+                        },
+                        [_vm._v(_vm._s(_vm.errors.first("description")))]
+                      )
                     ],
                     1
                   )
-                ],
-                1
+                ]
               )
             ],
             1

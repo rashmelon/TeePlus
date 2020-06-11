@@ -587,9 +587,9 @@ var render = function() {
                                     {
                                       staticClass: "w-full",
                                       attrs: {
-                                        label: "Combinations",
+                                        label: "Combination",
                                         multiple: "",
-                                        placeholder: "Combinations"
+                                        placeholder: "Combination"
                                       },
                                       model: {
                                         value: _vm.form.combinations,
@@ -624,7 +624,7 @@ var render = function() {
                                       _c("vs-list-header", {
                                         attrs: {
                                           icon: "supervisor_account",
-                                          title: "Selected Combinations"
+                                          title: "Selected Combination"
                                         }
                                       }),
                                       _vm._v(" "),
