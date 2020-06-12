@@ -41,7 +41,9 @@
                     </div>
                 </vx-card>
 
-                <ShowSingle :catId="$route.params.id"/>
+                <ShowCombinations :catId="$route.params.id"/>
+
+                <ShowCriterias :catId="$route.params.id"/>
 
             </div>
         </div>
@@ -49,7 +51,8 @@
 </template>
 
 <script>
-    import ShowSingle from '../Combination/ShowSingle'
+    import ShowCombinations from '../combination/ShowSingle'
+    import ShowCriterias from '../criteria/ShowSingle'
 
     export default {
         name: "edit",
@@ -61,7 +64,8 @@
             }
         },
         components: {
-            ShowSingle
+            ShowCombinations,
+            ShowCriterias
         },
         mounted(){
             this.getCategory()

@@ -1,5 +1,5 @@
 <template>
-	<vx-card collapse-action title="Add new price combinations">
+	<vx-card collapse-action  title="Add new print criteria" class="mt-5">
 		<div class="vx-row">
 			<div class="vx-col md:w-1/1 w-full mt-3">
 				<vs-button
@@ -10,12 +10,12 @@
 					icon-pack="feather"
 					size="small"
 					type="filled"
-				>Add Combination
+				>Add print criteria
 				</vs-button>
 
 
 				<transition-group mode="out-in" name="slide-down">
-					<div :key="index" class="vx-row" v-for="(attr,index) in priceCombinations">
+					<div :key="index+1" class="vx-row" v-for="(attr,index) in printCriterias">
 						<div class="vx-col md:w-8/12 w-full mb-3">
 							<vs-input
 								hidden
@@ -24,13 +24,13 @@
 								v-model="catId"
 							/>
 							<vs-input
-								:name="'combination-'+index"
+								:name="'criteria-'+index"
 								class="w-full"
-								v-model="attr.combination"
+								v-model="attr.criteria"
 								v-validate="'required'"
 							/>
 							<span class="text-danger text-sm"
-							      v-show="errors.has('combination-'+index)">{{ errors.first('combination-'+index)}}</span>
+							      v-show="errors.has('criteria-'+index)">{{ errors.first('criteria-'+index)}}</span>
 
 						</div>
 
@@ -40,7 +40,7 @@
 								class="w-full"
 								type="number"
 								v-model="attr.price"
-								v-validate="'required'"
+								v-validate="'required|min_value:0'"
 							/>
 							<span class="text-danger text-sm" v-show="errors.has('price-'+index)">{{errors.first('price-'+index)}}</span>
 						</div>
@@ -65,14 +65,14 @@
 
 				<div>
 					<vs-button
-						@click="savePriceCombinations"
+						@click="savePrintCriteria"
 						class="mb-4"
 						color="primary"
 						icon="icon-save"
 						icon-pack="feather"
 						size="small"
 						type="filled"
-						v-if="priceCombinations.length"
+						v-if="printCriterias.length"
 					>Save
 					</vs-button>
 				</div>
@@ -83,48 +83,40 @@
 
 <script>
   export default {
-    name: "CreateCombination",
+    name: "CreatePrintCriteria",
     props: [
       'catId'
     ],
     data() {
       return {
-        priceCombinations: [],
+        printCriterias: [],
       }
     },
     methods: {
       addAttribute() {
-        this.priceCombinations.push({
-          combination: '',
-          price: ''
-        })
-      },
-      removeAttribute(index) {
-        this.priceCombinations.splice(index, 1);
-      },
-      addPrintingCriteria() {
         this.printCriterias.push({
           criteria: '',
           price: ''
         })
+
       },
-      removePrintingCriteria(index) {
+      removeAttribute(index) {
         this.printCriterias.splice(index, 1);
       },
-      savePriceCombinations() {
+      savePrintCriteria() {
         this.$validator.validateAll().then(result => {
           if (result) {
             // if form have no errors
             this.is_requesting = true;
 
-            for (let i in this.priceCombinations) {
+            for (let i in this.printCriterias) {
               let form_data = new FormData();
 
-              form_data.append('combination', this.priceCombinations[i].combination);
-              form_data.append('price', this.priceCombinations[i].price);
+              form_data.append('criteria', this.printCriterias[i].criteria);
+              form_data.append('price', this.printCriterias[i].price);
               form_data.append('category_id', this.catId);
 
-              this.$store.dispatch('combination/create', form_data)
+              this.$store.dispatch('criteria/create', form_data)
                 .then(response => {
                   this.$vs.notify({
                     title: 'Success',
@@ -135,7 +127,9 @@
                   });
                   this.is_requesting = false;
 
-                })
+
+                  this.$emit('addValue',response.data.data)
+            })
                 .catch(error => {
                   console.log(error);
                   this.$vs.notify({
@@ -151,7 +145,7 @@
             }
 
 
-            this.priceCombinations=[]
+            this.printCriterias=[]
 
           } else {
             this.$vs.notify({
@@ -168,6 +162,3 @@
   }
 </script>
 
-<style lang="scss" scoped>
-
-</style>

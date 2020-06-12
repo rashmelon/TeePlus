@@ -150,7 +150,7 @@ __webpack_require__.r(__webpack_exports__);
 
         _this2.$vs.loading.close("#btn-create > .con-vs-loading");
 
-        _this2.$router.push("/dashboard/user/".concat(response.data.data.id));
+        _this2.$router.push("/dashboard/employee/".concat(response.data.data.id));
 
         _this2.$vs.notify({
           title: 'Success',
@@ -323,7 +323,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "preview",
                       attrs: {
-                        alt: "user photo",
+                        alt: "employee photo",
                         src: _vm.uploadedImage
                           ? _vm.uploadedImage
                           : "/images/avatar-s-11.png"

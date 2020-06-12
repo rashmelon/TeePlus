@@ -53,13 +53,14 @@
 
 			<CreatePriceCombination
 				:catId="catId"
+				@addValue="addValue"
 			/>
 		</vx-card>
 	</div>
 </template>
 
 <script>
-  import CreatePriceCombination from '../Combination/Create'
+  import CreatePriceCombination from './Create'
 
   export default {
     name: "ShowSingle",
@@ -80,6 +81,9 @@
       this.getCombinations();
     },
     methods: {
+      addValue(item){
+	      this.combinations.push(item)
+      },
       getCombinations(){
         this.$store.dispatch('combination/getData', `?category=${this.catId}`)
           .then(response => {
@@ -121,12 +125,11 @@
             });
           })
           .catch(error => {
-            console.log(error);
             this.is_requesting=false;
-            this.$vs.loading.close(`#btn-edit > .con-vs-loading`);
+            this.$vs.loading.close(`#btn-edit-${item.id} > .con-vs-loading`);
             this.$vs.notify({
               title: 'Error',
-              text: error.response.data.errors[Object.keys(error.response.data.errors)[0]][0],
+              text: error.response.data.errors[0],
               iconPack: 'feather',
               icon: 'icon-alert-circle',
               color: 'danger'
@@ -163,7 +166,6 @@
             });
           })
           .catch(error => {
-            console.log(error);
             this.is_requesting=false;
             this.$vs.loading.close(`#btn-delete-${item.id} > .con-vs-loading`);
             this.$vs.notify({

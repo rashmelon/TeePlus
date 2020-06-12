@@ -548,7 +548,7 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "tab-content",
-                    { staticClass: "mb-5", attrs: { title: "Combination" } },
+                    { staticClass: "mb-5", attrs: { title: "Combinations" } },
                     [
                       _c("vx-card", { staticClass: "vx-row" }, [
                         _c(
@@ -568,7 +568,7 @@ var render = function() {
                                 },
                                 on: { click: _vm.addAttribute }
                               },
-                              [_vm._v("Add Combination\n\t\t\t\t\t\t\t\t")]
+                              [_vm._v("Add combination\n\t\t\t\t\t\t\t\t")]
                             ),
                             _vm._v(" "),
                             _c(
@@ -605,7 +605,7 @@ var render = function() {
                                               staticClass: "w-full",
                                               attrs: {
                                                 name: "combination-" + index,
-                                                label: "Combination"
+                                                label: "combination"
                                               },
                                               model: {
                                                 value: attr.combination,
@@ -663,8 +663,9 @@ var render = function() {
                                                 {
                                                   name: "validate",
                                                   rawName: "v-validate",
-                                                  value: "required",
-                                                  expression: "'required'"
+                                                  value: "required|min_value:0",
+                                                  expression:
+                                                    "'required|min_value:0'"
                                                 }
                                               ],
                                               staticClass: "w-full",
@@ -892,8 +893,9 @@ var render = function() {
                                                 {
                                                   name: "validate",
                                                   rawName: "v-validate",
-                                                  value: "required",
-                                                  expression: "'required'"
+                                                  value: "required|min_value:0",
+                                                  expression:
+                                                    "'required|min_value:0'"
                                                 }
                                               ],
                                               staticClass: "w-full",

@@ -1,10 +1,10 @@
 
-import combination from "../../http/requests/combination/index"
+import criteria from "../../http/requests/criteria/index"
 
 export default {
     getData({ commit, dispatch }, payload) {
         return new Promise((resolve, reject) => {
-            combination.getAll(payload)
+            criteria.getAll(payload)
                 .then(response => {
                     resolve(response)
                 })
@@ -16,7 +16,7 @@ export default {
 
     view({ commit, dispatch }, id) {
         return new Promise((resolve, reject) => {
-            combination.view(id)
+            criteria.view(id)
                 .then(response => {
                     resolve(response)
                 })
@@ -28,7 +28,7 @@ export default {
 
     create({ commit, dispatch }, payload) {
         return new Promise((resolve, reject) => {
-            combination.create(payload)
+            criteria.create(payload)
                 .then(response => {
                     resolve(response)
                 })
@@ -40,7 +40,7 @@ export default {
 
     update({ commit, dispatch }, payload) {
         return new Promise((resolve, reject) => {
-            combination.update(payload.id, payload.data)
+            criteria.update(payload.id, payload.data)
                 .then(response => {
                     resolve(response)
                 })
@@ -52,7 +52,7 @@ export default {
 
     delete({ commit, dispatch }, id) {
         return new Promise((resolve, reject) => {
-            combination.delete(id)
+            criteria.delete(id)
                 .then(response => {
                     resolve(response)
                 })

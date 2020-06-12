@@ -96,31 +96,31 @@ return [
         ],
     ],
 
-    'Price Combination' => [
+    'Price combination' => [
         [
             'name' => 'create-price-combination',
             'guard_name' => 'api',
-            'display_name' => 'Create Price Combination',
+            'display_name' => 'Create Price combination',
         ],
         [
             'name' => 'browse-price-combination',
             'guard_name' => 'api',
-            'display_name' => 'Browse Price Combination',
+            'display_name' => 'Browse Price combination',
         ],
         [
             'name' => 'view-price-combination',
             'guard_name' => 'api',
-            'display_name' => 'View Price Combination',
+            'display_name' => 'View Price combination',
         ],
         [
             'name' => 'edit-price-combination',
             'guard_name' => 'api',
-            'display_name' => 'Edit Price Combination',
+            'display_name' => 'Edit Price combination',
         ],
         [
             'name' => 'delete-price-combination',
             'guard_name' => 'api',
-            'display_name' => 'Delete Price Combination',
+            'display_name' => 'Delete Price combination',
         ],
     ],
 

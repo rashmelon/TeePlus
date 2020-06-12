@@ -146,15 +146,15 @@ __webpack_require__.r(__webpack_exports__);
         name: 'T-shirt',
         combinations: [{
           id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
-          combination: 'Combination 1',
+          combination: 'combination 1',
           price: '150'
         }, {
           id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
-          combination: 'Combination 2',
+          combination: 'combination 2',
           price: '100'
         }, {
           id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
-          combination: 'Combination 3',
+          combination: 'combination 3',
           price: '120'
         }],
         printingCriteria: [{
@@ -171,15 +171,15 @@ __webpack_require__.r(__webpack_exports__);
         name: 'Hoodie',
         combinations: [{
           id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
-          combination: 'Combination 8',
+          combination: 'combination 8',
           price: '150'
         }, {
           id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
-          combination: 'Combination 7',
+          combination: 'combination 7',
           price: '100'
         }, {
           id: Object(_utils__WEBPACK_IMPORTED_MODULE_3__["uuid"])(),
-          combination: 'Combination 5',
+          combination: 'combination 5',
           price: '120'
         }],
         printingCriteria: [{
@@ -587,9 +587,9 @@ var render = function() {
                                     {
                                       staticClass: "w-full",
                                       attrs: {
-                                        label: "Combination",
+                                        label: "Combinations",
                                         multiple: "",
-                                        placeholder: "Combination"
+                                        placeholder: "Combinations"
                                       },
                                       model: {
                                         value: _vm.form.combinations,
@@ -624,7 +624,7 @@ var render = function() {
                                       _c("vs-list-header", {
                                         attrs: {
                                           icon: "supervisor_account",
-                                          title: "Selected Combination"
+                                          title: "Selected Combinations"
                                         }
                                       }),
                                       _vm._v(" "),

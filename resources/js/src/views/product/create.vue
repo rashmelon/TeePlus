@@ -136,17 +136,17 @@
             combinations: [
               {
                 id: uuid(),
-                combination: 'Combination 1',
+                combination: 'combination 1',
                 price: '150'
               },
               {
                 id: uuid(),
-                combination: 'Combination 2',
+                combination: 'combination 2',
                 price: '100'
               },
               {
                 id: uuid(),
-                combination: 'Combination 3',
+                combination: 'combination 3',
                 price: '120'
               },
             ],
@@ -169,17 +169,17 @@
             combinations: [
               {
                 id: uuid(),
-                combination: 'Combination 8',
+                combination: 'combination 8',
                 price: '150'
               },
               {
                 id: uuid(),
-                combination: 'Combination 7',
+                combination: 'combination 7',
                 price: '100'
               },
               {
                 id: uuid(),
-                combination: 'Combination 5',
+                combination: 'combination 5',
                 price: '120'
               },
             ],

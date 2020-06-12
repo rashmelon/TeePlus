@@ -81,7 +81,7 @@
 													:name="'price-'+index" class="w-full" label="Price"
 													type="number"
 													v-model="attr.price"
-													v-validate="'required'"
+													v-validate="'required|min_value:0'"
 												/>
 												<span class="text-danger text-sm" v-show="errors.has('price-'+index)">{{errors.first('price-'+index)}}</span>
 											</div>
@@ -137,7 +137,7 @@
 											<div class="vx-col md:w-2/12 w-full mb-3">
 												<vs-input :name="'criteria-price-'+index" class="w-full" label="Price" type="number"
 												          v-model="criteria.price"W
-												          v-validate="'required'"
+												          v-validate="'required|min_value:0'"
 												/>
 												<span class="text-danger text-sm"
 												      v-show="errors.has('criteria-price-'+index)">{{errors.first('criteria-price-'+index)

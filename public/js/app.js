@@ -72350,7 +72350,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   getAll: function getAll(filters) {
     //filters=?paginate=5&sortAsc=id
-    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("price-combination".concat(filters));
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("price-combination/".concat(filters));
   },
   view: function view(id) {
     return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("price-combination/".concat(id));
@@ -72363,6 +72363,38 @@ __webpack_require__.r(__webpack_exports__);
   },
   delete: function _delete(id) {
     return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].delete("price-combination/".concat(id));
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/http/requests/criteria/index.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/src/http/requests/criteria/index.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _axios_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../axios/index.js */ "./resources/js/src/http/axios/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  getAll: function getAll(filters) {
+    //filters=?paginate=5&sortAsc=id
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("print-criteria/".concat(filters));
+  },
+  view: function view(id) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("print-criteria/".concat(id));
+  },
+  create: function create(data) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].post("print-criteria", data);
+  },
+  update: function update(id, data) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].post("print-criteria/".concat(id), data);
+  },
+  delete: function _delete(id) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].delete("print-criteria/".concat(id));
   }
 });
 
@@ -72929,7 +72961,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     // =============================================================================
     path: '',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ./layouts/main/Main.vue */ "./resources/js/src/layouts/main/Main.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(5), __webpack_require__.e(1)]).then(__webpack_require__.bind(null, /*! ./layouts/main/Main.vue */ "./resources/js/src/layouts/main/Main.vue"));
     },
     children: [// =============================================================================
     // Theme Routes
@@ -73116,7 +73148,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/category/create',
       name: 'create-category',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(26), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./views/category/create.vue */ "./resources/js/src/views/category/create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./views/category/create.vue */ "./resources/js/src/views/category/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73142,7 +73174,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/category/edit/:id',
       name: 'edit-category',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./views/category/edit.vue */ "./resources/js/src/views/category/edit.vue"));
+        return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./views/category/edit.vue */ "./resources/js/src/views/category/edit.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73189,7 +73221,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/product/create',
       name: 'create-product',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(26), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./views/product/create.vue */ "./resources/js/src/views/product/create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./views/product/create.vue */ "./resources/js/src/views/product/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73303,7 +73335,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/profile',
       name: 'profile',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./views/profile/profile */ "./resources/js/src/views/profile/profile.vue"));
+        return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/profile/profile */ "./resources/js/src/views/profile/profile.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -74169,6 +74201,168 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/src/store/criteria/moduleCriteria.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/src/store/criteria/moduleCriteria.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _moduleCriteriaState__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./moduleCriteriaState */ "./resources/js/src/store/criteria/moduleCriteriaState.js");
+/* harmony import */ var _moduleCriteriaMutations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moduleCriteriaMutations */ "./resources/js/src/store/criteria/moduleCriteriaMutations.js");
+/* harmony import */ var _moduleCriteriaActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moduleCriteriaActions */ "./resources/js/src/store/criteria/moduleCriteriaActions.js");
+/* harmony import */ var _moduleCriteriaGetters__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moduleCriteriaGetters */ "./resources/js/src/store/criteria/moduleCriteriaGetters.js");
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: _moduleCriteriaState__WEBPACK_IMPORTED_MODULE_0__["default"],
+  mutations: _moduleCriteriaMutations__WEBPACK_IMPORTED_MODULE_1__["default"],
+  actions: _moduleCriteriaActions__WEBPACK_IMPORTED_MODULE_2__["default"],
+  getters: _moduleCriteriaGetters__WEBPACK_IMPORTED_MODULE_3__["default"]
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/criteria/moduleCriteriaActions.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/src/store/criteria/moduleCriteriaActions.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _http_requests_criteria_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../http/requests/criteria/index */ "./resources/js/src/http/requests/criteria/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  getData: function getData(_ref, payload) {
+    var commit = _ref.commit,
+        dispatch = _ref.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_criteria_index__WEBPACK_IMPORTED_MODULE_0__["default"].getAll(payload).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  view: function view(_ref2, id) {
+    var commit = _ref2.commit,
+        dispatch = _ref2.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_criteria_index__WEBPACK_IMPORTED_MODULE_0__["default"].view(id).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  create: function create(_ref3, payload) {
+    var commit = _ref3.commit,
+        dispatch = _ref3.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_criteria_index__WEBPACK_IMPORTED_MODULE_0__["default"].create(payload).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  update: function update(_ref4, payload) {
+    var commit = _ref4.commit,
+        dispatch = _ref4.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_criteria_index__WEBPACK_IMPORTED_MODULE_0__["default"].update(payload.id, payload.data).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  delete: function _delete(_ref5, id) {
+    var commit = _ref5.commit,
+        dispatch = _ref5.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_criteria_index__WEBPACK_IMPORTED_MODULE_0__["default"].delete(id).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/criteria/moduleCriteriaGetters.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/src/store/criteria/moduleCriteriaGetters.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/criteria/moduleCriteriaMutations.js":
+/*!********************************************************************!*\
+  !*** ./resources/js/src/store/criteria/moduleCriteriaMutations.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/criteria/moduleCriteriaState.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/src/store/criteria/moduleCriteriaState.js ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
 /***/ "./resources/js/src/store/getters.js":
 /*!*******************************************!*\
   !*** ./resources/js/src/store/getters.js ***!
@@ -74842,6 +75036,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _notification_moduleNotification__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./notification/moduleNotification */ "./resources/js/src/store/notification/moduleNotification.js");
 /* harmony import */ var _category_moduleCategory__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./category/moduleCategory */ "./resources/js/src/store/category/moduleCategory.js");
 /* harmony import */ var _combination_moduleCombination__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./combination/moduleCombination */ "./resources/js/src/store/combination/moduleCombination.js");
+/* harmony import */ var _criteria_moduleCriteria__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./criteria/moduleCriteria */ "./resources/js/src/store/criteria/moduleCriteria.js");
 
 
 
@@ -74850,6 +75045,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 
 
 
@@ -74874,7 +75070,8 @@ var vuexLocal = new vuex_persist__WEBPACK_IMPORTED_MODULE_6__["default"]({
     agency: _agency_moduleAgency__WEBPACK_IMPORTED_MODULE_11__["default"],
     notification: _notification_moduleNotification__WEBPACK_IMPORTED_MODULE_12__["default"],
     category: _category_moduleCategory__WEBPACK_IMPORTED_MODULE_13__["default"],
-    combination: _combination_moduleCombination__WEBPACK_IMPORTED_MODULE_14__["default"]
+    combination: _combination_moduleCombination__WEBPACK_IMPORTED_MODULE_14__["default"],
+    criteria: _criteria_moduleCriteria__WEBPACK_IMPORTED_MODULE_15__["default"]
   },
   plugins: [vuexLocal.plugin],
   strict: "development" !== 'production'

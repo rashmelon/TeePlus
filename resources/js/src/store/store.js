@@ -18,6 +18,7 @@ import moduleAgency from "./agency/moduleAgency";
 import moduleNotification from "./notification/moduleNotification";
 import moduleCategory from "./category/moduleCategory";
 import moduleCombination from "./combination/moduleCombination";
+import moduleCriteria from "./criteria/moduleCriteria";
 
 
 const vuexLocal = new VuexPersistence({
@@ -38,6 +39,7 @@ export default new Vuex.Store({
         notification: moduleNotification,
         category: moduleCategory,
         combination: moduleCombination,
+        criteria: moduleCriteria,
     },
     plugins: [vuexLocal.plugin],
     strict: process.env.NODE_ENV !== 'production'
