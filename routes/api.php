@@ -25,7 +25,7 @@ Route::middleware('auth:api')->resource('price-combination', 'PriceCombinationCo
 Route::middleware('auth:api')->post('price-combination/{priceCombination}', 'PriceCombinationController@update');
 
 Route::middleware('auth:api')->resource('print-criteria', 'PrintCriteriaController');
-Route::middleware('auth:api')->post('print-criteria/{printCriteria}', 'PrintCriteriaController@update');
+Route::middleware('auth:api')->post('print-criteria/{print_criterion}', 'PrintCriteriaController@update');
 
 Route::group(['prefix' => 'role', 'middleware' => 'auth:api'], function () {
     Route::post('{id}', 'RoleController@update');
