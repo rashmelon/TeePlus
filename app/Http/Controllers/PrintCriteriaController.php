@@ -54,46 +54,46 @@ class PrintCriteriaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param PrintCriteria $printCriteria
+     * @param PrintCriteria $print_criterion
      * @return JsonResponse
      * @throws AuthorizationException
      */
-    public function show(PrintCriteria $printCriteria)
+    public function show(PrintCriteria $print_criterion)
     {
         $this->authorize('show', PrintCriteria::class);
 
-        return ApiResponse::showRespond($printCriteria, PrintCriteriaTransformer::class)->execute();
+        return ApiResponse::showRespond($print_criterion, PrintCriteriaTransformer::class)->execute();
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param PrintCriteriaRequest $request
-     * @param PrintCriteria $printCriteria
+     * @param PrintCriteria $print_criterion
      * @return JsonResponse
      * @throws AuthorizationException
      */
-    public function update(PrintCriteriaRequest $request, PrintCriteria $printCriteria)
+    public function update(PrintCriteriaRequest $request, PrintCriteria $print_criterion)
     {
         $this->authorize('update', PrintCriteria::class);
 
-        $printCriteria->update($request->validated());
+        $print_criterion->update($request->validated());
 
-        return ApiResponse::updateRespond($printCriteria, PrintCriteriaTransformer::class)->execute();
+        return ApiResponse::updateRespond($print_criterion, PrintCriteriaTransformer::class)->execute();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param PrintCriteria $printCriteria
+     * @param PrintCriteria $print_criterion
      * @return JsonResponse
      * @throws AuthorizationException
      */
-    public function destroy(PrintCriteria $printCriteria)
+    public function destroy(PrintCriteria $print_criterion)
     {
         $this->authorize('destroy', PrintCriteria::class);
 
-        $printCriteria->delete();
+        $print_criterion->delete();
 
         return ApiResponse::deleteRespond()->execute();
     }
