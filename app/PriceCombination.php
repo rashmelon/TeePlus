@@ -10,4 +10,9 @@ class PriceCombination extends Model
     use CategoryItems;
 
     protected $fillable = ['combination', 'price'];
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'product_price_combinations');
+    }
 }

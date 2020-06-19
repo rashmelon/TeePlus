@@ -22,7 +22,7 @@ class CategoryTransformer extends TransformerAbstract
      * @var array
      */
     protected $availableIncludes = [
-        'image'
+        'image', 'products'
     ];
 
     /**
@@ -42,5 +42,10 @@ class CategoryTransformer extends TransformerAbstract
             return $this->item($category->image, new MediaTransformer(), 'no-data');
         }
         return $this->null();
+    }
+
+    public function includeProducts(Category $category)
+    {
+        return $this->collection($category->products, new ProductTransformer());
     }
 }
