@@ -73031,7 +73031,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/user',
       name: 'user',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(14)]).then(__webpack_require__.bind(null, /*! ./views/user/browse.vue */ "./resources/js/src/views/user/browse.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(3), __webpack_require__.e(14)]).then(__webpack_require__.bind(null, /*! ./views/user/browse.vue */ "./resources/js/src/views/user/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73174,7 +73174,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/category/edit/:id',
       name: 'edit-category',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 3).then(__webpack_require__.bind(null, /*! ./views/category/edit.vue */ "./resources/js/src/views/category/edit.vue"));
+        return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./views/category/edit.vue */ "./resources/js/src/views/category/edit.vue"));
       },
       beforeEnter: guard,
       meta: {

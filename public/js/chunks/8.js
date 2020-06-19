@@ -568,7 +568,7 @@ var render = function() {
                                 },
                                 on: { click: _vm.addAttribute }
                               },
-                              [_vm._v("Add combination\n\t\t\t\t\t\t\t\t")]
+                              [_vm._v("Add Combination\n\t\t\t\t\t\t\t\t")]
                             ),
                             _vm._v(" "),
                             _c(
@@ -605,7 +605,7 @@ var render = function() {
                                               staticClass: "w-full",
                                               attrs: {
                                                 name: "combination-" + index,
-                                                label: "combination"
+                                                label: "Combination"
                                               },
                                               model: {
                                                 value: attr.combination,
