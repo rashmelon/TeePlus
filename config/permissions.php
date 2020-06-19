@@ -151,4 +151,32 @@ return [
             'display_name' => 'Delete Print Criteria',
         ],
     ],
+
+    'Product' => [
+        [
+            'name' => 'create-product',
+            'guard_name' => 'api',
+            'display_name' => 'Create Product',
+        ],
+        [
+            'name' => 'browse-product',
+            'guard_name' => 'api',
+            'display_name' => 'Browse Product',
+        ],
+        [
+            'name' => 'view-product',
+            'guard_name' => 'api',
+            'display_name' => 'View Product',
+        ],
+        [
+            'name' => 'edit-product',
+            'guard_name' => 'api',
+            'display_name' => 'Edit Product',
+        ],
+        [
+            'name' => 'delete-product',
+            'guard_name' => 'api',
+            'display_name' => 'Delete Product',
+        ],
+    ],
 ];
