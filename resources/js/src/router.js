@@ -160,7 +160,7 @@ const router = new Router({
             ],
             pageTitle: 'Create Category',
             pageTitle_i18n: 'Create Category',
-            permission: 'create-category' //temperory
+            permission: 'create-category'
           }
         },
         {
@@ -176,7 +176,7 @@ const router = new Router({
             ],
             pageTitle: 'Edit Category',
             pageTitle_i18n: 'Edit Category',
-            permission: 'edit-category' //temperory
+            permission: 'edit-category'
           }
         },
 
@@ -193,7 +193,7 @@ const router = new Router({
             ],
             pageTitle: 'Product',
             pageTitle_i18n: 'Product',
-            // permission: 'browse-category' //temperory
+            // permission: 'browse-product' //temperory
           }
         },
         {
@@ -209,9 +209,26 @@ const router = new Router({
             ],
             pageTitle: 'Create Product',
             pageTitle_i18n: 'Create Product',
-            // permission: 'create-category' //temperory
+            // permission: 'create-product' //temperory
           }
         },
+        {
+          path: '/dashboard/product/edit/:id',
+          name: 'edit-product',
+          component: () => import('./views/product/edit.vue'),
+          beforeEnter: guard,
+          meta: {
+            breadcrumb: [
+              {title: 'Home', url: '/dashboard', i18n: 'Home'},
+              {title: 'Product', url: '/dashboard/product', i18n: 'Product'},
+              {title: 'Edit', active: true, i18n: 'Edit'},
+            ],
+            pageTitle: 'Edit Product',
+            pageTitle_i18n: 'Edit Product',
+            // permission: 'edit-product'
+          }
+        },
+
 
 
         {

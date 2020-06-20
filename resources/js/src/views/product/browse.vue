@@ -9,7 +9,7 @@
 			</vs-row>
 		</div>
 
-		<vx-card ref="browse" title="products List" collapse-action >
+		<vx-card ref="browse">
 			<vs-table
 				pagination
 				search
@@ -27,44 +27,52 @@
 					<vs-th>Image</vs-th>
 					<vs-th>Name</vs-th>
 					<vs-th>Description</vs-th>
+					<vs-th>Base price</vs-th>
 					<vs-th>Created At</vs-th>
 					<vs-th>Action</vs-th>
 				</template>
 
 				<template slot-scope="{data}">
-					<vs-tr :key="index" v-for="(category, index) in data">
-						<vs-td :data="category.id">
-							{{ category.id }}
+					<vs-tr :key="index" v-for="(product, index) in data">
+						<vs-td :data="product.id">
+							{{ product.id }}
 						</vs-td>
 
-						<vs-td :data="category.image">
-							{{ category.image}}
+						<vs-td>
+							<img
+								v-if="product.image"
+								:src="product.image.url"
+								class="preview-large">
 						</vs-td>
 
-						<vs-td :data="category.name">
-							{{ category.name}}
+						<vs-td :data="product.name">
+							{{ product.name}}
 						</vs-td>
 
-						<vs-td :data="category.description">
-							{{ category.description}}
+						<vs-td :data="product.description">
+							{{ product.description}}
 						</vs-td>
 
-						<vs-td :data="category.created_at">
-							{{ category.created_at}}
+						<vs-td :data="product.basePrice">
+							{{ product.basePrice}}
+						</vs-td>
+
+						<vs-td :data="product.created_at">
+							{{ product.created_at}}
 						</vs-td>
 
 						<vs-td>
 							<vs-row>
 								<div class="flex mb-4">
-									<div class="w-1/2 mx-2" v-if="can('edit-employee')">
-										<vs-button :id="`btn-edit-${category.id}`" class="vs-con-loading__container" radius color="warning" type="border"
+									<div class="w-1/2 mx-2" >
+										<vs-button :id="`btn-edit-${product.id}`" class="vs-con-loading__container" radius color="warning" type="border"
 										           icon-pack="feather" icon="icon-edit"
-										           @click=editCategory(category.id)></vs-button>
+										           @click=editProduct(product.id)></vs-button>
 									</div>
-									<div class="w-1/2 mx-3" v-if="can('delete-user')">
-										<vs-button :id="`btn-delete-${category.id}`" class="vs-con-loading__container" radius color="danger" type="border"
+									<div class="w-1/2 mx-3" >
+										<vs-button :id="`btn-delete-${product.id}`" class="vs-con-loading__container" radius color="danger" type="border"
 										           icon-pack="feather" icon="icon-trash"
-										           @click="is_requesting?$store.dispatch('viewWaitMessage', $vs):confirmDeleteCategory(category)"></vs-button>
+										           @click="is_requesting?$store.dispatch('viewWaitMessage', $vs):confirmDeleteProduct(product)"></vs-button>
 									</div>
 								</div>
 							</vs-row>
@@ -82,15 +90,7 @@
       return {
         searchText: "",
         resultTime: 0,
-        products: [
-          {
-            id: 1,
-            image: '#',
-            name: 'T-Shirt',
-            description: 'here some text about t-shirt!',
-            created_at: '18 jan 2020',
-          }
-        ],
+        products: [],
         is_requesting: false
       }
     },
@@ -103,32 +103,70 @@
     mounted() {
       this.getProducts();
     },
+
     methods: {
-      getProducts() {
-        return this.products
+      getProducts(){
+        this.$vs.loading({container: this.$refs.browse.$el, scale: 0.5});
+        this.$store.dispatch('product/getData', this.payload)
+          .then(response => {
+            this.products = response.data.data;
+            this.$vs.loading.close(this.$refs.browse.$el);
+          })
+          .catch(error => {
+            console.log(error);
+            // this.$vs.loading.close(this.$refs.browse);
+            this.$vs.notify({
+              title: 'Error',
+              text: error.response.data.error,
+              iconPack: 'feather',
+              icon: 'icon-alert-circle',
+              color: 'danger'
+            });
+          });
       },
-			editCategory(id){
-        // this.$router.push({name:'edit-category',params:{'id':id}})
+
+			editProduct(id){
+        this.$router.push({name:'edit-product',params:{'id':id}})
 			},
-      confirmDeleteCategory(type) {
+      confirmDeleteProduct(item) {
         this.$vs.dialog({
           type: 'confirm',
           color: 'danger',
           title: `Are you sure!`,
           text: 'This data can not be retrieved again.',
-          accept: this.deleteCategory,
-          parameters: [type]
+          accept: this.deleteProduct,
+          parameters: item
         });
       },
 
-      deleteCategory(params) {
-        this.$vs.notify({
-          title: 'Error',
-          text: 'not yet handled',
-          iconPack: 'feather',
-          icon: 'icon-alert-circle',
-          color: 'danger'
-        });
+      deleteProduct(item) {
+        this.is_requesting=true;
+        this.$vs.loading({container: `#btn-delete-${item.id}`, color: 'danger', scale: 0.45});
+        this.$store.dispatch('product/delete', item.id)
+          .then(response => {
+            this.is_requesting = false;
+            this.$vs.loading.close(`#btn-delete-${item.id} > .con-vs-loading`);
+            this.products = this.products.filter(type => {return type.id !== item.id});
+            this.$vs.notify({
+              title: 'Success',
+              text: response.data.message,
+              iconPack: 'feather',
+              icon: 'icon-check',
+              color: 'success'
+            });
+          })
+          .catch(error => {
+            console.log(error);
+            this.is_requesting=false;
+            this.$vs.loading.close(`#btn-delete-${item.id} > .con-vs-loading`);
+            this.$vs.notify({
+              title: 'Error',
+              text: error.response.data.error,
+              iconPack: 'feather',
+              icon: 'icon-alert-circle',
+              color: 'danger'
+            });
+          });
       }
     }
   }

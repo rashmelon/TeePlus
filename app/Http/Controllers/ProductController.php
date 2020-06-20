@@ -52,7 +52,7 @@ class ProductController extends Controller
             $product->image()->save($image);
         }
 
-        $product->priceCombinations()->sync($data['priceCombinations']);
+        $product->priceCombinations()->sync(json_decode($data['priceCombinations']));
 
         Category::find($data['category_id'])->products()->save($product);
 
@@ -97,7 +97,7 @@ class ProductController extends Controller
         }
 
         if (array_key_exists('priceCombinations', $data)){
-            $product->priceCombinations()->sync($data['priceCombinations']);
+            $product->priceCombinations()->sync(json_decode($data['priceCombinations']));
         }
 
         $product->update($data);
