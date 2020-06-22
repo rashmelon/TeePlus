@@ -73205,7 +73205,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/category/edit/:id',
       name: 'edit-category',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./views/category/edit.vue */ "./resources/js/src/views/category/edit.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(27)]).then(__webpack_require__.bind(null, /*! ./views/category/edit.vue */ "./resources/js/src/views/category/edit.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73225,6 +73225,31 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
         pageTitle: 'Edit Category',
         pageTitle_i18n: 'Edit Category',
         permission: 'edit-category'
+      }
+    }, {
+      path: '/dashboard/category/view/:id',
+      name: 'view-category',
+      component: function component() {
+        return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(28)]).then(__webpack_require__.bind(null, /*! ./views/category/view.vue */ "./resources/js/src/views/category/view.vue"));
+      },
+      beforeEnter: guard,
+      meta: {
+        breadcrumb: [{
+          title: 'Home',
+          url: '/dashboard',
+          i18n: 'Home'
+        }, {
+          title: 'Category',
+          url: '/dashboard/category',
+          i18n: 'Category'
+        }, {
+          title: 'View',
+          active: true,
+          i18n: 'View'
+        }],
+        pageTitle: 'View Category',
+        pageTitle_i18n: 'View Category',
+        permission: 'view-category'
       }
     }, {
       path: '/dashboard/product',
@@ -75548,9 +75573,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuesax__WEBPACK_IMPORTED_MODULE_1
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Work\Tee Plus\Tee Plus\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\Work\Tee Plus\Tee Plus\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! D:\Work\Tee Plus\Tee Plus\resources\assets\css\main.css */"./resources/assets/css/main.css");
+__webpack_require__(/*! D:\TeePlus\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\TeePlus\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! D:\TeePlus\resources\assets\css\main.css */"./resources/assets/css/main.css");
 
 
 /***/ })

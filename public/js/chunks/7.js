@@ -90,6 +90,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -130,6 +135,14 @@ __webpack_require__.r(__webpack_exports__);
           icon: 'icon-alert-circle',
           color: 'danger'
         });
+      });
+    },
+    viewCategory: function viewCategory(id) {
+      this.$router.push({
+        name: 'view-category',
+        params: {
+          'id': id
+        }
       });
     },
     editCategory: function editCategory(id) {
@@ -375,10 +388,39 @@ var render = function() {
                             [
                               _c("vs-row", [
                                 _c("div", { staticClass: "flex mb-4" }, [
+                                  _vm.can("view-category")
+                                    ? _c(
+                                        "div",
+                                        { staticClass: "w-1/3 mx-2" },
+                                        [
+                                          _c("vs-button", {
+                                            staticClass:
+                                              "vs-con-loading__container",
+                                            attrs: {
+                                              id: "btn-view-" + category.id,
+                                              radius: "",
+                                              color: "success",
+                                              type: "border",
+                                              "icon-pack": "feather",
+                                              icon: "icon-eye"
+                                            },
+                                            on: {
+                                              click: function($event) {
+                                                return _vm.viewCategory(
+                                                  category.id
+                                                )
+                                              }
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      )
+                                    : _vm._e(),
+                                  _vm._v(" "),
                                   _vm.can("edit-category")
                                     ? _c(
                                         "div",
-                                        { staticClass: "w-1/2 mx-2" },
+                                        { staticClass: "w-1/3 mx-2" },
                                         [
                                           _c("vs-button", {
                                             staticClass:
@@ -407,7 +449,7 @@ var render = function() {
                                   _vm.can("delete-category")
                                     ? _c(
                                         "div",
-                                        { staticClass: "w-1/2 mx-3" },
+                                        { staticClass: "w-1/3 mx-3" },
                                         [
                                           _c("vs-button", {
                                             staticClass:
