@@ -43,7 +43,7 @@
 									<span class="text-danger text-sm" v-show="errors.has('name')">{{ errors.first('name') }}</span>
 								</div>
 								<div class="vx-col md:w-2/12 mb-3">
-									<vs-input type="number" class="w-full" label="Product Base Price" v-model="form.basePrice"
+									<vs-input type="number" class="w-full" label="Product Base Price" v-model="form.base_price"
 									          v-validate="'required|min_value:0'"
 									          name="base price"/>
 									<span class="text-danger text-sm" v-show="errors.has('base price')">{{ errors.first('base price') }}</span>
@@ -119,7 +119,7 @@
           name: '',
           description: '',
           category: '',
-          basePrice: 0,
+          base_price: 0,
           priceCombinations: [],
         },
         uploadedImage: null,

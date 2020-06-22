@@ -13,7 +13,7 @@ class ProductTransformer extends TransformerAbstract
      * @var array
      */
     protected $defaultIncludes = [
-        'image'
+        'image', 'priceCombinations'
     ];
 
     /**
@@ -22,7 +22,7 @@ class ProductTransformer extends TransformerAbstract
      * @var array
      */
     protected $availableIncludes = [
-        'category', 'priceCombination', 'image'
+        'category', 'priceCombinations', 'image'
     ];
 
     /**
@@ -52,8 +52,8 @@ class ProductTransformer extends TransformerAbstract
         return $this->null();
     }
 
-    public function includePriceCombination(Product $product)
+    public function includePriceCombinations(Product $product)
     {
-        return $this->item($product->priceCombinations, new PriceCombinationTransformer(), 'no-data');
+        return $this->collection($product->priceCombinations, new PriceCombinationTransformer(), 'no-data');
     }
 }

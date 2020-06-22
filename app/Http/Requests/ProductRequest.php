@@ -29,6 +29,7 @@ class ProductRequest extends FormRequest
                 'name' => 'required',
                 'description' => 'required',
                 'image' => 'required',
+                'base_price' => 'required',
                 'category_id' => 'required|exists:categories,id',
                 'priceCombinations' => '',
                 'priceCombinations.*' => 'required_with:priceCombinations|exists:price_combinations,id',
@@ -36,9 +37,10 @@ class ProductRequest extends FormRequest
         }
         else if (sizeof($segments) == 3){
             return [
-                'name' => 'required',
-                'description' => 'required',
-                'image' => 'required',
+                'name' => '',
+                'description' => '',
+                'image' => '',
+                'base_price' => '',
                 'priceCombinations' => '',
                 'priceCombinations.*' => 'required_with:priceCombinations|exists:price_combinations,id',
             ];

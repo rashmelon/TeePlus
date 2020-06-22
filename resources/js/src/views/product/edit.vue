@@ -55,7 +55,7 @@
 				</vx-card>
 
 
-				<Combinations v-if="form.category_id"  :catId="form.category_id" :prodId="$route.params.id"/>
+				<Combinations v-if="form.category_id"  :categoryId="form.category_id" :priceCombinations="$route.params.id"/>
 			</div>
 
 
