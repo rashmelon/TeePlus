@@ -1,5 +1,5 @@
 <template>
-	<div class="vx-col w-full mb-base">
+	<div  v-if="can('browse-category')" class="vx-col w-full mb-base">
 
 		<div class="centerx">
 			<vs-row>
@@ -60,7 +60,7 @@
 							<vs-row>
 								<div class="flex mb-4">
 									<div class="w-1/3 mx-2" v-if="can('view-category')">
-										<vs-button :id="`btn-view-${category.id}`" class="vs-con-loading__container" radius color="success" type="border"
+										<vs-button :id="`btn-view-${category.id}`" class="vs-con-loading__container" radius color="primary" type="border"
 										           icon-pack="feather" icon="icon-eye"
 										           @click=viewCategory(category.id)></vs-button>
 									</div>

@@ -65,13 +65,18 @@
                         <vs-td>
                             <vs-row>
                                 <div class="flex mb-4">
-                                    <div class="w-1/2 mx-2">
+                                    <div class="w-1/3 mx-2"><!--v-if="can('view-product')"-->
+                                        <vs-button :id="`btn-view-${product.id}`" class="vs-con-loading__container" radius color="success" type="border"
+                                                   icon-pack="feather" icon="icon-eye"
+                                                   @click=viewProduct(product.id)></vs-button>
+                                    </div>
+                                    <div class="w-1/3 mx-2"><!--v-if="can('edit-product')"-->
                                         <vs-button :id="`btn-edit-${product.id}`" class="vs-con-loading__container"
                                                    radius color="warning" type="border"
                                                    icon-pack="feather" icon="icon-edit"
                                                    @click=editProduct(product.id)></vs-button>
                                     </div>
-                                    <div class="w-1/2 mx-3">
+                                    <div class="w-1/3 mx-3"><!-- v-if="can('delete-product')"-->
                                         <vs-button :id="`btn-delete-${product.id}`" class="vs-con-loading__container"
                                                    radius color="danger" type="border"
                                                    icon-pack="feather" icon="icon-trash"
@@ -117,7 +122,7 @@
                     })
                     .catch(error => {
                         console.log(error);
-                        // this.$vs.loading.close(this.$refs.browse);
+                        this.$vs.loading.close(this.$refs.browse.$el);
                         this.$vs.notify({
                             title: 'Error',
                             text: error.response.data.error,
@@ -126,6 +131,10 @@
                             color: 'danger'
                         });
                     });
+            },
+
+            viewProduct(id) {
+                this.$router.push({name: 'view-product', params: {'id': id}})
             },
 
             editProduct(id) {

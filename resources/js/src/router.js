@@ -244,6 +244,22 @@ const router = new Router({
                         // permission: 'edit-product'
                     }
                 },
+                {
+                    path: '/dashboard/product/view/:id',
+                    name: 'view-product',
+                    component: () => import('./views/product/view.vue'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Product', url: '/dashboard/product', i18n: 'Product'},
+                            {title: 'View', active: true, i18n: 'View'},
+                        ],
+                        pageTitle: 'View Product',
+                        pageTitle_i18n: 'View Product',
+                        // permission: 'view-product'
+                    }
+                },
 
 
                 {

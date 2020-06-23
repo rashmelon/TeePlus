@@ -20,12 +20,12 @@
 								</div>
 								<div class="vx-col md:w-4/12 mt-1">
 									<vs-select
-										label="Category"
-										v-model="form.category"
-										@change="resetCombinations"
+										@change="getCombinations"
 										class="w-full"
-										v-validate="'required'"
+										label="Category"
 										name="category"
+										v-model="form.category"
+										v-validate="'required'"
 
 									>
 										<vs-select-item :key="category.id" :text="category.name" :value="category" v-for="category in categories"/>
@@ -37,15 +37,15 @@
 									<vs-input
 										class="w-full"
 										label="Product Name"
+										name="name"
 										v-model="form.name"
-										v-validate="'required'"
- 										name="name"/>
+										v-validate="'required'"/>
 									<span class="text-danger text-sm" v-show="errors.has('name')">{{ errors.first('name') }}</span>
 								</div>
 								<div class="vx-col md:w-2/12 mb-3">
-									<vs-input type="number" class="w-full" label="Product Base Price" v-model="form.base_price"
-									          v-validate="'required|min_value:0'"
-									          name="base price"/>
+									<vs-input class="w-full" label="Product Base Price" name="base price" type="number"
+									          v-model="form.base_price"
+									          v-validate="'required|min_value:0'"/>
 									<span class="text-danger text-sm" v-show="errors.has('base price')">{{ errors.first('base price') }}</span>
 
 								</div>
@@ -62,17 +62,18 @@
 								<vx-card class="vx-row">
 									<div class="vx-col md:w-1/1 w-full mt-3">
 										<vs-select
+											class="w-full"
 											label="Combinations"
 											multiple
+											items="combinations"
 											placeholder="Combinations"
 											v-model="form.priceCombinations"
-											class="w-full"
 										>
 											<vs-select-item
 												:key="index"
 												:text='item.combination'
 												:value="item.id"
-												v-for="(item,index) in form.category.priceCombinations"/>
+												v-for="(item,index) in combinations"/>
 										</vs-select>
 
 										<!--<vs-list>
@@ -97,184 +98,171 @@
 </template>
 
 <script>
-  import './../../filters/filters'
-  import {FormWizard, TabContent} from 'vue-form-wizard'
-  import 'vue-form-wizard/dist/vue-form-wizard.min.css'
+    import './../../filters/filters'
+    import {FormWizard, TabContent} from 'vue-form-wizard'
+    import 'vue-form-wizard/dist/vue-form-wizard.min.css'
 
-  export default {
-    name: "create",
-    mounted() {
-      this.getCategories()
-    },
-    computed: {
-      validateForm() {
-        return !this.errors.any()
-          && this.form.name !== ''
-      },
-    },
-    data: function () {
-      return {
-        categories:[],
-        form: {
-          name: '',
-          description: '',
-          category: '',
-          base_price: 0,
-          priceCombinations: [],
+    export default {
+        name: "create",
+        mounted() {
+            this.getCategories()
         },
-        uploadedImage: null,
-        is_requesting: false
-      }
-    },
-    components: {
-      FormWizard,
-      TabContent
-    },
-	  props:{
-      payload: {
-        required: false,
-        default: ''
-      },
-	  },
-    methods: {
-      resetCombinations(){
-        this.form.priceCombinations=[]
-      },
-      create() {
-        this.$validator.validateAll().then(result => {
-          if (result) {
-            // if form have no errors
-            this.is_requesting = true;
-
-
-            // create new object for sending object without extra data
-            let sentObject = {...this.form}
-            sentObject.category_id = sentObject.category.id
-
-            let form_data = new FormData();
-
-            for (let key in sentObject) {
-              if (key === 'priceCombinations') {
-                form_data.append(key, JSON.stringify(sentObject[key]));
-              } else if (key === 'image') {
-                form_data.append(key, sentObject[key][0]);
-              } else {
-                form_data.append(key, sentObject[key]);
-              }
+        computed: {
+            validateForm() {
+                return !this.errors.any()
+                    && this.form.name !== ''
+            },
+        },
+        data: function () {
+            return {
+                combinations: [],
+                categories: [],
+                form: {
+                    name: '',
+                    description: '',
+                    category: '',
+                    base_price: 0,
+                    priceCombinations: [],
+                },
+                uploadedImage: null,
+                is_requesting: false
             }
-
-            this.$store.dispatch('product/create', form_data)
-              .then(response => {
-                this.$vs.notify({
-                  title: 'Success',
-                  text: response.data.message,
-                  iconPack: 'feather',
-                  icon: 'icon-check',
-                  color: 'success'
-                });
-                this.$router.push({name: 'product'});
-                this.is_requesting = false;
-
-              })
-              .catch(error => {
-                console.log(error);
-                this.$vs.notify({
-                  title: 'Error',
-                  text: error.response.data,
-                  iconPack: 'feather',
-                  icon: 'icon-alert-circle',
-                  color: 'danger'
-                });
-                this.is_requesting = false;
-              });
-          } else {
-            this.$vs.notify({
-              title: 'Error',
-              text: 'Fix form validation errors',
-              iconPack: 'feather',
-              icon: 'icon-alert-circle',
-              color: 'danger'
-            });
-          }
-
-        })
+        },
+        components: {
+            FormWizard,
+            TabContent
+        },
+        props: {
+            payload: {
+                required: false,
+                default: ''
+            },
+        },
+        methods: {
+            resetCombinations() {
+                this.form.priceCombinations = []
+            },
+            create() {
+                this.$validator.validateAll().then(result => {
+                    if (result) {
+                        // if form have no errors
+                        this.is_requesting = true;
 
 
+                        // create new object for sending object without extra data
+                        let sentObject = {...this.form}
+                        sentObject.category_id = sentObject.category.id
+
+                        let form_data = new FormData();
+
+                        for (let key in sentObject) {
+                            if (key === 'priceCombinations') {
+                                form_data.append(key, JSON.stringify(sentObject[key]));
+                            } else if (key === 'image') {
+                                form_data.append(key, sentObject[key][0]);
+                            } else {
+                                form_data.append(key, sentObject[key]);
+                            }
+                        }
+
+                        this.$store.dispatch('product/create', form_data)
+                            .then(response => {
+                                this.$vs.notify({
+                                    title: 'Success',
+                                    text: response.data.message,
+                                    iconPack: 'feather',
+                                    icon: 'icon-check',
+                                    color: 'success'
+                                });
+                                this.$router.push({name: 'product'});
+                                this.is_requesting = false;
+
+                            })
+                            .catch(error => {
+                                console.log(error);
+                                this.$vs.notify({
+                                    title: 'Error',
+                                    text: error.response.data,
+                                    iconPack: 'feather',
+                                    icon: 'icon-alert-circle',
+                                    color: 'danger'
+                                });
+                                this.is_requesting = false;
+                            });
+                    } else {
+                        this.$vs.notify({
+                            title: 'Error',
+                            text: 'Fix form validation errors',
+                            iconPack: 'feather',
+                            icon: 'icon-alert-circle',
+                            color: 'danger'
+                        });
+                    }
+
+                })
 
 
-      },
+            },
 
-      previewImage: function (event) {
-        // Reference to the DOM input element
-        var input = event.target;
-        // Ensure that you have a file before attempting to read it
-        if (input.files && input.files[0]) {
-          // create a new FileReader to read this image and convert to base64 format
-          var reader = new FileReader();
-          // Define a callback function to run, when FileReader finishes its job
-          reader.onload = (e) => {
-            // Note: arrow function used here, so that "this.imageData" refers to the imageData of Vue component
-            // Read image as base64 and set to imageData
-            this.uploadedImage = e.target.result;
-            this.form.image = input.files;
-          };
-          // Start the reader job - read file as a data url (base64 format)
-          reader.readAsDataURL(input.files[0]);
+            previewImage: function (event) {
+                // Reference to the DOM input element
+                var input = event.target;
+                // Ensure that you have a file before attempting to read it
+                if (input.files && input.files[0]) {
+                    // create a new FileReader to read this image and convert to base64 format
+                    var reader = new FileReader();
+                    // Define a callback function to run, when FileReader finishes its job
+                    reader.onload = (e) => {
+                        // Note: arrow function used here, so that "this.imageData" refers to the imageData of Vue component
+                        // Read image as base64 and set to imageData
+                        this.uploadedImage = e.target.result;
+                        this.form.image = input.files;
+                    };
+                    // Start the reader job - read file as a data url (base64 format)
+                    reader.readAsDataURL(input.files[0]);
+                }
+            },
+
+            getCategories() {
+                // get all categories
+                this.$vs.loading({container: this.$refs.create.$el, scale: 0.5});
+                this.$store.dispatch('category/getData', this.payload)
+                    .then(response => {
+                        this.categories = response.data.data
+
+                        this.$vs.loading.close(this.$refs.create.$el);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        // this.$vs.loading.close(this.$refs.browse);
+                        this.$vs.notify({
+                            title: 'Error',
+                            text: error.response.data.error,
+                            iconPack: 'feather',
+                            icon: 'icon-alert-circle',
+                            color: 'danger'
+                        });
+                    });
+            },
+            getCombinations(category) {
+                this.$store.dispatch('combination/getData', `?category=${category.id}`)
+                    .then(response => {
+                        this.combinations = response.data.data
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        this.$vs.notify({
+                            title: 'Error',
+                            text: error.response.data.error,
+                            iconPack: 'feather',
+                            icon: 'icon-alert-circle',
+                            color: 'danger'
+                        });
+                    });
+            },
+
         }
-      },
-
-      getCategories(){
-        // get all categories
-        this.$vs.loading({container: this.$refs.create.$el, scale: 0.5});
-        this.$store.dispatch('category/getData', this.payload)
-          .then(response => {
-            this.categories=response.data.data
-
-            // get priceCombinations of every category seperately
-            this.categories.forEach(cat=>{
-							this.getCombinations(cat.id)
-            })
-
-            this.$vs.loading.close(this.$refs.create.$el);
-          })
-          .catch(error => {
-            console.log(error);
-            // this.$vs.loading.close(this.$refs.browse);
-            this.$vs.notify({
-              title: 'Error',
-              text: error.response.data.error,
-              iconPack: 'feather',
-              icon: 'icon-alert-circle',
-              color: 'danger'
-            });
-          });
-      },
-	    getCombinations(catId){
-        this.$store.dispatch('combination/getData', `?category=${catId}`)
-          .then(response => {
-            // console.log(`combination for cat id = ${catId}`)
-            // console.log(response.data.data)
-
-            for(let index= 0 ; index<this.categories.length; index++){
-              if (this.categories[index].id == catId){
-                this.categories[index].priceCombinations = response.data.data
-              }
-            }
-          })
-          .catch(error => {
-            console.log(error);
-            this.$vs.notify({
-              title: 'Error',
-              text: error.response.data.error,
-              iconPack: 'feather',
-              icon: 'icon-alert-circle',
-              color: 'danger'
-            });
-          });
-      },
-
     }
-  }
 </script>
 
 <style>
