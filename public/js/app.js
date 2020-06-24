@@ -73215,31 +73215,6 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
         permission: 'edit-seller-product'
       }
     }, {
-      path: '/dashboard/my-products',
-      name: 'my-products',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 31).then(__webpack_require__.bind(null, /*! ./views/user_product/browse.vue */ "./resources/js/src/views/user_product/browse.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'User',
-          url: '/dashboard/user',
-          i18n: 'User'
-        }, {
-          title: 'user product',
-          active: true,
-          i18n: 'user product'
-        }],
-        pageTitle: 'User Products',
-        pageTitle_i18n: 'User Products',
-        permission: 'browse-product'
-      }
-    }, {
       path: '/dashboard/category',
       name: 'category',
       component: function component() {
@@ -73639,6 +73614,7 @@ router.afterEach(function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../router */ "./resources/js/src/router.js");
 /*=========================================================================================
   File Name: actions.js
   Description: Vuex Store - actions
@@ -73647,6 +73623,7 @@ __webpack_require__.r(__webpack_exports__);
   Author: Pixinvent
   Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
+
 var actions = {
   // /////////////////////////////////////////////
   // COMPONENTS
@@ -73703,11 +73680,11 @@ var actions = {
 
     switch (payload.error.response.status) {
       case 401:
-        router.push('/dashboard/error-403');
+        _router__WEBPACK_IMPORTED_MODULE_0__["default"].push('/dashboard/error-403');
         break;
 
       case 403:
-        router.push('/dashboard/error-403');
+        _router__WEBPACK_IMPORTED_MODULE_0__["default"].push('/dashboard/error-403');
         break;
 
       default:

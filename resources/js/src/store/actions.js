@@ -6,6 +6,7 @@
   Author: Pixinvent
   Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
+import router from './../router';
 
 const actions = {
 

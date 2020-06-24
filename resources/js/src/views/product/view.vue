@@ -78,15 +78,20 @@
                     .then(response => {
                         this.form = response.data.data;
 
-                        this.getCategory(this.form.category_id)
+                        this.getCategory(this.form.category_id);
 
                         // preview used image
                         if (this.form.image) {
-                            this.uploadedImage = this.form.image.url
+                            this.uploadedImage = this.form.image.url;
                         }
 
                     })
                     .catch(error => {
+                        console.log(error.response);
+
+                        /*if (error.response.headers.status === 403){
+                            console.log('redirect!')
+                        }*/
                         console.log(error);
                         this.$vs.notify({
                             title: 'Error',

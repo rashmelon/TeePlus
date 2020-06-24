@@ -68,7 +68,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $this->authorize('show', Product::class);
+        $this->authorize('show', [Product::class, $product]);
 
         return ApiResponse::showRespond($product, ProductTransformer::class)->execute();
     }

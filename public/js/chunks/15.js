@@ -92,6 +92,11 @@ __webpack_require__.r(__webpack_exports__);
           _this2.uploadedImage = _this2.form.image.url;
         }
       }).catch(function (error) {
+        console.log(error.response);
+        /*if (error.response.headers.status === 403){
+            console.log('redirect!')
+        }*/
+
         console.log(error);
 
         _this2.$vs.notify({

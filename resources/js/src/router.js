@@ -154,25 +154,6 @@ const router = new Router({
 
 
 
-                {
-                    path: '/dashboard/my-products',
-                    name: 'my-products',
-                    component: () => import('./views/user_product/browse.vue'),
-                    beforeEnter: guard,
-                    meta: {
-                        breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'User', url: '/dashboard/user', i18n: 'User'},
-                            {title: 'user product', active: true, i18n: 'user product'},
-                        ],
-                        pageTitle: 'User Products',
-                        pageTitle_i18n: 'User Products',
-                        permission: 'browse-product'
-                    }
-                },
-
-
-
 
                 {
                     path: '/dashboard/category',

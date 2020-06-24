@@ -133,7 +133,13 @@ __webpack_require__.r(__webpack_exports__);
         container: this.$refs.browse.$el,
         scale: 0.5
       });
-      this.$store.dispatch('product/getData', this.payload).then(function (response) {
+      var payload = this.payload;
+
+      if (this.$store.getters['auth/userData'].roles[0].name == 'Seller') {
+        payload = '?seller=' + this.$store.getters['auth/userData'].id;
+      }
+
+      this.$store.dispatch('product/getData', payload).then(function (response) {
         _this.products = response.data.data;
 
         _this.$vs.loading.close(_this.$refs.browse.$el);

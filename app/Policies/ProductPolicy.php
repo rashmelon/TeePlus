@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Product;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -29,9 +30,15 @@ class ProductPolicy
         return request()->user()->hasPermissionTo('create-product');
     }
 
-    public function show()
+    public function show(User $user, Product $product)
     {
-        return request()->user()->hasPermissionTo('view-product');
+        if ($user->hasRole('Seller')){
+            if ($product->sellers->contains($user->id)){
+                return $user->hasPermissionTo('view-product');
+            }
+            return false;
+        }
+        return $user->hasPermissionTo('view-product');
     }
 
     public function update()
