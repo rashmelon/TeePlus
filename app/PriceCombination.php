@@ -11,6 +11,7 @@ class PriceCombination extends Model
     use CategoryItems;
 
     protected $fillable = ['combination', 'price'];
+    protected $hidden = ['pivot'];
 
     public function products()
     {

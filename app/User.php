@@ -53,4 +53,9 @@ class User extends Authenticatable
             $query->where('is_core', 0);
         });
     }
+
+    public function productsToSell()
+    {
+        return $this->belongsToMany(Product::class, 'user_products');
+    }
 }

@@ -179,4 +179,32 @@ return [
             'display_name' => 'Delete Product',
         ],
     ],
+
+    'Seller Product' => [
+        [
+            'name' => 'create-seller-product',
+            'guard_name' => 'api',
+            'display_name' => 'Create Seller Product',
+        ],
+        [
+            'name' => 'browse-seller-product',
+            'guard_name' => 'api',
+            'display_name' => 'Browse Seller Product',
+        ],
+        [
+            'name' => 'view-product',
+            'guard_name' => 'api',
+            'display_name' => 'View Seller Product',
+        ],
+        [
+            'name' => 'edit-seller-product',
+            'guard_name' => 'api',
+            'display_name' => 'Edit Seller Product',
+        ],
+        [
+            'name' => 'delete-seller-product',
+            'guard_name' => 'api',
+            'display_name' => 'Delete Seller Product',
+        ],
+    ],
 ];
