@@ -72537,6 +72537,40 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/src/http/requests/user-product/index.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/src/http/requests/user-product/index.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _axios_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../axios/index.js */ "./resources/js/src/http/axios/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  getAll: function getAll(filters) {
+    //filters=?paginate=5&sortAsc=id
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("user-product".concat(filters));
+  },
+  view: function view(id) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("user-product/".concat(id));
+  },
+  create: function create(data) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].post("user-product", data);
+  },
+  update: function update(id, data) {
+    console.log(id);
+    console.log(data);
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].post("user-product/".concat(id), data);
+  },
+  delete: function _delete(id) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].delete("user-product/".concat(id));
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/src/http/requests/user/index.js":
 /*!******************************************************!*\
   !*** ./resources/js/src/http/requests/user/index.js ***!
@@ -73002,7 +73036,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard',
       name: 'home',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 29).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/src/views/Home.vue"));
+        return __webpack_require__.e(/*! import() */ 30).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/src/views/Home.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73154,6 +73188,56 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
         pageTitle: 'Edit User',
         pageTitle_i18n: 'editUser',
         permission: 'edit-user'
+      }
+    }, {
+      path: '/dashboard/user/:id/products',
+      name: 'edit-user-product',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ./views/user_product/edit.vue */ "./resources/js/src/views/user_product/edit.vue"));
+      },
+      beforeEnter: guard,
+      meta: {
+        breadcrumb: [{
+          title: 'Home',
+          url: '/dashboard',
+          i18n: 'Home'
+        }, {
+          title: 'User',
+          url: '/dashboard/user',
+          i18n: 'User'
+        }, {
+          title: 'user product',
+          active: true,
+          i18n: 'user product'
+        }],
+        pageTitle: 'User Products',
+        pageTitle_i18n: 'User Products',
+        permission: 'edit-seller-product'
+      }
+    }, {
+      path: '/dashboard/my-products',
+      name: 'my-products',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 31).then(__webpack_require__.bind(null, /*! ./views/user_product/browse.vue */ "./resources/js/src/views/user_product/browse.vue"));
+      },
+      beforeEnter: guard,
+      meta: {
+        breadcrumb: [{
+          title: 'Home',
+          url: '/dashboard',
+          i18n: 'Home'
+        }, {
+          title: 'User',
+          url: '/dashboard/user',
+          i18n: 'User'
+        }, {
+          title: 'user product',
+          active: true,
+          i18n: 'user product'
+        }],
+        pageTitle: 'User Products',
+        pageTitle_i18n: 'User Products',
+        permission: 'browse-product'
       }
     }, {
       path: '/dashboard/category',
@@ -73462,7 +73546,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   {
     path: '',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 28).then(__webpack_require__.bind(null, /*! @/layouts/full-page/FullPage.vue */ "./resources/js/src/layouts/full-page/FullPage.vue"));
+      return __webpack_require__.e(/*! import() */ 29).then(__webpack_require__.bind(null, /*! @/layouts/full-page/FullPage.vue */ "./resources/js/src/layouts/full-page/FullPage.vue"));
     },
     children: [// =============================================================================
     // PAGES
@@ -73477,19 +73561,19 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/error-403',
       name: 'pageError403',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 26).then(__webpack_require__.bind(null, /*! ./views/pages/NotAuthorized.vue */ "./resources/js/src/views/pages/NotAuthorized.vue"));
+        return __webpack_require__.e(/*! import() */ 27).then(__webpack_require__.bind(null, /*! ./views/pages/NotAuthorized.vue */ "./resources/js/src/views/pages/NotAuthorized.vue"));
       }
     }, {
       path: '/dashboard/error-404',
       name: 'pageError404',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ./views/pages/Error404.vue */ "./resources/js/src/views/pages/Error404.vue"));
+        return __webpack_require__.e(/*! import() */ 26).then(__webpack_require__.bind(null, /*! ./views/pages/Error404.vue */ "./resources/js/src/views/pages/Error404.vue"));
       }
     }, {
       path: '/verified',
       name: 'verified',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 27).then(__webpack_require__.bind(null, /*! ./views/pages/verified.vue */ "./resources/js/src/views/pages/verified.vue"));
+        return __webpack_require__.e(/*! import() */ 28).then(__webpack_require__.bind(null, /*! ./views/pages/verified.vue */ "./resources/js/src/views/pages/verified.vue"));
       }
     }]
   }, // Redirect to 404 page, if no match found
@@ -75307,6 +75391,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _combination_moduleCombination__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./combination/moduleCombination */ "./resources/js/src/store/combination/moduleCombination.js");
 /* harmony import */ var _criteria_moduleCriteria__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./criteria/moduleCriteria */ "./resources/js/src/store/criteria/moduleCriteria.js");
 /* harmony import */ var _product_moduleProduct__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./product/moduleProduct */ "./resources/js/src/store/product/moduleProduct.js");
+/* harmony import */ var _user_product_moduleUserProduct__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./user-product/moduleUserProduct */ "./resources/js/src/store/user-product/moduleUserProduct.js");
 
 
 
@@ -75315,6 +75400,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 
 
 
@@ -75343,11 +75429,174 @@ var vuexLocal = new vuex_persist__WEBPACK_IMPORTED_MODULE_6__["default"]({
     category: _category_moduleCategory__WEBPACK_IMPORTED_MODULE_13__["default"],
     combination: _combination_moduleCombination__WEBPACK_IMPORTED_MODULE_14__["default"],
     criteria: _criteria_moduleCriteria__WEBPACK_IMPORTED_MODULE_15__["default"],
-    product: _product_moduleProduct__WEBPACK_IMPORTED_MODULE_16__["default"]
+    product: _product_moduleProduct__WEBPACK_IMPORTED_MODULE_16__["default"],
+    userProduct: _user_product_moduleUserProduct__WEBPACK_IMPORTED_MODULE_17__["default"]
   },
   plugins: [vuexLocal.plugin],
   strict: "development" !== 'production'
 }));
+
+/***/ }),
+
+/***/ "./resources/js/src/store/user-product/moduleUserProduct.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/src/store/user-product/moduleUserProduct.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _moduleUserProductState__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./moduleUserProductState */ "./resources/js/src/store/user-product/moduleUserProductState.js");
+/* harmony import */ var _moduleUserProductMutations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moduleUserProductMutations */ "./resources/js/src/store/user-product/moduleUserProductMutations.js");
+/* harmony import */ var _moduleUserProductActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moduleUserProductActions */ "./resources/js/src/store/user-product/moduleUserProductActions.js");
+/* harmony import */ var _moduleUserProductGetters__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moduleUserProductGetters */ "./resources/js/src/store/user-product/moduleUserProductGetters.js");
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: _moduleUserProductState__WEBPACK_IMPORTED_MODULE_0__["default"],
+  mutations: _moduleUserProductMutations__WEBPACK_IMPORTED_MODULE_1__["default"],
+  actions: _moduleUserProductActions__WEBPACK_IMPORTED_MODULE_2__["default"],
+  getters: _moduleUserProductGetters__WEBPACK_IMPORTED_MODULE_3__["default"]
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/user-product/moduleUserProductActions.js":
+/*!*************************************************************************!*\
+  !*** ./resources/js/src/store/user-product/moduleUserProductActions.js ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _http_requests_user_product_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../http/requests/user-product/index */ "./resources/js/src/http/requests/user-product/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  getData: function getData(_ref, payload) {
+    var commit = _ref.commit,
+        dispatch = _ref.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_user_product_index__WEBPACK_IMPORTED_MODULE_0__["default"].getAll(payload).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  view: function view(_ref2, id) {
+    var commit = _ref2.commit,
+        dispatch = _ref2.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_user_product_index__WEBPACK_IMPORTED_MODULE_0__["default"].view(id).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  create: function create(_ref3, payload) {
+    var commit = _ref3.commit,
+        dispatch = _ref3.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_user_product_index__WEBPACK_IMPORTED_MODULE_0__["default"].create(payload).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  update: function update(_ref4, payload) {
+    var commit = _ref4.commit,
+        dispatch = _ref4.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_user_product_index__WEBPACK_IMPORTED_MODULE_0__["default"].update(payload.id, payload.data).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  delete: function _delete(_ref5, id) {
+    var commit = _ref5.commit,
+        dispatch = _ref5.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_user_product_index__WEBPACK_IMPORTED_MODULE_0__["default"].delete(id).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/user-product/moduleUserProductGetters.js":
+/*!*************************************************************************!*\
+  !*** ./resources/js/src/store/user-product/moduleUserProductGetters.js ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/user-product/moduleUserProductMutations.js":
+/*!***************************************************************************!*\
+  !*** ./resources/js/src/store/user-product/moduleUserProductMutations.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/user-product/moduleUserProductState.js":
+/*!***********************************************************************!*\
+  !*** ./resources/js/src/store/user-product/moduleUserProductState.js ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 

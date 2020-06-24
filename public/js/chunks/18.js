@@ -71,6 +71,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -351,7 +353,7 @@ var render = function() {
             _vm._l(_vm.users, function(user) {
               return _c(
                 "div",
-                { staticClass: "vx-col w-full sm:w-1/2 md:w-1/3 mb-base" },
+                { staticClass: "vx-col w-full md:w-1/2 lg:w-1/3 mb-base" },
                 [
                   _c(
                     "vx-card",
@@ -405,44 +407,53 @@ var render = function() {
                           _c("vs-divider"),
                           _vm._v(" "),
                           _c("div", { staticClass: "flex justify-between" }, [
+                            _vm.can("create-seller-product")
+                              ? _c(
+                                  "span",
+                                  { staticClass: "flex items-center" },
+                                  [
+                                    _c("vs-button", {
+                                      attrs: {
+                                        to: {
+                                          name: "edit-user-product",
+                                          params: { id: user.id }
+                                        },
+                                        color: "success",
+                                        type: "filled",
+                                        "icon-pack": "fa",
+                                        icon: "fa-tags"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
                             _vm.can("delete-user")
                               ? _c(
                                   "span",
                                   { staticClass: "flex items-center" },
                                   [
-                                    _c(
-                                      "vx-tooltip",
-                                      {
-                                        attrs: {
-                                          color: "danger",
-                                          text: _vm.$t("Delete") || "Delete"
-                                        }
+                                    _c("vs-button", {
+                                      staticClass: "vs-con-loading__container",
+                                      attrs: {
+                                        id: "btn-delete-" + user.id,
+                                        color: "danger",
+                                        type: "filled",
+                                        "icon-pack": "feather",
+                                        icon: "icon-trash"
                                       },
-                                      [
-                                        _c("vs-button", {
-                                          staticClass:
-                                            "vs-con-loading__container",
-                                          attrs: {
-                                            id: "btn-delete-" + user.id,
-                                            color: "danger",
-                                            type: "filled",
-                                            "icon-pack": "feather",
-                                            icon: "icon-trash"
-                                          },
-                                          on: {
-                                            click: function($event) {
-                                              _vm.is_requesting
-                                                ? _vm.$store.dispatch(
-                                                    "viewWaitMessage",
-                                                    _vm.$vs
-                                                  )
-                                                : _vm.confirmDeleteUser(user)
-                                            }
-                                          }
-                                        })
-                                      ],
-                                      1
-                                    )
+                                      on: {
+                                        click: function($event) {
+                                          _vm.is_requesting
+                                            ? _vm.$store.dispatch(
+                                                "viewWaitMessage",
+                                                _vm.$vs
+                                              )
+                                            : _vm.confirmDeleteUser(user)
+                                        }
+                                      }
+                                    })
                                   ],
                                   1
                                 )

@@ -6876,6 +6876,13 @@ __webpack_require__.r(__webpack_exports__);
   icon: "CoffeeIcon",
   permission: 'browse-product'
 }, {
+  url: "/dashboard/my-products",
+  name: "My Products",
+  slug: "My Products",
+  i18n: "My Products",
+  icon: "FeatherIcon",
+  permission: 'browse-product'
+}, {
   url: "/dashboard/user",
   name: "User",
   slug: "user",

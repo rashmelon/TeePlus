@@ -15,7 +15,7 @@
 
         <!-- USER PROFILE CARD 2 - MINIMAL -->
         <div class="vx-row" ref="browse">
-            <div class="vx-col w-full sm:w-1/2 md:w-1/3 mb-base" v-for="user in users">
+            <div class="vx-col w-full md:w-1/2 lg:w-1/3 mb-base" v-for="user in users">
                 <vx-card class="p-2">
                     <vs-avatar class="mx-auto mb-6 block" size="80px" :src="user.image? user.image.url:''" />
                     <div class="text-center">
@@ -32,12 +32,14 @@
                         <vs-divider />
 
                         <div class="flex justify-between">
+                            <span v-if="can('create-seller-product')" class="flex items-center">
+                                <vs-button :to="{name: 'edit-user-product',params:{id: user.id}}" color="success" type="filled" icon-pack="fa"
+                                           icon="fa-tags"></vs-button>
+                            </span>
                             <span v-if="can('delete-user')" class="flex items-center">
-                                <vx-tooltip color="danger" :text="$t('Delete') || 'Delete'">
                                     <vs-button :id="`btn-delete-${user.id}`" class="vs-con-loading__container"
                                                @click="is_requesting?$store.dispatch('viewWaitMessage', $vs):confirmDeleteUser(user)"
                                                color="danger" type="filled" icon-pack="feather" icon="icon-trash"></vs-button>
-                                </vx-tooltip>
                             </span>
                             <span v-if="can('edit-user')||$store.getters['auth/userData'].id===$route.params.id" class="flex items-center">
                                 <vs-button :to="`/dashboard/user/${user.id}/edit`" color="warning" type="filled" icon-pack="feather"

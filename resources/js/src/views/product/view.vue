@@ -24,7 +24,6 @@
 						</div>
 					</div>
 
-
 					<h2 class="mt-5 mb-2">Combinations</h2>
 					<h5 v-for="item in form.priceCombinations">{{item.combination}}</h5>
 
