@@ -30,6 +30,8 @@ Route::middleware('auth:api')->post('print-criteria/{print_criterion}', 'PrintCr
 Route::middleware('auth:api')->resource('product', 'ProductController');
 Route::middleware('auth:api')->post('product/{product}', 'ProductController@update');
 
+Route::middleware('auth:api')->post('user-product/{user}', 'UserProductController@update');
+
 Route::group(['prefix' => 'role', 'middleware' => 'auth:api'], function () {
     Route::post('{id}', 'RoleController@update');
     Route::get('{id}', 'RoleController@show');
