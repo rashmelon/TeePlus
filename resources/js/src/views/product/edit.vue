@@ -128,13 +128,9 @@
                         // get category combinations that will be available for this product
                         this.getCombinations()
 
-		                    // this.form.priceCombinations = [58,59]
-		                    // TODO: parse ids from priceCombinations object || Add view product
                         for (let i = 0; i < this.form.priceCombinations.length; i++) {
                             this.form.priceCombinations[i] = this.form.priceCombinations[i].id
                         }
-                        console.log('product:')
-                        console.log(this.form)
 
                     })
                     .catch(error => {

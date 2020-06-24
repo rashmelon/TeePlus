@@ -103,6 +103,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -282,272 +286,303 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "vx-col w-full mb-base" },
-    [
-      _c(
+  return _vm.can("browse-product")
+    ? _c(
         "div",
-        { staticClass: "centerx" },
+        { staticClass: "vx-col w-full mb-base" },
         [
           _c(
-            "vs-row",
+            "div",
+            { staticClass: "centerx" },
             [
               _c(
-                "vs-col",
+                "vs-row",
+                [
+                  _c(
+                    "vs-col",
+                    {
+                      attrs: {
+                        "vs-type": "flex",
+                        "vs-justify": "center",
+                        "vs-align": "center",
+                        "vs-w": "9"
+                      }
+                    },
+                    [
+                      _c("b", { staticClass: "text-left vx-col w-full" }, [
+                        _vm._v(
+                          _vm._s(_vm.products.length) +
+                            " results found in " +
+                            _vm._s(_vm.resultTime) +
+                            "ms"
+                        )
+                      ])
+                    ]
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "vx-card",
+            { ref: "browse" },
+            [
+              _c(
+                "vs-table",
                 {
                   attrs: {
-                    "vs-type": "flex",
-                    "vs-justify": "center",
-                    "vs-align": "center",
-                    "vs-w": "9"
-                  }
+                    pagination: "",
+                    search: "",
+                    "max-items": "50",
+                    data: _vm.products
+                  },
+                  scopedSlots: _vm._u(
+                    [
+                      {
+                        key: "default",
+                        fn: function(ref) {
+                          var data = ref.data
+                          return _vm._l(data, function(product, index) {
+                            return _c(
+                              "vs-tr",
+                              { key: index },
+                              [
+                                _c("vs-td", { attrs: { data: product.id } }, [
+                                  _vm._v(
+                                    "\n                        " +
+                                      _vm._s(product.id) +
+                                      "\n                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("vs-td", [
+                                  product.image
+                                    ? _c("img", {
+                                        staticClass: "preview-large",
+                                        attrs: { src: product.image.url }
+                                      })
+                                    : _vm._e()
+                                ]),
+                                _vm._v(" "),
+                                _c("vs-td", { attrs: { data: product.name } }, [
+                                  _vm._v(
+                                    "\n                        " +
+                                      _vm._s(product.name) +
+                                      "\n                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "vs-td",
+                                  { attrs: { data: product.description } },
+                                  [
+                                    _vm._v(
+                                      "\n                        " +
+                                        _vm._s(product.description) +
+                                        "\n                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "vs-td",
+                                  { attrs: { data: product.base_price } },
+                                  [
+                                    _vm._v(
+                                      "\n                        " +
+                                        _vm._s(product.base_price) +
+                                        "\n                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "vs-td",
+                                  { attrs: { data: product.created_at } },
+                                  [
+                                    _vm._v(
+                                      "\n                        " +
+                                        _vm._s(product.created_at) +
+                                        "\n                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "vs-td",
+                                  [
+                                    _c("vs-row", [
+                                      _c("div", { staticClass: "flex mb-4" }, [
+                                        _c(
+                                          "div",
+                                          { staticClass: "w-1/3 mx-2" },
+                                          [
+                                            _vm.can("view-product")
+                                              ? _c("vs-button", {
+                                                  staticClass:
+                                                    "vs-con-loading__container",
+                                                  attrs: {
+                                                    id:
+                                                      "btn-view-" + product.id,
+                                                    radius: "",
+                                                    color: "success",
+                                                    type: "border",
+                                                    "icon-pack": "feather",
+                                                    icon: "icon-eye"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.viewProduct(
+                                                        product.id
+                                                      )
+                                                    }
+                                                  }
+                                                })
+                                              : _vm._e()
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "w-1/3 mx-2" },
+                                          [
+                                            _vm.can("edit-product")
+                                              ? _c("vs-button", {
+                                                  staticClass:
+                                                    "vs-con-loading__container",
+                                                  attrs: {
+                                                    id:
+                                                      "btn-edit-" + product.id,
+                                                    radius: "",
+                                                    color: "warning",
+                                                    type: "border",
+                                                    "icon-pack": "feather",
+                                                    icon: "icon-edit"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.editProduct(
+                                                        product.id
+                                                      )
+                                                    }
+                                                  }
+                                                })
+                                              : _vm._e()
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "w-1/3 mx-3" },
+                                          [
+                                            _vm.can("delete-product")
+                                              ? _c("vs-button", {
+                                                  staticClass:
+                                                    "vs-con-loading__container",
+                                                  attrs: {
+                                                    id:
+                                                      "btn-delete-" +
+                                                      product.id,
+                                                    radius: "",
+                                                    color: "danger",
+                                                    type: "border",
+                                                    "icon-pack": "feather",
+                                                    icon: "icon-trash"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      _vm.is_requesting
+                                                        ? _vm.$store.dispatch(
+                                                            "viewWaitMessage",
+                                                            _vm.$vs
+                                                          )
+                                                        : _vm.confirmDeleteProduct(
+                                                            product
+                                                          )
+                                                    }
+                                                  }
+                                                })
+                                              : _vm._e()
+                                          ],
+                                          1
+                                        )
+                                      ])
+                                    ])
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          })
+                        }
+                      }
+                    ],
+                    null,
+                    false,
+                    652367995
+                  )
                 },
                 [
-                  _c("b", { staticClass: "text-left vx-col w-full" }, [
-                    _vm._v(
-                      _vm._s(_vm.products.length) +
-                        " results found in " +
-                        _vm._s(_vm.resultTime) +
-                        "ms"
-                    )
-                  ])
-                ]
+                  _vm.can("create-product")
+                    ? _c(
+                        "template",
+                        { slot: "header" },
+                        [
+                          _c(
+                            "vs-button",
+                            {
+                              attrs: {
+                                to: { name: "create-product" },
+                                "vs-w": "3",
+                                color: "primary",
+                                type: "filled",
+                                "icon-pack": "feather",
+                                icon: "icon-plus"
+                              }
+                            },
+                            [_vm._v("Add Product\n                ")]
+                          )
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c(
+                    "template",
+                    { slot: "thead" },
+                    [
+                      _c("vs-th", [_vm._v("#")]),
+                      _vm._v(" "),
+                      _c("vs-th", [_vm._v("Image")]),
+                      _vm._v(" "),
+                      _c("vs-th", [_vm._v("Name")]),
+                      _vm._v(" "),
+                      _c("vs-th", [_vm._v("Description")]),
+                      _vm._v(" "),
+                      _c("vs-th", [_vm._v("Base price")]),
+                      _vm._v(" "),
+                      _c("vs-th", [_vm._v("Created At")]),
+                      _vm._v(" "),
+                      _c("vs-th", [_vm._v("Action")])
+                    ],
+                    1
+                  )
+                ],
+                2
               )
             ],
             1
           )
         ],
         1
-      ),
-      _vm._v(" "),
-      _c(
-        "vx-card",
-        { ref: "browse" },
-        [
-          _c(
-            "vs-table",
-            {
-              attrs: {
-                pagination: "",
-                search: "",
-                "max-items": "50",
-                data: _vm.products
-              },
-              scopedSlots: _vm._u([
-                {
-                  key: "default",
-                  fn: function(ref) {
-                    var data = ref.data
-                    return _vm._l(data, function(product, index) {
-                      return _c(
-                        "vs-tr",
-                        { key: index },
-                        [
-                          _c("vs-td", { attrs: { data: product.id } }, [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(product.id) +
-                                "\n                    "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("vs-td", [
-                            product.image
-                              ? _c("img", {
-                                  staticClass: "preview-large",
-                                  attrs: { src: product.image.url }
-                                })
-                              : _vm._e()
-                          ]),
-                          _vm._v(" "),
-                          _c("vs-td", { attrs: { data: product.name } }, [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(product.name) +
-                                "\n                    "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "vs-td",
-                            { attrs: { data: product.description } },
-                            [
-                              _vm._v(
-                                "\n                        " +
-                                  _vm._s(product.description) +
-                                  "\n                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("vs-td", { attrs: { data: product.base_price } }, [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(product.base_price) +
-                                "\n                    "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("vs-td", { attrs: { data: product.created_at } }, [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(product.created_at) +
-                                "\n                    "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "vs-td",
-                            [
-                              _c("vs-row", [
-                                _c("div", { staticClass: "flex mb-4" }, [
-                                  _c(
-                                    "div",
-                                    { staticClass: "w-1/3 mx-2" },
-                                    [
-                                      _c("vs-button", {
-                                        staticClass:
-                                          "vs-con-loading__container",
-                                        attrs: {
-                                          id: "btn-view-" + product.id,
-                                          radius: "",
-                                          color: "success",
-                                          type: "border",
-                                          "icon-pack": "feather",
-                                          icon: "icon-eye"
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.viewProduct(product.id)
-                                          }
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    { staticClass: "w-1/3 mx-2" },
-                                    [
-                                      _c("vs-button", {
-                                        staticClass:
-                                          "vs-con-loading__container",
-                                        attrs: {
-                                          id: "btn-edit-" + product.id,
-                                          radius: "",
-                                          color: "warning",
-                                          type: "border",
-                                          "icon-pack": "feather",
-                                          icon: "icon-edit"
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            return _vm.editProduct(product.id)
-                                          }
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    { staticClass: "w-1/3 mx-3" },
-                                    [
-                                      _c("vs-button", {
-                                        staticClass:
-                                          "vs-con-loading__container",
-                                        attrs: {
-                                          id: "btn-delete-" + product.id,
-                                          radius: "",
-                                          color: "danger",
-                                          type: "border",
-                                          "icon-pack": "feather",
-                                          icon: "icon-trash"
-                                        },
-                                        on: {
-                                          click: function($event) {
-                                            _vm.is_requesting
-                                              ? _vm.$store.dispatch(
-                                                  "viewWaitMessage",
-                                                  _vm.$vs
-                                                )
-                                              : _vm.confirmDeleteProduct(
-                                                  product
-                                                )
-                                          }
-                                        }
-                                      })
-                                    ],
-                                    1
-                                  )
-                                ])
-                              ])
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    })
-                  }
-                }
-              ])
-            },
-            [
-              _c(
-                "template",
-                { slot: "header" },
-                [
-                  _c(
-                    "vs-button",
-                    {
-                      attrs: {
-                        to: { name: "create-product" },
-                        "vs-w": "3",
-                        color: "primary",
-                        type: "filled",
-                        "icon-pack": "feather",
-                        icon: "icon-plus"
-                      }
-                    },
-                    [_vm._v("Add Product\n                ")]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "template",
-                { slot: "thead" },
-                [
-                  _c("vs-th", [_vm._v("#")]),
-                  _vm._v(" "),
-                  _c("vs-th", [_vm._v("Image")]),
-                  _vm._v(" "),
-                  _c("vs-th", [_vm._v("Name")]),
-                  _vm._v(" "),
-                  _c("vs-th", [_vm._v("Description")]),
-                  _vm._v(" "),
-                  _c("vs-th", [_vm._v("Base price")]),
-                  _vm._v(" "),
-                  _c("vs-th", [_vm._v("Created At")]),
-                  _vm._v(" "),
-                  _c("vs-th", [_vm._v("Action")])
-                ],
-                1
-              )
-            ],
-            2
-          )
-        ],
-        1
       )
-    ],
-    1
-  )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true

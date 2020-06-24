@@ -507,27 +507,29 @@ var render = function() {
                   )
                 },
                 [
-                  _c(
-                    "template",
-                    { slot: "header" },
-                    [
-                      _c(
-                        "vs-button",
-                        {
-                          attrs: {
-                            to: { name: "create-category" },
-                            "vs-w": "3",
-                            color: "primary",
-                            type: "filled",
-                            "icon-pack": "feather",
-                            icon: "icon-plus"
-                          }
-                        },
-                        [_vm._v("Add Category")]
+                  _vm.can("create-category")
+                    ? _c(
+                        "template",
+                        { slot: "header" },
+                        [
+                          _c(
+                            "vs-button",
+                            {
+                              attrs: {
+                                to: { name: "create-category" },
+                                "vs-w": "3",
+                                color: "primary",
+                                type: "filled",
+                                "icon-pack": "feather",
+                                icon: "icon-plus"
+                              }
+                            },
+                            [_vm._v("Add Category")]
+                          )
+                        ],
+                        1
                       )
-                    ],
-                    1
-                  ),
+                    : _vm._e(),
                   _vm._v(" "),
                   _c(
                     "template",

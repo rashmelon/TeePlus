@@ -22,7 +22,7 @@ export default [
     slug: "Product",
     i18n: "Product",
     icon: "CoffeeIcon",
-    // permission: 'browse-product'
+    permission: 'browse-product'
   },
 
 
@@ -41,13 +41,14 @@ export default [
       name: "Settings",
       icon: "SettingsIcon",
       i18n: "Settings",
+      permission: "browse-role",
       submenu: [
           {
+              permission: "browse-role",
               url: '/dashboard/settings/role',
               name: "Roles & Permissions",
               slug: "role",
               i18n: "Roles",
-              permission: "browse-role"
           }
       ]
   },

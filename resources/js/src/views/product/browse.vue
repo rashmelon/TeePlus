@@ -1,5 +1,5 @@
 <template>
-    <div class="vx-col w-full mb-base">
+    <div class="vx-col w-full mb-base" v-if="can('browse-product')">
 
         <div class="centerx">
             <vs-row>
@@ -17,7 +17,7 @@
                 :data="products"
             >
 
-                <template slot="header">
+                <template slot="header"  v-if="can('create-product')">
                     <vs-button :to="{name: 'create-product'}" vs-w="3" color="primary" type="filled" icon-pack="feather"
                                icon="icon-plus">Add Product
                     </vs-button>
@@ -66,18 +66,22 @@
                             <vs-row>
                                 <div class="flex mb-4">
                                     <div class="w-1/3 mx-2"><!--v-if="can('view-product')"-->
-                                        <vs-button :id="`btn-view-${product.id}`" class="vs-con-loading__container" radius color="success" type="border"
-                                                   icon-pack="feather" icon="icon-eye"
-                                                   @click=viewProduct(product.id)></vs-button>
+                                        <vs-button
+                                            v-if="can('view-product')"
+                                            :id="`btn-view-${product.id}`" class="vs-con-loading__container" radius color="success" type="border"
+                                           icon-pack="feather" icon="icon-eye"
+                                           @click=viewProduct(product.id)></vs-button>
                                     </div>
                                     <div class="w-1/3 mx-2"><!--v-if="can('edit-product')"-->
                                         <vs-button :id="`btn-edit-${product.id}`" class="vs-con-loading__container"
+                                                   v-if="can('edit-product')"
                                                    radius color="warning" type="border"
                                                    icon-pack="feather" icon="icon-edit"
                                                    @click=editProduct(product.id)></vs-button>
                                     </div>
                                     <div class="w-1/3 mx-3"><!-- v-if="can('delete-product')"-->
                                         <vs-button :id="`btn-delete-${product.id}`" class="vs-con-loading__container"
+                                                   v-if="can('delete-product')"
                                                    radius color="danger" type="border"
                                                    icon-pack="feather" icon="icon-trash"
                                                    @click="is_requesting?$store.dispatch('viewWaitMessage', $vs):confirmDeleteProduct(product)"></vs-button>

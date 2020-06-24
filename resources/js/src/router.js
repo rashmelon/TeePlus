@@ -209,7 +209,7 @@ const router = new Router({
                         ],
                         pageTitle: 'Product',
                         pageTitle_i18n: 'Product',
-                        // permission: 'browse-product' //temperory
+                        permission: 'browse-product' //temperory
                     }
                 },
                 {
@@ -225,7 +225,7 @@ const router = new Router({
                         ],
                         pageTitle: 'Create Product',
                         pageTitle_i18n: 'Create Product',
-                        // permission: 'create-product' //temperory
+                        permission: 'create-product' //temperory
                     }
                 },
                 {
@@ -241,7 +241,7 @@ const router = new Router({
                         ],
                         pageTitle: 'Edit Product',
                         pageTitle_i18n: 'Edit Product',
-                        // permission: 'edit-product'
+                        permission: 'edit-product'
                     }
                 },
                 {
@@ -257,7 +257,7 @@ const router = new Router({
                         ],
                         pageTitle: 'View Product',
                         pageTitle_i18n: 'View Product',
-                        // permission: 'view-product'
+                        permission: 'view-product'
                     }
                 },
 
@@ -274,7 +274,7 @@ const router = new Router({
                             {title: 'Roles', active: true}
                         ],
                         pageTitle: "Roles",
-                        permission: 'view-role'
+                        permission: 'browse-role'
                     }
                 },
                 {

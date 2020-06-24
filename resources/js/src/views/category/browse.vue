@@ -17,7 +17,7 @@
 				:data="categories"
 			>
 
-				<template slot="header">
+				<template slot="header"  v-if="can('create-category')">
 					<vs-button :to="{name: 'create-category'}" vs-w="3" color="primary" type="filled" icon-pack="feather"
 					           icon="icon-plus">Add Category</vs-button>
 				</template>

@@ -6873,8 +6873,8 @@ __webpack_require__.r(__webpack_exports__);
   name: "Product",
   slug: "Product",
   i18n: "Product",
-  icon: "CoffeeIcon" // permission: 'browse-product'
-
+  icon: "CoffeeIcon",
+  permission: 'browse-product'
 }, {
   url: "/dashboard/user",
   name: "User",
@@ -6886,12 +6886,13 @@ __webpack_require__.r(__webpack_exports__);
   name: "Settings",
   icon: "SettingsIcon",
   i18n: "Settings",
+  permission: "browse-role",
   submenu: [{
+    permission: "browse-role",
     url: '/dashboard/settings/role',
     name: "Roles & Permissions",
     slug: "role",
-    i18n: "Roles",
-    permission: "browse-role"
+    i18n: "Roles"
   }]
 }]);
 

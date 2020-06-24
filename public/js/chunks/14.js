@@ -141,16 +141,11 @@ __webpack_require__.r(__webpack_exports__);
         } // get category combinations that will be available for this product
 
 
-        _this2.getCombinations(); // this.form.priceCombinations = [58,59]
-        // TODO: parse ids from priceCombinations object || Add view product
-
+        _this2.getCombinations();
 
         for (var i = 0; i < _this2.form.priceCombinations.length; i++) {
           _this2.form.priceCombinations[i] = _this2.form.priceCombinations[i].id;
         }
-
-        console.log('product:');
-        console.log(_this2.form);
       }).catch(function (error) {
         console.log(error);
 
