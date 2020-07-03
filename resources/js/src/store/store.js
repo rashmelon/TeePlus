@@ -21,6 +21,8 @@ import moduleCriteria from "./criteria/moduleCriteria";
 import moduleProduct from "./product/moduleProduct";
 import moduleUserProduct from "./user-product/moduleUserProduct";
 import moduleShipping from "./shipping/moduleShipping";
+import moduleCity from "./city/moduleCity";
+import moduleShippingPrice from "./shipping-price/moduleShippingPrice";
 
 
 const vuexLocal = new VuexPersistence({
@@ -45,6 +47,8 @@ export default new Vuex.Store({
         product: moduleProduct,
         userProduct: moduleUserProduct,
         shipping: moduleShipping,
+        city: moduleCity,
+        shippingPrice: moduleShippingPrice,
     },
     plugins: [vuexLocal.plugin],
     strict: process.env.NODE_ENV !== 'production'

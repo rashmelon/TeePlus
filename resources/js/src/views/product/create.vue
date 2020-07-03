@@ -18,7 +18,7 @@
 										</vs-button>
 									</div>
 								</div>
-								<div class="vx-col md:w-4/12 mt-1">
+								<div class="vx-col md:w-4/12">
 									<vs-select
 										@change="getCombinations"
 										class="w-full"

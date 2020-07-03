@@ -435,7 +435,7 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "div",
-                        { staticClass: "vx-col md:w-4/12 mt-1" },
+                        { staticClass: "vx-col md:w-4/12" },
                         [
                           _c(
                             "vs-select",

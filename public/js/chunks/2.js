@@ -6883,12 +6883,23 @@ __webpack_require__.r(__webpack_exports__);
   i18n: "User",
   permission: 'browse-user'
 }, {
-  url: "/dashboard/shipping",
   name: "Shipping",
-  slug: "shipping",
   icon: "ShoppingCartIcon",
   i18n: "Shipping",
-  permission: 'browse-shipping-method'
+  permission: 'browse-shipping-method',
+  submenu: [{
+    permission: "browse-shipping-method",
+    url: "/dashboard/shipping",
+    slug: "shipping",
+    name: "Shipping Methods",
+    i18n: "Shipping Methods"
+  }, {
+    permission: "browse-shipping-price",
+    url: "/dashboard/shipping-price",
+    slug: "shipping-price",
+    name: "Shipping Price",
+    i18n: "Shipping Price"
+  }]
 }, {
   name: "Settings",
   icon: "SettingsIcon",

@@ -8,6 +8,8 @@ class ShippingPrice extends Model
 {
     protected $fillable = ['price', 'days'];
 
+    protected $with = ['city', 'shippingMethod'];
+
     public function shippingMethod()
     {
         return $this->belongsTo(ShippingMethod::class);

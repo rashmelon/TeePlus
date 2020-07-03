@@ -317,7 +317,88 @@ const router = new Router({
                         permission: 'create-shipping-method'
                     }
                 },
+                {
+                    path: '/dashboard/shipping/edit/:id',
+                    name: 'edit-shipping',
+                    component: () => import('./views/shipping/edit.vue'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Shipping', url: '/dashboard/shipping', i18n: 'Shipping'},
+                            {title: 'Edit', active: true, i18n: 'Edit'},
+                        ],
+                        pageTitle: 'Edit Shipping',
+                        pageTitle_i18n: 'Edit Shipping',
+                        permission: 'edit-shipping-method'
+                    }
+                },
 
+
+
+                {
+                    path: '/dashboard/shipping-price',
+                    name: 'shipping-price',
+                    component: () => import('./views/shipping-price/browse.vue'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Shipping Price', active: true, i18n: 'Shipping Price'},
+                        ],
+                        pageTitle: 'Shipping Price',
+                        pageTitle_i18n: 'Shipping Price',
+                        permission: 'browse-shipping-method'
+                    }
+                },
+                {
+                    path: '/dashboard/shipping-price/create',
+                    name: 'create-shipping-price',
+                    component: () => import('./views/shipping-price/create.vue'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Shipping Price', url: '/dashboard/shipping-price', i18n: 'Shipping Price'},
+                            {title: 'Create', active: true, i18n: 'Create'},
+                        ],
+                        pageTitle: 'Create Shipping price',
+                        pageTitle_i18n: 'Create Shipping price',
+                        permission: 'create-shipping-price'
+                    }
+                },
+                {
+                    path: '/dashboard/shipping-price/edit/:id',
+                    name: 'edit-shipping-price',
+                    component: () => import('./views/shipping-price/edit.vue'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Shipping', url: '/dashboard/shipping-price', i18n: 'Shipping Price'},
+                            {title: 'Edit', active: true, i18n: 'Edit'},
+                        ],
+                        pageTitle: 'Edit Shipping price',
+                        pageTitle_i18n: 'Edit Shipping price',
+                        permission: 'edit-shipping-price'
+                    }
+                },
+                {
+                    path: '/dashboard/shipping-price/view/:id',
+                    name: 'view-shipping-price',
+                    component: () => import('./views/shipping-price/view.vue'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Shipping Price', url: '/dashboard/shipping-price', i18n: 'Shipping Price'},
+                            {title: 'View', active: true, i18n: 'View'},
+                        ],
+                        pageTitle: 'View Shipping Price',
+                        pageTitle_i18n: 'View Shipping Price',
+                        permission: 'view-shipping-price'
+                    }
+                },
 
 
 

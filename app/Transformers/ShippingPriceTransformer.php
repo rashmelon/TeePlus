@@ -13,7 +13,7 @@ class ShippingPriceTransformer extends TransformerAbstract
      * @var array
      */
     protected $defaultIncludes = [
-        //
+        'city', 'shipping_method'
     ];
 
     /**

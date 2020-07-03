@@ -16,14 +16,14 @@
 
 				<div class="mt-4 ">
 					<vs-button
-						@click="create"
+						@click="edit"
 						class="mb-4 ml-auto"
 						color="primary"
 						icon="icon-save"
 						icon-pack="feather"
 						type="filled"
 						v-if="form.name"
-					>Create
+					>Edit
 					</vs-button>
 				</div>
 			</vx-card>
@@ -51,7 +51,8 @@
                 is_requesting: false
             }
         },
-        components: {
+        mounted(){
+            this.getShippingMethod()
         },
         props: {
             payload: {
@@ -60,7 +61,19 @@
             },
         },
         methods: {
-            create(){
+            getShippingMethod(){
+                // this.$vs.loading({container: this.$refs.loadingContainer.$el, scale: 0.5});
+                this.$store.dispatch('shipping/view', this.$route.params.id)
+                    .then(response => {
+                        this.form = response.data.data;
+
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});
+                    })
+            },
+            edit(){
                 // if form have no errors
                 this.is_requesting = true;
 
@@ -69,7 +82,7 @@
                 for (let key in this.form) {
                     form_data.append(key, this.form[key]);
                 }
-                this.$store.dispatch('shipping/create', form_data)
+                this.$store.dispatch('shipping/update', {id: this.$route.params.id,data: form_data})
                     .then(response => {
                         this.$vs.notify({title: 'Success', text: response.data.message, iconPack: 'feather', icon: 'icon-check', color: 'success'});
                         this.$router.push({name: 'shipping'});

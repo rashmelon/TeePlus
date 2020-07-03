@@ -72336,6 +72336,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/src/http/requests/city/index.js":
+/*!******************************************************!*\
+  !*** ./resources/js/src/http/requests/city/index.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../axios */ "./resources/js/src/http/axios/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  getAll: function getAll(filters) {
+    //filters=?paginate=5&sortAsc=id
+    return _axios__WEBPACK_IMPORTED_MODULE_0__["default"].get("city".concat(filters));
+  },
+  view: function view(id) {
+    return _axios__WEBPACK_IMPORTED_MODULE_0__["default"].get("city/".concat(id));
+  },
+  create: function create(data) {
+    return _axios__WEBPACK_IMPORTED_MODULE_0__["default"].post("city", data);
+  },
+  update: function update(id, data) {
+    return _axios__WEBPACK_IMPORTED_MODULE_0__["default"].post("city/".concat(id), data);
+  },
+  delete: function _delete(id) {
+    return _axios__WEBPACK_IMPORTED_MODULE_0__["default"].delete("city/".concat(id));
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/src/http/requests/combination/index.js":
 /*!*************************************************************!*\
   !*** ./resources/js/src/http/requests/combination/index.js ***!
@@ -72532,6 +72564,38 @@ __webpack_require__.r(__webpack_exports__);
   },
   delete: function _delete(id) {
     return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].delete("role/".concat(id));
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/http/requests/shipping-price/index.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/src/http/requests/shipping-price/index.js ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _axios_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../axios/index.js */ "./resources/js/src/http/axios/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  getAll: function getAll(filters) {
+    //filters=?paginate=5&sortAsc=id
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("shipping-price".concat(filters));
+  },
+  view: function view(id) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("shipping-price/".concat(id));
+  },
+  create: function create(data) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].post("shipping-price", data);
+  },
+  update: function update(id, data) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].post("shipping-price/".concat(id), data);
+  },
+  delete: function _delete(id) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].delete("shipping-price/".concat(id));
   }
 });
 
@@ -73068,7 +73132,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard',
       name: 'home',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 31).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/src/views/Home.vue"));
+        return __webpack_require__.e(/*! import() */ 36).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/src/views/Home.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73129,7 +73193,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/user',
       name: 'user',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(3), __webpack_require__.e(19)]).then(__webpack_require__.bind(null, /*! ./views/user/browse.vue */ "./resources/js/src/views/user/browse.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(3), __webpack_require__.e(24)]).then(__webpack_require__.bind(null, /*! ./views/user/browse.vue */ "./resources/js/src/views/user/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73150,7 +73214,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/user/create',
       name: 'add-user',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/user/create.vue */ "./resources/js/src/views/user/create.vue"));
+        return __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ./views/user/create.vue */ "./resources/js/src/views/user/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73175,7 +73239,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/user/:id',
       name: 'view-user',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ./views/user/view.vue */ "./resources/js/src/views/user/view.vue"));
+        return __webpack_require__.e(/*! import() */ 27).then(__webpack_require__.bind(null, /*! ./views/user/view.vue */ "./resources/js/src/views/user/view.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73200,7 +73264,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/user/:id/edit',
       name: 'edit-user',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/user/edit.vue */ "./resources/js/src/views/user/edit.vue"));
+        return __webpack_require__.e(/*! import() */ 26).then(__webpack_require__.bind(null, /*! ./views/user/edit.vue */ "./resources/js/src/views/user/edit.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73225,7 +73289,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/user/:id/products',
       name: 'edit-user-product',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 26).then(__webpack_require__.bind(null, /*! ./views/user_product/edit.vue */ "./resources/js/src/views/user_product/edit.vue"));
+        return __webpack_require__.e(/*! import() */ 31).then(__webpack_require__.bind(null, /*! ./views/user_product/edit.vue */ "./resources/js/src/views/user_product/edit.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73271,7 +73335,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/category/create',
       name: 'create-category',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(9), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./views/category/create.vue */ "./resources/js/src/views/category/create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./views/category/create.vue */ "./resources/js/src/views/category/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73296,7 +73360,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/category/edit/:id',
       name: 'edit-category',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 32).then(__webpack_require__.bind(null, /*! ./views/category/edit.vue */ "./resources/js/src/views/category/edit.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./views/category/edit.vue */ "./resources/js/src/views/category/edit.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73321,7 +73385,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/category/view/:id',
       name: 'view-category',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./views/category/view.vue */ "./resources/js/src/views/category/view.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! ./views/category/view.vue */ "./resources/js/src/views/category/view.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73368,7 +73432,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/product/create',
       name: 'create-product',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(9), __webpack_require__.e(13)]).then(__webpack_require__.bind(null, /*! ./views/product/create.vue */ "./resources/js/src/views/product/create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(13)]).then(__webpack_require__.bind(null, /*! ./views/product/create.vue */ "./resources/js/src/views/product/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73444,7 +73508,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/shipping',
       name: 'shipping',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/shipping/browse.vue */ "./resources/js/src/views/shipping/browse.vue"));
+        return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/shipping/browse.vue */ "./resources/js/src/views/shipping/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73465,7 +73529,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/shipping/create',
       name: 'create-shipping',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./views/shipping/create.vue */ "./resources/js/src/views/shipping/create.vue"));
+        return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ./views/shipping/create.vue */ "./resources/js/src/views/shipping/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73487,10 +73551,131 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
         permission: 'create-shipping-method'
       }
     }, {
+      path: '/dashboard/shipping/edit/:id',
+      name: 'edit-shipping',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ./views/shipping/edit.vue */ "./resources/js/src/views/shipping/edit.vue"));
+      },
+      beforeEnter: guard,
+      meta: {
+        breadcrumb: [{
+          title: 'Home',
+          url: '/dashboard',
+          i18n: 'Home'
+        }, {
+          title: 'Shipping',
+          url: '/dashboard/shipping',
+          i18n: 'Shipping'
+        }, {
+          title: 'Edit',
+          active: true,
+          i18n: 'Edit'
+        }],
+        pageTitle: 'Edit Shipping',
+        pageTitle_i18n: 'Edit Shipping',
+        permission: 'edit-shipping-method'
+      }
+    }, {
+      path: '/dashboard/shipping-price',
+      name: 'shipping-price',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/shipping-price/browse.vue */ "./resources/js/src/views/shipping-price/browse.vue"));
+      },
+      beforeEnter: guard,
+      meta: {
+        breadcrumb: [{
+          title: 'Home',
+          url: '/dashboard',
+          i18n: 'Home'
+        }, {
+          title: 'Shipping Price',
+          active: true,
+          i18n: 'Shipping Price'
+        }],
+        pageTitle: 'Shipping Price',
+        pageTitle_i18n: 'Shipping Price',
+        permission: 'browse-shipping-method'
+      }
+    }, {
+      path: '/dashboard/shipping-price/create',
+      name: 'create-shipping-price',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./views/shipping-price/create.vue */ "./resources/js/src/views/shipping-price/create.vue"));
+      },
+      beforeEnter: guard,
+      meta: {
+        breadcrumb: [{
+          title: 'Home',
+          url: '/dashboard',
+          i18n: 'Home'
+        }, {
+          title: 'Shipping Price',
+          url: '/dashboard/shipping-price',
+          i18n: 'Shipping Price'
+        }, {
+          title: 'Create',
+          active: true,
+          i18n: 'Create'
+        }],
+        pageTitle: 'Create Shipping price',
+        pageTitle_i18n: 'Create Shipping price',
+        permission: 'create-shipping-price'
+      }
+    }, {
+      path: '/dashboard/shipping-price/edit/:id',
+      name: 'edit-shipping-price',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/shipping-price/edit.vue */ "./resources/js/src/views/shipping-price/edit.vue"));
+      },
+      beforeEnter: guard,
+      meta: {
+        breadcrumb: [{
+          title: 'Home',
+          url: '/dashboard',
+          i18n: 'Home'
+        }, {
+          title: 'Shipping',
+          url: '/dashboard/shipping-price',
+          i18n: 'Shipping Price'
+        }, {
+          title: 'Edit',
+          active: true,
+          i18n: 'Edit'
+        }],
+        pageTitle: 'Edit Shipping price',
+        pageTitle_i18n: 'Edit Shipping price',
+        permission: 'edit-shipping-price'
+      }
+    }, {
+      path: '/dashboard/shipping-price/view/:id',
+      name: 'view-shipping-price',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 37).then(__webpack_require__.bind(null, /*! ./views/shipping-price/view.vue */ "./resources/js/src/views/shipping-price/view.vue"));
+      },
+      beforeEnter: guard,
+      meta: {
+        breadcrumb: [{
+          title: 'Home',
+          url: '/dashboard',
+          i18n: 'Home'
+        }, {
+          title: 'Shipping Price',
+          url: '/dashboard/shipping-price',
+          i18n: 'Shipping Price'
+        }, {
+          title: 'View',
+          active: true,
+          i18n: 'View'
+        }],
+        pageTitle: 'View Shipping Price',
+        pageTitle_i18n: 'View Shipping Price',
+        permission: 'view-shipping-price'
+      }
+    }, {
       path: '/dashboard/settings/role',
       name: 'role',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 24).then(__webpack_require__.bind(null, /*! ./views/settings/Role/Roles.vue */ "./resources/js/src/views/settings/Role/Roles.vue"));
+        return __webpack_require__.e(/*! import() */ 29).then(__webpack_require__.bind(null, /*! ./views/settings/Role/Roles.vue */ "./resources/js/src/views/settings/Role/Roles.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73533,7 +73718,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/settings/role/:id',
       name: 'view-role',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ./views/settings/Role/View.vue */ "./resources/js/src/views/settings/Role/View.vue"));
+        return __webpack_require__.e(/*! import() */ 30).then(__webpack_require__.bind(null, /*! ./views/settings/Role/View.vue */ "./resources/js/src/views/settings/Role/View.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73599,7 +73784,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   {
     path: '',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 30).then(__webpack_require__.bind(null, /*! @/layouts/full-page/FullPage.vue */ "./resources/js/src/layouts/full-page/FullPage.vue"));
+      return __webpack_require__.e(/*! import() */ 35).then(__webpack_require__.bind(null, /*! @/layouts/full-page/FullPage.vue */ "./resources/js/src/layouts/full-page/FullPage.vue"));
     },
     children: [// =============================================================================
     // PAGES
@@ -73608,25 +73793,25 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/login',
       name: 'pageLogin',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ./views/pages/Login.vue */ "./resources/js/src/views/pages/Login.vue"));
+        return __webpack_require__.e(/*! import() */ 28).then(__webpack_require__.bind(null, /*! ./views/pages/Login.vue */ "./resources/js/src/views/pages/Login.vue"));
       }
     }, {
       path: '/dashboard/error-403',
       name: 'pageError403',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 28).then(__webpack_require__.bind(null, /*! ./views/pages/NotAuthorized.vue */ "./resources/js/src/views/pages/NotAuthorized.vue"));
+        return __webpack_require__.e(/*! import() */ 33).then(__webpack_require__.bind(null, /*! ./views/pages/NotAuthorized.vue */ "./resources/js/src/views/pages/NotAuthorized.vue"));
       }
     }, {
       path: '/dashboard/error-404',
       name: 'pageError404',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 27).then(__webpack_require__.bind(null, /*! ./views/pages/Error404.vue */ "./resources/js/src/views/pages/Error404.vue"));
+        return __webpack_require__.e(/*! import() */ 32).then(__webpack_require__.bind(null, /*! ./views/pages/Error404.vue */ "./resources/js/src/views/pages/Error404.vue"));
       }
     }, {
       path: '/verified',
       name: 'verified',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 29).then(__webpack_require__.bind(null, /*! ./views/pages/verified.vue */ "./resources/js/src/views/pages/verified.vue"));
+        return __webpack_require__.e(/*! import() */ 34).then(__webpack_require__.bind(null, /*! ./views/pages/verified.vue */ "./resources/js/src/views/pages/verified.vue"));
       }
     }]
   }, // Redirect to 404 page, if no match found
@@ -74276,6 +74461,168 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************************!*\
   !*** ./resources/js/src/store/category/moduleCategoryState.js ***!
   \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/city/moduleCity.js":
+/*!***************************************************!*\
+  !*** ./resources/js/src/store/city/moduleCity.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _moduleCityState__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./moduleCityState */ "./resources/js/src/store/city/moduleCityState.js");
+/* harmony import */ var _moduleCityMutations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moduleCityMutations */ "./resources/js/src/store/city/moduleCityMutations.js");
+/* harmony import */ var _moduleCityActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moduleCityActions */ "./resources/js/src/store/city/moduleCityActions.js");
+/* harmony import */ var _moduleCityGetters__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moduleCityGetters */ "./resources/js/src/store/city/moduleCityGetters.js");
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: _moduleCityState__WEBPACK_IMPORTED_MODULE_0__["default"],
+  mutations: _moduleCityMutations__WEBPACK_IMPORTED_MODULE_1__["default"],
+  actions: _moduleCityActions__WEBPACK_IMPORTED_MODULE_2__["default"],
+  getters: _moduleCityGetters__WEBPACK_IMPORTED_MODULE_3__["default"]
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/city/moduleCityActions.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/src/store/city/moduleCityActions.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _http_requests_city_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../http/requests/city/index */ "./resources/js/src/http/requests/city/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  getData: function getData(_ref, payload) {
+    var commit = _ref.commit,
+        dispatch = _ref.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_city_index__WEBPACK_IMPORTED_MODULE_0__["default"].getAll(payload).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  view: function view(_ref2, id) {
+    var commit = _ref2.commit,
+        dispatch = _ref2.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_city_index__WEBPACK_IMPORTED_MODULE_0__["default"].view(id).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  create: function create(_ref3, payload) {
+    var commit = _ref3.commit,
+        dispatch = _ref3.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_city_index__WEBPACK_IMPORTED_MODULE_0__["default"].create(payload).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  update: function update(_ref4, payload) {
+    var commit = _ref4.commit,
+        dispatch = _ref4.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_city_index__WEBPACK_IMPORTED_MODULE_0__["default"].update(payload.id, payload.data).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  delete: function _delete(_ref5, id) {
+    var commit = _ref5.commit,
+        dispatch = _ref5.dispatch;
+    return new Promise(function (resolve, reject) {
+      category.delete(id).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/city/moduleCityGetters.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/src/store/city/moduleCityGetters.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/city/moduleCityMutations.js":
+/*!************************************************************!*\
+  !*** ./resources/js/src/store/city/moduleCityMutations.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/city/moduleCityState.js":
+/*!********************************************************!*\
+  !*** ./resources/js/src/store/city/moduleCityState.js ***!
+  \********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -75355,6 +75702,168 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/src/store/shipping-price/moduleShippingPrice.js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/src/store/shipping-price/moduleShippingPrice.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _moduleShippingPriceState__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./moduleShippingPriceState */ "./resources/js/src/store/shipping-price/moduleShippingPriceState.js");
+/* harmony import */ var _moduleShippingPriceMutations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moduleShippingPriceMutations */ "./resources/js/src/store/shipping-price/moduleShippingPriceMutations.js");
+/* harmony import */ var _moduleShippingPriceActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moduleShippingPriceActions */ "./resources/js/src/store/shipping-price/moduleShippingPriceActions.js");
+/* harmony import */ var _moduleShippingPriceGetters__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moduleShippingPriceGetters */ "./resources/js/src/store/shipping-price/moduleShippingPriceGetters.js");
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: _moduleShippingPriceState__WEBPACK_IMPORTED_MODULE_0__["default"],
+  mutations: _moduleShippingPriceMutations__WEBPACK_IMPORTED_MODULE_1__["default"],
+  actions: _moduleShippingPriceActions__WEBPACK_IMPORTED_MODULE_2__["default"],
+  getters: _moduleShippingPriceGetters__WEBPACK_IMPORTED_MODULE_3__["default"]
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/shipping-price/moduleShippingPriceActions.js":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/src/store/shipping-price/moduleShippingPriceActions.js ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _http_requests_shipping_price_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../http/requests/shipping-price/index */ "./resources/js/src/http/requests/shipping-price/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  getData: function getData(_ref, payload) {
+    var commit = _ref.commit,
+        dispatch = _ref.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_shipping_price_index__WEBPACK_IMPORTED_MODULE_0__["default"].getAll(payload).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  view: function view(_ref2, id) {
+    var commit = _ref2.commit,
+        dispatch = _ref2.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_shipping_price_index__WEBPACK_IMPORTED_MODULE_0__["default"].view(id).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  create: function create(_ref3, payload) {
+    var commit = _ref3.commit,
+        dispatch = _ref3.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_shipping_price_index__WEBPACK_IMPORTED_MODULE_0__["default"].create(payload).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  update: function update(_ref4, payload) {
+    var commit = _ref4.commit,
+        dispatch = _ref4.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_shipping_price_index__WEBPACK_IMPORTED_MODULE_0__["default"].update(payload.id, payload.data).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  delete: function _delete(_ref5, id) {
+    var commit = _ref5.commit,
+        dispatch = _ref5.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_shipping_price_index__WEBPACK_IMPORTED_MODULE_0__["default"].delete(id).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/shipping-price/moduleShippingPriceGetters.js":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/src/store/shipping-price/moduleShippingPriceGetters.js ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/shipping-price/moduleShippingPriceMutations.js":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/src/store/shipping-price/moduleShippingPriceMutations.js ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/shipping-price/moduleShippingPriceState.js":
+/*!***************************************************************************!*\
+  !*** ./resources/js/src/store/shipping-price/moduleShippingPriceState.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
 /***/ "./resources/js/src/store/shipping/moduleShipping.js":
 /*!***********************************************************!*\
   !*** ./resources/js/src/store/shipping/moduleShipping.js ***!
@@ -75610,6 +76119,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _product_moduleProduct__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./product/moduleProduct */ "./resources/js/src/store/product/moduleProduct.js");
 /* harmony import */ var _user_product_moduleUserProduct__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./user-product/moduleUserProduct */ "./resources/js/src/store/user-product/moduleUserProduct.js");
 /* harmony import */ var _shipping_moduleShipping__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./shipping/moduleShipping */ "./resources/js/src/store/shipping/moduleShipping.js");
+/* harmony import */ var _city_moduleCity__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./city/moduleCity */ "./resources/js/src/store/city/moduleCity.js");
+/* harmony import */ var _shipping_price_moduleShippingPrice__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./shipping-price/moduleShippingPrice */ "./resources/js/src/store/shipping-price/moduleShippingPrice.js");
 
 
 
@@ -75618,6 +76129,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
+
 
 
 
@@ -75650,7 +76163,9 @@ var vuexLocal = new vuex_persist__WEBPACK_IMPORTED_MODULE_6__["default"]({
     criteria: _criteria_moduleCriteria__WEBPACK_IMPORTED_MODULE_15__["default"],
     product: _product_moduleProduct__WEBPACK_IMPORTED_MODULE_16__["default"],
     userProduct: _user_product_moduleUserProduct__WEBPACK_IMPORTED_MODULE_17__["default"],
-    shipping: _shipping_moduleShipping__WEBPACK_IMPORTED_MODULE_18__["default"]
+    shipping: _shipping_moduleShipping__WEBPACK_IMPORTED_MODULE_18__["default"],
+    city: _city_moduleCity__WEBPACK_IMPORTED_MODULE_19__["default"],
+    shippingPrice: _shipping_price_moduleShippingPrice__WEBPACK_IMPORTED_MODULE_20__["default"]
   },
   plugins: [vuexLocal.plugin],
   strict: "development" !== 'production'
