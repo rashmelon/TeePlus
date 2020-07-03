@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Policies\PriceCombinationPolicy;
 use App\Policies\PrintCriteriaPolicy;
 use App\Policies\ProductPolicy;
+use App\Policies\ShippingMethodPolicy;
 use App\Policies\UserPolicy;
 use App\Policies\PermissionPolicy;
 use App\Policies\RolePolicy;
@@ -12,6 +13,7 @@ use App\Policies\UserProductPolicy;
 use App\PriceCombination;
 use App\PrintCriteria;
 use App\Product;
+use App\ShippingMethod;
 use App\User;
 use App\UserProduct;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -35,6 +37,7 @@ class AuthServiceProvider extends ServiceProvider
         PrintCriteria::class => PrintCriteriaPolicy::class,
         Product::class => ProductPolicy::class,
         UserProduct::class => UserProductPolicy::class,
+        ShippingMethod::class => ShippingMethodPolicy::class,
     ];
 
     /**
