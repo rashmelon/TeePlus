@@ -67,6 +67,8 @@ const router = new Router({
             permission: 'create-package'
           }
         },
+
+
         {
           path: '/dashboard/user',
           name: 'user',
