@@ -6887,8 +6887,8 @@ __webpack_require__.r(__webpack_exports__);
   name: "Shipping",
   slug: "shipping",
   icon: "ShoppingCartIcon",
-  i18n: "Shipping" // permission: 'create-shipping'
-
+  i18n: "Shipping",
+  permission: 'browse-shipping-method'
 }, {
   name: "Settings",
   icon: "SettingsIcon",

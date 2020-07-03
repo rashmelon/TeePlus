@@ -68,7 +68,8 @@
             ShowCriterias
         },
         mounted(){
-            this.getCategory()
+            this.getCategory()api
+
         },
         methods: {
             addAttribute() {

@@ -41,7 +41,7 @@ export default [
       slug: "shipping",
       icon: "ShoppingCartIcon",
       i18n: "Shipping",
-      // permission: 'create-shipping'
+      permission: 'browse-shipping-method'
   },
 
 
