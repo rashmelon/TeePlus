@@ -6883,6 +6883,13 @@ __webpack_require__.r(__webpack_exports__);
   i18n: "User",
   permission: 'browse-user'
 }, {
+  url: "/dashboard/shipping",
+  name: "Shipping",
+  slug: "shipping",
+  icon: "ShoppingCartIcon",
+  i18n: "Shipping" // permission: 'create-shipping'
+
+}, {
   name: "Settings",
   icon: "SettingsIcon",
   i18n: "Settings",

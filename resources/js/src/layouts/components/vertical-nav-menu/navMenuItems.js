@@ -35,6 +35,16 @@ export default [
   },
 
 
+  {
+      url: "/dashboard/shipping",
+      name: "Shipping",
+      slug: "shipping",
+      icon: "ShoppingCartIcon",
+      i18n: "Shipping",
+      // permission: 'create-shipping'
+  },
+
+
 
   {
       name: "Settings",

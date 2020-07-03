@@ -285,6 +285,26 @@ const router = new Router({
                 },
 
 
+
+                {
+                    path: '/dashboard/shipping',
+                    name: 'shipping',
+                    component: () => import('./views/shipping/browse.vue'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Shipping', active: true, i18n: 'Shipping'},
+                        ],
+                        pageTitle: 'Shipping',
+                        pageTitle_i18n: 'Shipping',
+                        // permission: 'browse-shipping'
+                    }
+                },
+
+
+
+
                 {
                     path: '/dashboard/settings/role',
                     name: 'role',
