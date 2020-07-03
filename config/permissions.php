@@ -263,4 +263,32 @@ return [
             'display_name' => 'Delete Shipping Price',
         ],
     ],
+
+    'Status' => [
+        [
+            'name' => 'create-status',
+            'guard_name' => 'api',
+            'display_name' => 'Create Status',
+        ],
+        [
+            'name' => 'browse-status',
+            'guard_name' => 'api',
+            'display_name' => 'Browse Status',
+        ],
+        [
+            'name' => 'view-status',
+            'guard_name' => 'api',
+            'display_name' => 'View Status',
+        ],
+        [
+            'name' => 'edit-status',
+            'guard_name' => 'api',
+            'display_name' => 'Edit Status',
+        ],
+        [
+            'name' => 'delete-status',
+            'guard_name' => 'api',
+            'display_name' => 'Delete Status',
+        ],
+    ],
 ];
