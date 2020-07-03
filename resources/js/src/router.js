@@ -401,6 +401,55 @@ const router = new Router({
                 },
 
 
+                {
+                    path: '/dashboard/status',
+                    name: 'status',
+                    component: () => import('./views/status/browse.vue'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Status', active: true, i18n: 'Status'},
+                        ],
+                        pageTitle: 'Status',
+                        pageTitle_i18n: 'Status',
+                        permission: 'browse-status'
+                    }
+                },
+                {
+                    path: '/dashboard/status/create',
+                    name: 'create-status',
+                    component: () => import('./views/status/create.vue'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Status', url: '/dashboard/status', i18n: 'Status'},
+                            {title: 'Create', active: true, i18n: 'Create'},
+                        ],
+                        pageTitle: 'Create Status',
+                        pageTitle_i18n: 'Create Status',
+                        permission: 'create-status'
+                    }
+                },
+                {
+                    path: '/dashboard/status/edit/:id',
+                    name: 'edit-status',
+                    component: () => import('./views/status/edit.vue'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Status', url: '/dashboard/status', i18n: 'Status'},
+                            {title: 'Edit', active: true, i18n: 'Edit'},
+                        ],
+                        pageTitle: 'Edit Status',
+                        pageTitle_i18n: 'Edit Status',
+                        permission: 'edit-status'
+                    }
+                },
+
+
 
                 {
                     path: '/dashboard/settings/role',

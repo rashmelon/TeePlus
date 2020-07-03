@@ -34,6 +34,15 @@ export default [
       permission: 'browse-user'
   },
 
+  {
+      url: "/dashboard/status",
+      name: "Status",
+      slug: "status",
+      icon: "CheckCircleIcon",
+      i18n: "Status",
+      permission: 'browse-status'
+  },
+
 
     {
         name: "Shipping",

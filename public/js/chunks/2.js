@@ -6883,6 +6883,13 @@ __webpack_require__.r(__webpack_exports__);
   i18n: "User",
   permission: 'browse-user'
 }, {
+  url: "/dashboard/status",
+  name: "Status",
+  slug: "status",
+  icon: "CheckCircleIcon",
+  i18n: "Status",
+  permission: 'browse-status'
+}, {
   name: "Shipping",
   icon: "ShoppingCartIcon",
   i18n: "Shipping",

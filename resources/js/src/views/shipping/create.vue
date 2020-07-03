@@ -6,7 +6,7 @@
 				<div class="vx-col sm:w-2/2 w-full mb-3">
 					<vs-input
 						class="w-full"
-						label="Category Name"
+						label="Shipping Name"
 						name="name"
 						v-model="form.name"
 						v-validate="'required'"
