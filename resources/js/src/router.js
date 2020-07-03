@@ -298,7 +298,23 @@ const router = new Router({
                         ],
                         pageTitle: 'Shipping',
                         pageTitle_i18n: 'Shipping',
-                        // permission: 'browse-shipping'
+                        permission: 'browse-shipping-method'
+                    }
+                },
+                {
+                    path: '/dashboard/shipping/create',
+                    name: 'create-shipping',
+                    component: () => import('./views/shipping/create.vue'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Shipping', url: '/dashboard/shipping', i18n: 'Shipping'},
+                            {title: 'Create', active: true, i18n: 'Create'},
+                        ],
+                        pageTitle: 'Create Shipping',
+                        pageTitle_i18n: 'Create Shipping',
+                        permission: 'create-shipping-method'
                     }
                 },
 

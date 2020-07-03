@@ -73271,7 +73271,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/category/create',
       name: 'create-category',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./views/category/create.vue */ "./resources/js/src/views/category/create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(9), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./views/category/create.vue */ "./resources/js/src/views/category/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73368,7 +73368,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/product/create',
       name: 'create-product',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(13)]).then(__webpack_require__.bind(null, /*! ./views/product/create.vue */ "./resources/js/src/views/product/create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(9), __webpack_require__.e(13)]).then(__webpack_require__.bind(null, /*! ./views/product/create.vue */ "./resources/js/src/views/product/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73458,8 +73458,33 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
           i18n: 'Shipping'
         }],
         pageTitle: 'Shipping',
-        pageTitle_i18n: 'Shipping' // permission: 'browse-shipping'
-
+        pageTitle_i18n: 'Shipping',
+        permission: 'browse-shipping-method'
+      }
+    }, {
+      path: '/dashboard/shipping/create',
+      name: 'create-shipping',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./views/shipping/create.vue */ "./resources/js/src/views/shipping/create.vue"));
+      },
+      beforeEnter: guard,
+      meta: {
+        breadcrumb: [{
+          title: 'Home',
+          url: '/dashboard',
+          i18n: 'Home'
+        }, {
+          title: 'Shipping',
+          url: '/dashboard/shipping',
+          i18n: 'Shipping'
+        }, {
+          title: 'Create',
+          active: true,
+          i18n: 'Create'
+        }],
+        pageTitle: 'Create Shipping',
+        pageTitle_i18n: 'Create Shipping',
+        permission: 'create-shipping-method'
       }
     }, {
       path: '/dashboard/settings/role',

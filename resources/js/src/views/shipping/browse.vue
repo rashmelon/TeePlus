@@ -17,7 +17,7 @@
 				search
 			>
 
-				<template slot="header" v-if="can('create-shipping')">
+				<template slot="header" v-if="can('create-shipping-method')">
 					<vs-button :to="{name: 'create-shipping'}" color="primary" icon="icon-plus" icon-pack="feather" type="filled"
 					           vs-w="3">Add Shipping
 					</vs-button>
@@ -25,9 +25,7 @@
 
 				<template slot="thead">
 					<vs-th>#</vs-th>
-					<vs-th>Image</vs-th>
 					<vs-th>Name</vs-th>
-					<vs-th>Description</vs-th>
 					<vs-th>Created At</vs-th>
 					<vs-th>Action</vs-th>
 				</template>
@@ -38,20 +36,11 @@
 							{{ shipping.id }}
 						</vs-td>
 
-						<vs-td>
-							<img
-								:src="shipping.image.url"
-								class="preview-large"
-								v-if="shipping.image">
-						</vs-td>
 
 						<vs-td :data="shipping.name">
 							{{ shipping.name}}
 						</vs-td>
 
-						<vs-td :data="shipping.description">
-							{{ shipping.description}}
-						</vs-td>
 
 						<vs-td :data="shipping.created_at">
 							{{ shipping.created_at}}
@@ -60,19 +49,19 @@
 						<vs-td>
 							<vs-row>
 								<div class="flex mb-4">
-									<div class="w-1/3 mx-2" v-if="can('view-shipping')">
+									<div class="w-1/3 mx-2" v-if="can('view-shipping-method')">
 										<vs-button :id="`btn-view-${shipping.id}`" @click=viewShipping(shipping.id) class="vs-con-loading__container" color="primary"
 										           icon="icon-eye"
 										           icon-pack="feather" radius
 										           type="border"></vs-button>
 									</div>
-									<div class="w-1/3 mx-2" v-if="can('edit-shipping')">
+									<div class="w-1/3 mx-2" v-if="can('edit-shipping-method')">
 										<vs-button :id="`btn-edit-${shipping.id}`" @click=editShipping(shipping.id) class="vs-con-loading__container" color="warning"
 										           icon="icon-edit"
 										           icon-pack="feather" radius
 										           type="border"></vs-button>
 									</div>
-									<div class="w-1/3 mx-3" v-if="can('delete-shipping')">
+									<div class="w-1/3 mx-3" v-if="can('delete-shipping-method')">
 										<vs-button :id="`btn-delete-${shipping.id}`" @click="is_requesting?$store.dispatch('viewWaitMessage', $vs):confirmDeleteShipping(shipping)" class="vs-con-loading__container"
 										           color="danger"
 										           icon="icon-trash"
@@ -115,12 +104,15 @@
                 this.$store.dispatch('shipping/getData', this.payload)
                     .then(response => {
                         this.shippings = response.data.data;
-                        this.$vs.loading.close(this.$refs.browse.$el);
                     })
                     .catch(error => {
                         console.log(error);
-                        // this.$vs.loading.close(this.$refs.browse);
-                        this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});});
+                        this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'})
+
+                    })
+	                .then(()=>{
+                        this.$vs.loading.close(this.$refs.browse.$el);
+                    });
             },
 
             viewShipping(id) {

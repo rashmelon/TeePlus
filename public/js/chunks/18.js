@@ -89,17 +89,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -128,10 +117,8 @@ __webpack_require__.r(__webpack_exports__);
       });
       this.$store.dispatch('shipping/getData', this.payload).then(function (response) {
         _this.shippings = response.data.data;
-
-        _this.$vs.loading.close(_this.$refs.browse.$el);
       }).catch(function (error) {
-        console.log(error); // this.$vs.loading.close(this.$refs.browse);
+        console.log(error);
 
         _this.$vs.notify({
           title: 'Error',
@@ -140,6 +127,8 @@ __webpack_require__.r(__webpack_exports__);
           icon: 'icon-alert-circle',
           color: 'danger'
         });
+      }).then(function () {
+        _this.$vs.loading.close(_this.$refs.browse.$el);
       });
     },
     viewShipping: function viewShipping(id) {
@@ -347,15 +336,6 @@ var render = function() {
                             )
                           ]),
                           _vm._v(" "),
-                          _c("vs-td", [
-                            shipping.image
-                              ? _c("img", {
-                                  staticClass: "preview-large",
-                                  attrs: { src: shipping.image.url }
-                                })
-                              : _vm._e()
-                          ]),
-                          _vm._v(" "),
                           _c("vs-td", { attrs: { data: shipping.name } }, [
                             _vm._v(
                               "\n\t\t\t\t\t\t" +
@@ -363,18 +343,6 @@ var render = function() {
                                 "\n\t\t\t\t\t"
                             )
                           ]),
-                          _vm._v(" "),
-                          _c(
-                            "vs-td",
-                            { attrs: { data: shipping.description } },
-                            [
-                              _vm._v(
-                                "\n\t\t\t\t\t\t" +
-                                  _vm._s(shipping.description) +
-                                  "\n\t\t\t\t\t"
-                              )
-                            ]
-                          ),
                           _vm._v(" "),
                           _c(
                             "vs-td",
@@ -393,7 +361,7 @@ var render = function() {
                             [
                               _c("vs-row", [
                                 _c("div", { staticClass: "flex mb-4" }, [
-                                  _vm.can("view-shipping")
+                                  _vm.can("view-shipping-method")
                                     ? _c(
                                         "div",
                                         { staticClass: "w-1/3 mx-2" },
@@ -422,7 +390,7 @@ var render = function() {
                                       )
                                     : _vm._e(),
                                   _vm._v(" "),
-                                  _vm.can("edit-shipping")
+                                  _vm.can("edit-shipping-method")
                                     ? _c(
                                         "div",
                                         { staticClass: "w-1/3 mx-2" },
@@ -451,7 +419,7 @@ var render = function() {
                                       )
                                     : _vm._e(),
                                   _vm._v(" "),
-                                  _vm.can("delete-shipping")
+                                  _vm.can("delete-shipping-method")
                                     ? _c(
                                         "div",
                                         { staticClass: "w-1/3 mx-3" },
@@ -498,7 +466,7 @@ var render = function() {
               ])
             },
             [
-              _vm.can("create-shipping")
+              _vm.can("create-shipping-method")
                 ? _c(
                     "template",
                     { slot: "header" },
@@ -528,11 +496,7 @@ var render = function() {
                 [
                   _c("vs-th", [_vm._v("#")]),
                   _vm._v(" "),
-                  _c("vs-th", [_vm._v("Image")]),
-                  _vm._v(" "),
                   _c("vs-th", [_vm._v("Name")]),
-                  _vm._v(" "),
-                  _c("vs-th", [_vm._v("Description")]),
                   _vm._v(" "),
                   _c("vs-th", [_vm._v("Created At")]),
                   _vm._v(" "),
