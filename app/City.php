@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ShippingMethod extends Model
+class City extends Model
 {
     protected $fillable = ['name'];
 

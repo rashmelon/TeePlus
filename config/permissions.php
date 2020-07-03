@@ -235,4 +235,60 @@ return [
             'display_name' => 'Delete Shipping Method',
         ],
     ],
+
+    'Shipping Price' => [
+        [
+            'name' => 'create-shipping-price',
+            'guard_name' => 'api',
+            'display_name' => 'Create Shipping Price',
+        ],
+        [
+            'name' => 'browse-shipping-price',
+            'guard_name' => 'api',
+            'display_name' => 'Browse Shipping Price',
+        ],
+        [
+            'name' => 'view-shipping-price',
+            'guard_name' => 'api',
+            'display_name' => 'View Shipping Price',
+        ],
+        [
+            'name' => 'edit-shipping-price',
+            'guard_name' => 'api',
+            'display_name' => 'Edit Shipping Price',
+        ],
+        [
+            'name' => 'delete-shipping-price',
+            'guard_name' => 'api',
+            'display_name' => 'Delete Shipping Price',
+        ],
+    ],
+
+    'Status' => [
+        [
+            'name' => 'create-status',
+            'guard_name' => 'api',
+            'display_name' => 'Create Status',
+        ],
+        [
+            'name' => 'browse-status',
+            'guard_name' => 'api',
+            'display_name' => 'Browse Status',
+        ],
+        [
+            'name' => 'view-status',
+            'guard_name' => 'api',
+            'display_name' => 'View Status',
+        ],
+        [
+            'name' => 'edit-status',
+            'guard_name' => 'api',
+            'display_name' => 'Edit Status',
+        ],
+        [
+            'name' => 'delete-status',
+            'guard_name' => 'api',
+            'display_name' => 'Delete Status',
+        ],
+    ],
 ];

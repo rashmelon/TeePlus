@@ -35,6 +35,14 @@ Route::middleware('auth:api')->post('user-product/{user}', 'UserProductControlle
 Route::middleware('auth:api')->resource('shipping-method', 'ShippingMethodController');
 Route::middleware('auth:api')->post('shipping-method/{shipping_method}', 'ShippingMethodController@update');
 
+Route::middleware('auth:api')->resource('city', 'CityController');
+
+Route::middleware('auth:api')->resource('shipping-price', 'ShippingPriceController');
+Route::middleware('auth:api')->post('shipping-price/{shipping_price}', 'ShippingPriceController@update');
+
+Route::middleware('auth:api')->resource('status', 'StatusController');
+Route::middleware('auth:api')->post('status/{status}', 'StatusController@update');
+
 Route::group(['prefix' => 'role', 'middleware' => 'auth:api'], function () {
     Route::post('{id}', 'RoleController@update');
     Route::get('{id}', 'RoleController@show');
