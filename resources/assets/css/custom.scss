@@ -1,0 +1,33 @@
+/*********************************
+      animation
+*********************************/
+.slide-down-enter-active {
+  transition: all .3s ease;
+}
+.slide-down-leave-active {
+  transition: all .3s ease;
+}
+.slide-down-enter,
+.slide-down-leave-to {
+  transform: translateY(-10px);
+  opacity: 0;
+}
+
+
+/*********************************
+      Override vuesax classes
+*********************************/
+.vx-card__title *{
+  text-transform: capitalize;
+}
+
+img.preview-large{
+  width: auto;
+  height: 150px;
+  background-color: white;
+  border: 1px solid #DDD;
+  padding: 5px;
+}
+.vue-form-wizard .wizard-header{
+  padding: 0;
+}

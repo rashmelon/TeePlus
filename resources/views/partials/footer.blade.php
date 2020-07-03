@@ -13,14 +13,8 @@
                 <div class="footer-widget widget">
                     <div class="about_us_widget">
                         <a style="font-weight: bold;color: white;font-size: 22px;" href="http://127.0.0.1:8000" class="main-logo">
-                            Papa Travel
+                            TeePlus
                         </a>
-                        <p>We are young & sincere travel consultants, who are passionate about trips, possess profound knowledge & will gladly help you with tailored travel packages.</p>
-                        <ul class="social-icon">
-                            <li>
-                                <a class="facebook" href="https://www.facebook.com/packndgo/" target="_blank"><i class="fa fa-facebook  "></i></a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>

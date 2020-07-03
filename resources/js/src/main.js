@@ -4,16 +4,17 @@ import App from './App.vue'
 
 // Vuesax Component Framework
 import Vuesax from 'vuesax'
-
 Vue.use(Vuesax);
+
+// Theme Configurations
+import '../themeConfig.js'
+
 
 // axios
 import axios from "./axios.js"
 Vue.prototype.$http = axios;
 
 
-// Theme Configurations
-import '../themeConfig.js'
 
 
 // Globally Registered Components
@@ -41,6 +42,7 @@ import i18n from './i18n/i18n'
 
 // Filters
 import './filters/filters'
+
 
 
 // Clipboard

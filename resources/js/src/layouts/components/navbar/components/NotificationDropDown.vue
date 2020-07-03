@@ -75,24 +75,24 @@ export default {
     methods: {
 
       getData(InitialTime){
-          this.$vs.loading({container: this.$refs.browse, scale: 0.5});
-          this.$store.dispatch('notification/getData', '')
-              .then(response => {
-                  this.$vs.loading.close(this.$refs.browse);
-                  this.resultTime = Date.now() - InitialTime;
-                  this.unreadNotifications = response.data.data;
-              })
-              .catch(error => {
-                  console.log(error);
-                  this.$vs.loading.close(this.$refs.browse);
-                  this.$vs.notify({
-                      title: 'Error',
-                      text: error.response.data.error,
-                      iconPack: 'feather',
-                      icon: 'icon-alert-circle',
-                      color: 'danger'
-                  });
-              });
+        /*this.$vs.loading({container: this.$refs.browse, scale: 0.5});
+				this.$store.dispatch('notification/getData', '')
+						.then(response => {
+								this.$vs.loading.close(this.$refs.browse);
+								this.resultTime = Date.now() - InitialTime;
+								this.unreadNotifications = response.data.data;
+						})
+						.catch(error => {
+								console.log(error);
+								this.$vs.loading.close(this.$refs.browse);
+								this.$vs.notify({
+										title: 'Error',
+										text: error.response.data.error,
+										iconPack: 'feather',
+										icon: 'icon-alert-circle',
+										color: 'danger'
+								});
+						});*/
       },
 
         markAllAsRead(){

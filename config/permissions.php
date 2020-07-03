@@ -27,7 +27,6 @@ return [
             'display_name' => 'Delete User',
         ],
     ],
-
     'Role' => [
         [
             'name' => 'create-role',
