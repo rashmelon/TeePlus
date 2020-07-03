@@ -207,4 +207,32 @@ return [
             'display_name' => 'Delete Seller Product',
         ],
     ],
+
+    'Shipping Method' => [
+        [
+            'name' => 'create-shipping-method',
+            'guard_name' => 'api',
+            'display_name' => 'Create Shipping Method',
+        ],
+        [
+            'name' => 'browse-shipping-method',
+            'guard_name' => 'api',
+            'display_name' => 'Browse Shipping Method',
+        ],
+        [
+            'name' => 'view-shipping-method',
+            'guard_name' => 'api',
+            'display_name' => 'View Shipping Method',
+        ],
+        [
+            'name' => 'edit-shipping-method',
+            'guard_name' => 'api',
+            'display_name' => 'Edit Shipping Method',
+        ],
+        [
+            'name' => 'delete-shipping-method',
+            'guard_name' => 'api',
+            'display_name' => 'Delete Shipping Method',
+        ],
+    ],
 ];

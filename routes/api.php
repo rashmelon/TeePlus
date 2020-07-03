@@ -32,6 +32,9 @@ Route::middleware('auth:api')->post('product/{product}', 'ProductController@upda
 
 Route::middleware('auth:api')->post('user-product/{user}', 'UserProductController@update');
 
+Route::middleware('auth:api')->resource('shipping-method', 'ShippingMethodController');
+Route::middleware('auth:api')->post('shipping-method/{shipping_method}', 'ShippingMethodController@update');
+
 Route::group(['prefix' => 'role', 'middleware' => 'auth:api'], function () {
     Route::post('{id}', 'RoleController@update');
     Route::get('{id}', 'RoleController@show');
