@@ -73187,7 +73187,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     // =============================================================================
     path: '',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(6), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./layouts/main/Main.vue */ "./resources/js/src/layouts/main/Main.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(3), __webpack_require__.e(0)]).then(__webpack_require__.bind(null, /*! ./layouts/main/Main.vue */ "./resources/js/src/layouts/main/Main.vue"));
     },
     children: [// =============================================================================
     // Theme Routes
@@ -73196,7 +73196,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard',
       name: 'home',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 41).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/src/views/Home.vue"));
+        return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/src/views/Home.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73213,7 +73213,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/package',
       name: 'package',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./views/package/browse.vue */ "./resources/js/src/views/package/browse.vue"));
+        return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/package/browse.vue */ "./resources/js/src/views/package/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73234,7 +73234,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/package/create',
       name: 'create-package',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/package/create.vue */ "./resources/js/src/views/package/create.vue"));
+        return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/package/create.vue */ "./resources/js/src/views/package/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73257,7 +73257,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/user',
       name: 'user',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(29)]).then(__webpack_require__.bind(null, /*! ./views/user/browse.vue */ "./resources/js/src/views/user/browse.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./views/user/browse.vue */ "./resources/js/src/views/user/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73278,7 +73278,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/user/create',
       name: 'add-user',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 30).then(__webpack_require__.bind(null, /*! ./views/user/create.vue */ "./resources/js/src/views/user/create.vue"));
+        return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/user/create.vue */ "./resources/js/src/views/user/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73303,7 +73303,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/user/:id',
       name: 'view-user',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 32).then(__webpack_require__.bind(null, /*! ./views/user/view.vue */ "./resources/js/src/views/user/view.vue"));
+        return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./views/user/view.vue */ "./resources/js/src/views/user/view.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73325,680 +73325,824 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
         permission: 'view-user'
       }
     }, {
-      path: '/dashboard/user/:id/edit',
-      name: 'edit-user',
+      // =============================================================================
+      // MAIN LAYOUT ROUTES
+      // =============================================================================
+      path: '',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 31).then(__webpack_require__.bind(null, /*! ./views/user/edit.vue */ "./resources/js/src/views/user/edit.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(3), __webpack_require__.e(0)]).then(__webpack_require__.bind(null, /*! ./layouts/main/Main.vue */ "./resources/js/src/layouts/main/Main.vue"));
       },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'User',
-          url: '/dashboard/user',
-          i18n: 'User'
-        }, {
-          title: 'Edit User',
-          active: true,
-          i18n: 'editUser'
-        }],
-        pageTitle: 'Edit User',
-        pageTitle_i18n: 'editUser',
-        permission: 'edit-user'
-      }
-    }, {
-      path: '/dashboard/user/:id/products',
-      name: 'edit-user-product',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 36).then(__webpack_require__.bind(null, /*! ./views/user_product/edit.vue */ "./resources/js/src/views/user_product/edit.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'User',
-          url: '/dashboard/user',
-          i18n: 'User'
-        }, {
-          title: 'user product',
-          active: true,
-          i18n: 'user product'
-        }],
-        pageTitle: 'User Products',
-        pageTitle_i18n: 'User Products',
-        permission: 'edit-seller-product'
-      }
-    }, {
-      path: '/dashboard/category',
-      name: 'category',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/category/browse.vue */ "./resources/js/src/views/category/browse.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'Category',
-          active: true,
-          i18n: 'Category'
-        }],
-        pageTitle: 'Category',
-        pageTitle_i18n: 'Category',
-        permission: 'browse-category'
-      }
-    }, {
-      path: '/dashboard/category/create',
-      name: 'create-category',
-      component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(43), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./views/category/create.vue */ "./resources/js/src/views/category/create.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'Category',
-          url: '/dashboard/category',
-          i18n: 'Category'
-        }, {
-          title: 'Create',
-          active: true,
-          i18n: 'Create'
-        }],
-        pageTitle: 'Create Category',
-        pageTitle_i18n: 'Create Category',
-        permission: 'create-category'
-      }
-    }, {
-      path: '/dashboard/category/edit/:id',
-      name: 'edit-category',
-      component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! ./views/category/edit.vue */ "./resources/js/src/views/category/edit.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'Category',
-          url: '/dashboard/category',
-          i18n: 'Category'
-        }, {
-          title: 'Edit',
-          active: true,
-          i18n: 'Edit'
-        }],
-        pageTitle: 'Edit Category',
-        pageTitle_i18n: 'Edit Category',
-        permission: 'edit-category'
-      }
-    }, {
-      path: '/dashboard/category/view/:id',
-      name: 'view-category',
-      component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! ./views/category/view.vue */ "./resources/js/src/views/category/view.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'Category',
-          url: '/dashboard/category',
-          i18n: 'Category'
-        }, {
-          title: 'View',
-          active: true,
-          i18n: 'View'
-        }],
-        pageTitle: 'View Category',
-        pageTitle_i18n: 'View Category',
-        permission: 'view-category'
-      }
-    }, {
-      path: '/dashboard/product',
-      name: 'product',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/product/browse.vue */ "./resources/js/src/views/product/browse.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'Product',
-          active: true,
-          i18n: 'Product'
-        }],
-        pageTitle: 'Product',
-        pageTitle_i18n: 'Product',
-        permission: 'browse-product' //temperory
+      children: [// =============================================================================
+      // Theme Routes
+      // =============================================================================
+      {
+        path: '/dashboard',
+        name: 'home',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 10).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/src/views/Home.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home',
+            active: true
+          }],
+          pageTitle: 'Home',
+          pageTitle_i18n: 'Home'
+        }
+      }, {
+        path: '/dashboard/package',
+        name: 'package',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/package/browse.vue */ "./resources/js/src/views/package/browse.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Package',
+            active: true,
+            i18n: 'Package'
+          }],
+          pageTitle: 'Package',
+          pageTitle_i18n: 'Package',
+          permission: 'browse-package'
+        }
+      }, {
+        path: '/dashboard/package/create',
+        name: 'create-package',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/package/create.vue */ "./resources/js/src/views/package/create.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Package',
+            i18n: 'Package'
+          }, {
+            title: 'Create',
+            active: true
+          }],
+          pageTitle: 'Create Package',
+          pageTitle_i18n: 'Package',
+          permission: 'create-package'
+        }
+      }, {
+        path: '/dashboard/user',
+        name: 'user',
+        component: function component() {
+          return Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./views/user/browse.vue */ "./resources/js/src/views/user/browse.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'User',
+            active: true,
+            i18n: 'User'
+          }],
+          pageTitle: 'User',
+          pageTitle_i18n: 'User',
+          permission: 'browse-user'
+        }
+      }, {
+        path: '/dashboard/user/create',
+        name: 'add-user',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/user/create.vue */ "./resources/js/src/views/user/create.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'User',
+            url: '/dashboard/user',
+            i18n: 'User'
+          }, {
+            title: 'Add Employee',
+            active: true,
+            i18n: 'AddUser'
+          }],
+          pageTitle: 'Add User',
+          pageTitle_i18n: 'AddUser',
+          permission: 'create-user'
+        }
+      }, {
+        path: '/dashboard/user/:id',
+        name: 'view-user',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./views/user/view.vue */ "./resources/js/src/views/user/view.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'User',
+            url: '/dashboard/user',
+            i18n: 'User'
+          }, {
+            title: 'Profile',
+            active: true,
+            i18n: 'UserProfile'
+          }],
+          pageTitle: 'Edit User',
+          pageTitle_i18n: 'editUser',
+          permission: 'view-user'
+        }
+      }, {
+        path: '/dashboard/user/:id/edit',
+        name: 'edit-user',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 34).then(__webpack_require__.bind(null, /*! ./views/user/edit.vue */ "./resources/js/src/views/user/edit.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'User',
+            url: '/dashboard/user',
+            i18n: 'User'
+          }, {
+            title: 'Edit User',
+            active: true,
+            i18n: 'editUser'
+          }],
+          pageTitle: 'Edit User',
+          pageTitle_i18n: 'editUser',
+          permission: 'edit-user'
+        }
+      }, {
+        path: '/dashboard/user/:id/products',
+        name: 'edit-user-product',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 38).then(__webpack_require__.bind(null, /*! ./views/user_product/edit.vue */ "./resources/js/src/views/user_product/edit.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'User',
+            url: '/dashboard/user',
+            i18n: 'User'
+          }, {
+            title: 'user product',
+            active: true,
+            i18n: 'user product'
+          }],
+          pageTitle: 'User Products',
+          pageTitle_i18n: 'User Products',
+          permission: 'edit-seller-product'
+        }
+      }, {
+        path: '/dashboard/category',
+        name: 'category',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./views/category/browse.vue */ "./resources/js/src/views/category/browse.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Category',
+            active: true,
+            i18n: 'Category'
+          }],
+          pageTitle: 'Category',
+          pageTitle_i18n: 'Category',
+          permission: 'browse-category'
+        }
+      }, {
+        path: '/dashboard/category/create',
+        name: 'create-category',
+        component: function component() {
+          return Promise.all(/*! import() */[__webpack_require__.e(9), __webpack_require__.e(13)]).then(__webpack_require__.bind(null, /*! ./views/category/create.vue */ "./resources/js/src/views/category/create.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Category',
+            url: '/dashboard/category',
+            i18n: 'Category'
+          }, {
+            title: 'Create',
+            active: true,
+            i18n: 'Create'
+          }],
+          pageTitle: 'Create Category',
+          pageTitle_i18n: 'Create Category',
+          permission: 'create-category'
+        }
+      }, {
+        path: '/dashboard/category/edit/:id',
+        name: 'edit-category',
+        component: function component() {
+          return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(14)]).then(__webpack_require__.bind(null, /*! ./views/category/edit.vue */ "./resources/js/src/views/category/edit.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Category',
+            url: '/dashboard/category',
+            i18n: 'Category'
+          }, {
+            title: 'Edit',
+            active: true,
+            i18n: 'Edit'
+          }],
+          pageTitle: 'Edit Category',
+          pageTitle_i18n: 'Edit Category',
+          permission: 'edit-category'
+        }
+      }, {
+        path: '/dashboard/category/view/:id',
+        name: 'view-category',
+        component: function component() {
+          return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(15)]).then(__webpack_require__.bind(null, /*! ./views/category/view.vue */ "./resources/js/src/views/category/view.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Category',
+            url: '/dashboard/category',
+            i18n: 'Category'
+          }, {
+            title: 'View',
+            active: true,
+            i18n: 'View'
+          }],
+          pageTitle: 'View Category',
+          pageTitle_i18n: 'View Category',
+          permission: 'view-category'
+        }
+      }, {
+        path: '/dashboard/product',
+        name: 'product',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/product/browse.vue */ "./resources/js/src/views/product/browse.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Product',
+            active: true,
+            i18n: 'Product'
+          }],
+          pageTitle: 'Product',
+          pageTitle_i18n: 'Product',
+          permission: 'browse-product' //temperory
 
-      }
-    }, {
-      path: '/dashboard/product/create',
-      name: 'create-product',
-      component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(43), __webpack_require__.e(15)]).then(__webpack_require__.bind(null, /*! ./views/product/create.vue */ "./resources/js/src/views/product/create.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'Product',
-          url: '/dashboard/product',
-          i18n: 'Product'
-        }, {
-          title: 'Create',
-          active: true,
-          i18n: 'Create'
-        }],
-        pageTitle: 'Create Product',
-        pageTitle_i18n: 'Create Product',
-        permission: 'create-product' //temperory
+        }
+      }, {
+        path: '/dashboard/product/create',
+        name: 'create-product',
+        component: function component() {
+          return Promise.all(/*! import() */[__webpack_require__.e(9), __webpack_require__.e(19)]).then(__webpack_require__.bind(null, /*! ./views/product/create.vue */ "./resources/js/src/views/product/create.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Product',
+            url: '/dashboard/product',
+            i18n: 'Product'
+          }, {
+            title: 'Create',
+            active: true,
+            i18n: 'Create'
+          }],
+          pageTitle: 'Create Product',
+          pageTitle_i18n: 'Create Product',
+          permission: 'create-product' //temperory
 
-      }
-    }, {
-      path: '/dashboard/product/edit/:id',
-      name: 'edit-product',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/product/edit.vue */ "./resources/js/src/views/product/edit.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'Product',
-          url: '/dashboard/product',
-          i18n: 'Product'
-        }, {
-          title: 'Edit',
-          active: true,
-          i18n: 'Edit'
-        }],
-        pageTitle: 'Edit Product',
-        pageTitle_i18n: 'Edit Product',
-        permission: 'edit-product'
-      }
-    }, {
-      path: '/dashboard/product/view/:id',
-      name: 'view-product',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./views/product/view.vue */ "./resources/js/src/views/product/view.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'Product',
-          url: '/dashboard/product',
-          i18n: 'Product'
-        }, {
-          title: 'View',
-          active: true,
-          i18n: 'View'
-        }],
-        pageTitle: 'View Product',
-        pageTitle_i18n: 'View Product',
-        permission: 'view-product'
-      }
-    }, {
-      path: '/dashboard/shipping',
-      name: 'shipping',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 24).then(__webpack_require__.bind(null, /*! ./views/shipping/browse.vue */ "./resources/js/src/views/shipping/browse.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'Shipping',
-          active: true,
-          i18n: 'Shipping'
-        }],
-        pageTitle: 'Shipping',
-        pageTitle_i18n: 'Shipping',
-        permission: 'browse-shipping-method'
-      }
-    }, {
-      path: '/dashboard/shipping/create',
-      name: 'create-shipping',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ./views/shipping/create.vue */ "./resources/js/src/views/shipping/create.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'Shipping',
-          url: '/dashboard/shipping',
-          i18n: 'Shipping'
-        }, {
-          title: 'Create',
-          active: true,
-          i18n: 'Create'
-        }],
-        pageTitle: 'Create Shipping',
-        pageTitle_i18n: 'Create Shipping',
-        permission: 'create-shipping-method'
-      }
-    }, {
-      path: '/dashboard/shipping/edit/:id',
-      name: 'edit-shipping',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 26).then(__webpack_require__.bind(null, /*! ./views/shipping/edit.vue */ "./resources/js/src/views/shipping/edit.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'Shipping',
-          url: '/dashboard/shipping',
-          i18n: 'Shipping'
-        }, {
-          title: 'Edit',
-          active: true,
-          i18n: 'Edit'
-        }],
-        pageTitle: 'Edit Shipping',
-        pageTitle_i18n: 'Edit Shipping',
-        permission: 'edit-shipping-method'
-      }
-    }, {
-      path: '/dashboard/shipping-price',
-      name: 'shipping-price',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/shipping-price/browse.vue */ "./resources/js/src/views/shipping-price/browse.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'Shipping Price',
-          active: true,
-          i18n: 'Shipping Price'
-        }],
-        pageTitle: 'Shipping Price',
-        pageTitle_i18n: 'Shipping Price',
-        permission: 'browse-shipping-method'
-      }
-    }, {
-      path: '/dashboard/shipping-price/create',
-      name: 'create-shipping-price',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/shipping-price/create.vue */ "./resources/js/src/views/shipping-price/create.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'Shipping Price',
-          url: '/dashboard/shipping-price',
-          i18n: 'Shipping Price'
-        }, {
-          title: 'Create',
-          active: true,
-          i18n: 'Create'
-        }],
-        pageTitle: 'Create Shipping price',
-        pageTitle_i18n: 'Create Shipping price',
-        permission: 'create-shipping-price'
-      }
-    }, {
-      path: '/dashboard/shipping-price/edit/:id',
-      name: 'edit-shipping-price',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ./views/shipping-price/edit.vue */ "./resources/js/src/views/shipping-price/edit.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'Shipping',
-          url: '/dashboard/shipping-price',
-          i18n: 'Shipping Price'
-        }, {
-          title: 'Edit',
-          active: true,
-          i18n: 'Edit'
-        }],
-        pageTitle: 'Edit Shipping price',
-        pageTitle_i18n: 'Edit Shipping price',
-        permission: 'edit-shipping-price'
-      }
-    }, {
-      path: '/dashboard/shipping-price/view/:id',
-      name: 'view-shipping-price',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ./views/shipping-price/view.vue */ "./resources/js/src/views/shipping-price/view.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'Shipping Price',
-          url: '/dashboard/shipping-price',
-          i18n: 'Shipping Price'
-        }, {
-          title: 'View',
-          active: true,
-          i18n: 'View'
-        }],
-        pageTitle: 'View Shipping Price',
-        pageTitle_i18n: 'View Shipping Price',
-        permission: 'view-shipping-price'
-      }
-    }, {
-      path: '/dashboard/status',
-      name: 'status',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 27).then(__webpack_require__.bind(null, /*! ./views/status/browse.vue */ "./resources/js/src/views/status/browse.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'Status',
-          active: true,
-          i18n: 'Status'
-        }],
-        pageTitle: 'Status',
-        pageTitle_i18n: 'Status',
-        permission: 'browse-status'
-      }
-    }, {
-      path: '/dashboard/status/create',
-      name: 'create-status',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./views/status/create.vue */ "./resources/js/src/views/status/create.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'Status',
-          url: '/dashboard/status',
-          i18n: 'Status'
-        }, {
-          title: 'Create',
-          active: true,
-          i18n: 'Create'
-        }],
-        pageTitle: 'Create Status',
-        pageTitle_i18n: 'Create Status',
-        permission: 'create-status'
-      }
-    }, {
-      path: '/dashboard/status/edit/:id',
-      name: 'edit-status',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 28).then(__webpack_require__.bind(null, /*! ./views/status/edit.vue */ "./resources/js/src/views/status/edit.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'Status',
-          url: '/dashboard/status',
-          i18n: 'Status'
-        }, {
-          title: 'Edit',
-          active: true,
-          i18n: 'Edit'
-        }],
-        pageTitle: 'Edit Status',
-        pageTitle_i18n: 'Edit Status',
-        permission: 'edit-status'
-      }
-    }, {
-      path: '/dashboard/design',
-      name: 'design',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/design/browse.vue */ "./resources/js/src/views/design/browse.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'Design',
-          active: true,
-          i18n: 'Design'
-        }],
-        pageTitle: 'Design',
-        pageTitle_i18n: 'Design' // permission: 'browse-design'
+        }
+      }, {
+        path: '/dashboard/product/edit/:id',
+        name: 'edit-product',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/product/edit.vue */ "./resources/js/src/views/product/edit.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Product',
+            url: '/dashboard/product',
+            i18n: 'Product'
+          }, {
+            title: 'Edit',
+            active: true,
+            i18n: 'Edit'
+          }],
+          pageTitle: 'Edit Product',
+          pageTitle_i18n: 'Edit Product',
+          permission: 'edit-product'
+        }
+      }, {
+        path: '/dashboard/product/view/:id',
+        name: 'view-product',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/product/view.vue */ "./resources/js/src/views/product/view.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Product',
+            url: '/dashboard/product',
+            i18n: 'Product'
+          }, {
+            title: 'View',
+            active: true,
+            i18n: 'View'
+          }],
+          pageTitle: 'View Product',
+          pageTitle_i18n: 'View Product',
+          permission: 'view-product'
+        }
+      }, {
+        path: '/dashboard/shipping',
+        name: 'shipping',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 28).then(__webpack_require__.bind(null, /*! ./views/shipping/browse.vue */ "./resources/js/src/views/shipping/browse.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Shipping',
+            active: true,
+            i18n: 'Shipping'
+          }],
+          pageTitle: 'Shipping',
+          pageTitle_i18n: 'Shipping',
+          permission: 'browse-shipping-method'
+        }
+      }, {
+        path: '/dashboard/shipping/create',
+        name: 'create-shipping',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 29).then(__webpack_require__.bind(null, /*! ./views/shipping/create.vue */ "./resources/js/src/views/shipping/create.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Shipping',
+            url: '/dashboard/shipping',
+            i18n: 'Shipping'
+          }, {
+            title: 'Create',
+            active: true,
+            i18n: 'Create'
+          }],
+          pageTitle: 'Create Shipping',
+          pageTitle_i18n: 'Create Shipping',
+          permission: 'create-shipping-method'
+        }
+      }, {
+        path: '/dashboard/shipping/edit/:id',
+        name: 'edit-shipping',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 30).then(__webpack_require__.bind(null, /*! ./views/shipping/edit.vue */ "./resources/js/src/views/shipping/edit.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Shipping',
+            url: '/dashboard/shipping',
+            i18n: 'Shipping'
+          }, {
+            title: 'Edit',
+            active: true,
+            i18n: 'Edit'
+          }],
+          pageTitle: 'Edit Shipping',
+          pageTitle_i18n: 'Edit Shipping',
+          permission: 'edit-shipping-method'
+        }
+      }, {
+        path: '/dashboard/shipping-price',
+        name: 'shipping-price',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 24).then(__webpack_require__.bind(null, /*! ./views/shipping-price/browse.vue */ "./resources/js/src/views/shipping-price/browse.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Shipping Price',
+            active: true,
+            i18n: 'Shipping Price'
+          }],
+          pageTitle: 'Shipping Price',
+          pageTitle_i18n: 'Shipping Price',
+          permission: 'browse-shipping-method'
+        }
+      }, {
+        path: '/dashboard/shipping-price/create',
+        name: 'create-shipping-price',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ./views/shipping-price/create.vue */ "./resources/js/src/views/shipping-price/create.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Shipping Price',
+            url: '/dashboard/shipping-price',
+            i18n: 'Shipping Price'
+          }, {
+            title: 'Create',
+            active: true,
+            i18n: 'Create'
+          }],
+          pageTitle: 'Create Shipping price',
+          pageTitle_i18n: 'Create Shipping price',
+          permission: 'create-shipping-price'
+        }
+      }, {
+        path: '/dashboard/shipping-price/edit/:id',
+        name: 'edit-shipping-price',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 26).then(__webpack_require__.bind(null, /*! ./views/shipping-price/edit.vue */ "./resources/js/src/views/shipping-price/edit.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Shipping',
+            url: '/dashboard/shipping-price',
+            i18n: 'Shipping Price'
+          }, {
+            title: 'Edit',
+            active: true,
+            i18n: 'Edit'
+          }],
+          pageTitle: 'Edit Shipping price',
+          pageTitle_i18n: 'Edit Shipping price',
+          permission: 'edit-shipping-price'
+        }
+      }, {
+        path: '/dashboard/shipping-price/view/:id',
+        name: 'view-shipping-price',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 27).then(__webpack_require__.bind(null, /*! ./views/shipping-price/view.vue */ "./resources/js/src/views/shipping-price/view.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Shipping Price',
+            url: '/dashboard/shipping-price',
+            i18n: 'Shipping Price'
+          }, {
+            title: 'View',
+            active: true,
+            i18n: 'View'
+          }],
+          pageTitle: 'View Shipping Price',
+          pageTitle_i18n: 'View Shipping Price',
+          permission: 'view-shipping-price'
+        }
+      }, {
+        path: '/dashboard/status',
+        name: 'status',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 31).then(__webpack_require__.bind(null, /*! ./views/status/browse.vue */ "./resources/js/src/views/status/browse.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Status',
+            active: true,
+            i18n: 'Status'
+          }],
+          pageTitle: 'Status',
+          pageTitle_i18n: 'Status',
+          permission: 'browse-status'
+        }
+      }, {
+        path: '/dashboard/status/create',
+        name: 'create-status',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 32).then(__webpack_require__.bind(null, /*! ./views/status/create.vue */ "./resources/js/src/views/status/create.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Status',
+            url: '/dashboard/status',
+            i18n: 'Status'
+          }, {
+            title: 'Create',
+            active: true,
+            i18n: 'Create'
+          }],
+          pageTitle: 'Create Status',
+          pageTitle_i18n: 'Create Status',
+          permission: 'create-status'
+        }
+      }, {
+        path: '/dashboard/status/edit/:id',
+        name: 'edit-status',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 33).then(__webpack_require__.bind(null, /*! ./views/status/edit.vue */ "./resources/js/src/views/status/edit.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Status',
+            url: '/dashboard/status',
+            i18n: 'Status'
+          }, {
+            title: 'Edit',
+            active: true,
+            i18n: 'Edit'
+          }],
+          pageTitle: 'Edit Status',
+          pageTitle_i18n: 'Edit Status',
+          permission: 'edit-status'
+        }
+      }, {
+        path: '/dashboard/design',
+        name: 'design',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/design/browse.vue */ "./resources/js/src/views/design/browse.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Design',
+            active: true,
+            i18n: 'Design'
+          }],
+          pageTitle: 'Design',
+          pageTitle_i18n: 'Design' // permission: 'browse-design'
 
-      }
-    }, {
-      path: '/dashboard/design/create',
-      name: 'create-design',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./views/design/create.vue */ "./resources/js/src/views/design/create.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard',
-          i18n: 'Home'
-        }, {
-          title: 'Design',
-          url: '/dashboard/design',
-          i18n: 'Design'
-        }, {
-          title: 'Create',
-          active: true,
-          i18n: 'Create'
-        }],
-        pageTitle: 'Create Design',
-        pageTitle_i18n: 'Create Design' // permission: 'create-design'
+        }
+      }, {
+        path: '/dashboard/design/create',
+        name: 'create-design',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./views/design/create.vue */ "./resources/js/src/views/design/create.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard',
+            i18n: 'Home'
+          }, {
+            title: 'Design',
+            url: '/dashboard/design',
+            i18n: 'Design'
+          }, {
+            title: 'Create',
+            active: true,
+            i18n: 'Create'
+          }],
+          pageTitle: 'Create Design',
+          pageTitle_i18n: 'Create Design' // permission: 'create-design'
 
-      }
-    }, {
-      path: '/dashboard/settings/role',
-      name: 'role',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 34).then(__webpack_require__.bind(null, /*! ./views/settings/Role/Roles.vue */ "./resources/js/src/views/settings/Role/Roles.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard'
-        }, {
-          title: 'Settings'
-        }, {
-          title: 'Roles',
-          active: true
-        }],
-        pageTitle: "Roles",
-        permission: 'browse-role'
-      }
-    }, {
-      path: '/dashboard/settings/role/create',
-      name: 'create-role',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/settings/Role/Create.vue */ "./resources/js/src/views/settings/Role/Create.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard'
-        }, {
-          title: 'Settings'
-        }, {
-          title: 'Roles',
-          url: '/dashboard/settings/role'
-        }, {
-          title: 'Create Role',
-          active: true
-        }],
-        pageTitle: "Create Role",
-        permission: 'create-role'
-      }
-    }, {
-      path: '/dashboard/settings/role/:id',
-      name: 'view-role',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 35).then(__webpack_require__.bind(null, /*! ./views/settings/Role/View.vue */ "./resources/js/src/views/settings/Role/View.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard'
-        }, {
-          title: 'Settings'
-        }, {
-          title: 'Roles',
-          url: '/dashboard/settings/role'
-        }, {
-          title: 'Role Information',
-          active: true
-        }],
-        pageTitle: "Role Information",
-        permission: 'view-role'
-      }
-    }, {
-      path: '/dashboard/settings/role/edit/:id',
-      name: 'edit-role',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./views/settings/Role/Edit.vue */ "./resources/js/src/views/settings/Role/Edit.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard'
-        }, {
-          title: 'Settings'
-        }, {
-          title: 'Roles',
-          url: '/dashboard/settings/role'
-        }, {
-          title: 'Edit Role',
-          active: true
-        }],
-        pageTitle: "Edit Role",
-        permission: 'edit-role'
-      }
-    }, {
-      path: '/dashboard/profile',
-      name: 'profile',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/profile/profile */ "./resources/js/src/views/profile/profile.vue"));
-      },
-      beforeEnter: guard,
-      meta: {
-        breadcrumb: [{
-          title: 'Home',
-          url: '/dashboard'
-        }, {
-          title: 'Profile',
-          active: true
-        }],
-        pageTitle: "Profile"
-      }
-    }]
-  }, // =============================================================================
-  // FULL PAGE LAYOUTS
-  // =============================================================================
-  {
-    path: '',
-    component: function component() {
-      return __webpack_require__.e(/*! import() */ 40).then(__webpack_require__.bind(null, /*! @/layouts/full-page/FullPage.vue */ "./resources/js/src/layouts/full-page/FullPage.vue"));
-    },
-    children: [// =============================================================================
-    // PAGES
+        }
+      }, {
+        path: '/dashboard/settings/role',
+        name: 'role',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 36).then(__webpack_require__.bind(null, /*! ./views/settings/Role/Roles.vue */ "./resources/js/src/views/settings/Role/Roles.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard'
+          }, {
+            title: 'Settings'
+          }, {
+            title: 'Roles',
+            active: true
+          }],
+          pageTitle: "Roles",
+          permission: 'browse-role'
+        }
+      }, {
+        path: '/dashboard/settings/role/create',
+        name: 'create-role',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ./views/settings/Role/Create.vue */ "./resources/js/src/views/settings/Role/Create.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard'
+          }, {
+            title: 'Settings'
+          }, {
+            title: 'Roles',
+            url: '/dashboard/settings/role'
+          }, {
+            title: 'Create Role',
+            active: true
+          }],
+          pageTitle: "Create Role",
+          permission: 'create-role'
+        }
+      }, {
+        path: '/dashboard/settings/role/:id',
+        name: 'view-role',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 37).then(__webpack_require__.bind(null, /*! ./views/settings/Role/View.vue */ "./resources/js/src/views/settings/Role/View.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard'
+          }, {
+            title: 'Settings'
+          }, {
+            title: 'Roles',
+            url: '/dashboard/settings/role'
+          }, {
+            title: 'Role Information',
+            active: true
+          }],
+          pageTitle: "Role Information",
+          permission: 'view-role'
+        }
+      }, {
+        path: '/dashboard/settings/role/edit/:id',
+        name: 'edit-role',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ./views/settings/Role/Edit.vue */ "./resources/js/src/views/settings/Role/Edit.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard'
+          }, {
+            title: 'Settings'
+          }, {
+            title: 'Roles',
+            url: '/dashboard/settings/role'
+          }, {
+            title: 'Edit Role',
+            active: true
+          }],
+          pageTitle: "Edit Role",
+          permission: 'edit-role'
+        }
+      }, {
+        path: '/dashboard/profile',
+        name: 'profile',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/profile/profile */ "./resources/js/src/views/profile/profile.vue"));
+        },
+        beforeEnter: guard,
+        meta: {
+          breadcrumb: [{
+            title: 'Home',
+            url: '/dashboard'
+          }, {
+            title: 'Profile',
+            active: true
+          }],
+          pageTitle: "Profile"
+        }
+      }]
+    }, // =============================================================================
+    // FULL PAGE LAYOUTS
     // =============================================================================
     {
-      path: '/dashboard/login',
-      name: 'pageLogin',
+      path: '',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 33).then(__webpack_require__.bind(null, /*! ./views/pages/Login.vue */ "./resources/js/src/views/pages/Login.vue"));
-      }
-    }, {
-      path: '/dashboard/error-403',
-      name: 'pageError403',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 38).then(__webpack_require__.bind(null, /*! ./views/pages/NotAuthorized.vue */ "./resources/js/src/views/pages/NotAuthorized.vue"));
-      }
-    }, {
-      path: '/dashboard/error-404',
-      name: 'pageError404',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 37).then(__webpack_require__.bind(null, /*! ./views/pages/Error404.vue */ "./resources/js/src/views/pages/Error404.vue"));
-      }
-    }, {
-      path: '/verified',
-      name: 'verified',
-      component: function component() {
-        return __webpack_require__.e(/*! import() */ 39).then(__webpack_require__.bind(null, /*! ./views/pages/verified.vue */ "./resources/js/src/views/pages/verified.vue"));
-      }
+        return __webpack_require__.e(/*! import() */ 42).then(__webpack_require__.bind(null, /*! @/layouts/full-page/FullPage.vue */ "./resources/js/src/layouts/full-page/FullPage.vue"));
+      },
+      children: [// =============================================================================
+      // PAGES
+      // =============================================================================
+      {
+        path: '/dashboard/login',
+        name: 'pageLogin',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 35).then(__webpack_require__.bind(null, /*! ./views/pages/Login.vue */ "./resources/js/src/views/pages/Login.vue"));
+        }
+      }, {
+        path: '/dashboard/error-403',
+        name: 'pageError403',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 40).then(__webpack_require__.bind(null, /*! ./views/pages/NotAuthorized.vue */ "./resources/js/src/views/pages/NotAuthorized.vue"));
+        }
+      }, {
+        path: '/dashboard/error-404',
+        name: 'pageError404',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 39).then(__webpack_require__.bind(null, /*! ./views/pages/Error404.vue */ "./resources/js/src/views/pages/Error404.vue"));
+        }
+      }, {
+        path: '/verified',
+        name: 'verified',
+        component: function component() {
+          return __webpack_require__.e(/*! import() */ 41).then(__webpack_require__.bind(null, /*! ./views/pages/verified.vue */ "./resources/js/src/views/pages/verified.vue"));
+        }
+      }]
+    }, // Redirect to 404 page, if no match found
+    {
+      path: '*',
+      redirect: '/pages/error-404'
     }]
-  }, // Redirect to 404 page, if no match found
-  {
-    path: '*',
-    redirect: '/pages/error-404'
   }]
 });
 
