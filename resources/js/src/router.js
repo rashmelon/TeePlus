@@ -450,6 +450,39 @@ const router = new Router({
                 },
 
 
+                {
+                    path: '/dashboard/design',
+                    name: 'design',
+                    component: () => import('./views/design/browse.vue'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Design', active: true, i18n: 'Design'},
+                        ],
+                        pageTitle: 'Design',
+                        pageTitle_i18n: 'Design',
+                        // permission: 'browse-design'
+                    }
+                },
+                {
+                    path: '/dashboard/design/create',
+                    name: 'create-design',
+                    component: () => import('./views/design/create.vue'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Design', url: '/dashboard/design', i18n: 'Design'},
+                            {title: 'Create', active: true, i18n: 'Create'},
+                        ],
+                        pageTitle: 'Create Design',
+                        pageTitle_i18n: 'Create Design',
+                        // permission: 'create-design'
+                    }
+                },
+
+
 
                 {
                     path: '/dashboard/settings/role',
