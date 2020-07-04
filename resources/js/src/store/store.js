@@ -11,11 +11,15 @@ import VuexPersistence from 'vuex-persist'
 Vue.use(Vuex);
 
 import moduleAuth from './auth/moduleAuth';
-import moduleEmployee from './employee/moduleEmployee';
+import moduleUser from './user/moduleUser';
 import modulePackage from './package/modulePackage';
 import moduleRolesAndPermissions from './roles-and-permissions/moduleRolesAndPermissions';
 import moduleAgency from "./agency/moduleAgency";
 import moduleNotification from "./notification/moduleNotification";
+import moduleCategory from "./category/moduleCategory";
+import moduleCombination from "./combination/moduleCombination";
+import moduleCriteria from "./criteria/moduleCriteria";
+import moduleProduct from "./product/moduleProduct";
 
 
 const vuexLocal = new VuexPersistence({
@@ -29,11 +33,15 @@ export default new Vuex.Store({
     actions,
     modules: {
         auth: moduleAuth,
-        employee: moduleEmployee,
+        user: moduleUser,
         package: modulePackage,
         rolesAndPermissions: moduleRolesAndPermissions,
         agency: moduleAgency,
         notification: moduleNotification,
+        category: moduleCategory,
+        combination: moduleCombination,
+        criteria: moduleCriteria,
+        product: moduleProduct,
     },
     plugins: [vuexLocal.plugin],
     strict: process.env.NODE_ENV !== 'production'

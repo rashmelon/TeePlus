@@ -6,4 +6,10 @@ return [
     \App\Category::class => [
         'image' => 'category/image',
     ],
+    \App\Product::class => [
+        'image' => 'product/image',
+    ],
+    \App\Design::class => [
+        'image' => 'design/image',
+    ],
 ];

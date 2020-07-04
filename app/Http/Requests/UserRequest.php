@@ -31,7 +31,6 @@ class UserRequest extends FormRequest
                 'name' => 'required',
                 'image' => 'max:2048|mimes:jpeg,png',
                 'role' => 'required|exists:roles,name',
-                'agency_id' => 'exists:agencies,id',
                 'birth_date' => 'date',
                 'gender' => '',
                 'phone' => '',
@@ -44,7 +43,6 @@ class UserRequest extends FormRequest
                 'name' => '',
                 'image' => 'max:2048|mimes:jpeg,png',
                 'role' => 'exists:roles,name',
-                'agency_id' => 'exists:agencies,id',
             ];
         }
     }

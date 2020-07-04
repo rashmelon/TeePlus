@@ -8,59 +8,31 @@ export default [
   },
 
   {
+    url: "/dashboard/category",
     name: "Category",
     icon: "ArchiveIcon",
     i18n: "Category",
-    submenu: [
-      {
-        url: "/dashboard/category",
-        name: "Browse",
-        slug: "category",
-        i18n: "Browse",
-        permission: 'browse-employee'
-      },
-      {
-        url: "/dashboard/category/create",
-        name: "Create",
-        slug: "category/create",
-        i18n: "Create",
-        permission: 'create-employee'
-      },
-    ]
+    slug: "category",
+    permission: 'browse-category'
   },
 
-
-
   {
+    url: "/dashboard/product",
     name: "Product",
-    icon: "CoffeeIcon",
+    slug: "Product",
     i18n: "Product",
-    submenu: [
-      {
-        url: "/dashboard/product",
-        name: "Browse",
-        slug: "product",
-        i18n: "Browse",
-        permission: 'browse-employee'
-      },
-      {
-        url: "/dashboard/product/create",
-        name: "Create",
-        slug: "product/create",
-        i18n: "Create",
-        permission: 'browse-employee'
-      },
-    ]
+    icon: "CoffeeIcon",
+    // permission: 'browse-product'
   },
 
 
   {
-      url: "/dashboard/employee",
-      name: "Employee",
-      slug: "employee",
+      url: "/dashboard/user",
+      name: "User",
+      slug: "user",
       icon: "UserIcon",
-      i18n: "Employee",
-      permission: 'browse-employee'
+      i18n: "User",
+      permission: 'browse-user'
   },
 
 

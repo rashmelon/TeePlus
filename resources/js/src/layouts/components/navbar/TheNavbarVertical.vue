@@ -12,12 +12,14 @@
 <!--        <bookmarks :navbarColor="navbarColor" v-if="windowWidth >= 992" />-->
 
         <vs-spacer />
+<!--
 
         <search-bar />
 
         <ToggleDarkmode />
 
         <notification-drop-down />
+-->
 
         <profile-drop-down />
 
@@ -74,7 +76,8 @@ export default {
     showSidebar() {
       this.$store.commit('TOGGLE_IS_VERTICAL_NAV_MENU_ACTIVE', true);
     }
-  }
+  },
+
 }
 </script>
 

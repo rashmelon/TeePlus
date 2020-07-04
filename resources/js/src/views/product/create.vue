@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<div class=" w-full mb-base" v-if="can('create-employee')">
-			<div ref="create" title="Create Category">
+		<div class=" w-full mb-base">
+			<div ref="create" title="Create product">
 
 				<form-wizard :subtitle="null" :title="null" @on-complete="create" color="rgb(var(--vs-primary))" finishButtonText="Submit">
 					<tab-content class="mb-5" title="Product data">
@@ -22,88 +22,72 @@
 									<vs-select
 										label="Category"
 										v-model="form.category"
-										@change="resetCombinationAndPrinting"
+										@change="resetCombinations"
 										class="w-full"
+										v-validate="'required'"
+										name="category"
+
 									>
 										<vs-select-item :key="category.id" :text="category.name" :value="category" v-for="category in categories"/>
 									</vs-select>
+									<span class="text-danger text-sm" v-show="errors.has('category')">{{ errors.first('category') }}</span>
+
 								</div>
 								<div class="vx-col md:w-6/12 mb-3">
-									<vs-input class="w-full" label="Product Name" v-model="form.name"/>
+									<vs-input
+										class="w-full"
+										label="Product Name"
+										v-model="form.name"
+										v-validate="'required'"
+ 										name="name"/>
+									<span class="text-danger text-sm" v-show="errors.has('name')">{{ errors.first('name') }}</span>
 								</div>
 								<div class="vx-col md:w-2/12 mb-3">
-									<vs-input type="number" class="w-full" label="Product Base Price" v-model="form.basePrice"/>
+									<vs-input type="number" class="w-full" label="Product Base Price" v-model="form.base_price"
+									          v-validate="'required|min_value:0'"
+									          name="base price"/>
+									<span class="text-danger text-sm" v-show="errors.has('base price')">{{ errors.first('base price') }}</span>
+
 								</div>
 								<div class="vx-col md:w-6/6 w-full mt-3">
-								<vs-textarea label="Description" v-model="form.description"/>
-							</div>
+									<vs-textarea label="Description" v-model="form.description"/>
+								</div>
 							</div>
 						</vx-card>
 					</tab-content>
 
-					<tab-content class="mb-5" title="Product Attributes">
+					<tab-content class="mb-5" title="Product Combinations">
 						<div class="vx-row">
-							<div class="vx-col md:w-1/2 w-full">
+							<div class="vx-col md:w-2/2 w-full">
 								<vx-card class="vx-row">
 									<div class="vx-col md:w-1/1 w-full mt-3">
 										<vs-select
 											label="Combinations"
 											multiple
 											placeholder="Combinations"
-											v-model="form.combinations"
+											v-model="form.priceCombinations"
 											class="w-full"
 										>
 											<vs-select-item
 												:key="index"
 												:text='item.combination'
-												:value="item"
-												v-for="(item,index) in form.category.combinations"/>
+												:value="item.id"
+												v-for="(item,index) in form.category.priceCombinations"/>
 										</vs-select>
 
-										<vs-list>
+										<!--<vs-list>
 											<vs-list-header icon="supervisor_account" title="Selected Combinations"></vs-list-header>
 											<transition-group mode="out-in" name="slide-down">
 												<vs-list-item
-													v-for="combination in form.combinations"
-													:key="combination.id"
-													icon="check" :title="combination.combination" :subtitle="combination.price"></vs-list-item>
+													v-for="(combination,index) in form.priceCombinations"
+													:key="index+1"
+													icon="check" :title="combination.combination" :subtitle="combination.price.toString()"></vs-list-item>
 											</transition-group>
-										</vs-list>
+										</vs-list>-->
 									</div>
 								</vx-card>
 							</div>
-							<div class="vx-col md:w-1/2 w-full">
-								<vx-card class="vx-row">
-									<div class="vx-col md:w-1/1 w-full mt-3">
-
-										<vs-select
-											label="Printing Criteria"
-											multiple
-											placeholder="Printing Criteria"
-											v-model="form.printingCriteria"
-											class="w-full"
-										>
-											<vs-select-item
-												:key="index"
-												:text='item.criteria'
-												:value="item"
-												v-for="(item,index) in form.category.printingCriteria"/>
-										</vs-select>
-
-										<vs-list>
-											<vs-list-header icon="supervisor_account" title="Selected Printing Criteria"></vs-list-header>
-											<transition-group mode="out-in" name="slide-down">
-												<vs-list-item
-													v-for="item in form.printingCriteria"
-													:key="item.id"
-													icon="check" :title="item.criteria" :subtitle="item.price"></vs-list-item>
-
-											</transition-group>
-										</vs-list>
-									</div>
-								</vx-card>
-							</div>
-							</div>
+						</div>
 					</tab-content>
 				</form-wizard>
 
@@ -113,157 +97,30 @@
 </template>
 
 <script>
-	import './../../filters/filters'
+  import './../../filters/filters'
   import {FormWizard, TabContent} from 'vue-form-wizard'
   import 'vue-form-wizard/dist/vue-form-wizard.min.css'
-  import {uuid} from '../../utils'
 
   export default {
     name: "create",
     mounted() {
-
+      this.getCategories()
     },
     computed: {
       validateForm() {
         return !this.errors.any()
           && this.form.name !== ''
       },
-      categories() {
-        return [
-          {
-            id: 1000,
-            name: 'T-shirt',
-            combinations: [
-              {
-                id: uuid(),
-                combination: 'Combination 1',
-                price: '150'
-              },
-              {
-                id: uuid(),
-                combination: 'Combination 2',
-                price: '100'
-              },
-              {
-                id: uuid(),
-                combination: 'Combination 3',
-                price: '120'
-              },
-            ],
-            printingCriteria: [
-              {
-                id: uuid(),
-                criteria: 'B/W',
-                price: '15'
-              },
-              {
-                id: uuid(),
-                criteria: 'Color',
-                price: '30'
-              },
-            ]
-          },
-          {
-            id: 1001,
-            name: 'Hoodie',
-            combinations: [
-              {
-                id: uuid(),
-                combination: 'Combination 8',
-                price: '150'
-              },
-              {
-                id: uuid(),
-                combination: 'Combination 7',
-                price: '100'
-              },
-              {
-                id: uuid(),
-                combination: 'Combination 5',
-                price: '120'
-              },
-            ],
-            printingCriteria: [
-              {
-                id: uuid(),
-                criteria: 'B/W',
-                price: '15'
-              },
-              {
-                id: uuid(),
-                criteria: 'Color',
-                price: '30'
-              },
-            ]
-          },
-          {
-            id: 1002,
-            name: 'Mug',
-            combinations: [
-              {
-                id: uuid(),
-                combination: 'Magic',
-                price: '50'
-              },
-              {
-                id: uuid(),
-                combination: 'Normal',
-                price: '25'
-              },
-            ],
-            printingCriteria: [
-              {
-                id: uuid(),
-                criteria: 'B/W',
-                price: '15'
-              },
-              {
-                id: uuid(),
-                criteria: 'Color',
-                price: '30'
-              },
-            ]
-          },
-          {
-            id: 1003,
-            name: 'Mouse Pad',
-            combinations: [
-              {
-                id: uuid(),
-                combination: '15*30',
-                price: '50'
-              },
-              {
-                id: uuid(),
-                combination: '30*50',
-                price: '100'
-              },
-            ],
-            printingCriteria: [
-              {
-                id: uuid(),
-                criteria: 'B/W',
-                price: '15'
-              },
-              {
-                id: uuid(),
-                criteria: 'Color',
-                price: '30'
-              },
-            ]
-          },
-        ]
-      }
     },
     data: function () {
       return {
+        categories:[],
         form: {
           name: '',
           description: '',
           category: '',
-          basePrice: 0,
-          combinations: [],
-          printingCriteria: []
+          base_price: 0,
+          priceCombinations: [],
         },
         uploadedImage: null,
         is_requesting: false
@@ -273,47 +130,77 @@
       FormWizard,
       TabContent
     },
+	  props:{
+      payload: {
+        required: false,
+        default: ''
+      },
+	  },
     methods: {
-      resetCombinationAndPrinting(){
-
-        this.form.combinations=[]
-	      this.form.printingCriteria=[]
+      resetCombinations(){
+        this.form.priceCombinations=[]
       },
-      uploadImages(e) {
-        let selectedImages = e.target.files;
-        if (!selectedImages.length) {
-          return false;
-        }
-        this.form.images = [];
-        for (let i = 0; i < selectedImages.length; i++) {
-          this.form.images.push(selectedImages[i]);
-        }
-      },
-
       create() {
-        console.log(this.form)
-        this.$vs.notify({
-          title: 'Error',
-          text: 'not yet handled',
-          iconPack: 'feather',
-          icon: 'icon-alert-circle',
-          color: 'danger'
-        });
+        this.$validator.validateAll().then(result => {
+          if (result) {
+            // if form have no errors
+            this.is_requesting = true;
 
-        /*this.is_requesting=true;
-				let form_data = new FormData();
 
-				for (let key in this.form ) {
-						if ((key === 'images') && this.form.hasOwnProperty(key)){
-								for (let i=0; i<this.form[key].length; i++){
-										form_data.append(key+'[]', this.form[key][i]);
-								}
-						}
-						else {
-								form_data.append(key, this.form[key]);
-						}
-				}
-				*/
+            // create new object for sending object without extra data
+            let sentObject = {...this.form}
+            sentObject.category_id = sentObject.category.id
+
+            let form_data = new FormData();
+
+            for (let key in sentObject) {
+              if (key === 'priceCombinations') {
+                form_data.append(key, JSON.stringify(sentObject[key]));
+              } else if (key === 'image') {
+                form_data.append(key, sentObject[key][0]);
+              } else {
+                form_data.append(key, sentObject[key]);
+              }
+            }
+
+            this.$store.dispatch('product/create', form_data)
+              .then(response => {
+                this.$vs.notify({
+                  title: 'Success',
+                  text: response.data.message,
+                  iconPack: 'feather',
+                  icon: 'icon-check',
+                  color: 'success'
+                });
+                this.$router.push({name: 'product'});
+                this.is_requesting = false;
+
+              })
+              .catch(error => {
+                console.log(error);
+                this.$vs.notify({
+                  title: 'Error',
+                  text: error.response.data,
+                  iconPack: 'feather',
+                  icon: 'icon-alert-circle',
+                  color: 'danger'
+                });
+                this.is_requesting = false;
+              });
+          } else {
+            this.$vs.notify({
+              title: 'Error',
+              text: 'Fix form validation errors',
+              iconPack: 'feather',
+              icon: 'icon-alert-circle',
+              color: 'danger'
+            });
+          }
+
+        })
+
+
+
 
       },
 
@@ -334,7 +221,58 @@
           // Start the reader job - read file as a data url (base64 format)
           reader.readAsDataURL(input.files[0]);
         }
-      }
+      },
+
+      getCategories(){
+        // get all categories
+        this.$vs.loading({container: this.$refs.create.$el, scale: 0.5});
+        this.$store.dispatch('category/getData', this.payload)
+          .then(response => {
+            this.categories=response.data.data
+
+            // get priceCombinations of every category seperately
+            this.categories.forEach(cat=>{
+							this.getCombinations(cat.id)
+            })
+
+            this.$vs.loading.close(this.$refs.create.$el);
+          })
+          .catch(error => {
+            console.log(error);
+            // this.$vs.loading.close(this.$refs.browse);
+            this.$vs.notify({
+              title: 'Error',
+              text: error.response.data.error,
+              iconPack: 'feather',
+              icon: 'icon-alert-circle',
+              color: 'danger'
+            });
+          });
+      },
+	    getCombinations(catId){
+        this.$store.dispatch('combination/getData', `?category=${catId}`)
+          .then(response => {
+            // console.log(`combination for cat id = ${catId}`)
+            // console.log(response.data.data)
+
+            for(let index= 0 ; index<this.categories.length; index++){
+              if (this.categories[index].id == catId){
+                this.categories[index].priceCombinations = response.data.data
+              }
+            }
+          })
+          .catch(error => {
+            console.log(error);
+            this.$vs.notify({
+              title: 'Error',
+              text: error.response.data.error,
+              iconPack: 'feather',
+              icon: 'icon-alert-circle',
+              color: 'danger'
+            });
+          });
+      },
+
     }
   }
 </script>

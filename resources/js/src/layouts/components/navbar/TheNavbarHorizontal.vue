@@ -53,7 +53,7 @@ export default {
     Bookmarks,
     SearchBar,
     NotificationDropDown,
-    ProfileDropDown,
+    ProfileDropDown
   },
   computed: {
     navbarColor() {
@@ -75,7 +75,9 @@ export default {
     scrollY()              { return this.$store.state.scrollY                                                                     },
     verticalNavMenuWidth() { return this.$store.state.verticalNavMenuWidth                                                        },
     windowWidth()          { return this.$store.state.windowWidth                                                                 },
-  }
+
+
+  },
 }
 
 </script>
