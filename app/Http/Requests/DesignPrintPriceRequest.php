@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PrintCriteriaRequest extends FormRequest
+class DesignPrintPriceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,13 +26,15 @@ class PrintCriteriaRequest extends FormRequest
         $segments = request()->segments();
         if (sizeof($segments) == 2){
             return [
-                'criteria' => 'required',
-                'category_id' => 'required:categories,id'
+                'price' => 'required',
+                'print_criteria_id' => 'required|exists:print_criterias,id',
+                'design_id' => 'required|exists:designs,id',
             ];
         }
         else if (sizeof($segments) == 3){
             return [
-                'criteria' => '',
+                'price' => '',
+                'print_criteria_id' => 'exists:print_criterias,id',
             ];
         }
     }

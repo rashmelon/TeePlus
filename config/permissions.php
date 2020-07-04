@@ -291,4 +291,60 @@ return [
             'display_name' => 'Delete Status',
         ],
     ],
+
+    'Design' => [
+        [
+            'name' => 'create-design',
+            'guard_name' => 'api',
+            'display_name' => 'Create Design',
+        ],
+        [
+            'name' => 'browse-design',
+            'guard_name' => 'api',
+            'display_name' => 'Browse Design',
+        ],
+        [
+            'name' => 'view-design',
+            'guard_name' => 'api',
+            'display_name' => 'View Design',
+        ],
+        [
+            'name' => 'edit-design',
+            'guard_name' => 'api',
+            'display_name' => 'Edit Design',
+        ],
+        [
+            'name' => 'delete-design',
+            'guard_name' => 'api',
+            'display_name' => 'Delete Design',
+        ],
+    ],
+
+    'Design Price' => [
+        [
+            'name' => 'create-design-price',
+            'guard_name' => 'api',
+            'display_name' => 'Create Design Price',
+        ],
+        [
+            'name' => 'browse-design-price',
+            'guard_name' => 'api',
+            'display_name' => 'Browse Design Price',
+        ],
+        [
+            'name' => 'view-design-price',
+            'guard_name' => 'api',
+            'display_name' => 'View Design Price',
+        ],
+        [
+            'name' => 'edit-design-price',
+            'guard_name' => 'api',
+            'display_name' => 'Edit Design Price',
+        ],
+        [
+            'name' => 'delete-design-price',
+            'guard_name' => 'api',
+            'display_name' => 'Delete Design Price',
+        ],
+    ],
 ];

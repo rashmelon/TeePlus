@@ -59,7 +59,7 @@ class CategoryController extends Controller
             $file = $request->file('image');
             $image = Media::create([
                 'url' => download_file($file, config('paths.'.Category::class.'.image')),
-                'old_name' => $file->getClientOriginalName() . '.' . $file->getClientOriginalExtension(),
+                'old_name' => $file->getClientOriginalName(),
                 'relation' => 'image'
             ]);
             $category->image()->save($image);
@@ -129,7 +129,7 @@ class CategoryController extends Controller
             $file = $request->file('image');
             $category->image->update([
                 'url' => download_file($file, config('paths.'.Category::class.'.image')),
-                'old_name' => $file->getClientOriginalName() . '.' . $file->getClientOriginalExtension(),
+                'old_name' => $file->getClientOriginalName(),
             ]);
         }
 
