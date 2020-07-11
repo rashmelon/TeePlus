@@ -46,7 +46,9 @@
 							<vx-card>
 								<DesignPrintPrice :designId="$route.params.id"/>
 								
+<!--
 								<CreateDesignPrintPrice ref="createDesignPrice" :designId="$route.params.id" @addnew="addnew"/>
+-->
 							</vx-card>
 						</div>
 					</div>

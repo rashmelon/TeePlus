@@ -1,5 +1,6 @@
 <template>
-	<div class="edit-design-print-price">
+	<div class="design-print-price">
+		<div class="edit-design-print-price">
 		
 		
 		<!--
@@ -78,6 +79,57 @@
 		</vs-list>
 		
 	</div>
+		<div class="add-new-design-price mt-5">
+		
+		<vs-row class="d-flex">
+			<div class="vx-col md:w-6/12 w-full px-4 mb-3">
+				
+				<vs-select
+					class="selectExample w-full"
+					label="Criteria"
+					v-model="form.print_criteria_id"
+				>
+					<vs-select-item
+						:key="index"
+						:name="'criteria'"
+						:text="item.criteria"
+						:value="item.id"
+						v-for="(item,index) in printCriterias"
+						v-if="!item.selected"
+						v-validate="'required'"/>
+					<span class="text-danger text-sm" v-show="errors.has('criteria')">{{ errors.first('criteria')}}</span>
+				
+				</vs-select>
+			
+			</div>
+			<div class="vx-col md:w-3/12 w-full px-4 mb-3">
+				
+				<vs-input
+					:name="'price'"
+					class="w-full"
+					label="Price"
+					type="number"
+					v-model="form.price"
+					v-validate="'required|min_value:0'"
+				/>
+				<span class="text-danger text-sm" v-show="errors.has('price')">{{ errors.first('price')}}</span>
+			
+			</div>
+			<div class="vx-col md:w-3/12 w-full px-4 mb-3">
+				<vs-button
+					@click="addNew"
+					class="mt-5 w-full"
+					color="primary"
+					icon="icon-save"
+					icon-pack="feather"
+					type="filled"
+				>Add
+				</vs-button>
+			</div>
+		</vs-row>
+	</div>
+	</div>
+
 </template>
 
 <script>
@@ -88,6 +140,10 @@
                 printCriterias: [],
                 designPrintPrice: [],
                 is_requesting: false,
+                form: {
+                    print_criteria_id: 0,
+                    price: 0,
+                },
             }
         },
         props: {
@@ -105,7 +161,29 @@
 
 
         methods: {
-            confirmDeleteDesign(item) {
+
+            addNew() {
+
+                this.is_requesting = true;
+                this.$store.dispatch('designPrintPrice/create', {
+                    ...this.form,
+                    design_id:this.designId
+                })
+                    .then(response => {
+						this.designPrintPrice.push(response.data.data)
+                        this.form= {
+                            print_criteria_id: null,
+                            price: 0,
+                        };
+                        this.is_requesting = false;
+                        this.$vs.notify({title: 'Success', text: response.data.message, iconPack: 'feather', icon: 'icon-check', color: 'success'});})
+                    .catch(error => {
+                        console.log(error);
+                        this.is_requesting = false;
+                        this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});});
+
+            },
+	        confirmDeleteDesign(item) {
                 this.$vs.dialog({
                     type: 'confirm',
                     color: 'danger',

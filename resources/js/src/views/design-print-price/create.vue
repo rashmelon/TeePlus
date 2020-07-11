@@ -37,7 +37,7 @@
 			</div>
 			<div class="vx-col md:w-3/12 w-full px-4 mb-3">
 				<vs-button
-					@click="addnew"
+					@click="addNew"
 					class="mt-5 w-full"
 					color="primary"
 					icon="icon-save"
@@ -76,16 +76,22 @@
             this.getDesignPricePrice();
         },
         methods: {
-            addnew() {
+            addNew() {
 
-                this.$validator.validateAll().then(result => {
-                    if (result) {
-                        this.$emit('addnew', {
-                            ...this.form,
-                            design_id: this.designId
-                        });
-                    }
+                this.is_requesting = true;
+                this.$store.dispatch('designPrintPrice/create', {
+                    ...this.form,
+	                design_id:this.designId
                 })
+                    .then(response => {
+                        
+                        this.is_requesting = false;
+                        this.$vs.notify({title: 'Success', text: response.data.message, iconPack: 'feather', icon: 'icon-check', color: 'success'});})
+                    .catch(error => {
+                        console.log(error);
+                        this.is_requesting = false;
+                        this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});});
+
             },
             getDesignPricePrice() {
                 this.$store.dispatch('designPrintPrice/getData', `?design=${this.designId}`)
