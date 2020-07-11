@@ -462,7 +462,7 @@ const router = new Router({
                         ],
                         pageTitle: 'Design',
                         pageTitle_i18n: 'Design',
-                        // permission: 'browse-design'
+                        permission: 'browse-design'
                     }
                 },
                 {
@@ -478,7 +478,40 @@ const router = new Router({
                         ],
                         pageTitle: 'Create Design',
                         pageTitle_i18n: 'Create Design',
-                        // permission: 'create-design'
+                        permission: 'create-design'
+                    }
+                },
+
+                {
+                    path: '/dashboard/design/edit/:id',
+                    name: 'edit-design',
+                    component: () => import('./views/design/edit.vue'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Design', url: '/dashboard/design', i18n: 'Design'},
+                            {title: 'Edit', active: true, i18n: 'Edit'},
+                        ],
+                        pageTitle: 'Edit Design',
+                        pageTitle_i18n: 'Edit Design',
+                        permission: 'edit-design'
+                    }
+                },
+                {
+                    path: '/dashboard/design/view/:id',
+                    name: 'view-design',
+                    component: () => import('./views/design/view.vue'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Design', url: '/dashboard/design', i18n: 'Design'},
+                            {title: 'View', active: true, i18n: 'View'},
+                        ],
+                        pageTitle: 'View Design',
+                        pageTitle_i18n: 'View Design',
+                        permission: 'view-design'
                     }
                 },
 

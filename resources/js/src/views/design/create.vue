@@ -6,14 +6,15 @@
 				<vx-card>
 					<div class="vx-row">
 						<div class="vx-col md:w-12/12 w-full mb-3">
-							<div class="image-preview" style="display: inline-flex;">
-								<img
-									v-if="uploadedImages.length"
-									v-for="image in uploadedImages"
-									:src="image.url"
-									class="preview-large"
-								>
-
+							<div class="image-preview" >
+								<div class="vx-row">
+									<img
+										:src="image.url"
+										class="preview-large img-fluid vx-col md:w-3/12 w-full mb-2 px-2"
+										v-for="image in uploadedImages"
+										v-if="uploadedImages"
+									>
+								</div>
 							</div>
 							<div class="d-block mt-3">
 								<input type="file" class="form-control d-none" @change="uploadImages" id="img-upload" multiple>
@@ -35,7 +36,7 @@
 
 
 						<div class="vx-col md:w-12/12 w-full">
-							<vx-card class="vx-row">
+							<vx-card>
 								<div class="vx-col md:w-1/1 w-full mt-3">
 									<vs-select
 										class="w-full"
@@ -43,22 +44,23 @@
 										multiple
 										items="combinations"
 										placeholder="Combinations"
-										v-model="form.prices"
+										v-model="form.designPrintPrice"
 									>
 										<vs-select-item
 											:key="item.id"
 											:text='item.criteria'
-											:value="{id: item.id}"
-											v-for="(item) in printCriterias"/>
+											:value="item"
+											v-for="(item,index) in printCriterias"/>
 									</vs-select>
 
 									<vs-list>
 										<transition-group mode="out-in" name="slide-down">
 											<vs-list-item
-												v-for="(price,index) in form.prices"
+												v-for="(price,index) in form.designPrintPrice"
 												:key="index+1"
-												icon="check" :title="combinationNameFromId(price.id)">
-
+												icon="check"
+											:title="price.criteria">
+												
 												<vs-input
 													class="w-full"
 													label="Price"
@@ -116,7 +118,7 @@
                 printCriterias: [],
                 form: {
                     name: '',
-                    prices: [],
+                    designPrintPrice: [],
                 },
                 uploadedImages: null,
                 is_requesting: false
@@ -129,19 +131,10 @@
             },
         },
         methods: {
-            combinationNameFromId(id){
-                for (let i = 0; i < this.printCriterias.length; i++) {
-	                if (this.printCriterias[i].id === id){
-                        return this.printCriterias[i].criteria
-
-                    }
-                }
-            },
             getPrintCriterias(){
                 this.$store.dispatch('criteria/getData', this.payload)
                     .then(response => {
                         this.printCriterias = response.data.data;
-                        console.log(this.printCriterias)
                     })
                     .catch(error => {
                         this.$vs.notify({
@@ -158,7 +151,13 @@
                     if (result) {
                         // if form have no errors
                         this.is_requesting = true;
-
+                        
+                        
+	                    // assign print_criteria_id to each criteriarequest
+	                    this.form.designPrintPrice.forEach(item=>{
+	                        item.print_criteria_id = item.id;
+                        });
+	                    
 
                         // create new object for sending object without extra data
 
@@ -169,6 +168,8 @@
                                 for (let i=0; i<this.form[key].length; i++){
                                     form_data.append(key+'[]', this.form[key][i]);
                                 }
+                            } else if (key === 'designPrintPrice'){
+                                form_data.append(key, JSON.stringify(this.form[key]));
                             }
                             else {
                                 form_data.append(key, this.form[key]);
@@ -217,6 +218,8 @@
 
             uploadImages(e)
             {
+
+                this.uploadedImages = [];
                 let selectedImages = e.target.files;
                 if (!selectedImages.length) {
                     return false;
@@ -224,6 +227,8 @@
                 this.form.images = [];
                 for (let i = 0; i < selectedImages.length; i++) {
                     this.form.images.push(selectedImages[i]);
+
+                    this.uploadedImages.push({url: URL.createObjectURL(selectedImages[i])});
                 }
             },
 

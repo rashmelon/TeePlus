@@ -28,9 +28,9 @@ class LoginController extends Controller
         $user = User::where('email', $login_credentials['email'])->with(['roles','roles.permissions', 'permissions'])->first();
 
         return ApiResponse::setMessage("login credentials correct")->setData([
-                'user' => fractal($user, new UserTransformer()),
-                'access_token' => $user->createToken('token'),
-                'token_type' => 'Bearer',
-            ])->execute();
+            'user' => fractal($user, new UserTransformer()),
+            'access_token' => $user->createToken('token'),
+            'token_type' => 'Bearer',
+        ])->execute();
     }
 }

@@ -1,5 +1,5 @@
 <template>
-    <div class="vx-col w-full mb-base" ><!--v-if="can('browse-design')"-->
+    <div class="vx-col w-full mb-base" v-if="can('browse-design')">
 
         <div class="centerx">
             <vs-row>
@@ -27,8 +27,6 @@
                     <vs-th>#</vs-th>
                     <vs-th>Image</vs-th>
                     <vs-th>Name</vs-th>
-                    <vs-th>Description</vs-th>
-                    <vs-th>Base price</vs-th>
                     <vs-th>Created At</vs-th>
                     <vs-th>Action</vs-th>
                 </template>
@@ -41,8 +39,8 @@
 
                         <vs-td>
                             <img
-                                v-if="design.image"
-                                :src="design.image.url"
+                                v-if="design.images"
+                                :src="design.images[0].url"
                                 class="preview-large">
                         </vs-td>
 
@@ -50,13 +48,6 @@
                             {{ design.name}}
                         </vs-td>
 
-                        <vs-td :data="design.description">
-                            {{ design.description}}
-                        </vs-td>
-
-                        <vs-td :data="design.base_price">
-                            {{ design.base_price}}
-                        </vs-td>
 
                         <vs-td :data="design.created_at">
                             {{ design.created_at}}
@@ -126,6 +117,7 @@
                 this.$store.dispatch('design/getData', payload)
                     .then(response => {
                         this.designs = response.data.data;
+                        console.log(this.designs.find(item=>item.id ==18));
                         this.$vs.loading.close(this.$refs.browse.$el);
                     })
                     .catch(error => {

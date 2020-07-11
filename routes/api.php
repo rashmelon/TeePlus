@@ -43,6 +43,12 @@ Route::middleware('auth:api')->post('shipping-price/{shipping_price}', 'Shipping
 Route::middleware('auth:api')->resource('status', 'StatusController');
 Route::middleware('auth:api')->post('status/{status}', 'StatusController@update');
 
+Route::middleware('auth:api')->resource('design', 'DesignController');
+Route::middleware('auth:api')->post('design/{design}', 'DesignController@update');
+
+Route::middleware('auth:api')->resource('design-print-price', 'DesignPrintPriceController');
+Route::middleware('auth:api')->post('design-print-price/{design_print_price}', 'DesignPrintPriceController@update');
+
 Route::group(['prefix' => 'role', 'middleware' => 'auth:api'], function () {
     Route::post('{id}', 'RoleController@update');
     Route::get('{id}', 'RoleController@show');

@@ -9,4 +9,7 @@ return [
     \App\Product::class => [
         'image' => 'product/image',
     ],
+    \App\Design::class => [
+        'image' => 'design/image',
+    ],
 ];

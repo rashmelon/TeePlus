@@ -27,14 +27,12 @@ class PrintCriteriaRequest extends FormRequest
         if (sizeof($segments) == 2){
             return [
                 'criteria' => 'required',
-                'price' => 'required',
                 'category_id' => 'required:categories,id'
             ];
         }
         else if (sizeof($segments) == 3){
             return [
                 'criteria' => '',
-                'price' => '',
             ];
         }
     }

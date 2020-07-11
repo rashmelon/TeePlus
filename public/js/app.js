@@ -72432,6 +72432,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/src/http/requests/design-print-price/index.js":
+/*!********************************************************************!*\
+  !*** ./resources/js/src/http/requests/design-print-price/index.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _axios_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../axios/index.js */ "./resources/js/src/http/axios/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  getAll: function getAll(filters) {
+    //filters=?paginate=5&sortAsc=id
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("design-print-price".concat(filters));
+  },
+  view: function view(id) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("design-print-price/".concat(id));
+  },
+  create: function create(data) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].post("design-print-price", data);
+  },
+  update: function update(id, data) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].post("design-print-price/".concat(id), data);
+  },
+  delete: function _delete(id) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].delete("design-print-price/".concat(id));
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/src/http/requests/design/index.js":
 /*!********************************************************!*\
   !*** ./resources/js/src/http/requests/design/index.js ***!
@@ -73187,7 +73219,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     // =============================================================================
     path: '',
     component: function component() {
-      return Promise.all(/*! import() */[__webpack_require__.e(6), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./layouts/main/Main.vue */ "./resources/js/src/layouts/main/Main.vue"));
+      return Promise.all(/*! import() */[__webpack_require__.e(7), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, /*! ./layouts/main/Main.vue */ "./resources/js/src/layouts/main/Main.vue"));
     },
     children: [// =============================================================================
     // Theme Routes
@@ -73196,7 +73228,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard',
       name: 'home',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 41).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/src/views/Home.vue"));
+        return __webpack_require__.e(/*! import() */ 44).then(__webpack_require__.bind(null, /*! ./views/Home.vue */ "./resources/js/src/views/Home.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73213,7 +73245,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/package',
       name: 'package',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./views/package/browse.vue */ "./resources/js/src/views/package/browse.vue"));
+        return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/package/browse.vue */ "./resources/js/src/views/package/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73234,7 +73266,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/package/create',
       name: 'create-package',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/package/create.vue */ "./resources/js/src/views/package/create.vue"));
+        return __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./views/package/create.vue */ "./resources/js/src/views/package/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73257,7 +73289,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/user',
       name: 'user',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(29)]).then(__webpack_require__.bind(null, /*! ./views/user/browse.vue */ "./resources/js/src/views/user/browse.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(3), __webpack_require__.e(32)]).then(__webpack_require__.bind(null, /*! ./views/user/browse.vue */ "./resources/js/src/views/user/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73278,7 +73310,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/user/create',
       name: 'add-user',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 30).then(__webpack_require__.bind(null, /*! ./views/user/create.vue */ "./resources/js/src/views/user/create.vue"));
+        return __webpack_require__.e(/*! import() */ 33).then(__webpack_require__.bind(null, /*! ./views/user/create.vue */ "./resources/js/src/views/user/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73303,7 +73335,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/user/:id',
       name: 'view-user',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 32).then(__webpack_require__.bind(null, /*! ./views/user/view.vue */ "./resources/js/src/views/user/view.vue"));
+        return __webpack_require__.e(/*! import() */ 35).then(__webpack_require__.bind(null, /*! ./views/user/view.vue */ "./resources/js/src/views/user/view.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73328,7 +73360,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/user/:id/edit',
       name: 'edit-user',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 31).then(__webpack_require__.bind(null, /*! ./views/user/edit.vue */ "./resources/js/src/views/user/edit.vue"));
+        return __webpack_require__.e(/*! import() */ 34).then(__webpack_require__.bind(null, /*! ./views/user/edit.vue */ "./resources/js/src/views/user/edit.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73353,7 +73385,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/user/:id/products',
       name: 'edit-user-product',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 36).then(__webpack_require__.bind(null, /*! ./views/user_product/edit.vue */ "./resources/js/src/views/user_product/edit.vue"));
+        return __webpack_require__.e(/*! import() */ 39).then(__webpack_require__.bind(null, /*! ./views/user_product/edit.vue */ "./resources/js/src/views/user_product/edit.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73378,7 +73410,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/category',
       name: 'category',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 7).then(__webpack_require__.bind(null, /*! ./views/category/browse.vue */ "./resources/js/src/views/category/browse.vue"));
+        return __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./views/category/browse.vue */ "./resources/js/src/views/category/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73399,7 +73431,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/category/create',
       name: 'create-category',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(43), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./views/category/create.vue */ "./resources/js/src/views/category/create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! ./views/category/create.vue */ "./resources/js/src/views/category/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73424,7 +73456,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/category/edit/:id',
       name: 'edit-category',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! ./views/category/edit.vue */ "./resources/js/src/views/category/edit.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! ./views/category/edit.vue */ "./resources/js/src/views/category/edit.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73449,7 +73481,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/category/view/:id',
       name: 'view-category',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! ./views/category/view.vue */ "./resources/js/src/views/category/view.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(11)]).then(__webpack_require__.bind(null, /*! ./views/category/view.vue */ "./resources/js/src/views/category/view.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73474,7 +73506,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/product',
       name: 'product',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 14).then(__webpack_require__.bind(null, /*! ./views/product/browse.vue */ "./resources/js/src/views/product/browse.vue"));
+        return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/product/browse.vue */ "./resources/js/src/views/product/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73496,7 +73528,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/product/create',
       name: 'create-product',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(43), __webpack_require__.e(15)]).then(__webpack_require__.bind(null, /*! ./views/product/create.vue */ "./resources/js/src/views/product/create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(17)]).then(__webpack_require__.bind(null, /*! ./views/product/create.vue */ "./resources/js/src/views/product/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73522,7 +73554,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/product/edit/:id',
       name: 'edit-product',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./views/product/edit.vue */ "./resources/js/src/views/product/edit.vue"));
+        return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/product/edit.vue */ "./resources/js/src/views/product/edit.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73547,7 +73579,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/product/view/:id',
       name: 'view-product',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./views/product/view.vue */ "./resources/js/src/views/product/view.vue"));
+        return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./views/product/view.vue */ "./resources/js/src/views/product/view.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73572,7 +73604,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/shipping',
       name: 'shipping',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 24).then(__webpack_require__.bind(null, /*! ./views/shipping/browse.vue */ "./resources/js/src/views/shipping/browse.vue"));
+        return __webpack_require__.e(/*! import() */ 26).then(__webpack_require__.bind(null, /*! ./views/shipping/browse.vue */ "./resources/js/src/views/shipping/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73593,7 +73625,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/shipping/create',
       name: 'create-shipping',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ./views/shipping/create.vue */ "./resources/js/src/views/shipping/create.vue"));
+        return __webpack_require__.e(/*! import() */ 27).then(__webpack_require__.bind(null, /*! ./views/shipping/create.vue */ "./resources/js/src/views/shipping/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73618,7 +73650,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/shipping/edit/:id',
       name: 'edit-shipping',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 26).then(__webpack_require__.bind(null, /*! ./views/shipping/edit.vue */ "./resources/js/src/views/shipping/edit.vue"));
+        return __webpack_require__.e(/*! import() */ 28).then(__webpack_require__.bind(null, /*! ./views/shipping/edit.vue */ "./resources/js/src/views/shipping/edit.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73643,7 +73675,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/shipping-price',
       name: 'shipping-price',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/shipping-price/browse.vue */ "./resources/js/src/views/shipping-price/browse.vue"));
+        return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ./views/shipping-price/browse.vue */ "./resources/js/src/views/shipping-price/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73664,7 +73696,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/shipping-price/create',
       name: 'create-shipping-price',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/shipping-price/create.vue */ "./resources/js/src/views/shipping-price/create.vue"));
+        return __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ./views/shipping-price/create.vue */ "./resources/js/src/views/shipping-price/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73689,7 +73721,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/shipping-price/edit/:id',
       name: 'edit-shipping-price',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ./views/shipping-price/edit.vue */ "./resources/js/src/views/shipping-price/edit.vue"));
+        return __webpack_require__.e(/*! import() */ 24).then(__webpack_require__.bind(null, /*! ./views/shipping-price/edit.vue */ "./resources/js/src/views/shipping-price/edit.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73714,7 +73746,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/shipping-price/view/:id',
       name: 'view-shipping-price',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ./views/shipping-price/view.vue */ "./resources/js/src/views/shipping-price/view.vue"));
+        return __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ./views/shipping-price/view.vue */ "./resources/js/src/views/shipping-price/view.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73739,7 +73771,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/status',
       name: 'status',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 27).then(__webpack_require__.bind(null, /*! ./views/status/browse.vue */ "./resources/js/src/views/status/browse.vue"));
+        return __webpack_require__.e(/*! import() */ 29).then(__webpack_require__.bind(null, /*! ./views/status/browse.vue */ "./resources/js/src/views/status/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73760,7 +73792,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/status/create',
       name: 'create-status',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./views/status/create.vue */ "./resources/js/src/views/status/create.vue"));
+        return __webpack_require__.e(/*! import() */ 30).then(__webpack_require__.bind(null, /*! ./views/status/create.vue */ "./resources/js/src/views/status/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73785,7 +73817,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/status/edit/:id',
       name: 'edit-status',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 28).then(__webpack_require__.bind(null, /*! ./views/status/edit.vue */ "./resources/js/src/views/status/edit.vue"));
+        return __webpack_require__.e(/*! import() */ 31).then(__webpack_require__.bind(null, /*! ./views/status/edit.vue */ "./resources/js/src/views/status/edit.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73810,7 +73842,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/design',
       name: 'design',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./views/design/browse.vue */ "./resources/js/src/views/design/browse.vue"));
+        return __webpack_require__.e(/*! import() */ 12).then(__webpack_require__.bind(null, /*! ./views/design/browse.vue */ "./resources/js/src/views/design/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73824,14 +73856,14 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
           i18n: 'Design'
         }],
         pageTitle: 'Design',
-        pageTitle_i18n: 'Design' // permission: 'browse-design'
-
+        pageTitle_i18n: 'Design',
+        permission: 'browse-design'
       }
     }, {
       path: '/dashboard/design/create',
       name: 'create-design',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./views/design/create.vue */ "./resources/js/src/views/design/create.vue"));
+        return __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./views/design/create.vue */ "./resources/js/src/views/design/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73849,14 +73881,64 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
           i18n: 'Create'
         }],
         pageTitle: 'Create Design',
-        pageTitle_i18n: 'Create Design' // permission: 'create-design'
-
+        pageTitle_i18n: 'Create Design',
+        permission: 'create-design'
+      }
+    }, {
+      path: '/dashboard/design/edit/:id',
+      name: 'edit-design',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/design/edit.vue */ "./resources/js/src/views/design/edit.vue"));
+      },
+      beforeEnter: guard,
+      meta: {
+        breadcrumb: [{
+          title: 'Home',
+          url: '/dashboard',
+          i18n: 'Home'
+        }, {
+          title: 'Design',
+          url: '/dashboard/design',
+          i18n: 'Design'
+        }, {
+          title: 'Edit',
+          active: true,
+          i18n: 'Edit'
+        }],
+        pageTitle: 'Edit Design',
+        pageTitle_i18n: 'Edit Design',
+        permission: 'edit-design'
+      }
+    }, {
+      path: '/dashboard/design/view/:id',
+      name: 'view-design',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 6).then(__webpack_require__.bind(null, /*! ./views/design/view.vue */ "./resources/js/src/views/design/view.vue"));
+      },
+      beforeEnter: guard,
+      meta: {
+        breadcrumb: [{
+          title: 'Home',
+          url: '/dashboard',
+          i18n: 'Home'
+        }, {
+          title: 'Design',
+          url: '/dashboard/design',
+          i18n: 'Design'
+        }, {
+          title: 'View',
+          active: true,
+          i18n: 'View'
+        }],
+        pageTitle: 'View Design',
+        pageTitle_i18n: 'View Design',
+        permission: 'view-design'
       }
     }, {
       path: '/dashboard/settings/role',
       name: 'role',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 34).then(__webpack_require__.bind(null, /*! ./views/settings/Role/Roles.vue */ "./resources/js/src/views/settings/Role/Roles.vue"));
+        return __webpack_require__.e(/*! import() */ 37).then(__webpack_require__.bind(null, /*! ./views/settings/Role/Roles.vue */ "./resources/js/src/views/settings/Role/Roles.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73876,7 +73958,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/settings/role/create',
       name: 'create-role',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/settings/Role/Create.vue */ "./resources/js/src/views/settings/Role/Create.vue"));
+        return __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./views/settings/Role/Create.vue */ "./resources/js/src/views/settings/Role/Create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73899,7 +73981,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/settings/role/:id',
       name: 'view-role',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 35).then(__webpack_require__.bind(null, /*! ./views/settings/Role/View.vue */ "./resources/js/src/views/settings/Role/View.vue"));
+        return __webpack_require__.e(/*! import() */ 38).then(__webpack_require__.bind(null, /*! ./views/settings/Role/View.vue */ "./resources/js/src/views/settings/Role/View.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73922,7 +74004,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/settings/role/edit/:id',
       name: 'edit-role',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./views/settings/Role/Edit.vue */ "./resources/js/src/views/settings/Role/Edit.vue"));
+        return __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./views/settings/Role/Edit.vue */ "./resources/js/src/views/settings/Role/Edit.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73945,7 +74027,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/profile',
       name: 'profile',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./views/profile/profile */ "./resources/js/src/views/profile/profile.vue"));
+        return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! ./views/profile/profile */ "./resources/js/src/views/profile/profile.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73965,7 +74047,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   {
     path: '',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ 40).then(__webpack_require__.bind(null, /*! @/layouts/full-page/FullPage.vue */ "./resources/js/src/layouts/full-page/FullPage.vue"));
+      return __webpack_require__.e(/*! import() */ 43).then(__webpack_require__.bind(null, /*! @/layouts/full-page/FullPage.vue */ "./resources/js/src/layouts/full-page/FullPage.vue"));
     },
     children: [// =============================================================================
     // PAGES
@@ -73974,25 +74056,25 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/dashboard/login',
       name: 'pageLogin',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 33).then(__webpack_require__.bind(null, /*! ./views/pages/Login.vue */ "./resources/js/src/views/pages/Login.vue"));
+        return __webpack_require__.e(/*! import() */ 36).then(__webpack_require__.bind(null, /*! ./views/pages/Login.vue */ "./resources/js/src/views/pages/Login.vue"));
       }
     }, {
       path: '/dashboard/error-403',
       name: 'pageError403',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 38).then(__webpack_require__.bind(null, /*! ./views/pages/NotAuthorized.vue */ "./resources/js/src/views/pages/NotAuthorized.vue"));
+        return __webpack_require__.e(/*! import() */ 41).then(__webpack_require__.bind(null, /*! ./views/pages/NotAuthorized.vue */ "./resources/js/src/views/pages/NotAuthorized.vue"));
       }
     }, {
       path: '/dashboard/error-404',
       name: 'pageError404',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 37).then(__webpack_require__.bind(null, /*! ./views/pages/Error404.vue */ "./resources/js/src/views/pages/Error404.vue"));
+        return __webpack_require__.e(/*! import() */ 40).then(__webpack_require__.bind(null, /*! ./views/pages/Error404.vue */ "./resources/js/src/views/pages/Error404.vue"));
       }
     }, {
       path: '/verified',
       name: 'verified',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 39).then(__webpack_require__.bind(null, /*! ./views/pages/verified.vue */ "./resources/js/src/views/pages/verified.vue"));
+        return __webpack_require__.e(/*! import() */ 42).then(__webpack_require__.bind(null, /*! ./views/pages/verified.vue */ "./resources/js/src/views/pages/verified.vue"));
       }
     }]
   }, // Redirect to 404 page, if no match found
@@ -75128,6 +75210,168 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************************!*\
   !*** ./resources/js/src/store/criteria/moduleCriteriaState.js ***!
   \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/design-print-price/moduleDesignPrintActions.js":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/src/store/design-print-price/moduleDesignPrintActions.js ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _http_requests_design_print_price_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../http/requests/design-print-price/index */ "./resources/js/src/http/requests/design-print-price/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  getData: function getData(_ref, payload) {
+    var commit = _ref.commit,
+        dispatch = _ref.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_design_print_price_index__WEBPACK_IMPORTED_MODULE_0__["default"].getAll(payload).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  view: function view(_ref2, id) {
+    var commit = _ref2.commit,
+        dispatch = _ref2.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_design_print_price_index__WEBPACK_IMPORTED_MODULE_0__["default"].view(id).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  create: function create(_ref3, payload) {
+    var commit = _ref3.commit,
+        dispatch = _ref3.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_design_print_price_index__WEBPACK_IMPORTED_MODULE_0__["default"].create(payload).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  update: function update(_ref4, payload) {
+    var commit = _ref4.commit,
+        dispatch = _ref4.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_design_print_price_index__WEBPACK_IMPORTED_MODULE_0__["default"].update(payload.id, payload.data).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  delete: function _delete(_ref5, id) {
+    var commit = _ref5.commit,
+        dispatch = _ref5.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_design_print_price_index__WEBPACK_IMPORTED_MODULE_0__["default"].delete(id).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/design-print-price/moduleDesignPrintPrice.js":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/src/store/design-print-price/moduleDesignPrintPrice.js ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _moduleDesignPrintPriceState__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./moduleDesignPrintPriceState */ "./resources/js/src/store/design-print-price/moduleDesignPrintPriceState.js");
+/* harmony import */ var _moduleDesignPrintPriceMutations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moduleDesignPrintPriceMutations */ "./resources/js/src/store/design-print-price/moduleDesignPrintPriceMutations.js");
+/* harmony import */ var _moduleDesignPrintActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moduleDesignPrintActions */ "./resources/js/src/store/design-print-price/moduleDesignPrintActions.js");
+/* harmony import */ var _moduleDesignPrintPriceGetters__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./moduleDesignPrintPriceGetters */ "./resources/js/src/store/design-print-price/moduleDesignPrintPriceGetters.js");
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  namespaced: true,
+  state: _moduleDesignPrintPriceState__WEBPACK_IMPORTED_MODULE_0__["default"],
+  mutations: _moduleDesignPrintPriceMutations__WEBPACK_IMPORTED_MODULE_1__["default"],
+  actions: _moduleDesignPrintActions__WEBPACK_IMPORTED_MODULE_2__["default"],
+  getters: _moduleDesignPrintPriceGetters__WEBPACK_IMPORTED_MODULE_3__["default"]
+});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/design-print-price/moduleDesignPrintPriceGetters.js":
+/*!************************************************************************************!*\
+  !*** ./resources/js/src/store/design-print-price/moduleDesignPrintPriceGetters.js ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/design-print-price/moduleDesignPrintPriceMutations.js":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/src/store/design-print-price/moduleDesignPrintPriceMutations.js ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
+/***/ "./resources/js/src/store/design-print-price/moduleDesignPrintPriceState.js":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/src/store/design-print-price/moduleDesignPrintPriceState.js ***!
+  \**********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -76628,6 +76872,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shipping_price_moduleShippingPrice__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./shipping-price/moduleShippingPrice */ "./resources/js/src/store/shipping-price/moduleShippingPrice.js");
 /* harmony import */ var _status_moduleStatus__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./status/moduleStatus */ "./resources/js/src/store/status/moduleStatus.js");
 /* harmony import */ var _design_moduleDesign__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./design/moduleDesign */ "./resources/js/src/store/design/moduleDesign.js");
+/* harmony import */ var _design_print_price_moduleDesignPrintPrice__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./design-print-price/moduleDesignPrintPrice */ "./resources/js/src/store/design-print-price/moduleDesignPrintPrice.js");
 
 
 
@@ -76636,6 +76881,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 
 
 
@@ -76676,7 +76922,8 @@ var vuexLocal = new vuex_persist__WEBPACK_IMPORTED_MODULE_6__["default"]({
     city: _city_moduleCity__WEBPACK_IMPORTED_MODULE_19__["default"],
     shippingPrice: _shipping_price_moduleShippingPrice__WEBPACK_IMPORTED_MODULE_20__["default"],
     status: _status_moduleStatus__WEBPACK_IMPORTED_MODULE_21__["default"],
-    design: _design_moduleDesign__WEBPACK_IMPORTED_MODULE_22__["default"]
+    design: _design_moduleDesign__WEBPACK_IMPORTED_MODULE_22__["default"],
+    designPrintPrice: _design_print_price_moduleDesignPrintPrice__WEBPACK_IMPORTED_MODULE_23__["default"]
   },
   plugins: [vuexLocal.plugin],
   strict: "development" !== 'production'

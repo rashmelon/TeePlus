@@ -9,5 +9,12 @@ class PrintCriteria extends Model
 {
     use CategoryItems;
 
-    protected $fillable = ['criteria', 'price'];
+    protected $fillable = ['criteria'];
+
+    protected $hidden = ['price'];
+
+    public function designPrices()
+    {
+        return $this->hasMany(DesignPrintPrice::class);
+    }
 }
