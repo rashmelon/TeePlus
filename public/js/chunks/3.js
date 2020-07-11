@@ -1,5 +1,6 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[3],{
 
+<<<<<<< HEAD
 /***/ "./node_modules/@fortawesome/fontawesome-free/css/all.css":
 /*!****************************************************************!*\
   !*** ./node_modules/@fortawesome/fontawesome-free/css/all.css ***!
@@ -27,9 +28,164 @@ var update = __webpack_require__(/*! ../../../style-loader/lib/addStyles.js */ "
 if(content.locals) module.exports = content.locals;
 
 if(false) {}
+=======
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-backtotop/src/styles.css?vue&type=style&index=0&lang=css&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-backtotop/src/styles.css?vue&type=style&index=0&lang=css& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".back-to-top-fade-enter-active, \n.back-to-top-fade-leave-active {\n  -webkit-transition: opacity .7s;\n  transition: opacity .7s;\n}\n.back-to-top-fade-enter, \n.back-to-top-fade-leave-to {\n  opacity: 0;\n}\n.vue-back-to-top {\n  position: fixed;\n  z-index: 1000;\n}\n[dir] .vue-back-to-top {\n  cursor:pointer;\n}\n.vue-back-to-top .default {\n  color: #ffffff;\n  height: 30px;\n  line-height: 30px;\n  width: 160px;\n}\n[dir] .vue-back-to-top .default {\n  background-color: #f5c85c;\n  border-radius: 3px;\n  text-align: center;\n}\n.vue-back-to-top .default span{\n  color:#ffffff;\n}\n.vue-back-to-top--is-footer {\n  bottom: 50% !important;\n  position: absolute;\n}\n[dir] .vue-back-to-top--is-footer {\n  -webkit-transform: translateY(50%);\n          transform: translateY(50%);\n}", ""]);
+
+// exports
+
 
 /***/ }),
 
+/***/ "./node_modules/sortablejs/modular/sortable.esm.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/sortablejs/modular/sortable.esm.js ***!
+  \*********************************************************/
+/*! exports provided: default, MultiDrag, Sortable, Swap */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MultiDrag", function() { return MultiDragPlugin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Sortable", function() { return Sortable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Swap", function() { return SwapPlugin; });
+/**!
+ * Sortable 1.10.2
+ * @author	RubaXa   <trash@rubaxa.org>
+ * @author	owenm    <owen23355@gmail.com>
+ * @license MIT
+ */
+function _typeof(obj) {
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function (obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function (obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _objectSpread(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    var ownKeys = Object.keys(source);
+
+    if (typeof Object.getOwnPropertySymbols === 'function') {
+      ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+      }));
+    }
+
+    ownKeys.forEach(function (key) {
+      _defineProperty(target, key, source[key]);
+    });
+  }
+
+  return target;
+}
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function _objectWithoutProperties(source, excluded) {
+  if (source == null) return {};
+
+  var target = _objectWithoutPropertiesLoose(source, excluded);
+
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
+}
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
+
+    return arr2;
+  }
+}
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
+
+function _iterableToArray(iter) {
+  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+}
+
+<<<<<<< HEAD
 /***/ "./node_modules/@fortawesome/fontawesome-free/js/all.js":
 /*!**************************************************************!*\
   !*** ./node_modules/@fortawesome/fontawesome-free/js/all.js ***!
@@ -640,10 +796,2423 @@ if(false) {}
     } catch (e) {
       if (!PRODUCTION) {
         throw e;
+=======
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
+
+var version = "1.10.2";
+
+function userAgent(pattern) {
+  if (typeof window !== 'undefined' && window.navigator) {
+    return !!
+    /*@__PURE__*/
+    navigator.userAgent.match(pattern);
+  }
+}
+
+var IE11OrLess = userAgent(/(?:Trident.*rv[ :]?11\.|msie|iemobile|Windows Phone)/i);
+var Edge = userAgent(/Edge/i);
+var FireFox = userAgent(/firefox/i);
+var Safari = userAgent(/safari/i) && !userAgent(/chrome/i) && !userAgent(/android/i);
+var IOS = userAgent(/iP(ad|od|hone)/i);
+var ChromeForAndroid = userAgent(/chrome/i) && userAgent(/android/i);
+
+var captureMode = {
+  capture: false,
+  passive: false
+};
+
+function on(el, event, fn) {
+  el.addEventListener(event, fn, !IE11OrLess && captureMode);
+}
+
+function off(el, event, fn) {
+  el.removeEventListener(event, fn, !IE11OrLess && captureMode);
+}
+
+function matches(
+/**HTMLElement*/
+el,
+/**String*/
+selector) {
+  if (!selector) return;
+  selector[0] === '>' && (selector = selector.substring(1));
+
+  if (el) {
+    try {
+      if (el.matches) {
+        return el.matches(selector);
+      } else if (el.msMatchesSelector) {
+        return el.msMatchesSelector(selector);
+      } else if (el.webkitMatchesSelector) {
+        return el.webkitMatchesSelector(selector);
+      }
+    } catch (_) {
+      return false;
+    }
+  }
+
+  return false;
+}
+
+function getParentOrHost(el) {
+  return el.host && el !== document && el.host.nodeType ? el.host : el.parentNode;
+}
+
+function closest(
+/**HTMLElement*/
+el,
+/**String*/
+selector,
+/**HTMLElement*/
+ctx, includeCTX) {
+  if (el) {
+    ctx = ctx || document;
+
+    do {
+      if (selector != null && (selector[0] === '>' ? el.parentNode === ctx && matches(el, selector) : matches(el, selector)) || includeCTX && el === ctx) {
+        return el;
+      }
+
+      if (el === ctx) break;
+      /* jshint boss:true */
+    } while (el = getParentOrHost(el));
+  }
+
+  return null;
+}
+
+var R_SPACE = /\s+/g;
+
+function toggleClass(el, name, state) {
+  if (el && name) {
+    if (el.classList) {
+      el.classList[state ? 'add' : 'remove'](name);
+    } else {
+      var className = (' ' + el.className + ' ').replace(R_SPACE, ' ').replace(' ' + name + ' ', ' ');
+      el.className = (className + (state ? ' ' + name : '')).replace(R_SPACE, ' ');
+    }
+  }
+}
+
+function css(el, prop, val) {
+  var style = el && el.style;
+
+  if (style) {
+    if (val === void 0) {
+      if (document.defaultView && document.defaultView.getComputedStyle) {
+        val = document.defaultView.getComputedStyle(el, '');
+      } else if (el.currentStyle) {
+        val = el.currentStyle;
+      }
+
+      return prop === void 0 ? val : val[prop];
+    } else {
+      if (!(prop in style) && prop.indexOf('webkit') === -1) {
+        prop = '-webkit-' + prop;
+      }
+
+      style[prop] = val + (typeof val === 'string' ? '' : 'px');
+    }
+  }
+}
+
+function matrix(el, selfOnly) {
+  var appliedTransforms = '';
+
+  if (typeof el === 'string') {
+    appliedTransforms = el;
+  } else {
+    do {
+      var transform = css(el, 'transform');
+
+      if (transform && transform !== 'none') {
+        appliedTransforms = transform + ' ' + appliedTransforms;
+      }
+      /* jshint boss:true */
+
+    } while (!selfOnly && (el = el.parentNode));
+  }
+
+  var matrixFn = window.DOMMatrix || window.WebKitCSSMatrix || window.CSSMatrix || window.MSCSSMatrix;
+  /*jshint -W056 */
+
+  return matrixFn && new matrixFn(appliedTransforms);
+}
+
+function find(ctx, tagName, iterator) {
+  if (ctx) {
+    var list = ctx.getElementsByTagName(tagName),
+        i = 0,
+        n = list.length;
+
+    if (iterator) {
+      for (; i < n; i++) {
+        iterator(list[i], i);
+      }
+    }
+
+    return list;
+  }
+
+  return [];
+}
+
+function getWindowScrollingElement() {
+  var scrollingElement = document.scrollingElement;
+
+  if (scrollingElement) {
+    return scrollingElement;
+  } else {
+    return document.documentElement;
+  }
+}
+/**
+ * Returns the "bounding client rect" of given element
+ * @param  {HTMLElement} el                       The element whose boundingClientRect is wanted
+ * @param  {[Boolean]} relativeToContainingBlock  Whether the rect should be relative to the containing block of (including) the container
+ * @param  {[Boolean]} relativeToNonStaticParent  Whether the rect should be relative to the relative parent of (including) the contaienr
+ * @param  {[Boolean]} undoScale                  Whether the container's scale() should be undone
+ * @param  {[HTMLElement]} container              The parent the element will be placed in
+ * @return {Object}                               The boundingClientRect of el, with specified adjustments
+ */
+
+
+function getRect(el, relativeToContainingBlock, relativeToNonStaticParent, undoScale, container) {
+  if (!el.getBoundingClientRect && el !== window) return;
+  var elRect, top, left, bottom, right, height, width;
+
+  if (el !== window && el !== getWindowScrollingElement()) {
+    elRect = el.getBoundingClientRect();
+    top = elRect.top;
+    left = elRect.left;
+    bottom = elRect.bottom;
+    right = elRect.right;
+    height = elRect.height;
+    width = elRect.width;
+  } else {
+    top = 0;
+    left = 0;
+    bottom = window.innerHeight;
+    right = window.innerWidth;
+    height = window.innerHeight;
+    width = window.innerWidth;
+  }
+
+  if ((relativeToContainingBlock || relativeToNonStaticParent) && el !== window) {
+    // Adjust for translate()
+    container = container || el.parentNode; // solves #1123 (see: https://stackoverflow.com/a/37953806/6088312)
+    // Not needed on <= IE11
+
+    if (!IE11OrLess) {
+      do {
+        if (container && container.getBoundingClientRect && (css(container, 'transform') !== 'none' || relativeToNonStaticParent && css(container, 'position') !== 'static')) {
+          var containerRect = container.getBoundingClientRect(); // Set relative to edges of padding box of container
+
+          top -= containerRect.top + parseInt(css(container, 'border-top-width'));
+          left -= containerRect.left + parseInt(css(container, 'border-left-width'));
+          bottom = top + elRect.height;
+          right = left + elRect.width;
+          break;
+        }
+        /* jshint boss:true */
+
+      } while (container = container.parentNode);
+    }
+  }
+
+  if (undoScale && el !== window) {
+    // Adjust for scale()
+    var elMatrix = matrix(container || el),
+        scaleX = elMatrix && elMatrix.a,
+        scaleY = elMatrix && elMatrix.d;
+
+    if (elMatrix) {
+      top /= scaleY;
+      left /= scaleX;
+      width /= scaleX;
+      height /= scaleY;
+      bottom = top + height;
+      right = left + width;
+    }
+  }
+
+  return {
+    top: top,
+    left: left,
+    bottom: bottom,
+    right: right,
+    width: width,
+    height: height
+  };
+}
+/**
+ * Checks if a side of an element is scrolled past a side of its parents
+ * @param  {HTMLElement}  el           The element who's side being scrolled out of view is in question
+ * @param  {String}       elSide       Side of the element in question ('top', 'left', 'right', 'bottom')
+ * @param  {String}       parentSide   Side of the parent in question ('top', 'left', 'right', 'bottom')
+ * @return {HTMLElement}               The parent scroll element that the el's side is scrolled past, or null if there is no such element
+ */
+
+
+function isScrolledPast(el, elSide, parentSide) {
+  var parent = getParentAutoScrollElement(el, true),
+      elSideVal = getRect(el)[elSide];
+  /* jshint boss:true */
+
+  while (parent) {
+    var parentSideVal = getRect(parent)[parentSide],
+        visible = void 0;
+
+    if (parentSide === 'top' || parentSide === 'left') {
+      visible = elSideVal >= parentSideVal;
+    } else {
+      visible = elSideVal <= parentSideVal;
+    }
+
+    if (!visible) return parent;
+    if (parent === getWindowScrollingElement()) break;
+    parent = getParentAutoScrollElement(parent, false);
+  }
+
+  return false;
+}
+/**
+ * Gets nth child of el, ignoring hidden children, sortable's elements (does not ignore clone if it's visible)
+ * and non-draggable elements
+ * @param  {HTMLElement} el       The parent element
+ * @param  {Number} childNum      The index of the child
+ * @param  {Object} options       Parent Sortable's options
+ * @return {HTMLElement}          The child at index childNum, or null if not found
+ */
+
+
+function getChild(el, childNum, options) {
+  var currentChild = 0,
+      i = 0,
+      children = el.children;
+
+  while (i < children.length) {
+    if (children[i].style.display !== 'none' && children[i] !== Sortable.ghost && children[i] !== Sortable.dragged && closest(children[i], options.draggable, el, false)) {
+      if (currentChild === childNum) {
+        return children[i];
+      }
+
+      currentChild++;
+    }
+
+    i++;
+  }
+
+  return null;
+}
+/**
+ * Gets the last child in the el, ignoring ghostEl or invisible elements (clones)
+ * @param  {HTMLElement} el       Parent element
+ * @param  {selector} selector    Any other elements that should be ignored
+ * @return {HTMLElement}          The last child, ignoring ghostEl
+ */
+
+
+function lastChild(el, selector) {
+  var last = el.lastElementChild;
+
+  while (last && (last === Sortable.ghost || css(last, 'display') === 'none' || selector && !matches(last, selector))) {
+    last = last.previousElementSibling;
+  }
+
+  return last || null;
+}
+/**
+ * Returns the index of an element within its parent for a selected set of
+ * elements
+ * @param  {HTMLElement} el
+ * @param  {selector} selector
+ * @return {number}
+ */
+
+
+function index(el, selector) {
+  var index = 0;
+
+  if (!el || !el.parentNode) {
+    return -1;
+  }
+  /* jshint boss:true */
+
+
+  while (el = el.previousElementSibling) {
+    if (el.nodeName.toUpperCase() !== 'TEMPLATE' && el !== Sortable.clone && (!selector || matches(el, selector))) {
+      index++;
+    }
+  }
+
+  return index;
+}
+/**
+ * Returns the scroll offset of the given element, added with all the scroll offsets of parent elements.
+ * The value is returned in real pixels.
+ * @param  {HTMLElement} el
+ * @return {Array}             Offsets in the format of [left, top]
+ */
+
+
+function getRelativeScrollOffset(el) {
+  var offsetLeft = 0,
+      offsetTop = 0,
+      winScroller = getWindowScrollingElement();
+
+  if (el) {
+    do {
+      var elMatrix = matrix(el),
+          scaleX = elMatrix.a,
+          scaleY = elMatrix.d;
+      offsetLeft += el.scrollLeft * scaleX;
+      offsetTop += el.scrollTop * scaleY;
+    } while (el !== winScroller && (el = el.parentNode));
+  }
+
+  return [offsetLeft, offsetTop];
+}
+/**
+ * Returns the index of the object within the given array
+ * @param  {Array} arr   Array that may or may not hold the object
+ * @param  {Object} obj  An object that has a key-value pair unique to and identical to a key-value pair in the object you want to find
+ * @return {Number}      The index of the object in the array, or -1
+ */
+
+
+function indexOfObject(arr, obj) {
+  for (var i in arr) {
+    if (!arr.hasOwnProperty(i)) continue;
+
+    for (var key in obj) {
+      if (obj.hasOwnProperty(key) && obj[key] === arr[i][key]) return Number(i);
+    }
+  }
+
+  return -1;
+}
+
+function getParentAutoScrollElement(el, includeSelf) {
+  // skip to window
+  if (!el || !el.getBoundingClientRect) return getWindowScrollingElement();
+  var elem = el;
+  var gotSelf = false;
+
+  do {
+    // we don't need to get elem css if it isn't even overflowing in the first place (performance)
+    if (elem.clientWidth < elem.scrollWidth || elem.clientHeight < elem.scrollHeight) {
+      var elemCSS = css(elem);
+
+      if (elem.clientWidth < elem.scrollWidth && (elemCSS.overflowX == 'auto' || elemCSS.overflowX == 'scroll') || elem.clientHeight < elem.scrollHeight && (elemCSS.overflowY == 'auto' || elemCSS.overflowY == 'scroll')) {
+        if (!elem.getBoundingClientRect || elem === document.body) return getWindowScrollingElement();
+        if (gotSelf || includeSelf) return elem;
+        gotSelf = true;
+      }
+    }
+    /* jshint boss:true */
+
+  } while (elem = elem.parentNode);
+
+  return getWindowScrollingElement();
+}
+
+function extend(dst, src) {
+  if (dst && src) {
+    for (var key in src) {
+      if (src.hasOwnProperty(key)) {
+        dst[key] = src[key];
       }
     }
   }
 
+  return dst;
+}
+
+function isRectEqual(rect1, rect2) {
+  return Math.round(rect1.top) === Math.round(rect2.top) && Math.round(rect1.left) === Math.round(rect2.left) && Math.round(rect1.height) === Math.round(rect2.height) && Math.round(rect1.width) === Math.round(rect2.width);
+}
+
+var _throttleTimeout;
+
+function throttle(callback, ms) {
+  return function () {
+    if (!_throttleTimeout) {
+      var args = arguments,
+          _this = this;
+
+      if (args.length === 1) {
+        callback.call(_this, args[0]);
+      } else {
+        callback.apply(_this, args);
+      }
+
+      _throttleTimeout = setTimeout(function () {
+        _throttleTimeout = void 0;
+      }, ms);
+    }
+  };
+}
+
+function cancelThrottle() {
+  clearTimeout(_throttleTimeout);
+  _throttleTimeout = void 0;
+}
+
+function scrollBy(el, x, y) {
+  el.scrollLeft += x;
+  el.scrollTop += y;
+}
+
+function clone(el) {
+  var Polymer = window.Polymer;
+  var $ = window.jQuery || window.Zepto;
+
+  if (Polymer && Polymer.dom) {
+    return Polymer.dom(el).cloneNode(true);
+  } else if ($) {
+    return $(el).clone(true)[0];
+  } else {
+    return el.cloneNode(true);
+  }
+}
+
+function setRect(el, rect) {
+  css(el, 'position', 'absolute');
+  css(el, 'top', rect.top);
+  css(el, 'left', rect.left);
+  css(el, 'width', rect.width);
+  css(el, 'height', rect.height);
+}
+
+function unsetRect(el) {
+  css(el, 'position', '');
+  css(el, 'top', '');
+  css(el, 'left', '');
+  css(el, 'width', '');
+  css(el, 'height', '');
+}
+
+var expando = 'Sortable' + new Date().getTime();
+
+function AnimationStateManager() {
+  var animationStates = [],
+      animationCallbackId;
+  return {
+    captureAnimationState: function captureAnimationState() {
+      animationStates = [];
+      if (!this.options.animation) return;
+      var children = [].slice.call(this.el.children);
+      children.forEach(function (child) {
+        if (css(child, 'display') === 'none' || child === Sortable.ghost) return;
+        animationStates.push({
+          target: child,
+          rect: getRect(child)
+        });
+
+        var fromRect = _objectSpread({}, animationStates[animationStates.length - 1].rect); // If animating: compensate for current animation
+
+
+        if (child.thisAnimationDuration) {
+          var childMatrix = matrix(child, true);
+
+          if (childMatrix) {
+            fromRect.top -= childMatrix.f;
+            fromRect.left -= childMatrix.e;
+          }
+        }
+
+        child.fromRect = fromRect;
+      });
+    },
+    addAnimationState: function addAnimationState(state) {
+      animationStates.push(state);
+    },
+    removeAnimationState: function removeAnimationState(target) {
+      animationStates.splice(indexOfObject(animationStates, {
+        target: target
+      }), 1);
+    },
+    animateAll: function animateAll(callback) {
+      var _this = this;
+
+      if (!this.options.animation) {
+        clearTimeout(animationCallbackId);
+        if (typeof callback === 'function') callback();
+        return;
+      }
+
+      var animating = false,
+          animationTime = 0;
+      animationStates.forEach(function (state) {
+        var time = 0,
+            target = state.target,
+            fromRect = target.fromRect,
+            toRect = getRect(target),
+            prevFromRect = target.prevFromRect,
+            prevToRect = target.prevToRect,
+            animatingRect = state.rect,
+            targetMatrix = matrix(target, true);
+
+        if (targetMatrix) {
+          // Compensate for current animation
+          toRect.top -= targetMatrix.f;
+          toRect.left -= targetMatrix.e;
+        }
+
+        target.toRect = toRect;
+
+        if (target.thisAnimationDuration) {
+          // Could also check if animatingRect is between fromRect and toRect
+          if (isRectEqual(prevFromRect, toRect) && !isRectEqual(fromRect, toRect) && // Make sure animatingRect is on line between toRect & fromRect
+          (animatingRect.top - toRect.top) / (animatingRect.left - toRect.left) === (fromRect.top - toRect.top) / (fromRect.left - toRect.left)) {
+            // If returning to same place as started from animation and on same axis
+            time = calculateRealTime(animatingRect, prevFromRect, prevToRect, _this.options);
+          }
+        } // if fromRect != toRect: animate
+
+
+        if (!isRectEqual(toRect, fromRect)) {
+          target.prevFromRect = fromRect;
+          target.prevToRect = toRect;
+
+          if (!time) {
+            time = _this.options.animation;
+          }
+
+          _this.animate(target, animatingRect, toRect, time);
+        }
+
+        if (time) {
+          animating = true;
+          animationTime = Math.max(animationTime, time);
+          clearTimeout(target.animationResetTimer);
+          target.animationResetTimer = setTimeout(function () {
+            target.animationTime = 0;
+            target.prevFromRect = null;
+            target.fromRect = null;
+            target.prevToRect = null;
+            target.thisAnimationDuration = null;
+          }, time);
+          target.thisAnimationDuration = time;
+        }
+      });
+      clearTimeout(animationCallbackId);
+
+      if (!animating) {
+        if (typeof callback === 'function') callback();
+      } else {
+        animationCallbackId = setTimeout(function () {
+          if (typeof callback === 'function') callback();
+        }, animationTime);
+      }
+
+      animationStates = [];
+    },
+    animate: function animate(target, currentRect, toRect, duration) {
+      if (duration) {
+        css(target, 'transition', '');
+        css(target, 'transform', '');
+        var elMatrix = matrix(this.el),
+            scaleX = elMatrix && elMatrix.a,
+            scaleY = elMatrix && elMatrix.d,
+            translateX = (currentRect.left - toRect.left) / (scaleX || 1),
+            translateY = (currentRect.top - toRect.top) / (scaleY || 1);
+        target.animatingX = !!translateX;
+        target.animatingY = !!translateY;
+        css(target, 'transform', 'translate3d(' + translateX + 'px,' + translateY + 'px,0)');
+        repaint(target); // repaint
+
+        css(target, 'transition', 'transform ' + duration + 'ms' + (this.options.easing ? ' ' + this.options.easing : ''));
+        css(target, 'transform', 'translate3d(0,0,0)');
+        typeof target.animated === 'number' && clearTimeout(target.animated);
+        target.animated = setTimeout(function () {
+          css(target, 'transition', '');
+          css(target, 'transform', '');
+          target.animated = false;
+          target.animatingX = false;
+          target.animatingY = false;
+        }, duration);
+      }
+    }
+  };
+}
+
+function repaint(target) {
+  return target.offsetWidth;
+}
+
+function calculateRealTime(animatingRect, fromRect, toRect, options) {
+  return Math.sqrt(Math.pow(fromRect.top - animatingRect.top, 2) + Math.pow(fromRect.left - animatingRect.left, 2)) / Math.sqrt(Math.pow(fromRect.top - toRect.top, 2) + Math.pow(fromRect.left - toRect.left, 2)) * options.animation;
+}
+
+var plugins = [];
+var defaults = {
+  initializeByDefault: true
+};
+var PluginManager = {
+  mount: function mount(plugin) {
+    // Set default static properties
+    for (var option in defaults) {
+      if (defaults.hasOwnProperty(option) && !(option in plugin)) {
+        plugin[option] = defaults[option];
+      }
+    }
+
+    plugins.push(plugin);
+  },
+  pluginEvent: function pluginEvent(eventName, sortable, evt) {
+    var _this = this;
+
+    this.eventCanceled = false;
+
+    evt.cancel = function () {
+      _this.eventCanceled = true;
+    };
+
+    var eventNameGlobal = eventName + 'Global';
+    plugins.forEach(function (plugin) {
+      if (!sortable[plugin.pluginName]) return; // Fire global events if it exists in this sortable
+
+      if (sortable[plugin.pluginName][eventNameGlobal]) {
+        sortable[plugin.pluginName][eventNameGlobal](_objectSpread({
+          sortable: sortable
+        }, evt));
+      } // Only fire plugin event if plugin is enabled in this sortable,
+      // and plugin has event defined
+
+
+      if (sortable.options[plugin.pluginName] && sortable[plugin.pluginName][eventName]) {
+        sortable[plugin.pluginName][eventName](_objectSpread({
+          sortable: sortable
+        }, evt));
+      }
+    });
+  },
+  initializePlugins: function initializePlugins(sortable, el, defaults, options) {
+    plugins.forEach(function (plugin) {
+      var pluginName = plugin.pluginName;
+      if (!sortable.options[pluginName] && !plugin.initializeByDefault) return;
+      var initialized = new plugin(sortable, el, sortable.options);
+      initialized.sortable = sortable;
+      initialized.options = sortable.options;
+      sortable[pluginName] = initialized; // Add default options from plugin
+
+      _extends(defaults, initialized.defaults);
+    });
+
+    for (var option in sortable.options) {
+      if (!sortable.options.hasOwnProperty(option)) continue;
+      var modified = this.modifyOption(sortable, option, sortable.options[option]);
+
+      if (typeof modified !== 'undefined') {
+        sortable.options[option] = modified;
+      }
+    }
+  },
+  getEventProperties: function getEventProperties(name, sortable) {
+    var eventProperties = {};
+    plugins.forEach(function (plugin) {
+      if (typeof plugin.eventProperties !== 'function') return;
+
+      _extends(eventProperties, plugin.eventProperties.call(sortable[plugin.pluginName], name));
+    });
+    return eventProperties;
+  },
+  modifyOption: function modifyOption(sortable, name, value) {
+    var modifiedValue;
+    plugins.forEach(function (plugin) {
+      // Plugin must exist on the Sortable
+      if (!sortable[plugin.pluginName]) return; // If static option listener exists for this option, call in the context of the Sortable's instance of this plugin
+
+      if (plugin.optionListeners && typeof plugin.optionListeners[name] === 'function') {
+        modifiedValue = plugin.optionListeners[name].call(sortable[plugin.pluginName], value);
+      }
+    });
+    return modifiedValue;
+  }
+};
+
+function dispatchEvent(_ref) {
+  var sortable = _ref.sortable,
+      rootEl = _ref.rootEl,
+      name = _ref.name,
+      targetEl = _ref.targetEl,
+      cloneEl = _ref.cloneEl,
+      toEl = _ref.toEl,
+      fromEl = _ref.fromEl,
+      oldIndex = _ref.oldIndex,
+      newIndex = _ref.newIndex,
+      oldDraggableIndex = _ref.oldDraggableIndex,
+      newDraggableIndex = _ref.newDraggableIndex,
+      originalEvent = _ref.originalEvent,
+      putSortable = _ref.putSortable,
+      extraEventProperties = _ref.extraEventProperties;
+  sortable = sortable || rootEl && rootEl[expando];
+  if (!sortable) return;
+  var evt,
+      options = sortable.options,
+      onName = 'on' + name.charAt(0).toUpperCase() + name.substr(1); // Support for new CustomEvent feature
+
+  if (window.CustomEvent && !IE11OrLess && !Edge) {
+    evt = new CustomEvent(name, {
+      bubbles: true,
+      cancelable: true
+    });
+  } else {
+    evt = document.createEvent('Event');
+    evt.initEvent(name, true, true);
+  }
+
+  evt.to = toEl || rootEl;
+  evt.from = fromEl || rootEl;
+  evt.item = targetEl || rootEl;
+  evt.clone = cloneEl;
+  evt.oldIndex = oldIndex;
+  evt.newIndex = newIndex;
+  evt.oldDraggableIndex = oldDraggableIndex;
+  evt.newDraggableIndex = newDraggableIndex;
+  evt.originalEvent = originalEvent;
+  evt.pullMode = putSortable ? putSortable.lastPutMode : undefined;
+
+  var allEventProperties = _objectSpread({}, extraEventProperties, PluginManager.getEventProperties(name, sortable));
+
+  for (var option in allEventProperties) {
+    evt[option] = allEventProperties[option];
+  }
+
+  if (rootEl) {
+    rootEl.dispatchEvent(evt);
+  }
+
+  if (options[onName]) {
+    options[onName].call(sortable, evt);
+  }
+}
+
+var pluginEvent = function pluginEvent(eventName, sortable) {
+  var _ref = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {},
+      originalEvent = _ref.evt,
+      data = _objectWithoutProperties(_ref, ["evt"]);
+
+  PluginManager.pluginEvent.bind(Sortable)(eventName, sortable, _objectSpread({
+    dragEl: dragEl,
+    parentEl: parentEl,
+    ghostEl: ghostEl,
+    rootEl: rootEl,
+    nextEl: nextEl,
+    lastDownEl: lastDownEl,
+    cloneEl: cloneEl,
+    cloneHidden: cloneHidden,
+    dragStarted: moved,
+    putSortable: putSortable,
+    activeSortable: Sortable.active,
+    originalEvent: originalEvent,
+    oldIndex: oldIndex,
+    oldDraggableIndex: oldDraggableIndex,
+    newIndex: newIndex,
+    newDraggableIndex: newDraggableIndex,
+    hideGhostForTarget: _hideGhostForTarget,
+    unhideGhostForTarget: _unhideGhostForTarget,
+    cloneNowHidden: function cloneNowHidden() {
+      cloneHidden = true;
+    },
+    cloneNowShown: function cloneNowShown() {
+      cloneHidden = false;
+    },
+    dispatchSortableEvent: function dispatchSortableEvent(name) {
+      _dispatchEvent({
+        sortable: sortable,
+        name: name,
+        originalEvent: originalEvent
+      });
+    }
+  }, data));
+};
+
+function _dispatchEvent(info) {
+  dispatchEvent(_objectSpread({
+    putSortable: putSortable,
+    cloneEl: cloneEl,
+    targetEl: dragEl,
+    rootEl: rootEl,
+    oldIndex: oldIndex,
+    oldDraggableIndex: oldDraggableIndex,
+    newIndex: newIndex,
+    newDraggableIndex: newDraggableIndex
+  }, info));
+}
+
+var dragEl,
+    parentEl,
+    ghostEl,
+    rootEl,
+    nextEl,
+    lastDownEl,
+    cloneEl,
+    cloneHidden,
+    oldIndex,
+    newIndex,
+    oldDraggableIndex,
+    newDraggableIndex,
+    activeGroup,
+    putSortable,
+    awaitingDragStarted = false,
+    ignoreNextClick = false,
+    sortables = [],
+    tapEvt,
+    touchEvt,
+    lastDx,
+    lastDy,
+    tapDistanceLeft,
+    tapDistanceTop,
+    moved,
+    lastTarget,
+    lastDirection,
+    pastFirstInvertThresh = false,
+    isCircumstantialInvert = false,
+    targetMoveDistance,
+    // For positioning ghost absolutely
+ghostRelativeParent,
+    ghostRelativeParentInitialScroll = [],
+    // (left, top)
+_silent = false,
+    savedInputChecked = [];
+/** @const */
+
+var documentExists = typeof document !== 'undefined',
+    PositionGhostAbsolutely = IOS,
+    CSSFloatProperty = Edge || IE11OrLess ? 'cssFloat' : 'float',
+    // This will not pass for IE9, because IE9 DnD only works on anchors
+supportDraggable = documentExists && !ChromeForAndroid && !IOS && 'draggable' in document.createElement('div'),
+    supportCssPointerEvents = function () {
+  if (!documentExists) return; // false when <= IE11
+
+  if (IE11OrLess) {
+    return false;
+  }
+
+  var el = document.createElement('x');
+  el.style.cssText = 'pointer-events:auto';
+  return el.style.pointerEvents === 'auto';
+}(),
+    _detectDirection = function _detectDirection(el, options) {
+  var elCSS = css(el),
+      elWidth = parseInt(elCSS.width) - parseInt(elCSS.paddingLeft) - parseInt(elCSS.paddingRight) - parseInt(elCSS.borderLeftWidth) - parseInt(elCSS.borderRightWidth),
+      child1 = getChild(el, 0, options),
+      child2 = getChild(el, 1, options),
+      firstChildCSS = child1 && css(child1),
+      secondChildCSS = child2 && css(child2),
+      firstChildWidth = firstChildCSS && parseInt(firstChildCSS.marginLeft) + parseInt(firstChildCSS.marginRight) + getRect(child1).width,
+      secondChildWidth = secondChildCSS && parseInt(secondChildCSS.marginLeft) + parseInt(secondChildCSS.marginRight) + getRect(child2).width;
+
+  if (elCSS.display === 'flex') {
+    return elCSS.flexDirection === 'column' || elCSS.flexDirection === 'column-reverse' ? 'vertical' : 'horizontal';
+  }
+
+  if (elCSS.display === 'grid') {
+    return elCSS.gridTemplateColumns.split(' ').length <= 1 ? 'vertical' : 'horizontal';
+  }
+
+  if (child1 && firstChildCSS["float"] && firstChildCSS["float"] !== 'none') {
+    var touchingSideChild2 = firstChildCSS["float"] === 'left' ? 'left' : 'right';
+    return child2 && (secondChildCSS.clear === 'both' || secondChildCSS.clear === touchingSideChild2) ? 'vertical' : 'horizontal';
+  }
+
+  return child1 && (firstChildCSS.display === 'block' || firstChildCSS.display === 'flex' || firstChildCSS.display === 'table' || firstChildCSS.display === 'grid' || firstChildWidth >= elWidth && elCSS[CSSFloatProperty] === 'none' || child2 && elCSS[CSSFloatProperty] === 'none' && firstChildWidth + secondChildWidth > elWidth) ? 'vertical' : 'horizontal';
+},
+    _dragElInRowColumn = function _dragElInRowColumn(dragRect, targetRect, vertical) {
+  var dragElS1Opp = vertical ? dragRect.left : dragRect.top,
+      dragElS2Opp = vertical ? dragRect.right : dragRect.bottom,
+      dragElOppLength = vertical ? dragRect.width : dragRect.height,
+      targetS1Opp = vertical ? targetRect.left : targetRect.top,
+      targetS2Opp = vertical ? targetRect.right : targetRect.bottom,
+      targetOppLength = vertical ? targetRect.width : targetRect.height;
+  return dragElS1Opp === targetS1Opp || dragElS2Opp === targetS2Opp || dragElS1Opp + dragElOppLength / 2 === targetS1Opp + targetOppLength / 2;
+},
+
+/**
+ * Detects first nearest empty sortable to X and Y position using emptyInsertThreshold.
+ * @param  {Number} x      X position
+ * @param  {Number} y      Y position
+ * @return {HTMLElement}   Element of the first found nearest Sortable
+ */
+_detectNearestEmptySortable = function _detectNearestEmptySortable(x, y) {
+  var ret;
+  sortables.some(function (sortable) {
+    if (lastChild(sortable)) return;
+    var rect = getRect(sortable),
+        threshold = sortable[expando].options.emptyInsertThreshold,
+        insideHorizontally = x >= rect.left - threshold && x <= rect.right + threshold,
+        insideVertically = y >= rect.top - threshold && y <= rect.bottom + threshold;
+
+    if (threshold && insideHorizontally && insideVertically) {
+      return ret = sortable;
+    }
+  });
+  return ret;
+},
+    _prepareGroup = function _prepareGroup(options) {
+  function toFn(value, pull) {
+    return function (to, from, dragEl, evt) {
+      var sameGroup = to.options.group.name && from.options.group.name && to.options.group.name === from.options.group.name;
+
+      if (value == null && (pull || sameGroup)) {
+        // Default pull value
+        // Default pull and put value if same group
+        return true;
+      } else if (value == null || value === false) {
+        return false;
+      } else if (pull && value === 'clone') {
+        return value;
+      } else if (typeof value === 'function') {
+        return toFn(value(to, from, dragEl, evt), pull)(to, from, dragEl, evt);
+      } else {
+        var otherGroup = (pull ? to : from).options.group.name;
+        return value === true || typeof value === 'string' && value === otherGroup || value.join && value.indexOf(otherGroup) > -1;
+      }
+    };
+  }
+
+  var group = {};
+  var originalGroup = options.group;
+
+  if (!originalGroup || _typeof(originalGroup) != 'object') {
+    originalGroup = {
+      name: originalGroup
+    };
+  }
+
+  group.name = originalGroup.name;
+  group.checkPull = toFn(originalGroup.pull, true);
+  group.checkPut = toFn(originalGroup.put);
+  group.revertClone = originalGroup.revertClone;
+  options.group = group;
+},
+    _hideGhostForTarget = function _hideGhostForTarget() {
+  if (!supportCssPointerEvents && ghostEl) {
+    css(ghostEl, 'display', 'none');
+  }
+},
+    _unhideGhostForTarget = function _unhideGhostForTarget() {
+  if (!supportCssPointerEvents && ghostEl) {
+    css(ghostEl, 'display', '');
+  }
+}; // #1184 fix - Prevent click event on fallback if dragged but item not changed position
+
+
+if (documentExists) {
+  document.addEventListener('click', function (evt) {
+    if (ignoreNextClick) {
+      evt.preventDefault();
+      evt.stopPropagation && evt.stopPropagation();
+      evt.stopImmediatePropagation && evt.stopImmediatePropagation();
+      ignoreNextClick = false;
+      return false;
+    }
+  }, true);
+}
+
+var nearestEmptyInsertDetectEvent = function nearestEmptyInsertDetectEvent(evt) {
+  if (dragEl) {
+    evt = evt.touches ? evt.touches[0] : evt;
+
+    var nearest = _detectNearestEmptySortable(evt.clientX, evt.clientY);
+
+    if (nearest) {
+      // Create imitation event
+      var event = {};
+
+      for (var i in evt) {
+        if (evt.hasOwnProperty(i)) {
+          event[i] = evt[i];
+        }
+      }
+
+      event.target = event.rootEl = nearest;
+      event.preventDefault = void 0;
+      event.stopPropagation = void 0;
+
+      nearest[expando]._onDragOver(event);
+    }
+  }
+};
+
+var _checkOutsideTargetEl = function _checkOutsideTargetEl(evt) {
+  if (dragEl) {
+    dragEl.parentNode[expando]._isOutsideThisEl(evt.target);
+  }
+};
+/**
+ * @class  Sortable
+ * @param  {HTMLElement}  el
+ * @param  {Object}       [options]
+ */
+
+
+function Sortable(el, options) {
+  if (!(el && el.nodeType && el.nodeType === 1)) {
+    throw "Sortable: `el` must be an HTMLElement, not ".concat({}.toString.call(el));
+  }
+
+  this.el = el; // root element
+
+  this.options = options = _extends({}, options); // Export instance
+
+  el[expando] = this;
+  var defaults = {
+    group: null,
+    sort: true,
+    disabled: false,
+    store: null,
+    handle: null,
+    draggable: /^[uo]l$/i.test(el.nodeName) ? '>li' : '>*',
+    swapThreshold: 1,
+    // percentage; 0 <= x <= 1
+    invertSwap: false,
+    // invert always
+    invertedSwapThreshold: null,
+    // will be set to same as swapThreshold if default
+    removeCloneOnHide: true,
+    direction: function direction() {
+      return _detectDirection(el, this.options);
+    },
+    ghostClass: 'sortable-ghost',
+    chosenClass: 'sortable-chosen',
+    dragClass: 'sortable-drag',
+    ignore: 'a, img',
+    filter: null,
+    preventOnFilter: true,
+    animation: 0,
+    easing: null,
+    setData: function setData(dataTransfer, dragEl) {
+      dataTransfer.setData('Text', dragEl.textContent);
+    },
+    dropBubble: false,
+    dragoverBubble: false,
+    dataIdAttr: 'data-id',
+    delay: 0,
+    delayOnTouchOnly: false,
+    touchStartThreshold: (Number.parseInt ? Number : window).parseInt(window.devicePixelRatio, 10) || 1,
+    forceFallback: false,
+    fallbackClass: 'sortable-fallback',
+    fallbackOnBody: false,
+    fallbackTolerance: 0,
+    fallbackOffset: {
+      x: 0,
+      y: 0
+    },
+    supportPointer: Sortable.supportPointer !== false && 'PointerEvent' in window,
+    emptyInsertThreshold: 5
+  };
+  PluginManager.initializePlugins(this, el, defaults); // Set default options
+
+  for (var name in defaults) {
+    !(name in options) && (options[name] = defaults[name]);
+  }
+
+  _prepareGroup(options); // Bind all private methods
+
+
+  for (var fn in this) {
+    if (fn.charAt(0) === '_' && typeof this[fn] === 'function') {
+      this[fn] = this[fn].bind(this);
+    }
+  } // Setup drag mode
+
+
+  this.nativeDraggable = options.forceFallback ? false : supportDraggable;
+
+  if (this.nativeDraggable) {
+    // Touch start threshold cannot be greater than the native dragstart threshold
+    this.options.touchStartThreshold = 1;
+  } // Bind events
+
+
+  if (options.supportPointer) {
+    on(el, 'pointerdown', this._onTapStart);
+  } else {
+    on(el, 'mousedown', this._onTapStart);
+    on(el, 'touchstart', this._onTapStart);
+  }
+
+  if (this.nativeDraggable) {
+    on(el, 'dragover', this);
+    on(el, 'dragenter', this);
+  }
+
+  sortables.push(this.el); // Restore sorting
+
+  options.store && options.store.get && this.sort(options.store.get(this) || []); // Add animation state manager
+
+  _extends(this, AnimationStateManager());
+}
+
+Sortable.prototype =
+/** @lends Sortable.prototype */
+{
+  constructor: Sortable,
+  _isOutsideThisEl: function _isOutsideThisEl(target) {
+    if (!this.el.contains(target) && target !== this.el) {
+      lastTarget = null;
+    }
+  },
+  _getDirection: function _getDirection(evt, target) {
+    return typeof this.options.direction === 'function' ? this.options.direction.call(this, evt, target, dragEl) : this.options.direction;
+  },
+  _onTapStart: function _onTapStart(
+  /** Event|TouchEvent */
+  evt) {
+    if (!evt.cancelable) return;
+
+    var _this = this,
+        el = this.el,
+        options = this.options,
+        preventOnFilter = options.preventOnFilter,
+        type = evt.type,
+        touch = evt.touches && evt.touches[0] || evt.pointerType && evt.pointerType === 'touch' && evt,
+        target = (touch || evt).target,
+        originalTarget = evt.target.shadowRoot && (evt.path && evt.path[0] || evt.composedPath && evt.composedPath()[0]) || target,
+        filter = options.filter;
+
+    _saveInputCheckedState(el); // Don't trigger start event when an element is been dragged, otherwise the evt.oldindex always wrong when set option.group.
+
+
+    if (dragEl) {
+      return;
+    }
+
+    if (/mousedown|pointerdown/.test(type) && evt.button !== 0 || options.disabled) {
+      return; // only left button and enabled
+    } // cancel dnd if original target is content editable
+
+
+    if (originalTarget.isContentEditable) {
+      return;
+    }
+
+    target = closest(target, options.draggable, el, false);
+
+    if (target && target.animated) {
+      return;
+    }
+
+    if (lastDownEl === target) {
+      // Ignoring duplicate `down`
+      return;
+    } // Get the index of the dragged element within its parent
+
+
+    oldIndex = index(target);
+    oldDraggableIndex = index(target, options.draggable); // Check filter
+
+    if (typeof filter === 'function') {
+      if (filter.call(this, evt, target, this)) {
+        _dispatchEvent({
+          sortable: _this,
+          rootEl: originalTarget,
+          name: 'filter',
+          targetEl: target,
+          toEl: el,
+          fromEl: el
+        });
+
+        pluginEvent('filter', _this, {
+          evt: evt
+        });
+        preventOnFilter && evt.cancelable && evt.preventDefault();
+        return; // cancel dnd
+      }
+    } else if (filter) {
+      filter = filter.split(',').some(function (criteria) {
+        criteria = closest(originalTarget, criteria.trim(), el, false);
+
+        if (criteria) {
+          _dispatchEvent({
+            sortable: _this,
+            rootEl: criteria,
+            name: 'filter',
+            targetEl: target,
+            fromEl: el,
+            toEl: el
+          });
+
+          pluginEvent('filter', _this, {
+            evt: evt
+          });
+          return true;
+        }
+      });
+
+      if (filter) {
+        preventOnFilter && evt.cancelable && evt.preventDefault();
+        return; // cancel dnd
+      }
+    }
+
+    if (options.handle && !closest(originalTarget, options.handle, el, false)) {
+      return;
+    } // Prepare `dragstart`
+
+
+    this._prepareDragStart(evt, touch, target);
+  },
+  _prepareDragStart: function _prepareDragStart(
+  /** Event */
+  evt,
+  /** Touch */
+  touch,
+  /** HTMLElement */
+  target) {
+    var _this = this,
+        el = _this.el,
+        options = _this.options,
+        ownerDocument = el.ownerDocument,
+        dragStartFn;
+
+    if (target && !dragEl && target.parentNode === el) {
+      var dragRect = getRect(target);
+      rootEl = el;
+      dragEl = target;
+      parentEl = dragEl.parentNode;
+      nextEl = dragEl.nextSibling;
+      lastDownEl = target;
+      activeGroup = options.group;
+      Sortable.dragged = dragEl;
+      tapEvt = {
+        target: dragEl,
+        clientX: (touch || evt).clientX,
+        clientY: (touch || evt).clientY
+      };
+      tapDistanceLeft = tapEvt.clientX - dragRect.left;
+      tapDistanceTop = tapEvt.clientY - dragRect.top;
+      this._lastX = (touch || evt).clientX;
+      this._lastY = (touch || evt).clientY;
+      dragEl.style['will-change'] = 'all';
+
+      dragStartFn = function dragStartFn() {
+        pluginEvent('delayEnded', _this, {
+          evt: evt
+        });
+
+        if (Sortable.eventCanceled) {
+          _this._onDrop();
+
+          return;
+        } // Delayed drag has been triggered
+        // we can re-enable the events: touchmove/mousemove
+
+
+        _this._disableDelayedDragEvents();
+
+        if (!FireFox && _this.nativeDraggable) {
+          dragEl.draggable = true;
+        } // Bind the events: dragstart/dragend
+
+
+        _this._triggerDragStart(evt, touch); // Drag start event
+
+
+        _dispatchEvent({
+          sortable: _this,
+          name: 'choose',
+          originalEvent: evt
+        }); // Chosen item
+
+
+        toggleClass(dragEl, options.chosenClass, true);
+      }; // Disable "draggable"
+
+
+      options.ignore.split(',').forEach(function (criteria) {
+        find(dragEl, criteria.trim(), _disableDraggable);
+      });
+      on(ownerDocument, 'dragover', nearestEmptyInsertDetectEvent);
+      on(ownerDocument, 'mousemove', nearestEmptyInsertDetectEvent);
+      on(ownerDocument, 'touchmove', nearestEmptyInsertDetectEvent);
+      on(ownerDocument, 'mouseup', _this._onDrop);
+      on(ownerDocument, 'touchend', _this._onDrop);
+      on(ownerDocument, 'touchcancel', _this._onDrop); // Make dragEl draggable (must be before delay for FireFox)
+
+      if (FireFox && this.nativeDraggable) {
+        this.options.touchStartThreshold = 4;
+        dragEl.draggable = true;
+      }
+
+      pluginEvent('delayStart', this, {
+        evt: evt
+      }); // Delay is impossible for native DnD in Edge or IE
+
+      if (options.delay && (!options.delayOnTouchOnly || touch) && (!this.nativeDraggable || !(Edge || IE11OrLess))) {
+        if (Sortable.eventCanceled) {
+          this._onDrop();
+
+          return;
+        } // If the user moves the pointer or let go the click or touch
+        // before the delay has been reached:
+        // disable the delayed drag
+
+
+        on(ownerDocument, 'mouseup', _this._disableDelayedDrag);
+        on(ownerDocument, 'touchend', _this._disableDelayedDrag);
+        on(ownerDocument, 'touchcancel', _this._disableDelayedDrag);
+        on(ownerDocument, 'mousemove', _this._delayedDragTouchMoveHandler);
+        on(ownerDocument, 'touchmove', _this._delayedDragTouchMoveHandler);
+        options.supportPointer && on(ownerDocument, 'pointermove', _this._delayedDragTouchMoveHandler);
+        _this._dragStartTimer = setTimeout(dragStartFn, options.delay);
+      } else {
+        dragStartFn();
+      }
+    }
+  },
+  _delayedDragTouchMoveHandler: function _delayedDragTouchMoveHandler(
+  /** TouchEvent|PointerEvent **/
+  e) {
+    var touch = e.touches ? e.touches[0] : e;
+
+    if (Math.max(Math.abs(touch.clientX - this._lastX), Math.abs(touch.clientY - this._lastY)) >= Math.floor(this.options.touchStartThreshold / (this.nativeDraggable && window.devicePixelRatio || 1))) {
+      this._disableDelayedDrag();
+    }
+  },
+  _disableDelayedDrag: function _disableDelayedDrag() {
+    dragEl && _disableDraggable(dragEl);
+    clearTimeout(this._dragStartTimer);
+
+    this._disableDelayedDragEvents();
+  },
+  _disableDelayedDragEvents: function _disableDelayedDragEvents() {
+    var ownerDocument = this.el.ownerDocument;
+    off(ownerDocument, 'mouseup', this._disableDelayedDrag);
+    off(ownerDocument, 'touchend', this._disableDelayedDrag);
+    off(ownerDocument, 'touchcancel', this._disableDelayedDrag);
+    off(ownerDocument, 'mousemove', this._delayedDragTouchMoveHandler);
+    off(ownerDocument, 'touchmove', this._delayedDragTouchMoveHandler);
+    off(ownerDocument, 'pointermove', this._delayedDragTouchMoveHandler);
+  },
+  _triggerDragStart: function _triggerDragStart(
+  /** Event */
+  evt,
+  /** Touch */
+  touch) {
+    touch = touch || evt.pointerType == 'touch' && evt;
+
+    if (!this.nativeDraggable || touch) {
+      if (this.options.supportPointer) {
+        on(document, 'pointermove', this._onTouchMove);
+      } else if (touch) {
+        on(document, 'touchmove', this._onTouchMove);
+      } else {
+        on(document, 'mousemove', this._onTouchMove);
+      }
+    } else {
+      on(dragEl, 'dragend', this);
+      on(rootEl, 'dragstart', this._onDragStart);
+    }
+
+    try {
+      if (document.selection) {
+        // Timeout neccessary for IE9
+        _nextTick(function () {
+          document.selection.empty();
+        });
+      } else {
+        window.getSelection().removeAllRanges();
+      }
+    } catch (err) {}
+  },
+  _dragStarted: function _dragStarted(fallback, evt) {
+
+    awaitingDragStarted = false;
+
+    if (rootEl && dragEl) {
+      pluginEvent('dragStarted', this, {
+        evt: evt
+      });
+
+      if (this.nativeDraggable) {
+        on(document, 'dragover', _checkOutsideTargetEl);
+      }
+
+      var options = this.options; // Apply effect
+
+      !fallback && toggleClass(dragEl, options.dragClass, false);
+      toggleClass(dragEl, options.ghostClass, true);
+      Sortable.active = this;
+      fallback && this._appendGhost(); // Drag start event
+
+      _dispatchEvent({
+        sortable: this,
+        name: 'start',
+        originalEvent: evt
+      });
+    } else {
+      this._nulling();
+    }
+  },
+  _emulateDragOver: function _emulateDragOver() {
+    if (touchEvt) {
+      this._lastX = touchEvt.clientX;
+      this._lastY = touchEvt.clientY;
+
+      _hideGhostForTarget();
+
+      var target = document.elementFromPoint(touchEvt.clientX, touchEvt.clientY);
+      var parent = target;
+
+      while (target && target.shadowRoot) {
+        target = target.shadowRoot.elementFromPoint(touchEvt.clientX, touchEvt.clientY);
+        if (target === parent) break;
+        parent = target;
+      }
+
+      dragEl.parentNode[expando]._isOutsideThisEl(target);
+
+      if (parent) {
+        do {
+          if (parent[expando]) {
+            var inserted = void 0;
+            inserted = parent[expando]._onDragOver({
+              clientX: touchEvt.clientX,
+              clientY: touchEvt.clientY,
+              target: target,
+              rootEl: parent
+            });
+
+            if (inserted && !this.options.dragoverBubble) {
+              break;
+            }
+          }
+
+          target = parent; // store last element
+        }
+        /* jshint boss:true */
+        while (parent = parent.parentNode);
+      }
+
+      _unhideGhostForTarget();
+    }
+  },
+  _onTouchMove: function _onTouchMove(
+  /**TouchEvent*/
+  evt) {
+    if (tapEvt) {
+      var options = this.options,
+          fallbackTolerance = options.fallbackTolerance,
+          fallbackOffset = options.fallbackOffset,
+          touch = evt.touches ? evt.touches[0] : evt,
+          ghostMatrix = ghostEl && matrix(ghostEl, true),
+          scaleX = ghostEl && ghostMatrix && ghostMatrix.a,
+          scaleY = ghostEl && ghostMatrix && ghostMatrix.d,
+          relativeScrollOffset = PositionGhostAbsolutely && ghostRelativeParent && getRelativeScrollOffset(ghostRelativeParent),
+          dx = (touch.clientX - tapEvt.clientX + fallbackOffset.x) / (scaleX || 1) + (relativeScrollOffset ? relativeScrollOffset[0] - ghostRelativeParentInitialScroll[0] : 0) / (scaleX || 1),
+          dy = (touch.clientY - tapEvt.clientY + fallbackOffset.y) / (scaleY || 1) + (relativeScrollOffset ? relativeScrollOffset[1] - ghostRelativeParentInitialScroll[1] : 0) / (scaleY || 1); // only set the status to dragging, when we are actually dragging
+
+      if (!Sortable.active && !awaitingDragStarted) {
+        if (fallbackTolerance && Math.max(Math.abs(touch.clientX - this._lastX), Math.abs(touch.clientY - this._lastY)) < fallbackTolerance) {
+          return;
+        }
+
+        this._onDragStart(evt, true);
+      }
+
+      if (ghostEl) {
+        if (ghostMatrix) {
+          ghostMatrix.e += dx - (lastDx || 0);
+          ghostMatrix.f += dy - (lastDy || 0);
+        } else {
+          ghostMatrix = {
+            a: 1,
+            b: 0,
+            c: 0,
+            d: 1,
+            e: dx,
+            f: dy
+          };
+        }
+
+        var cssMatrix = "matrix(".concat(ghostMatrix.a, ",").concat(ghostMatrix.b, ",").concat(ghostMatrix.c, ",").concat(ghostMatrix.d, ",").concat(ghostMatrix.e, ",").concat(ghostMatrix.f, ")");
+        css(ghostEl, 'webkitTransform', cssMatrix);
+        css(ghostEl, 'mozTransform', cssMatrix);
+        css(ghostEl, 'msTransform', cssMatrix);
+        css(ghostEl, 'transform', cssMatrix);
+        lastDx = dx;
+        lastDy = dy;
+        touchEvt = touch;
+      }
+
+      evt.cancelable && evt.preventDefault();
+    }
+  },
+  _appendGhost: function _appendGhost() {
+    // Bug if using scale(): https://stackoverflow.com/questions/2637058
+    // Not being adjusted for
+    if (!ghostEl) {
+      var container = this.options.fallbackOnBody ? document.body : rootEl,
+          rect = getRect(dragEl, true, PositionGhostAbsolutely, true, container),
+          options = this.options; // Position absolutely
+
+      if (PositionGhostAbsolutely) {
+        // Get relatively positioned parent
+        ghostRelativeParent = container;
+
+        while (css(ghostRelativeParent, 'position') === 'static' && css(ghostRelativeParent, 'transform') === 'none' && ghostRelativeParent !== document) {
+          ghostRelativeParent = ghostRelativeParent.parentNode;
+        }
+
+        if (ghostRelativeParent !== document.body && ghostRelativeParent !== document.documentElement) {
+          if (ghostRelativeParent === document) ghostRelativeParent = getWindowScrollingElement();
+          rect.top += ghostRelativeParent.scrollTop;
+          rect.left += ghostRelativeParent.scrollLeft;
+        } else {
+          ghostRelativeParent = getWindowScrollingElement();
+        }
+
+        ghostRelativeParentInitialScroll = getRelativeScrollOffset(ghostRelativeParent);
+      }
+
+      ghostEl = dragEl.cloneNode(true);
+      toggleClass(ghostEl, options.ghostClass, false);
+      toggleClass(ghostEl, options.fallbackClass, true);
+      toggleClass(ghostEl, options.dragClass, true);
+      css(ghostEl, 'transition', '');
+      css(ghostEl, 'transform', '');
+      css(ghostEl, 'box-sizing', 'border-box');
+      css(ghostEl, 'margin', 0);
+      css(ghostEl, 'top', rect.top);
+      css(ghostEl, 'left', rect.left);
+      css(ghostEl, 'width', rect.width);
+      css(ghostEl, 'height', rect.height);
+      css(ghostEl, 'opacity', '0.8');
+      css(ghostEl, 'position', PositionGhostAbsolutely ? 'absolute' : 'fixed');
+      css(ghostEl, 'zIndex', '100000');
+      css(ghostEl, 'pointerEvents', 'none');
+      Sortable.ghost = ghostEl;
+      container.appendChild(ghostEl); // Set transform-origin
+
+      css(ghostEl, 'transform-origin', tapDistanceLeft / parseInt(ghostEl.style.width) * 100 + '% ' + tapDistanceTop / parseInt(ghostEl.style.height) * 100 + '%');
+    }
+  },
+  _onDragStart: function _onDragStart(
+  /**Event*/
+  evt,
+  /**boolean*/
+  fallback) {
+    var _this = this;
+
+    var dataTransfer = evt.dataTransfer;
+    var options = _this.options;
+    pluginEvent('dragStart', this, {
+      evt: evt
+    });
+
+    if (Sortable.eventCanceled) {
+      this._onDrop();
+
+      return;
+    }
+
+    pluginEvent('setupClone', this);
+
+    if (!Sortable.eventCanceled) {
+      cloneEl = clone(dragEl);
+      cloneEl.draggable = false;
+      cloneEl.style['will-change'] = '';
+
+      this._hideClone();
+
+      toggleClass(cloneEl, this.options.chosenClass, false);
+      Sortable.clone = cloneEl;
+    } // #1143: IFrame support workaround
+
+
+    _this.cloneId = _nextTick(function () {
+      pluginEvent('clone', _this);
+      if (Sortable.eventCanceled) return;
+
+      if (!_this.options.removeCloneOnHide) {
+        rootEl.insertBefore(cloneEl, dragEl);
+      }
+
+      _this._hideClone();
+
+      _dispatchEvent({
+        sortable: _this,
+        name: 'clone'
+      });
+    });
+    !fallback && toggleClass(dragEl, options.dragClass, true); // Set proper drop events
+
+    if (fallback) {
+      ignoreNextClick = true;
+      _this._loopId = setInterval(_this._emulateDragOver, 50);
+    } else {
+      // Undo what was set in _prepareDragStart before drag started
+      off(document, 'mouseup', _this._onDrop);
+      off(document, 'touchend', _this._onDrop);
+      off(document, 'touchcancel', _this._onDrop);
+
+      if (dataTransfer) {
+        dataTransfer.effectAllowed = 'move';
+        options.setData && options.setData.call(_this, dataTransfer, dragEl);
+      }
+
+      on(document, 'drop', _this); // #1276 fix:
+
+      css(dragEl, 'transform', 'translateZ(0)');
+    }
+
+    awaitingDragStarted = true;
+    _this._dragStartId = _nextTick(_this._dragStarted.bind(_this, fallback, evt));
+    on(document, 'selectstart', _this);
+    moved = true;
+
+    if (Safari) {
+      css(document.body, 'user-select', 'none');
+    }
+  },
+  // Returns true - if no further action is needed (either inserted or another condition)
+  _onDragOver: function _onDragOver(
+  /**Event*/
+  evt) {
+    var el = this.el,
+        target = evt.target,
+        dragRect,
+        targetRect,
+        revert,
+        options = this.options,
+        group = options.group,
+        activeSortable = Sortable.active,
+        isOwner = activeGroup === group,
+        canSort = options.sort,
+        fromSortable = putSortable || activeSortable,
+        vertical,
+        _this = this,
+        completedFired = false;
+
+    if (_silent) return;
+
+    function dragOverEvent(name, extra) {
+      pluginEvent(name, _this, _objectSpread({
+        evt: evt,
+        isOwner: isOwner,
+        axis: vertical ? 'vertical' : 'horizontal',
+        revert: revert,
+        dragRect: dragRect,
+        targetRect: targetRect,
+        canSort: canSort,
+        fromSortable: fromSortable,
+        target: target,
+        completed: completed,
+        onMove: function onMove(target, after) {
+          return _onMove(rootEl, el, dragEl, dragRect, target, getRect(target), evt, after);
+        },
+        changed: changed
+      }, extra));
+    } // Capture animation state
+
+
+    function capture() {
+      dragOverEvent('dragOverAnimationCapture');
+
+      _this.captureAnimationState();
+
+      if (_this !== fromSortable) {
+        fromSortable.captureAnimationState();
+      }
+    } // Return invocation when dragEl is inserted (or completed)
+
+
+    function completed(insertion) {
+      dragOverEvent('dragOverCompleted', {
+        insertion: insertion
+      });
+
+      if (insertion) {
+        // Clones must be hidden before folding animation to capture dragRectAbsolute properly
+        if (isOwner) {
+          activeSortable._hideClone();
+        } else {
+          activeSortable._showClone(_this);
+        }
+
+        if (_this !== fromSortable) {
+          // Set ghost class to new sortable's ghost class
+          toggleClass(dragEl, putSortable ? putSortable.options.ghostClass : activeSortable.options.ghostClass, false);
+          toggleClass(dragEl, options.ghostClass, true);
+        }
+
+        if (putSortable !== _this && _this !== Sortable.active) {
+          putSortable = _this;
+        } else if (_this === Sortable.active && putSortable) {
+          putSortable = null;
+        } // Animation
+
+
+        if (fromSortable === _this) {
+          _this._ignoreWhileAnimating = target;
+        }
+
+        _this.animateAll(function () {
+          dragOverEvent('dragOverAnimationComplete');
+          _this._ignoreWhileAnimating = null;
+        });
+
+        if (_this !== fromSortable) {
+          fromSortable.animateAll();
+          fromSortable._ignoreWhileAnimating = null;
+        }
+      } // Null lastTarget if it is not inside a previously swapped element
+
+
+      if (target === dragEl && !dragEl.animated || target === el && !target.animated) {
+        lastTarget = null;
+      } // no bubbling and not fallback
+
+
+      if (!options.dragoverBubble && !evt.rootEl && target !== document) {
+        dragEl.parentNode[expando]._isOutsideThisEl(evt.target); // Do not detect for empty insert if already inserted
+
+
+        !insertion && nearestEmptyInsertDetectEvent(evt);
+      }
+
+      !options.dragoverBubble && evt.stopPropagation && evt.stopPropagation();
+      return completedFired = true;
+    } // Call when dragEl has been inserted
+
+
+    function changed() {
+      newIndex = index(dragEl);
+      newDraggableIndex = index(dragEl, options.draggable);
+
+      _dispatchEvent({
+        sortable: _this,
+        name: 'change',
+        toEl: el,
+        newIndex: newIndex,
+        newDraggableIndex: newDraggableIndex,
+        originalEvent: evt
+      });
+    }
+
+    if (evt.preventDefault !== void 0) {
+      evt.cancelable && evt.preventDefault();
+    }
+
+    target = closest(target, options.draggable, el, true);
+    dragOverEvent('dragOver');
+    if (Sortable.eventCanceled) return completedFired;
+
+    if (dragEl.contains(evt.target) || target.animated && target.animatingX && target.animatingY || _this._ignoreWhileAnimating === target) {
+      return completed(false);
+    }
+
+    ignoreNextClick = false;
+
+    if (activeSortable && !options.disabled && (isOwner ? canSort || (revert = !rootEl.contains(dragEl)) // Reverting item into the original list
+    : putSortable === this || (this.lastPutMode = activeGroup.checkPull(this, activeSortable, dragEl, evt)) && group.checkPut(this, activeSortable, dragEl, evt))) {
+      vertical = this._getDirection(evt, target) === 'vertical';
+      dragRect = getRect(dragEl);
+      dragOverEvent('dragOverValid');
+      if (Sortable.eventCanceled) return completedFired;
+
+      if (revert) {
+        parentEl = rootEl; // actualization
+
+        capture();
+
+        this._hideClone();
+
+        dragOverEvent('revert');
+
+        if (!Sortable.eventCanceled) {
+          if (nextEl) {
+            rootEl.insertBefore(dragEl, nextEl);
+          } else {
+            rootEl.appendChild(dragEl);
+          }
+        }
+
+        return completed(true);
+      }
+
+      var elLastChild = lastChild(el, options.draggable);
+
+      if (!elLastChild || _ghostIsLast(evt, vertical, this) && !elLastChild.animated) {
+        // If already at end of list: Do not insert
+        if (elLastChild === dragEl) {
+          return completed(false);
+        } // assign target only if condition is true
+
+
+        if (elLastChild && el === evt.target) {
+          target = elLastChild;
+        }
+
+        if (target) {
+          targetRect = getRect(target);
+        }
+
+        if (_onMove(rootEl, el, dragEl, dragRect, target, targetRect, evt, !!target) !== false) {
+          capture();
+          el.appendChild(dragEl);
+          parentEl = el; // actualization
+
+          changed();
+          return completed(true);
+        }
+      } else if (target.parentNode === el) {
+        targetRect = getRect(target);
+        var direction = 0,
+            targetBeforeFirstSwap,
+            differentLevel = dragEl.parentNode !== el,
+            differentRowCol = !_dragElInRowColumn(dragEl.animated && dragEl.toRect || dragRect, target.animated && target.toRect || targetRect, vertical),
+            side1 = vertical ? 'top' : 'left',
+            scrolledPastTop = isScrolledPast(target, 'top', 'top') || isScrolledPast(dragEl, 'top', 'top'),
+            scrollBefore = scrolledPastTop ? scrolledPastTop.scrollTop : void 0;
+
+        if (lastTarget !== target) {
+          targetBeforeFirstSwap = targetRect[side1];
+          pastFirstInvertThresh = false;
+          isCircumstantialInvert = !differentRowCol && options.invertSwap || differentLevel;
+        }
+
+        direction = _getSwapDirection(evt, target, targetRect, vertical, differentRowCol ? 1 : options.swapThreshold, options.invertedSwapThreshold == null ? options.swapThreshold : options.invertedSwapThreshold, isCircumstantialInvert, lastTarget === target);
+        var sibling;
+
+        if (direction !== 0) {
+          // Check if target is beside dragEl in respective direction (ignoring hidden elements)
+          var dragIndex = index(dragEl);
+
+          do {
+            dragIndex -= direction;
+            sibling = parentEl.children[dragIndex];
+          } while (sibling && (css(sibling, 'display') === 'none' || sibling === ghostEl));
+        } // If dragEl is already beside target: Do not insert
+
+
+        if (direction === 0 || sibling === target) {
+          return completed(false);
+        }
+
+        lastTarget = target;
+        lastDirection = direction;
+        var nextSibling = target.nextElementSibling,
+            after = false;
+        after = direction === 1;
+
+        var moveVector = _onMove(rootEl, el, dragEl, dragRect, target, targetRect, evt, after);
+
+        if (moveVector !== false) {
+          if (moveVector === 1 || moveVector === -1) {
+            after = moveVector === 1;
+          }
+
+          _silent = true;
+          setTimeout(_unsilent, 30);
+          capture();
+
+          if (after && !nextSibling) {
+            el.appendChild(dragEl);
+          } else {
+            target.parentNode.insertBefore(dragEl, after ? nextSibling : target);
+          } // Undo chrome's scroll adjustment (has no effect on other browsers)
+
+
+          if (scrolledPastTop) {
+            scrollBy(scrolledPastTop, 0, scrollBefore - scrolledPastTop.scrollTop);
+          }
+
+          parentEl = dragEl.parentNode; // actualization
+          // must be done before animation
+
+          if (targetBeforeFirstSwap !== undefined && !isCircumstantialInvert) {
+            targetMoveDistance = Math.abs(targetBeforeFirstSwap - getRect(target)[side1]);
+          }
+
+          changed();
+          return completed(true);
+        }
+      }
+
+      if (el.contains(dragEl)) {
+        return completed(false);
+      }
+    }
+
+    return false;
+  },
+  _ignoreWhileAnimating: null,
+  _offMoveEvents: function _offMoveEvents() {
+    off(document, 'mousemove', this._onTouchMove);
+    off(document, 'touchmove', this._onTouchMove);
+    off(document, 'pointermove', this._onTouchMove);
+    off(document, 'dragover', nearestEmptyInsertDetectEvent);
+    off(document, 'mousemove', nearestEmptyInsertDetectEvent);
+    off(document, 'touchmove', nearestEmptyInsertDetectEvent);
+  },
+  _offUpEvents: function _offUpEvents() {
+    var ownerDocument = this.el.ownerDocument;
+    off(ownerDocument, 'mouseup', this._onDrop);
+    off(ownerDocument, 'touchend', this._onDrop);
+    off(ownerDocument, 'pointerup', this._onDrop);
+    off(ownerDocument, 'touchcancel', this._onDrop);
+    off(document, 'selectstart', this);
+  },
+  _onDrop: function _onDrop(
+  /**Event*/
+  evt) {
+    var el = this.el,
+        options = this.options; // Get the index of the dragged element within its parent
+
+    newIndex = index(dragEl);
+    newDraggableIndex = index(dragEl, options.draggable);
+    pluginEvent('drop', this, {
+      evt: evt
+    });
+    parentEl = dragEl && dragEl.parentNode; // Get again after plugin event
+
+    newIndex = index(dragEl);
+    newDraggableIndex = index(dragEl, options.draggable);
+
+    if (Sortable.eventCanceled) {
+      this._nulling();
+
+      return;
+    }
+
+    awaitingDragStarted = false;
+    isCircumstantialInvert = false;
+    pastFirstInvertThresh = false;
+    clearInterval(this._loopId);
+    clearTimeout(this._dragStartTimer);
+
+    _cancelNextTick(this.cloneId);
+
+    _cancelNextTick(this._dragStartId); // Unbind events
+
+
+    if (this.nativeDraggable) {
+      off(document, 'drop', this);
+      off(el, 'dragstart', this._onDragStart);
+    }
+
+    this._offMoveEvents();
+
+    this._offUpEvents();
+
+    if (Safari) {
+      css(document.body, 'user-select', '');
+    }
+
+    css(dragEl, 'transform', '');
+
+    if (evt) {
+      if (moved) {
+        evt.cancelable && evt.preventDefault();
+        !options.dropBubble && evt.stopPropagation();
+      }
+
+      ghostEl && ghostEl.parentNode && ghostEl.parentNode.removeChild(ghostEl);
+
+      if (rootEl === parentEl || putSortable && putSortable.lastPutMode !== 'clone') {
+        // Remove clone(s)
+        cloneEl && cloneEl.parentNode && cloneEl.parentNode.removeChild(cloneEl);
+      }
+
+      if (dragEl) {
+        if (this.nativeDraggable) {
+          off(dragEl, 'dragend', this);
+        }
+
+        _disableDraggable(dragEl);
+
+        dragEl.style['will-change'] = ''; // Remove classes
+        // ghostClass is added in dragStarted
+
+        if (moved && !awaitingDragStarted) {
+          toggleClass(dragEl, putSortable ? putSortable.options.ghostClass : this.options.ghostClass, false);
+        }
+
+        toggleClass(dragEl, this.options.chosenClass, false); // Drag stop event
+
+        _dispatchEvent({
+          sortable: this,
+          name: 'unchoose',
+          toEl: parentEl,
+          newIndex: null,
+          newDraggableIndex: null,
+          originalEvent: evt
+        });
+
+        if (rootEl !== parentEl) {
+          if (newIndex >= 0) {
+            // Add event
+            _dispatchEvent({
+              rootEl: parentEl,
+              name: 'add',
+              toEl: parentEl,
+              fromEl: rootEl,
+              originalEvent: evt
+            }); // Remove event
+
+
+            _dispatchEvent({
+              sortable: this,
+              name: 'remove',
+              toEl: parentEl,
+              originalEvent: evt
+            }); // drag from one list and drop into another
+
+
+            _dispatchEvent({
+              rootEl: parentEl,
+              name: 'sort',
+              toEl: parentEl,
+              fromEl: rootEl,
+              originalEvent: evt
+            });
+
+            _dispatchEvent({
+              sortable: this,
+              name: 'sort',
+              toEl: parentEl,
+              originalEvent: evt
+            });
+          }
+
+          putSortable && putSortable.save();
+        } else {
+          if (newIndex !== oldIndex) {
+            if (newIndex >= 0) {
+              // drag & drop within the same list
+              _dispatchEvent({
+                sortable: this,
+                name: 'update',
+                toEl: parentEl,
+                originalEvent: evt
+              });
+
+              _dispatchEvent({
+                sortable: this,
+                name: 'sort',
+                toEl: parentEl,
+                originalEvent: evt
+              });
+            }
+          }
+        }
+
+        if (Sortable.active) {
+          /* jshint eqnull:true */
+          if (newIndex == null || newIndex === -1) {
+            newIndex = oldIndex;
+            newDraggableIndex = oldDraggableIndex;
+          }
+
+          _dispatchEvent({
+            sortable: this,
+            name: 'end',
+            toEl: parentEl,
+            originalEvent: evt
+          }); // Save sorting
+
+
+          this.save();
+        }
+      }
+    }
+
+    this._nulling();
+  },
+  _nulling: function _nulling() {
+    pluginEvent('nulling', this);
+    rootEl = dragEl = parentEl = ghostEl = nextEl = cloneEl = lastDownEl = cloneHidden = tapEvt = touchEvt = moved = newIndex = newDraggableIndex = oldIndex = oldDraggableIndex = lastTarget = lastDirection = putSortable = activeGroup = Sortable.dragged = Sortable.ghost = Sortable.clone = Sortable.active = null;
+    savedInputChecked.forEach(function (el) {
+      el.checked = true;
+    });
+    savedInputChecked.length = lastDx = lastDy = 0;
+  },
+  handleEvent: function handleEvent(
+  /**Event*/
+  evt) {
+    switch (evt.type) {
+      case 'drop':
+      case 'dragend':
+        this._onDrop(evt);
+
+        break;
+
+      case 'dragenter':
+      case 'dragover':
+        if (dragEl) {
+          this._onDragOver(evt);
+
+          _globalDragOver(evt);
+        }
+
+        break;
+
+      case 'selectstart':
+        evt.preventDefault();
+        break;
+    }
+  },
+
+  /**
+   * Serializes the item into an array of string.
+   * @returns {String[]}
+   */
+  toArray: function toArray() {
+    var order = [],
+        el,
+        children = this.el.children,
+        i = 0,
+        n = children.length,
+        options = this.options;
+
+    for (; i < n; i++) {
+      el = children[i];
+
+      if (closest(el, options.draggable, this.el, false)) {
+        order.push(el.getAttribute(options.dataIdAttr) || _generateId(el));
+      }
+    }
+
+    return order;
+  },
+
+  /**
+   * Sorts the elements according to the array.
+   * @param  {String[]}  order  order of the items
+   */
+  sort: function sort(order) {
+    var items = {},
+        rootEl = this.el;
+    this.toArray().forEach(function (id, i) {
+      var el = rootEl.children[i];
+
+      if (closest(el, this.options.draggable, rootEl, false)) {
+        items[id] = el;
+      }
+    }, this);
+    order.forEach(function (id) {
+      if (items[id]) {
+        rootEl.removeChild(items[id]);
+        rootEl.appendChild(items[id]);
+      }
+    });
+  },
+
+  /**
+   * Save the current sorting
+   */
+  save: function save() {
+    var store = this.options.store;
+    store && store.set && store.set(this);
+  },
+
+  /**
+   * For each element in the set, get the first element that matches the selector by testing the element itself and traversing up through its ancestors in the DOM tree.
+   * @param   {HTMLElement}  el
+   * @param   {String}       [selector]  default: `options.draggable`
+   * @returns {HTMLElement|null}
+   */
+  closest: function closest$1(el, selector) {
+    return closest(el, selector || this.options.draggable, this.el, false);
+  },
+
+  /**
+   * Set/get option
+   * @param   {string} name
+   * @param   {*}      [value]
+   * @returns {*}
+   */
+  option: function option(name, value) {
+    var options = this.options;
+
+    if (value === void 0) {
+      return options[name];
+    } else {
+      var modifiedValue = PluginManager.modifyOption(this, name, value);
+
+      if (typeof modifiedValue !== 'undefined') {
+        options[name] = modifiedValue;
+      } else {
+        options[name] = value;
+      }
+
+      if (name === 'group') {
+        _prepareGroup(options);
+      }
+    }
+  },
+
+  /**
+   * Destroy
+   */
+  destroy: function destroy() {
+    pluginEvent('destroy', this);
+    var el = this.el;
+    el[expando] = null;
+    off(el, 'mousedown', this._onTapStart);
+    off(el, 'touchstart', this._onTapStart);
+    off(el, 'pointerdown', this._onTapStart);
+
+    if (this.nativeDraggable) {
+      off(el, 'dragover', this);
+      off(el, 'dragenter', this);
+    } // Remove draggable attributes
+
+
+    Array.prototype.forEach.call(el.querySelectorAll('[draggable]'), function (el) {
+      el.removeAttribute('draggable');
+    });
+
+    this._onDrop();
+
+    this._disableDelayedDragEvents();
+
+    sortables.splice(sortables.indexOf(this.el), 1);
+    this.el = el = null;
+  },
+  _hideClone: function _hideClone() {
+    if (!cloneHidden) {
+      pluginEvent('hideClone', this);
+      if (Sortable.eventCanceled) return;
+      css(cloneEl, 'display', 'none');
+
+      if (this.options.removeCloneOnHide && cloneEl.parentNode) {
+        cloneEl.parentNode.removeChild(cloneEl);
+      }
+
+      cloneHidden = true;
+    }
+  },
+  _showClone: function _showClone(putSortable) {
+    if (putSortable.lastPutMode !== 'clone') {
+      this._hideClone();
+
+      return;
+    }
+
+    if (cloneHidden) {
+      pluginEvent('showClone', this);
+      if (Sortable.eventCanceled) return; // show clone at dragEl or original position
+
+      if (rootEl.contains(dragEl) && !this.options.group.revertClone) {
+        rootEl.insertBefore(cloneEl, dragEl);
+      } else if (nextEl) {
+        rootEl.insertBefore(cloneEl, nextEl);
+      } else {
+        rootEl.appendChild(cloneEl);
+      }
+
+      if (this.options.group.revertClone) {
+        this.animate(dragEl, cloneEl);
+      }
+
+      css(cloneEl, 'display', '');
+      cloneHidden = false;
+    }
+  }
+};
+
+function _globalDragOver(
+/**Event*/
+evt) {
+  if (evt.dataTransfer) {
+    evt.dataTransfer.dropEffect = 'move';
+  }
+
+  evt.cancelable && evt.preventDefault();
+}
+
+function _onMove(fromEl, toEl, dragEl, dragRect, targetEl, targetRect, originalEvent, willInsertAfter) {
+  var evt,
+      sortable = fromEl[expando],
+      onMoveFn = sortable.options.onMove,
+      retVal; // Support for new CustomEvent feature
+
+  if (window.CustomEvent && !IE11OrLess && !Edge) {
+    evt = new CustomEvent('move', {
+      bubbles: true,
+      cancelable: true
+    });
+  } else {
+    evt = document.createEvent('Event');
+    evt.initEvent('move', true, true);
+  }
+
+  evt.to = toEl;
+  evt.from = fromEl;
+  evt.dragged = dragEl;
+  evt.draggedRect = dragRect;
+  evt.related = targetEl || toEl;
+  evt.relatedRect = targetRect || getRect(toEl);
+  evt.willInsertAfter = willInsertAfter;
+  evt.originalEvent = originalEvent;
+  fromEl.dispatchEvent(evt);
+
+  if (onMoveFn) {
+    retVal = onMoveFn.call(sortable, evt, originalEvent);
+  }
+
+  return retVal;
+}
+
+function _disableDraggable(el) {
+  el.draggable = false;
+}
+
+function _unsilent() {
+  _silent = false;
+}
+
+function _ghostIsLast(evt, vertical, sortable) {
+  var rect = getRect(lastChild(sortable.el, sortable.options.draggable));
+  var spacer = 10;
+  return vertical ? evt.clientX > rect.right + spacer || evt.clientX <= rect.right && evt.clientY > rect.bottom && evt.clientX >= rect.left : evt.clientX > rect.right && evt.clientY > rect.top || evt.clientX <= rect.right && evt.clientY > rect.bottom + spacer;
+}
+
+function _getSwapDirection(evt, target, targetRect, vertical, swapThreshold, invertedSwapThreshold, invertSwap, isLastTarget) {
+  var mouseOnAxis = vertical ? evt.clientY : evt.clientX,
+      targetLength = vertical ? targetRect.height : targetRect.width,
+      targetS1 = vertical ? targetRect.top : targetRect.left,
+      targetS2 = vertical ? targetRect.bottom : targetRect.right,
+      invert = false;
+
+  if (!invertSwap) {
+    // Never invert or create dragEl shadow when target movemenet causes mouse to move past the end of regular swapThreshold
+    if (isLastTarget && targetMoveDistance < targetLength * swapThreshold) {
+      // multiplied only by swapThreshold because mouse will already be inside target by (1 - threshold) * targetLength / 2
+      // check if past first invert threshold on side opposite of lastDirection
+      if (!pastFirstInvertThresh && (lastDirection === 1 ? mouseOnAxis > targetS1 + targetLength * invertedSwapThreshold / 2 : mouseOnAxis < targetS2 - targetLength * invertedSwapThreshold / 2)) {
+        // past first invert threshold, do not restrict inverted threshold to dragEl shadow
+        pastFirstInvertThresh = true;
+      }
+
+      if (!pastFirstInvertThresh) {
+        // dragEl shadow (target move distance shadow)
+        if (lastDirection === 1 ? mouseOnAxis < targetS1 + targetMoveDistance // over dragEl shadow
+        : mouseOnAxis > targetS2 - targetMoveDistance) {
+          return -lastDirection;
+        }
+      } else {
+        invert = true;
+      }
+    } else {
+      // Regular
+      if (mouseOnAxis > targetS1 + targetLength * (1 - swapThreshold) / 2 && mouseOnAxis < targetS2 - targetLength * (1 - swapThreshold) / 2) {
+        return _getInsertDirection(target);
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
+      }
+    }
+  }
+
+<<<<<<< HEAD
   function _defineProperty(obj, key, value) {
     if (key in obj) {
       Object.defineProperty(obj, key, {
@@ -701,6 +3270,3155 @@ if(false) {}
 
       return acc;
     }, {});
+=======
+  invert = invert || invertSwap;
+
+  if (invert) {
+    // Invert of regular
+    if (mouseOnAxis < targetS1 + targetLength * invertedSwapThreshold / 2 || mouseOnAxis > targetS2 - targetLength * invertedSwapThreshold / 2) {
+      return mouseOnAxis > targetS1 + targetLength / 2 ? 1 : -1;
+    }
+  }
+
+  return 0;
+}
+/**
+ * Gets the direction dragEl must be swapped relative to target in order to make it
+ * seem that dragEl has been "inserted" into that element's position
+ * @param  {HTMLElement} target       The target whose position dragEl is being inserted at
+ * @return {Number}                   Direction dragEl must be swapped
+ */
+
+
+function _getInsertDirection(target) {
+  if (index(dragEl) < index(target)) {
+    return 1;
+  } else {
+    return -1;
+  }
+}
+/**
+ * Generate id
+ * @param   {HTMLElement} el
+ * @returns {String}
+ * @private
+ */
+
+
+function _generateId(el) {
+  var str = el.tagName + el.className + el.src + el.href + el.textContent,
+      i = str.length,
+      sum = 0;
+
+  while (i--) {
+    sum += str.charCodeAt(i);
+  }
+
+  return sum.toString(36);
+}
+
+function _saveInputCheckedState(root) {
+  savedInputChecked.length = 0;
+  var inputs = root.getElementsByTagName('input');
+  var idx = inputs.length;
+
+  while (idx--) {
+    var el = inputs[idx];
+    el.checked && savedInputChecked.push(el);
+  }
+}
+
+function _nextTick(fn) {
+  return setTimeout(fn, 0);
+}
+
+function _cancelNextTick(id) {
+  return clearTimeout(id);
+} // Fixed #973:
+
+
+if (documentExists) {
+  on(document, 'touchmove', function (evt) {
+    if ((Sortable.active || awaitingDragStarted) && evt.cancelable) {
+      evt.preventDefault();
+    }
+  });
+} // Export utils
+
+
+Sortable.utils = {
+  on: on,
+  off: off,
+  css: css,
+  find: find,
+  is: function is(el, selector) {
+    return !!closest(el, selector, el, false);
+  },
+  extend: extend,
+  throttle: throttle,
+  closest: closest,
+  toggleClass: toggleClass,
+  clone: clone,
+  index: index,
+  nextTick: _nextTick,
+  cancelNextTick: _cancelNextTick,
+  detectDirection: _detectDirection,
+  getChild: getChild
+};
+/**
+ * Get the Sortable instance of an element
+ * @param  {HTMLElement} element The element
+ * @return {Sortable|undefined}         The instance of Sortable
+ */
+
+Sortable.get = function (element) {
+  return element[expando];
+};
+/**
+ * Mount a plugin to Sortable
+ * @param  {...SortablePlugin|SortablePlugin[]} plugins       Plugins being mounted
+ */
+
+
+Sortable.mount = function () {
+  for (var _len = arguments.length, plugins = new Array(_len), _key = 0; _key < _len; _key++) {
+    plugins[_key] = arguments[_key];
+  }
+
+  if (plugins[0].constructor === Array) plugins = plugins[0];
+  plugins.forEach(function (plugin) {
+    if (!plugin.prototype || !plugin.prototype.constructor) {
+      throw "Sortable: Mounted plugin must be a constructor function, not ".concat({}.toString.call(plugin));
+    }
+
+    if (plugin.utils) Sortable.utils = _objectSpread({}, Sortable.utils, plugin.utils);
+    PluginManager.mount(plugin);
+  });
+};
+/**
+ * Create sortable instance
+ * @param {HTMLElement}  el
+ * @param {Object}      [options]
+ */
+
+
+Sortable.create = function (el, options) {
+  return new Sortable(el, options);
+}; // Export
+
+
+Sortable.version = version;
+
+var autoScrolls = [],
+    scrollEl,
+    scrollRootEl,
+    scrolling = false,
+    lastAutoScrollX,
+    lastAutoScrollY,
+    touchEvt$1,
+    pointerElemChangedInterval;
+
+function AutoScrollPlugin() {
+  function AutoScroll() {
+    this.defaults = {
+      scroll: true,
+      scrollSensitivity: 30,
+      scrollSpeed: 10,
+      bubbleScroll: true
+    }; // Bind all private methods
+
+    for (var fn in this) {
+      if (fn.charAt(0) === '_' && typeof this[fn] === 'function') {
+        this[fn] = this[fn].bind(this);
+      }
+    }
+  }
+
+  AutoScroll.prototype = {
+    dragStarted: function dragStarted(_ref) {
+      var originalEvent = _ref.originalEvent;
+
+      if (this.sortable.nativeDraggable) {
+        on(document, 'dragover', this._handleAutoScroll);
+      } else {
+        if (this.options.supportPointer) {
+          on(document, 'pointermove', this._handleFallbackAutoScroll);
+        } else if (originalEvent.touches) {
+          on(document, 'touchmove', this._handleFallbackAutoScroll);
+        } else {
+          on(document, 'mousemove', this._handleFallbackAutoScroll);
+        }
+      }
+    },
+    dragOverCompleted: function dragOverCompleted(_ref2) {
+      var originalEvent = _ref2.originalEvent;
+
+      // For when bubbling is canceled and using fallback (fallback 'touchmove' always reached)
+      if (!this.options.dragOverBubble && !originalEvent.rootEl) {
+        this._handleAutoScroll(originalEvent);
+      }
+    },
+    drop: function drop() {
+      if (this.sortable.nativeDraggable) {
+        off(document, 'dragover', this._handleAutoScroll);
+      } else {
+        off(document, 'pointermove', this._handleFallbackAutoScroll);
+        off(document, 'touchmove', this._handleFallbackAutoScroll);
+        off(document, 'mousemove', this._handleFallbackAutoScroll);
+      }
+
+      clearPointerElemChangedInterval();
+      clearAutoScrolls();
+      cancelThrottle();
+    },
+    nulling: function nulling() {
+      touchEvt$1 = scrollRootEl = scrollEl = scrolling = pointerElemChangedInterval = lastAutoScrollX = lastAutoScrollY = null;
+      autoScrolls.length = 0;
+    },
+    _handleFallbackAutoScroll: function _handleFallbackAutoScroll(evt) {
+      this._handleAutoScroll(evt, true);
+    },
+    _handleAutoScroll: function _handleAutoScroll(evt, fallback) {
+      var _this = this;
+
+      var x = (evt.touches ? evt.touches[0] : evt).clientX,
+          y = (evt.touches ? evt.touches[0] : evt).clientY,
+          elem = document.elementFromPoint(x, y);
+      touchEvt$1 = evt; // IE does not seem to have native autoscroll,
+      // Edge's autoscroll seems too conditional,
+      // MACOS Safari does not have autoscroll,
+      // Firefox and Chrome are good
+
+      if (fallback || Edge || IE11OrLess || Safari) {
+        autoScroll(evt, this.options, elem, fallback); // Listener for pointer element change
+
+        var ogElemScroller = getParentAutoScrollElement(elem, true);
+
+        if (scrolling && (!pointerElemChangedInterval || x !== lastAutoScrollX || y !== lastAutoScrollY)) {
+          pointerElemChangedInterval && clearPointerElemChangedInterval(); // Detect for pointer elem change, emulating native DnD behaviour
+
+          pointerElemChangedInterval = setInterval(function () {
+            var newElem = getParentAutoScrollElement(document.elementFromPoint(x, y), true);
+
+            if (newElem !== ogElemScroller) {
+              ogElemScroller = newElem;
+              clearAutoScrolls();
+            }
+
+            autoScroll(evt, _this.options, newElem, fallback);
+          }, 10);
+          lastAutoScrollX = x;
+          lastAutoScrollY = y;
+        }
+      } else {
+        // if DnD is enabled (and browser has good autoscrolling), first autoscroll will already scroll, so get parent autoscroll of first autoscroll
+        if (!this.options.bubbleScroll || getParentAutoScrollElement(elem, true) === getWindowScrollingElement()) {
+          clearAutoScrolls();
+          return;
+        }
+
+        autoScroll(evt, this.options, getParentAutoScrollElement(elem, false), false);
+      }
+    }
+  };
+  return _extends(AutoScroll, {
+    pluginName: 'scroll',
+    initializeByDefault: true
+  });
+}
+
+function clearAutoScrolls() {
+  autoScrolls.forEach(function (autoScroll) {
+    clearInterval(autoScroll.pid);
+  });
+  autoScrolls = [];
+}
+
+function clearPointerElemChangedInterval() {
+  clearInterval(pointerElemChangedInterval);
+}
+
+var autoScroll = throttle(function (evt, options, rootEl, isFallback) {
+  // Bug: https://bugzilla.mozilla.org/show_bug.cgi?id=505521
+  if (!options.scroll) return;
+  var x = (evt.touches ? evt.touches[0] : evt).clientX,
+      y = (evt.touches ? evt.touches[0] : evt).clientY,
+      sens = options.scrollSensitivity,
+      speed = options.scrollSpeed,
+      winScroller = getWindowScrollingElement();
+  var scrollThisInstance = false,
+      scrollCustomFn; // New scroll root, set scrollEl
+
+  if (scrollRootEl !== rootEl) {
+    scrollRootEl = rootEl;
+    clearAutoScrolls();
+    scrollEl = options.scroll;
+    scrollCustomFn = options.scrollFn;
+
+    if (scrollEl === true) {
+      scrollEl = getParentAutoScrollElement(rootEl, true);
+    }
+  }
+
+  var layersOut = 0;
+  var currentParent = scrollEl;
+
+  do {
+    var el = currentParent,
+        rect = getRect(el),
+        top = rect.top,
+        bottom = rect.bottom,
+        left = rect.left,
+        right = rect.right,
+        width = rect.width,
+        height = rect.height,
+        canScrollX = void 0,
+        canScrollY = void 0,
+        scrollWidth = el.scrollWidth,
+        scrollHeight = el.scrollHeight,
+        elCSS = css(el),
+        scrollPosX = el.scrollLeft,
+        scrollPosY = el.scrollTop;
+
+    if (el === winScroller) {
+      canScrollX = width < scrollWidth && (elCSS.overflowX === 'auto' || elCSS.overflowX === 'scroll' || elCSS.overflowX === 'visible');
+      canScrollY = height < scrollHeight && (elCSS.overflowY === 'auto' || elCSS.overflowY === 'scroll' || elCSS.overflowY === 'visible');
+    } else {
+      canScrollX = width < scrollWidth && (elCSS.overflowX === 'auto' || elCSS.overflowX === 'scroll');
+      canScrollY = height < scrollHeight && (elCSS.overflowY === 'auto' || elCSS.overflowY === 'scroll');
+    }
+
+    var vx = canScrollX && (Math.abs(right - x) <= sens && scrollPosX + width < scrollWidth) - (Math.abs(left - x) <= sens && !!scrollPosX);
+    var vy = canScrollY && (Math.abs(bottom - y) <= sens && scrollPosY + height < scrollHeight) - (Math.abs(top - y) <= sens && !!scrollPosY);
+
+    if (!autoScrolls[layersOut]) {
+      for (var i = 0; i <= layersOut; i++) {
+        if (!autoScrolls[i]) {
+          autoScrolls[i] = {};
+        }
+      }
+    }
+
+    if (autoScrolls[layersOut].vx != vx || autoScrolls[layersOut].vy != vy || autoScrolls[layersOut].el !== el) {
+      autoScrolls[layersOut].el = el;
+      autoScrolls[layersOut].vx = vx;
+      autoScrolls[layersOut].vy = vy;
+      clearInterval(autoScrolls[layersOut].pid);
+
+      if (vx != 0 || vy != 0) {
+        scrollThisInstance = true;
+        /* jshint loopfunc:true */
+
+        autoScrolls[layersOut].pid = setInterval(function () {
+          // emulate drag over during autoscroll (fallback), emulating native DnD behaviour
+          if (isFallback && this.layer === 0) {
+            Sortable.active._onTouchMove(touchEvt$1); // To move ghost if it is positioned absolutely
+
+          }
+
+          var scrollOffsetY = autoScrolls[this.layer].vy ? autoScrolls[this.layer].vy * speed : 0;
+          var scrollOffsetX = autoScrolls[this.layer].vx ? autoScrolls[this.layer].vx * speed : 0;
+
+          if (typeof scrollCustomFn === 'function') {
+            if (scrollCustomFn.call(Sortable.dragged.parentNode[expando], scrollOffsetX, scrollOffsetY, evt, touchEvt$1, autoScrolls[this.layer].el) !== 'continue') {
+              return;
+            }
+          }
+
+          scrollBy(autoScrolls[this.layer].el, scrollOffsetX, scrollOffsetY);
+        }.bind({
+          layer: layersOut
+        }), 24);
+      }
+    }
+
+    layersOut++;
+  } while (options.bubbleScroll && currentParent !== winScroller && (currentParent = getParentAutoScrollElement(currentParent, false)));
+
+  scrolling = scrollThisInstance; // in case another function catches scrolling as false in between when it is not
+}, 30);
+
+var drop = function drop(_ref) {
+  var originalEvent = _ref.originalEvent,
+      putSortable = _ref.putSortable,
+      dragEl = _ref.dragEl,
+      activeSortable = _ref.activeSortable,
+      dispatchSortableEvent = _ref.dispatchSortableEvent,
+      hideGhostForTarget = _ref.hideGhostForTarget,
+      unhideGhostForTarget = _ref.unhideGhostForTarget;
+  if (!originalEvent) return;
+  var toSortable = putSortable || activeSortable;
+  hideGhostForTarget();
+  var touch = originalEvent.changedTouches && originalEvent.changedTouches.length ? originalEvent.changedTouches[0] : originalEvent;
+  var target = document.elementFromPoint(touch.clientX, touch.clientY);
+  unhideGhostForTarget();
+
+  if (toSortable && !toSortable.el.contains(target)) {
+    dispatchSortableEvent('spill');
+    this.onSpill({
+      dragEl: dragEl,
+      putSortable: putSortable
+    });
+  }
+};
+
+function Revert() {}
+
+Revert.prototype = {
+  startIndex: null,
+  dragStart: function dragStart(_ref2) {
+    var oldDraggableIndex = _ref2.oldDraggableIndex;
+    this.startIndex = oldDraggableIndex;
+  },
+  onSpill: function onSpill(_ref3) {
+    var dragEl = _ref3.dragEl,
+        putSortable = _ref3.putSortable;
+    this.sortable.captureAnimationState();
+
+    if (putSortable) {
+      putSortable.captureAnimationState();
+    }
+
+    var nextSibling = getChild(this.sortable.el, this.startIndex, this.options);
+
+    if (nextSibling) {
+      this.sortable.el.insertBefore(dragEl, nextSibling);
+    } else {
+      this.sortable.el.appendChild(dragEl);
+    }
+
+    this.sortable.animateAll();
+
+    if (putSortable) {
+      putSortable.animateAll();
+    }
+  },
+  drop: drop
+};
+
+_extends(Revert, {
+  pluginName: 'revertOnSpill'
+});
+
+function Remove() {}
+
+Remove.prototype = {
+  onSpill: function onSpill(_ref4) {
+    var dragEl = _ref4.dragEl,
+        putSortable = _ref4.putSortable;
+    var parentSortable = putSortable || this.sortable;
+    parentSortable.captureAnimationState();
+    dragEl.parentNode && dragEl.parentNode.removeChild(dragEl);
+    parentSortable.animateAll();
+  },
+  drop: drop
+};
+
+_extends(Remove, {
+  pluginName: 'removeOnSpill'
+});
+
+var lastSwapEl;
+
+function SwapPlugin() {
+  function Swap() {
+    this.defaults = {
+      swapClass: 'sortable-swap-highlight'
+    };
+  }
+
+  Swap.prototype = {
+    dragStart: function dragStart(_ref) {
+      var dragEl = _ref.dragEl;
+      lastSwapEl = dragEl;
+    },
+    dragOverValid: function dragOverValid(_ref2) {
+      var completed = _ref2.completed,
+          target = _ref2.target,
+          onMove = _ref2.onMove,
+          activeSortable = _ref2.activeSortable,
+          changed = _ref2.changed,
+          cancel = _ref2.cancel;
+      if (!activeSortable.options.swap) return;
+      var el = this.sortable.el,
+          options = this.options;
+
+      if (target && target !== el) {
+        var prevSwapEl = lastSwapEl;
+
+        if (onMove(target) !== false) {
+          toggleClass(target, options.swapClass, true);
+          lastSwapEl = target;
+        } else {
+          lastSwapEl = null;
+        }
+
+        if (prevSwapEl && prevSwapEl !== lastSwapEl) {
+          toggleClass(prevSwapEl, options.swapClass, false);
+        }
+      }
+
+      changed();
+      completed(true);
+      cancel();
+    },
+    drop: function drop(_ref3) {
+      var activeSortable = _ref3.activeSortable,
+          putSortable = _ref3.putSortable,
+          dragEl = _ref3.dragEl;
+      var toSortable = putSortable || this.sortable;
+      var options = this.options;
+      lastSwapEl && toggleClass(lastSwapEl, options.swapClass, false);
+
+      if (lastSwapEl && (options.swap || putSortable && putSortable.options.swap)) {
+        if (dragEl !== lastSwapEl) {
+          toSortable.captureAnimationState();
+          if (toSortable !== activeSortable) activeSortable.captureAnimationState();
+          swapNodes(dragEl, lastSwapEl);
+          toSortable.animateAll();
+          if (toSortable !== activeSortable) activeSortable.animateAll();
+        }
+      }
+    },
+    nulling: function nulling() {
+      lastSwapEl = null;
+    }
+  };
+  return _extends(Swap, {
+    pluginName: 'swap',
+    eventProperties: function eventProperties() {
+      return {
+        swapItem: lastSwapEl
+      };
+    }
+  });
+}
+
+function swapNodes(n1, n2) {
+  var p1 = n1.parentNode,
+      p2 = n2.parentNode,
+      i1,
+      i2;
+  if (!p1 || !p2 || p1.isEqualNode(n2) || p2.isEqualNode(n1)) return;
+  i1 = index(n1);
+  i2 = index(n2);
+
+  if (p1.isEqualNode(p2) && i1 < i2) {
+    i2++;
+  }
+
+  p1.insertBefore(n2, p1.children[i1]);
+  p2.insertBefore(n1, p2.children[i2]);
+}
+
+var multiDragElements = [],
+    multiDragClones = [],
+    lastMultiDragSelect,
+    // for selection with modifier key down (SHIFT)
+multiDragSortable,
+    initialFolding = false,
+    // Initial multi-drag fold when drag started
+folding = false,
+    // Folding any other time
+dragStarted = false,
+    dragEl$1,
+    clonesFromRect,
+    clonesHidden;
+
+function MultiDragPlugin() {
+  function MultiDrag(sortable) {
+    // Bind all private methods
+    for (var fn in this) {
+      if (fn.charAt(0) === '_' && typeof this[fn] === 'function') {
+        this[fn] = this[fn].bind(this);
+      }
+    }
+
+    if (sortable.options.supportPointer) {
+      on(document, 'pointerup', this._deselectMultiDrag);
+    } else {
+      on(document, 'mouseup', this._deselectMultiDrag);
+      on(document, 'touchend', this._deselectMultiDrag);
+    }
+
+    on(document, 'keydown', this._checkKeyDown);
+    on(document, 'keyup', this._checkKeyUp);
+    this.defaults = {
+      selectedClass: 'sortable-selected',
+      multiDragKey: null,
+      setData: function setData(dataTransfer, dragEl) {
+        var data = '';
+
+        if (multiDragElements.length && multiDragSortable === sortable) {
+          multiDragElements.forEach(function (multiDragElement, i) {
+            data += (!i ? '' : ', ') + multiDragElement.textContent;
+          });
+        } else {
+          data = dragEl.textContent;
+        }
+
+        dataTransfer.setData('Text', data);
+      }
+    };
+  }
+
+  MultiDrag.prototype = {
+    multiDragKeyDown: false,
+    isMultiDrag: false,
+    delayStartGlobal: function delayStartGlobal(_ref) {
+      var dragged = _ref.dragEl;
+      dragEl$1 = dragged;
+    },
+    delayEnded: function delayEnded() {
+      this.isMultiDrag = ~multiDragElements.indexOf(dragEl$1);
+    },
+    setupClone: function setupClone(_ref2) {
+      var sortable = _ref2.sortable,
+          cancel = _ref2.cancel;
+      if (!this.isMultiDrag) return;
+
+      for (var i = 0; i < multiDragElements.length; i++) {
+        multiDragClones.push(clone(multiDragElements[i]));
+        multiDragClones[i].sortableIndex = multiDragElements[i].sortableIndex;
+        multiDragClones[i].draggable = false;
+        multiDragClones[i].style['will-change'] = '';
+        toggleClass(multiDragClones[i], this.options.selectedClass, false);
+        multiDragElements[i] === dragEl$1 && toggleClass(multiDragClones[i], this.options.chosenClass, false);
+      }
+
+      sortable._hideClone();
+
+      cancel();
+    },
+    clone: function clone(_ref3) {
+      var sortable = _ref3.sortable,
+          rootEl = _ref3.rootEl,
+          dispatchSortableEvent = _ref3.dispatchSortableEvent,
+          cancel = _ref3.cancel;
+      if (!this.isMultiDrag) return;
+
+      if (!this.options.removeCloneOnHide) {
+        if (multiDragElements.length && multiDragSortable === sortable) {
+          insertMultiDragClones(true, rootEl);
+          dispatchSortableEvent('clone');
+          cancel();
+        }
+      }
+    },
+    showClone: function showClone(_ref4) {
+      var cloneNowShown = _ref4.cloneNowShown,
+          rootEl = _ref4.rootEl,
+          cancel = _ref4.cancel;
+      if (!this.isMultiDrag) return;
+      insertMultiDragClones(false, rootEl);
+      multiDragClones.forEach(function (clone) {
+        css(clone, 'display', '');
+      });
+      cloneNowShown();
+      clonesHidden = false;
+      cancel();
+    },
+    hideClone: function hideClone(_ref5) {
+      var _this = this;
+
+      var sortable = _ref5.sortable,
+          cloneNowHidden = _ref5.cloneNowHidden,
+          cancel = _ref5.cancel;
+      if (!this.isMultiDrag) return;
+      multiDragClones.forEach(function (clone) {
+        css(clone, 'display', 'none');
+
+        if (_this.options.removeCloneOnHide && clone.parentNode) {
+          clone.parentNode.removeChild(clone);
+        }
+      });
+      cloneNowHidden();
+      clonesHidden = true;
+      cancel();
+    },
+    dragStartGlobal: function dragStartGlobal(_ref6) {
+      var sortable = _ref6.sortable;
+
+      if (!this.isMultiDrag && multiDragSortable) {
+        multiDragSortable.multiDrag._deselectMultiDrag();
+      }
+
+      multiDragElements.forEach(function (multiDragElement) {
+        multiDragElement.sortableIndex = index(multiDragElement);
+      }); // Sort multi-drag elements
+
+      multiDragElements = multiDragElements.sort(function (a, b) {
+        return a.sortableIndex - b.sortableIndex;
+      });
+      dragStarted = true;
+    },
+    dragStarted: function dragStarted(_ref7) {
+      var _this2 = this;
+
+      var sortable = _ref7.sortable;
+      if (!this.isMultiDrag) return;
+
+      if (this.options.sort) {
+        // Capture rects,
+        // hide multi drag elements (by positioning them absolute),
+        // set multi drag elements rects to dragRect,
+        // show multi drag elements,
+        // animate to rects,
+        // unset rects & remove from DOM
+        sortable.captureAnimationState();
+
+        if (this.options.animation) {
+          multiDragElements.forEach(function (multiDragElement) {
+            if (multiDragElement === dragEl$1) return;
+            css(multiDragElement, 'position', 'absolute');
+          });
+          var dragRect = getRect(dragEl$1, false, true, true);
+          multiDragElements.forEach(function (multiDragElement) {
+            if (multiDragElement === dragEl$1) return;
+            setRect(multiDragElement, dragRect);
+          });
+          folding = true;
+          initialFolding = true;
+        }
+      }
+
+      sortable.animateAll(function () {
+        folding = false;
+        initialFolding = false;
+
+        if (_this2.options.animation) {
+          multiDragElements.forEach(function (multiDragElement) {
+            unsetRect(multiDragElement);
+          });
+        } // Remove all auxiliary multidrag items from el, if sorting enabled
+
+
+        if (_this2.options.sort) {
+          removeMultiDragElements();
+        }
+      });
+    },
+    dragOver: function dragOver(_ref8) {
+      var target = _ref8.target,
+          completed = _ref8.completed,
+          cancel = _ref8.cancel;
+
+      if (folding && ~multiDragElements.indexOf(target)) {
+        completed(false);
+        cancel();
+      }
+    },
+    revert: function revert(_ref9) {
+      var fromSortable = _ref9.fromSortable,
+          rootEl = _ref9.rootEl,
+          sortable = _ref9.sortable,
+          dragRect = _ref9.dragRect;
+
+      if (multiDragElements.length > 1) {
+        // Setup unfold animation
+        multiDragElements.forEach(function (multiDragElement) {
+          sortable.addAnimationState({
+            target: multiDragElement,
+            rect: folding ? getRect(multiDragElement) : dragRect
+          });
+          unsetRect(multiDragElement);
+          multiDragElement.fromRect = dragRect;
+          fromSortable.removeAnimationState(multiDragElement);
+        });
+        folding = false;
+        insertMultiDragElements(!this.options.removeCloneOnHide, rootEl);
+      }
+    },
+    dragOverCompleted: function dragOverCompleted(_ref10) {
+      var sortable = _ref10.sortable,
+          isOwner = _ref10.isOwner,
+          insertion = _ref10.insertion,
+          activeSortable = _ref10.activeSortable,
+          parentEl = _ref10.parentEl,
+          putSortable = _ref10.putSortable;
+      var options = this.options;
+
+      if (insertion) {
+        // Clones must be hidden before folding animation to capture dragRectAbsolute properly
+        if (isOwner) {
+          activeSortable._hideClone();
+        }
+
+        initialFolding = false; // If leaving sort:false root, or already folding - Fold to new location
+
+        if (options.animation && multiDragElements.length > 1 && (folding || !isOwner && !activeSortable.options.sort && !putSortable)) {
+          // Fold: Set all multi drag elements's rects to dragEl's rect when multi-drag elements are invisible
+          var dragRectAbsolute = getRect(dragEl$1, false, true, true);
+          multiDragElements.forEach(function (multiDragElement) {
+            if (multiDragElement === dragEl$1) return;
+            setRect(multiDragElement, dragRectAbsolute); // Move element(s) to end of parentEl so that it does not interfere with multi-drag clones insertion if they are inserted
+            // while folding, and so that we can capture them again because old sortable will no longer be fromSortable
+
+            parentEl.appendChild(multiDragElement);
+          });
+          folding = true;
+        } // Clones must be shown (and check to remove multi drags) after folding when interfering multiDragElements are moved out
+
+
+        if (!isOwner) {
+          // Only remove if not folding (folding will remove them anyways)
+          if (!folding) {
+            removeMultiDragElements();
+          }
+
+          if (multiDragElements.length > 1) {
+            var clonesHiddenBefore = clonesHidden;
+
+            activeSortable._showClone(sortable); // Unfold animation for clones if showing from hidden
+
+
+            if (activeSortable.options.animation && !clonesHidden && clonesHiddenBefore) {
+              multiDragClones.forEach(function (clone) {
+                activeSortable.addAnimationState({
+                  target: clone,
+                  rect: clonesFromRect
+                });
+                clone.fromRect = clonesFromRect;
+                clone.thisAnimationDuration = null;
+              });
+            }
+          } else {
+            activeSortable._showClone(sortable);
+          }
+        }
+      }
+    },
+    dragOverAnimationCapture: function dragOverAnimationCapture(_ref11) {
+      var dragRect = _ref11.dragRect,
+          isOwner = _ref11.isOwner,
+          activeSortable = _ref11.activeSortable;
+      multiDragElements.forEach(function (multiDragElement) {
+        multiDragElement.thisAnimationDuration = null;
+      });
+
+      if (activeSortable.options.animation && !isOwner && activeSortable.multiDrag.isMultiDrag) {
+        clonesFromRect = _extends({}, dragRect);
+        var dragMatrix = matrix(dragEl$1, true);
+        clonesFromRect.top -= dragMatrix.f;
+        clonesFromRect.left -= dragMatrix.e;
+      }
+    },
+    dragOverAnimationComplete: function dragOverAnimationComplete() {
+      if (folding) {
+        folding = false;
+        removeMultiDragElements();
+      }
+    },
+    drop: function drop(_ref12) {
+      var evt = _ref12.originalEvent,
+          rootEl = _ref12.rootEl,
+          parentEl = _ref12.parentEl,
+          sortable = _ref12.sortable,
+          dispatchSortableEvent = _ref12.dispatchSortableEvent,
+          oldIndex = _ref12.oldIndex,
+          putSortable = _ref12.putSortable;
+      var toSortable = putSortable || this.sortable;
+      if (!evt) return;
+      var options = this.options,
+          children = parentEl.children; // Multi-drag selection
+
+      if (!dragStarted) {
+        if (options.multiDragKey && !this.multiDragKeyDown) {
+          this._deselectMultiDrag();
+        }
+
+        toggleClass(dragEl$1, options.selectedClass, !~multiDragElements.indexOf(dragEl$1));
+
+        if (!~multiDragElements.indexOf(dragEl$1)) {
+          multiDragElements.push(dragEl$1);
+          dispatchEvent({
+            sortable: sortable,
+            rootEl: rootEl,
+            name: 'select',
+            targetEl: dragEl$1,
+            originalEvt: evt
+          }); // Modifier activated, select from last to dragEl
+
+          if (evt.shiftKey && lastMultiDragSelect && sortable.el.contains(lastMultiDragSelect)) {
+            var lastIndex = index(lastMultiDragSelect),
+                currentIndex = index(dragEl$1);
+
+            if (~lastIndex && ~currentIndex && lastIndex !== currentIndex) {
+              // Must include lastMultiDragSelect (select it), in case modified selection from no selection
+              // (but previous selection existed)
+              var n, i;
+
+              if (currentIndex > lastIndex) {
+                i = lastIndex;
+                n = currentIndex;
+              } else {
+                i = currentIndex;
+                n = lastIndex + 1;
+              }
+
+              for (; i < n; i++) {
+                if (~multiDragElements.indexOf(children[i])) continue;
+                toggleClass(children[i], options.selectedClass, true);
+                multiDragElements.push(children[i]);
+                dispatchEvent({
+                  sortable: sortable,
+                  rootEl: rootEl,
+                  name: 'select',
+                  targetEl: children[i],
+                  originalEvt: evt
+                });
+              }
+            }
+          } else {
+            lastMultiDragSelect = dragEl$1;
+          }
+
+          multiDragSortable = toSortable;
+        } else {
+          multiDragElements.splice(multiDragElements.indexOf(dragEl$1), 1);
+          lastMultiDragSelect = null;
+          dispatchEvent({
+            sortable: sortable,
+            rootEl: rootEl,
+            name: 'deselect',
+            targetEl: dragEl$1,
+            originalEvt: evt
+          });
+        }
+      } // Multi-drag drop
+
+
+      if (dragStarted && this.isMultiDrag) {
+        // Do not "unfold" after around dragEl if reverted
+        if ((parentEl[expando].options.sort || parentEl !== rootEl) && multiDragElements.length > 1) {
+          var dragRect = getRect(dragEl$1),
+              multiDragIndex = index(dragEl$1, ':not(.' + this.options.selectedClass + ')');
+          if (!initialFolding && options.animation) dragEl$1.thisAnimationDuration = null;
+          toSortable.captureAnimationState();
+
+          if (!initialFolding) {
+            if (options.animation) {
+              dragEl$1.fromRect = dragRect;
+              multiDragElements.forEach(function (multiDragElement) {
+                multiDragElement.thisAnimationDuration = null;
+
+                if (multiDragElement !== dragEl$1) {
+                  var rect = folding ? getRect(multiDragElement) : dragRect;
+                  multiDragElement.fromRect = rect; // Prepare unfold animation
+
+                  toSortable.addAnimationState({
+                    target: multiDragElement,
+                    rect: rect
+                  });
+                }
+              });
+            } // Multi drag elements are not necessarily removed from the DOM on drop, so to reinsert
+            // properly they must all be removed
+
+
+            removeMultiDragElements();
+            multiDragElements.forEach(function (multiDragElement) {
+              if (children[multiDragIndex]) {
+                parentEl.insertBefore(multiDragElement, children[multiDragIndex]);
+              } else {
+                parentEl.appendChild(multiDragElement);
+              }
+
+              multiDragIndex++;
+            }); // If initial folding is done, the elements may have changed position because they are now
+            // unfolding around dragEl, even though dragEl may not have his index changed, so update event
+            // must be fired here as Sortable will not.
+
+            if (oldIndex === index(dragEl$1)) {
+              var update = false;
+              multiDragElements.forEach(function (multiDragElement) {
+                if (multiDragElement.sortableIndex !== index(multiDragElement)) {
+                  update = true;
+                  return;
+                }
+              });
+
+              if (update) {
+                dispatchSortableEvent('update');
+              }
+            }
+          } // Must be done after capturing individual rects (scroll bar)
+
+
+          multiDragElements.forEach(function (multiDragElement) {
+            unsetRect(multiDragElement);
+          });
+          toSortable.animateAll();
+        }
+
+        multiDragSortable = toSortable;
+      } // Remove clones if necessary
+
+
+      if (rootEl === parentEl || putSortable && putSortable.lastPutMode !== 'clone') {
+        multiDragClones.forEach(function (clone) {
+          clone.parentNode && clone.parentNode.removeChild(clone);
+        });
+      }
+    },
+    nullingGlobal: function nullingGlobal() {
+      this.isMultiDrag = dragStarted = false;
+      multiDragClones.length = 0;
+    },
+    destroyGlobal: function destroyGlobal() {
+      this._deselectMultiDrag();
+
+      off(document, 'pointerup', this._deselectMultiDrag);
+      off(document, 'mouseup', this._deselectMultiDrag);
+      off(document, 'touchend', this._deselectMultiDrag);
+      off(document, 'keydown', this._checkKeyDown);
+      off(document, 'keyup', this._checkKeyUp);
+    },
+    _deselectMultiDrag: function _deselectMultiDrag(evt) {
+      if (typeof dragStarted !== "undefined" && dragStarted) return; // Only deselect if selection is in this sortable
+
+      if (multiDragSortable !== this.sortable) return; // Only deselect if target is not item in this sortable
+
+      if (evt && closest(evt.target, this.options.draggable, this.sortable.el, false)) return; // Only deselect if left click
+
+      if (evt && evt.button !== 0) return;
+
+      while (multiDragElements.length) {
+        var el = multiDragElements[0];
+        toggleClass(el, this.options.selectedClass, false);
+        multiDragElements.shift();
+        dispatchEvent({
+          sortable: this.sortable,
+          rootEl: this.sortable.el,
+          name: 'deselect',
+          targetEl: el,
+          originalEvt: evt
+        });
+      }
+    },
+    _checkKeyDown: function _checkKeyDown(evt) {
+      if (evt.key === this.options.multiDragKey) {
+        this.multiDragKeyDown = true;
+      }
+    },
+    _checkKeyUp: function _checkKeyUp(evt) {
+      if (evt.key === this.options.multiDragKey) {
+        this.multiDragKeyDown = false;
+      }
+    }
+  };
+  return _extends(MultiDrag, {
+    // Static methods & properties
+    pluginName: 'multiDrag',
+    utils: {
+      /**
+       * Selects the provided multi-drag item
+       * @param  {HTMLElement} el    The element to be selected
+       */
+      select: function select(el) {
+        var sortable = el.parentNode[expando];
+        if (!sortable || !sortable.options.multiDrag || ~multiDragElements.indexOf(el)) return;
+
+        if (multiDragSortable && multiDragSortable !== sortable) {
+          multiDragSortable.multiDrag._deselectMultiDrag();
+
+          multiDragSortable = sortable;
+        }
+
+        toggleClass(el, sortable.options.selectedClass, true);
+        multiDragElements.push(el);
+      },
+
+      /**
+       * Deselects the provided multi-drag item
+       * @param  {HTMLElement} el    The element to be deselected
+       */
+      deselect: function deselect(el) {
+        var sortable = el.parentNode[expando],
+            index = multiDragElements.indexOf(el);
+        if (!sortable || !sortable.options.multiDrag || !~index) return;
+        toggleClass(el, sortable.options.selectedClass, false);
+        multiDragElements.splice(index, 1);
+      }
+    },
+    eventProperties: function eventProperties() {
+      var _this3 = this;
+
+      var oldIndicies = [],
+          newIndicies = [];
+      multiDragElements.forEach(function (multiDragElement) {
+        oldIndicies.push({
+          multiDragElement: multiDragElement,
+          index: multiDragElement.sortableIndex
+        }); // multiDragElements will already be sorted if folding
+
+        var newIndex;
+
+        if (folding && multiDragElement !== dragEl$1) {
+          newIndex = -1;
+        } else if (folding) {
+          newIndex = index(multiDragElement, ':not(.' + _this3.options.selectedClass + ')');
+        } else {
+          newIndex = index(multiDragElement);
+        }
+
+        newIndicies.push({
+          multiDragElement: multiDragElement,
+          index: newIndex
+        });
+      });
+      return {
+        items: _toConsumableArray(multiDragElements),
+        clones: [].concat(multiDragClones),
+        oldIndicies: oldIndicies,
+        newIndicies: newIndicies
+      };
+    },
+    optionListeners: {
+      multiDragKey: function multiDragKey(key) {
+        key = key.toLowerCase();
+
+        if (key === 'ctrl') {
+          key = 'Control';
+        } else if (key.length > 1) {
+          key = key.charAt(0).toUpperCase() + key.substr(1);
+        }
+
+        return key;
+      }
+    }
+  });
+}
+
+function insertMultiDragElements(clonesInserted, rootEl) {
+  multiDragElements.forEach(function (multiDragElement, i) {
+    var target = rootEl.children[multiDragElement.sortableIndex + (clonesInserted ? Number(i) : 0)];
+
+    if (target) {
+      rootEl.insertBefore(multiDragElement, target);
+    } else {
+      rootEl.appendChild(multiDragElement);
+    }
+  });
+}
+/**
+ * Insert multi-drag clones
+ * @param  {[Boolean]} elementsInserted  Whether the multi-drag elements are inserted
+ * @param  {HTMLElement} rootEl
+ */
+
+
+function insertMultiDragClones(elementsInserted, rootEl) {
+  multiDragClones.forEach(function (clone, i) {
+    var target = rootEl.children[clone.sortableIndex + (elementsInserted ? Number(i) : 0)];
+
+    if (target) {
+      rootEl.insertBefore(clone, target);
+    } else {
+      rootEl.appendChild(clone);
+    }
+  });
+}
+
+function removeMultiDragElements() {
+  multiDragElements.forEach(function (multiDragElement) {
+    if (multiDragElement === dragEl$1) return;
+    multiDragElement.parentNode && multiDragElement.parentNode.removeChild(multiDragElement);
+  });
+}
+
+Sortable.mount(new AutoScrollPlugin());
+Sortable.mount(Remove, Revert);
+
+/* harmony default export */ __webpack_exports__["default"] = (Sortable);
+
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-backtotop/src/styles.css?vue&type=style&index=0&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-backtotop/src/styles.css?vue&type=style&index=0&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../css-loader??ref--7-1!../../vue-loader/lib/loaders/stylePostLoader.js!../../postcss-loader/src??ref--7-2!./styles.css?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-backtotop/src/styles.css?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-backtotop/src/BackToTop.vue":
+/*!******************************************************!*\
+  !*** ./node_modules/vue-backtotop/src/BackToTop.vue ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _BackToTop_vue_vue_type_template_id_58c5690e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BackToTop.vue?vue&type=template&id=58c5690e& */ "./node_modules/vue-backtotop/src/BackToTop.vue?vue&type=template&id=58c5690e&");
+/* harmony import */ var _BackToTop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BackToTop.vue?vue&type=script&lang=js& */ "./node_modules/vue-backtotop/src/BackToTop.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _styles_css_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles.css?vue&type=style&index=0&lang=css& */ "./node_modules/vue-backtotop/src/styles.css?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _BackToTop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _BackToTop_vue_vue_type_template_id_58c5690e___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _BackToTop_vue_vue_type_template_id_58c5690e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "node_modules/vue-backtotop/src/BackToTop.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./node_modules/vue-backtotop/src/BackToTop.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/vue-backtotop/src/BackToTop.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _vue_loader_lib_index_js_vue_loader_options_BackToTop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../vue-loader/lib??vue-loader-options!./BackToTop.vue?vue&type=script&lang=js& */ "./node_modules/vue-loader/lib/index.js?!./node_modules/vue-backtotop/src/BackToTop.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_vue_loader_lib_index_js_vue_loader_options_BackToTop_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./node_modules/vue-backtotop/src/BackToTop.vue?vue&type=template&id=58c5690e&":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/vue-backtotop/src/BackToTop.vue?vue&type=template&id=58c5690e& ***!
+  \*************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_BackToTop_vue_vue_type_template_id_58c5690e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../vue-loader/lib??vue-loader-options!./BackToTop.vue?vue&type=template&id=58c5690e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-backtotop/src/BackToTop.vue?vue&type=template&id=58c5690e&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_BackToTop_vue_vue_type_template_id_58c5690e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_BackToTop_vue_vue_type_template_id_58c5690e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-backtotop/src/main.js":
+/*!************************************************!*\
+  !*** ./node_modules/vue-backtotop/src/main.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _BackToTop_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BackToTop.vue */ "./node_modules/vue-backtotop/src/BackToTop.vue");
+ 
+
+/**
+ * Check why can't use () => {}
+ */
+_BackToTop_vue__WEBPACK_IMPORTED_MODULE_0__["default"].install = function (Vue, options) {
+  Vue.component(_BackToTop_vue__WEBPACK_IMPORTED_MODULE_0__["default"].name, _BackToTop_vue__WEBPACK_IMPORTED_MODULE_0__["default"])
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (_BackToTop_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-backtotop/src/styles.css?vue&type=style&index=0&lang=css&":
+/*!************************************************************************************!*\
+  !*** ./node_modules/vue-backtotop/src/styles.css?vue&type=style&index=0&lang=css& ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _style_loader_index_js_css_loader_index_js_ref_7_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_7_2_styles_css_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../style-loader!../../css-loader??ref--7-1!../../vue-loader/lib/loaders/stylePostLoader.js!../../postcss-loader/src??ref--7-2!./styles.css?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-backtotop/src/styles.css?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _style_loader_index_js_css_loader_index_js_ref_7_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_7_2_styles_css_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_index_js_css_loader_index_js_ref_7_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_7_2_styles_css_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _style_loader_index_js_css_loader_index_js_ref_7_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_7_2_styles_css_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _style_loader_index_js_css_loader_index_js_ref_7_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_7_2_styles_css_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_style_loader_index_js_css_loader_index_js_ref_7_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_7_2_styles_css_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js?!./node_modules/vue-backtotop/src/BackToTop.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-backtotop/src/BackToTop.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'BackToTop',
+  props: {
+    text: {
+      type: String,
+      default: 'Voltar ao topo',
+    },
+    visibleoffset: {
+      type: [String, Number],
+      default: 600,
+    },
+    visibleoffsetbottom: {
+      type: [String, Number],
+      default: 0,
+    },
+    right: {
+      type: String,
+      default: '30px',
+    },
+    bottom: {
+      type: String,
+      default: '40px',
+    },
+    scrollFn: {
+      type: Function,
+      default: function (eventObject) {},
+    }
+  },
+  data () {
+    return {
+      visible: false
+    }
+  },
+  mounted () {
+    window.smoothscroll = () => {
+      let currentScroll = document.documentElement.scrollTop || document.body.scrollTop
+      if (currentScroll > 0) {
+        window.requestAnimationFrame(window.smoothscroll)
+        window.scrollTo(0, Math.floor(currentScroll - (currentScroll / 5)))
+      }
+    }
+    window.addEventListener('scroll', this.catchScroll)
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.catchScroll)
+  },
+  methods: {
+    /**
+     * Catch window scroll event 
+     * @return {void}
+     */
+    catchScroll () {
+      const pastTopOffset = window.pageYOffset > parseInt(this.visibleoffset)
+      const pastBottomOffset = window.innerHeight + window.pageYOffset >= document.body.offsetHeight - parseInt(this.visibleoffsetbottom)
+      this.visible = parseInt(this.visibleoffsetbottom) > 0 ? pastTopOffset && !pastBottomOffset : pastTopOffset
+      this.scrollFn(this)
+    },
+    /**
+     * The function who make the magics
+     * @return {void}
+     */
+    backToTop () {
+      window.smoothscroll()
+      this.$emit('scrolled')
+    }
+  },
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-backtotop/src/BackToTop.vue?vue&type=template&id=58c5690e&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./node_modules/vue-backtotop/src/BackToTop.vue?vue&type=template&id=58c5690e& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("transition", { attrs: { name: "back-to-top-fade" } }, [
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.visible,
+            expression: "visible"
+          }
+        ],
+        staticClass: "vue-back-to-top",
+        style: "bottom:" + this.bottom + ";right:" + this.right + ";",
+        on: { click: _vm.backToTop }
+      },
+      [
+        _vm._t("default", [
+          _c("div", { staticClass: "default" }, [
+            _c("span", [
+              _vm._v("\n          " + _vm._s(_vm.text) + "\n        ")
+            ])
+          ])
+        ])
+      ],
+      2
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-perfect-scrollbar/dist/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/vue-perfect-scrollbar/dist/index.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports=function(t){function e(o){if(r[o])return r[o].exports;var n=r[o]={i:o,l:!1,exports:{}};return t[o].call(n.exports,n,n.exports,e),n.l=!0,n.exports}var r={};return e.m=t,e.c=r,e.i=function(t){return t},e.d=function(t,r,o){e.o(t,r)||Object.defineProperty(t,r,{configurable:!1,enumerable:!0,get:o})},e.n=function(t){var r=t&&t.__esModule?function(){return t.default}:function(){return t};return e.d(r,"a",r),r},e.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},e.p="/dist/",e(e.s=6)}([function(t,e,r){"use strict";function o(t,e){function r(){t.classList.add("ps--focus")}function o(){t.classList.remove("ps--focus")}var n=this;n.settings=a();for(var i in e)n.settings[i]=e[i];n.containerWidth=null,n.containerHeight=null,n.contentWidth=null,n.contentHeight=null,n.isRtl="rtl"===c.css(t,"direction"),n.isNegativeScroll=function(){var e=t.scrollLeft,r=null;return t.scrollLeft=-1,r=t.scrollLeft<0,t.scrollLeft=e,r}(),n.negativeScrollAdjustment=n.isNegativeScroll?t.scrollWidth-t.clientWidth:0,n.event=new u,n.ownerDocument=t.ownerDocument||document,n.scrollbarXRail=c.appendTo(c.create("div","ps__scrollbar-x-rail"),t),n.scrollbarX=c.appendTo(c.create("div","ps__scrollbar-x"),n.scrollbarXRail),n.scrollbarX.setAttribute("tabindex",0),n.event.bind(n.scrollbarX,"focus",r),n.event.bind(n.scrollbarX,"blur",o),n.scrollbarXActive=null,n.scrollbarXWidth=null,n.scrollbarXLeft=null,n.scrollbarXBottom=s.toInt(c.css(n.scrollbarXRail,"bottom")),n.isScrollbarXUsingBottom=n.scrollbarXBottom===n.scrollbarXBottom,n.scrollbarXTop=n.isScrollbarXUsingBottom?null:s.toInt(c.css(n.scrollbarXRail,"top")),n.railBorderXWidth=s.toInt(c.css(n.scrollbarXRail,"borderLeftWidth"))+s.toInt(c.css(n.scrollbarXRail,"borderRightWidth")),c.css(n.scrollbarXRail,"display","block"),n.railXMarginWidth=s.toInt(c.css(n.scrollbarXRail,"marginLeft"))+s.toInt(c.css(n.scrollbarXRail,"marginRight")),c.css(n.scrollbarXRail,"display",""),n.railXWidth=null,n.railXRatio=null,n.scrollbarYRail=c.appendTo(c.create("div","ps__scrollbar-y-rail"),t),n.scrollbarY=c.appendTo(c.create("div","ps__scrollbar-y"),n.scrollbarYRail),n.scrollbarY.setAttribute("tabindex",0),n.event.bind(n.scrollbarY,"focus",r),n.event.bind(n.scrollbarY,"blur",o),n.scrollbarYActive=null,n.scrollbarYHeight=null,n.scrollbarYTop=null,n.scrollbarYRight=s.toInt(c.css(n.scrollbarYRail,"right")),n.isScrollbarYUsingRight=n.scrollbarYRight===n.scrollbarYRight,n.scrollbarYLeft=n.isScrollbarYUsingRight?null:s.toInt(c.css(n.scrollbarYRail,"left")),n.scrollbarYOuterWidth=n.isRtl?s.outerWidth(n.scrollbarY):null,n.railBorderYWidth=s.toInt(c.css(n.scrollbarYRail,"borderTopWidth"))+s.toInt(c.css(n.scrollbarYRail,"borderBottomWidth")),c.css(n.scrollbarYRail,"display","block"),n.railYMarginHeight=s.toInt(c.css(n.scrollbarYRail,"marginTop"))+s.toInt(c.css(n.scrollbarYRail,"marginBottom")),c.css(n.scrollbarYRail,"display",""),n.railYHeight=null,n.railYRatio=null}function n(t){return t.getAttribute("data-ps-id")}function i(t,e){t.setAttribute("data-ps-id",e)}function l(t){t.removeAttribute("data-ps-id")}var s=r(2),a=r(14),c=r(4),u=r(11),p=r(12),d={};e.add=function(t,e){var r=p();return i(t,r),d[r]=new o(t,e),d[r]},e.remove=function(t){delete d[n(t)],l(t)},e.get=function(t){return d[n(t)]}},function(t,e,r){"use strict";function o(t,e){return t.settings.minScrollbarLength&&(e=Math.max(e,t.settings.minScrollbarLength)),t.settings.maxScrollbarLength&&(e=Math.min(e,t.settings.maxScrollbarLength)),e}function n(t,e){var r={width:e.railXWidth};e.isRtl?r.left=e.negativeScrollAdjustment+t.scrollLeft+e.containerWidth-e.contentWidth:r.left=t.scrollLeft,e.isScrollbarXUsingBottom?r.bottom=e.scrollbarXBottom-t.scrollTop:r.top=e.scrollbarXTop+t.scrollTop,l.css(e.scrollbarXRail,r);var o={top:t.scrollTop,height:e.railYHeight};e.isScrollbarYUsingRight?e.isRtl?o.right=e.contentWidth-(e.negativeScrollAdjustment+t.scrollLeft)-e.scrollbarYRight-e.scrollbarYOuterWidth:o.right=e.scrollbarYRight-t.scrollLeft:e.isRtl?o.left=e.negativeScrollAdjustment+t.scrollLeft+2*e.containerWidth-e.contentWidth-e.scrollbarYLeft-e.scrollbarYOuterWidth:o.left=e.scrollbarYLeft+t.scrollLeft,l.css(e.scrollbarYRail,o),l.css(e.scrollbarX,{left:e.scrollbarXLeft,width:e.scrollbarXWidth-e.railBorderXWidth}),l.css(e.scrollbarY,{top:e.scrollbarYTop,height:e.scrollbarYHeight-e.railBorderYWidth})}var i=r(2),l=r(4),s=r(0),a=r(3);t.exports=function(t){var e=s.get(t);e.containerWidth=t.clientWidth,e.containerHeight=t.clientHeight,e.contentWidth=t.scrollWidth,e.contentHeight=t.scrollHeight;var r;t.contains(e.scrollbarXRail)||(r=l.queryChildren(t,".ps__scrollbar-x-rail"),r.length>0&&r.forEach(function(t){l.remove(t)}),l.appendTo(e.scrollbarXRail,t)),t.contains(e.scrollbarYRail)||(r=l.queryChildren(t,".ps__scrollbar-y-rail"),r.length>0&&r.forEach(function(t){l.remove(t)}),l.appendTo(e.scrollbarYRail,t)),!e.settings.suppressScrollX&&e.containerWidth+e.settings.scrollXMarginOffset<e.contentWidth?(e.scrollbarXActive=!0,e.railXWidth=e.containerWidth-e.railXMarginWidth,e.railXRatio=e.containerWidth/e.railXWidth,e.scrollbarXWidth=o(e,i.toInt(e.railXWidth*e.containerWidth/e.contentWidth)),e.scrollbarXLeft=i.toInt((e.negativeScrollAdjustment+t.scrollLeft)*(e.railXWidth-e.scrollbarXWidth)/(e.contentWidth-e.containerWidth))):e.scrollbarXActive=!1,!e.settings.suppressScrollY&&e.containerHeight+e.settings.scrollYMarginOffset<e.contentHeight?(e.scrollbarYActive=!0,e.railYHeight=e.containerHeight-e.railYMarginHeight,e.railYRatio=e.containerHeight/e.railYHeight,e.scrollbarYHeight=o(e,i.toInt(e.railYHeight*e.containerHeight/e.contentHeight)),e.scrollbarYTop=i.toInt(t.scrollTop*(e.railYHeight-e.scrollbarYHeight)/(e.contentHeight-e.containerHeight))):e.scrollbarYActive=!1,e.scrollbarXLeft>=e.railXWidth-e.scrollbarXWidth&&(e.scrollbarXLeft=e.railXWidth-e.scrollbarXWidth),e.scrollbarYTop>=e.railYHeight-e.scrollbarYHeight&&(e.scrollbarYTop=e.railYHeight-e.scrollbarYHeight),n(t,e),e.scrollbarXActive?t.classList.add("ps--active-x"):(t.classList.remove("ps--active-x"),e.scrollbarXWidth=0,e.scrollbarXLeft=0,a(t,"left",0)),e.scrollbarYActive?t.classList.add("ps--active-y"):(t.classList.remove("ps--active-y"),e.scrollbarYHeight=0,e.scrollbarYTop=0,a(t,"top",0))}},function(t,e,r){"use strict";function o(t){var e,r=["ps--in-scrolling"];return e=void 0===t?["ps--x","ps--y"]:["ps--"+t],r.concat(e)}var n=r(4),i=e.toInt=function(t){return parseInt(t,10)||0};e.isEditable=function(t){return n.matches(t,"input,[contenteditable]")||n.matches(t,"select,[contenteditable]")||n.matches(t,"textarea,[contenteditable]")||n.matches(t,"button,[contenteditable]")},e.removePsClasses=function(t){for(var e=0;e<t.classList.length;e++){var r=t.classList[e];0===r.indexOf("ps-")&&t.classList.remove(r)}},e.outerWidth=function(t){return i(n.css(t,"width"))+i(n.css(t,"paddingLeft"))+i(n.css(t,"paddingRight"))+i(n.css(t,"borderLeftWidth"))+i(n.css(t,"borderRightWidth"))},e.startScrolling=function(t,e){for(var r=o(e),n=0;n<r.length;n++)t.classList.add(r[n])},e.stopScrolling=function(t,e){for(var r=o(e),n=0;n<r.length;n++)t.classList.remove(r[n])},e.env={isWebKit:"undefined"!=typeof document&&"WebkitAppearance"in document.documentElement.style,supportsTouch:"undefined"!=typeof window&&("ontouchstart"in window||window.DocumentTouch&&document instanceof window.DocumentTouch),supportsIePointer:"undefined"!=typeof window&&null!==window.navigator.msMaxTouchPoints}},function(t,e,r){"use strict";var o=r(0),n=function(t){var e=document.createEvent("Event");return e.initEvent(t,!0,!0),e};t.exports=function(t,e,r){if(void 0===t)throw"You must provide an element to the update-scroll function";if(void 0===e)throw"You must provide an axis to the update-scroll function";if(void 0===r)throw"You must provide a value to the update-scroll function";"top"===e&&r<=0&&(t.scrollTop=r=0,t.dispatchEvent(n("ps-y-reach-start"))),"left"===e&&r<=0&&(t.scrollLeft=r=0,t.dispatchEvent(n("ps-x-reach-start")));var i=o.get(t);"top"===e&&r>=i.contentHeight-i.containerHeight&&(r=i.contentHeight-i.containerHeight,r-t.scrollTop<=2?r=t.scrollTop:t.scrollTop=r,t.dispatchEvent(n("ps-y-reach-end"))),"left"===e&&r>=i.contentWidth-i.containerWidth&&(r=i.contentWidth-i.containerWidth,r-t.scrollLeft<=2?r=t.scrollLeft:t.scrollLeft=r,t.dispatchEvent(n("ps-x-reach-end"))),void 0===i.lastTop&&(i.lastTop=t.scrollTop),void 0===i.lastLeft&&(i.lastLeft=t.scrollLeft),"top"===e&&r<i.lastTop&&t.dispatchEvent(n("ps-scroll-up")),"top"===e&&r>i.lastTop&&t.dispatchEvent(n("ps-scroll-down")),"left"===e&&r<i.lastLeft&&t.dispatchEvent(n("ps-scroll-left")),"left"===e&&r>i.lastLeft&&t.dispatchEvent(n("ps-scroll-right")),"top"===e&&r!==i.lastTop&&(t.scrollTop=i.lastTop=r,t.dispatchEvent(n("ps-scroll-y"))),"left"===e&&r!==i.lastLeft&&(t.scrollLeft=i.lastLeft=r,t.dispatchEvent(n("ps-scroll-x")))}},function(t,e,r){"use strict";function o(t,e){return window.getComputedStyle(t)[e]}function n(t,e,r){return"number"==typeof r&&(r=r.toString()+"px"),t.style[e]=r,t}function i(t,e){for(var r in e){var o=e[r];"number"==typeof o&&(o=o.toString()+"px"),t.style[r]=o}return t}var l={};l.create=function(t,e){var r=document.createElement(t);return r.className=e,r},l.appendTo=function(t,e){return e.appendChild(t),t},l.css=function(t,e,r){return"object"==typeof e?i(t,e):void 0===r?o(t,e):n(t,e,r)},l.matches=function(t,e){return void 0!==t.matches?t.matches(e):t.msMatchesSelector(e)},l.remove=function(t){void 0!==t.remove?t.remove():t.parentNode&&t.parentNode.removeChild(t)},l.queryChildren=function(t,e){return Array.prototype.filter.call(t.childNodes,function(t){return l.matches(t,e)})},t.exports=l},function(t,e,r){r(28);var o=r(25)(r(7),r(26),null,null);t.exports=o.exports},function(t,e,r){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=r(5),n=r.n(o);e.default=n.a},function(t,e,r){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var o=r(10),n=r.n(o);e.default={name:"vue-perfect-scrollbar",props:{settings:{default:void 0},swicher:{type:Boolean,default:!0},tagname:{type:String,default:"section"}},methods:{scrollHanle:function(t){this.$emit(t.type,t)},update:function(){n.a.update(this.$el)},__init:function(){this.swicher&&(this._ps_inited?this.update(this.$el):(this._ps_inited=!0,n.a.initialize(this.$el,this.settings)))},__uninit:function(){n.a.destroy(this.$el),this._ps_inited=!1}},watch:{swicher:function(t){t&&!this._ps_inited&&this.__init(),!t&&this._ps_inited&&this.__uninit()},$route:function(){this.update()}},mounted:function(){this.__init()},updated:function(){this.$nextTick(this.update)},activated:function(){this.__init()},deactivated:function(){this.__uninit()},beforeDestroy:function(){this.__uninit()}}},function(t,e,r){e=t.exports=r(9)(),e.push([t.i,".ps{-ms-touch-action:auto;touch-action:auto;overflow:hidden!important;-ms-overflow-style:none}@supports (-ms-overflow-style:none){.ps{overflow:auto!important}}@media (-ms-high-contrast:none),screen and (-ms-high-contrast:active){.ps{overflow:auto!important}}.ps.ps--active-x>.ps__scrollbar-x-rail,.ps.ps--active-y>.ps__scrollbar-y-rail{display:block;background-color:transparent}.ps.ps--in-scrolling.ps--x>.ps__scrollbar-x-rail{background-color:#eee;opacity:.9}.ps.ps--in-scrolling.ps--x>.ps__scrollbar-x-rail>.ps__scrollbar-x{background-color:#999;height:11px}.ps.ps--in-scrolling.ps--y>.ps__scrollbar-y-rail{background-color:#eee;opacity:.9}.ps.ps--in-scrolling.ps--y>.ps__scrollbar-y-rail>.ps__scrollbar-y{background-color:#999;width:11px}.ps>.ps__scrollbar-x-rail{display:none;position:absolute;opacity:0;transition:background-color .2s linear,opacity .2s linear;bottom:0;height:15px}.ps>.ps__scrollbar-x-rail>.ps__scrollbar-x{position:absolute;background-color:#aaa;border-radius:6px;transition:background-color .2s linear,height .2s linear,width .2s ease-in-out,border-radius .2s ease-in-out;bottom:2px;height:6px}.ps>.ps__scrollbar-x-rail:active>.ps__scrollbar-x,.ps>.ps__scrollbar-x-rail:hover>.ps__scrollbar-x{height:11px}.ps>.ps__scrollbar-y-rail{display:none;position:absolute;opacity:0;transition:background-color .2s linear,opacity .2s linear;right:0;width:15px}.ps>.ps__scrollbar-y-rail>.ps__scrollbar-y{position:absolute;background-color:#aaa;border-radius:6px;transition:background-color .2s linear,height .2s linear,width .2s ease-in-out,border-radius .2s ease-in-out;right:2px;width:6px}.ps>.ps__scrollbar-y-rail:active>.ps__scrollbar-y,.ps>.ps__scrollbar-y-rail:hover>.ps__scrollbar-y{width:11px}.ps:hover.ps--in-scrolling.ps--x>.ps__scrollbar-x-rail{background-color:#eee;opacity:.9}.ps:hover.ps--in-scrolling.ps--x>.ps__scrollbar-x-rail>.ps__scrollbar-x{background-color:#999;height:11px}.ps:hover.ps--in-scrolling.ps--y>.ps__scrollbar-y-rail{background-color:#eee;opacity:.9}.ps:hover.ps--in-scrolling.ps--y>.ps__scrollbar-y-rail>.ps__scrollbar-y{background-color:#999;width:11px}.ps:hover>.ps__scrollbar-x-rail,.ps:hover>.ps__scrollbar-y-rail{opacity:.6}.ps:hover>.ps__scrollbar-x-rail:hover{background-color:#eee;opacity:.9}.ps:hover>.ps__scrollbar-x-rail:hover>.ps__scrollbar-x{background-color:#999}.ps:hover>.ps__scrollbar-y-rail:hover{background-color:#eee;opacity:.9}.ps:hover>.ps__scrollbar-y-rail:hover>.ps__scrollbar-y{background-color:#999}.ps-container{position:relative}",""])},function(t,e){t.exports=function(){var t=[];return t.toString=function(){for(var t=[],e=0;e<this.length;e++){var r=this[e];r[2]?t.push("@media "+r[2]+"{"+r[1]+"}"):t.push(r[1])}return t.join("")},t.i=function(e,r){"string"==typeof e&&(e=[[null,e,""]]);for(var o={},n=0;n<this.length;n++){var i=this[n][0];"number"==typeof i&&(o[i]=!0)}for(n=0;n<e.length;n++){var l=e[n];"number"==typeof l[0]&&o[l[0]]||(r&&!l[2]?l[2]=r:r&&(l[2]="("+l[2]+") and ("+r+")"),t.push(l))}},t}},function(t,e,r){"use strict";t.exports=r(13)},function(t,e,r){"use strict";var o=function(t){this.element=t,this.events={}};o.prototype.bind=function(t,e){void 0===this.events[t]&&(this.events[t]=[]),this.events[t].push(e),this.element.addEventListener(t,e,!1)},o.prototype.unbind=function(t,e){var r=void 0!==e;this.events[t]=this.events[t].filter(function(o){return!(!r||o===e)||(this.element.removeEventListener(t,o,!1),!1)},this)},o.prototype.unbindAll=function(){for(var t in this.events)this.unbind(t)};var n=function(){this.eventElements=[]};n.prototype.eventElement=function(t){var e=this.eventElements.filter(function(e){return e.element===t})[0];return void 0===e&&(e=new o(t),this.eventElements.push(e)),e},n.prototype.bind=function(t,e,r){this.eventElement(t).bind(e,r)},n.prototype.unbind=function(t,e,r){this.eventElement(t).unbind(e,r)},n.prototype.unbindAll=function(){for(var t=0;t<this.eventElements.length;t++)this.eventElements[t].unbindAll()},n.prototype.once=function(t,e,r){var o=this.eventElement(t),n=function(t){o.unbind(e,n),r(t)};o.bind(e,n)},t.exports=n},function(t,e,r){"use strict";t.exports=function(){function t(){return Math.floor(65536*(1+Math.random())).toString(16).substring(1)}return function(){return t()+t()+"-"+t()+"-"+t()+"-"+t()+"-"+t()+t()+t()}}()},function(t,e,r){"use strict";var o=r(15),n=r(23),i=r(24);t.exports={initialize:n,update:i,destroy:o}},function(t,e,r){"use strict";t.exports=function(){return{handlers:["click-rail","drag-scrollbar","keyboard","wheel","touch"],maxScrollbarLength:null,minScrollbarLength:null,scrollXMarginOffset:0,scrollYMarginOffset:0,suppressScrollX:!1,suppressScrollY:!1,swipePropagation:!0,swipeEasing:!0,useBothWheelAxes:!1,wheelPropagation:!1,wheelSpeed:1,theme:"default"}}},function(t,e,r){"use strict";var o=r(2),n=r(4),i=r(0);t.exports=function(t){var e=i.get(t);e&&(e.event.unbindAll(),n.remove(e.scrollbarX),n.remove(e.scrollbarY),n.remove(e.scrollbarXRail),n.remove(e.scrollbarYRail),o.removePsClasses(t),i.remove(t))}},function(t,e,r){"use strict";function o(t,e){function r(t){return t.getBoundingClientRect()}var o=function(t){t.stopPropagation()};e.event.bind(e.scrollbarY,"click",o),e.event.bind(e.scrollbarYRail,"click",function(o){var n=o.pageY-window.pageYOffset-r(e.scrollbarYRail).top,s=n>e.scrollbarYTop?1:-1;l(t,"top",t.scrollTop+s*e.containerHeight),i(t),o.stopPropagation()}),e.event.bind(e.scrollbarX,"click",o),e.event.bind(e.scrollbarXRail,"click",function(o){var n=o.pageX-window.pageXOffset-r(e.scrollbarXRail).left,s=n>e.scrollbarXLeft?1:-1;l(t,"left",t.scrollLeft+s*e.containerWidth),i(t),o.stopPropagation()})}var n=r(0),i=r(1),l=r(3);t.exports=function(t){o(t,n.get(t))}},function(t,e,r){"use strict";function o(t,e){function r(r){var n=o+r*e.railXRatio,l=Math.max(0,e.scrollbarXRail.getBoundingClientRect().left)+e.railXRatio*(e.railXWidth-e.scrollbarXWidth);e.scrollbarXLeft=n<0?0:n>l?l:n;var s=i.toInt(e.scrollbarXLeft*(e.contentWidth-e.containerWidth)/(e.containerWidth-e.railXRatio*e.scrollbarXWidth))-e.negativeScrollAdjustment;c(t,"left",s)}var o=null,n=null,s=function(e){r(e.pageX-n),a(t),e.stopPropagation(),e.preventDefault()},u=function(){i.stopScrolling(t,"x"),e.event.unbind(e.ownerDocument,"mousemove",s)};e.event.bind(e.scrollbarX,"mousedown",function(r){n=r.pageX,o=i.toInt(l.css(e.scrollbarX,"left"))*e.railXRatio,i.startScrolling(t,"x"),e.event.bind(e.ownerDocument,"mousemove",s),e.event.once(e.ownerDocument,"mouseup",u),r.stopPropagation(),r.preventDefault()})}function n(t,e){function r(r){var n=o+r*e.railYRatio,l=Math.max(0,e.scrollbarYRail.getBoundingClientRect().top)+e.railYRatio*(e.railYHeight-e.scrollbarYHeight);e.scrollbarYTop=n<0?0:n>l?l:n;var s=i.toInt(e.scrollbarYTop*(e.contentHeight-e.containerHeight)/(e.containerHeight-e.railYRatio*e.scrollbarYHeight));c(t,"top",s)}var o=null,n=null,s=function(e){r(e.pageY-n),a(t),e.stopPropagation(),e.preventDefault()},u=function(){i.stopScrolling(t,"y"),e.event.unbind(e.ownerDocument,"mousemove",s)};e.event.bind(e.scrollbarY,"mousedown",function(r){n=r.pageY,o=i.toInt(l.css(e.scrollbarY,"top"))*e.railYRatio,i.startScrolling(t,"y"),e.event.bind(e.ownerDocument,"mousemove",s),e.event.once(e.ownerDocument,"mouseup",u),r.stopPropagation(),r.preventDefault()})}var i=r(2),l=r(4),s=r(0),a=r(1),c=r(3);t.exports=function(t){var e=s.get(t);o(t,e),n(t,e)}},function(t,e,r){"use strict";function o(t,e){function r(r,o){var n=t.scrollTop;if(0===r){if(!e.scrollbarYActive)return!1;if(0===n&&o>0||n>=e.contentHeight-e.containerHeight&&o<0)return!e.settings.wheelPropagation}var i=t.scrollLeft;if(0===o){if(!e.scrollbarXActive)return!1;if(0===i&&r<0||i>=e.contentWidth-e.containerWidth&&r>0)return!e.settings.wheelPropagation}return!0}var o=!1;e.event.bind(t,"mouseenter",function(){o=!0}),e.event.bind(t,"mouseleave",function(){o=!1});var l=!1;e.event.bind(e.ownerDocument,"keydown",function(c){if(!(c.isDefaultPrevented&&c.isDefaultPrevented()||c.defaultPrevented)){var u=i.matches(e.scrollbarX,":focus")||i.matches(e.scrollbarY,":focus");if(o||u){var p=document.activeElement?document.activeElement:e.ownerDocument.activeElement;if(p){if("IFRAME"===p.tagName)p=p.contentDocument.activeElement;else for(;p.shadowRoot;)p=p.shadowRoot.activeElement;if(n.isEditable(p))return}var d=0,f=0;switch(c.which){case 37:d=c.metaKey?-e.contentWidth:c.altKey?-e.containerWidth:-30;break;case 38:f=c.metaKey?e.contentHeight:c.altKey?e.containerHeight:30;break;case 39:d=c.metaKey?e.contentWidth:c.altKey?e.containerWidth:30;break;case 40:f=c.metaKey?-e.contentHeight:c.altKey?-e.containerHeight:-30;break;case 33:f=90;break;case 32:f=c.shiftKey?90:-90;break;case 34:f=-90;break;case 35:f=c.ctrlKey?-e.contentHeight:-e.containerHeight;break;case 36:f=c.ctrlKey?t.scrollTop:e.containerHeight;break;default:return}a(t,"top",t.scrollTop-f),a(t,"left",t.scrollLeft+d),s(t),l=r(d,f),l&&c.preventDefault()}}})}var n=r(2),i=r(4),l=r(0),s=r(1),a=r(3);t.exports=function(t){o(t,l.get(t))}},function(t,e,r){"use strict";function o(t,e){function r(r,o){var n=t.scrollTop;if(0===r){if(!e.scrollbarYActive)return!1;if(0===n&&o>0||n>=e.contentHeight-e.containerHeight&&o<0)return!e.settings.wheelPropagation}var i=t.scrollLeft;if(0===o){if(!e.scrollbarXActive)return!1;if(0===i&&r<0||i>=e.contentWidth-e.containerWidth&&r>0)return!e.settings.wheelPropagation}return!0}function o(t){var e=t.deltaX,r=-1*t.deltaY;return void 0!==e&&void 0!==r||(e=-1*t.wheelDeltaX/6,r=t.wheelDeltaY/6),t.deltaMode&&1===t.deltaMode&&(e*=10,r*=10),e!==e&&r!==r&&(e=0,r=t.wheelDelta),t.shiftKey?[-r,-e]:[e,r]}function n(e,r){var o=t.querySelector("textarea:hover, select[multiple]:hover, .ps-child:hover");if(o){var n=window.getComputedStyle(o);if(![n.overflow,n.overflowX,n.overflowY].join("").match(/(scroll|auto)/))return!1;var i=o.scrollHeight-o.clientHeight;if(i>0&&!(0===o.scrollTop&&r>0||o.scrollTop===i&&r<0))return!0;var l=o.scrollLeft-o.clientWidth;if(l>0&&!(0===o.scrollLeft&&e<0||o.scrollLeft===l&&e>0))return!0}return!1}function s(s){var c=o(s),u=c[0],p=c[1];n(u,p)||(a=!1,e.settings.useBothWheelAxes?e.scrollbarYActive&&!e.scrollbarXActive?(p?l(t,"top",t.scrollTop-p*e.settings.wheelSpeed):l(t,"top",t.scrollTop+u*e.settings.wheelSpeed),a=!0):e.scrollbarXActive&&!e.scrollbarYActive&&(u?l(t,"left",t.scrollLeft+u*e.settings.wheelSpeed):l(t,"left",t.scrollLeft-p*e.settings.wheelSpeed),a=!0):(l(t,"top",t.scrollTop-p*e.settings.wheelSpeed),l(t,"left",t.scrollLeft+u*e.settings.wheelSpeed)),i(t),(a=a||r(u,p))&&(s.stopPropagation(),s.preventDefault()))}var a=!1;void 0!==window.onwheel?e.event.bind(t,"wheel",s):void 0!==window.onmousewheel&&e.event.bind(t,"mousewheel",s)}var n=r(0),i=r(1),l=r(3);t.exports=function(t){o(t,n.get(t))}},function(t,e,r){"use strict";function o(t,e){e.event.bind(t,"scroll",function(){i(t)})}var n=r(0),i=r(1);t.exports=function(t){o(t,n.get(t))}},function(t,e,r){"use strict";function o(t,e){function r(){var t=window.getSelection?window.getSelection():document.getSelection?document.getSelection():"";return 0===t.toString().length?null:t.getRangeAt(0).commonAncestorContainer}function o(){c||(c=setInterval(function(){if(!i.get(t))return void clearInterval(c);s(t,"top",t.scrollTop+u.top),s(t,"left",t.scrollLeft+u.left),l(t)},50))}function a(){c&&(clearInterval(c),c=null),n.stopScrolling(t)}var c=null,u={top:0,left:0},p=!1;e.event.bind(e.ownerDocument,"selectionchange",function(){t.contains(r())?p=!0:(p=!1,a())}),e.event.bind(window,"mouseup",function(){p&&(p=!1,a())}),e.event.bind(window,"keyup",function(){p&&(p=!1,a())}),e.event.bind(window,"mousemove",function(e){if(p){var r={x:e.pageX,y:e.pageY},i={left:t.offsetLeft,right:t.offsetLeft+t.offsetWidth,top:t.offsetTop,bottom:t.offsetTop+t.offsetHeight};r.x<i.left+3?(u.left=-5,n.startScrolling(t,"x")):r.x>i.right-3?(u.left=5,n.startScrolling(t,"x")):u.left=0,r.y<i.top+3?(u.top=i.top+3-r.y<5?-5:-20,n.startScrolling(t,"y")):r.y>i.bottom-3?(u.top=r.y-i.bottom+3<5?5:20,n.startScrolling(t,"y")):u.top=0,0===u.top&&0===u.left?a():o()}})}var n=r(2),i=r(0),l=r(1),s=r(3);t.exports=function(t){o(t,i.get(t))}},function(t,e,r){"use strict";function o(t,e,r,o){function n(r,o){var n=t.scrollTop,i=t.scrollLeft,l=Math.abs(r),s=Math.abs(o);if(s>l){if(o<0&&n===e.contentHeight-e.containerHeight||o>0&&0===n)return!e.settings.swipePropagation}else if(l>s&&(r<0&&i===e.contentWidth-e.containerWidth||r>0&&0===i))return!e.settings.swipePropagation;return!0}function a(e,r){s(t,"top",t.scrollTop-r),s(t,"left",t.scrollLeft-e),l(t)}function c(){w=!0}function u(){w=!1}function p(t){return t.targetTouches?t.targetTouches[0]:t}function d(t){return(!t.pointerType||"pen"!==t.pointerType||0!==t.buttons)&&(!(!t.targetTouches||1!==t.targetTouches.length)||!(!t.pointerType||"mouse"===t.pointerType||t.pointerType===t.MSPOINTER_TYPE_MOUSE))}function f(t){if(d(t)){_=!0;var e=p(t);b.pageX=e.pageX,b.pageY=e.pageY,g=(new Date).getTime(),null!==y&&clearInterval(y),t.stopPropagation()}}function h(t){if(!_&&e.settings.swipePropagation&&f(t),!w&&_&&d(t)){var r=p(t),o={pageX:r.pageX,pageY:r.pageY},i=o.pageX-b.pageX,l=o.pageY-b.pageY;a(i,l),b=o;var s=(new Date).getTime(),c=s-g;c>0&&(m.x=i/c,m.y=l/c,g=s),n(i,l)&&(t.stopPropagation(),t.preventDefault())}}function v(){!w&&_&&(_=!1,e.settings.swipeEasing&&(clearInterval(y),y=setInterval(function(){return i.get(t)&&(m.x||m.y)?Math.abs(m.x)<.01&&Math.abs(m.y)<.01?void clearInterval(y):(a(30*m.x,30*m.y),m.x*=.8,void(m.y*=.8)):void clearInterval(y)},10)))}var b={},g=0,m={},y=null,w=!1,_=!1;r?(e.event.bind(window,"touchstart",c),e.event.bind(window,"touchend",u),e.event.bind(t,"touchstart",f),e.event.bind(t,"touchmove",h),e.event.bind(t,"touchend",v)):o&&(window.PointerEvent?(e.event.bind(window,"pointerdown",c),e.event.bind(window,"pointerup",u),e.event.bind(t,"pointerdown",f),e.event.bind(t,"pointermove",h),e.event.bind(t,"pointerup",v)):window.MSPointerEvent&&(e.event.bind(window,"MSPointerDown",c),e.event.bind(window,"MSPointerUp",u),e.event.bind(t,"MSPointerDown",f),e.event.bind(t,"MSPointerMove",h),e.event.bind(t,"MSPointerUp",v)))}var n=r(2),i=r(0),l=r(1),s=r(3);t.exports=function(t){if(n.env.supportsTouch||n.env.supportsIePointer){o(t,i.get(t),n.env.supportsTouch,n.env.supportsIePointer)}}},function(t,e,r){"use strict";var o=r(0),n=r(1),i={"click-rail":r(16),"drag-scrollbar":r(17),keyboard:r(18),wheel:r(19),touch:r(22),selection:r(21)},l=r(20);t.exports=function(t,e){t.classList.add("ps");var r=o.add(t,"object"==typeof e?e:{});t.classList.add("ps--theme_"+r.settings.theme),r.settings.handlers.forEach(function(e){i[e](t)}),l(t),n(t)}},function(t,e,r){"use strict";var o=r(2),n=r(4),i=r(0),l=r(1),s=r(3);t.exports=function(t){var e=i.get(t);e&&(e.negativeScrollAdjustment=e.isNegativeScroll?t.scrollWidth-t.clientWidth:0,n.css(e.scrollbarXRail,"display","block"),n.css(e.scrollbarYRail,"display","block"),e.railXMarginWidth=o.toInt(n.css(e.scrollbarXRail,"marginLeft"))+o.toInt(n.css(e.scrollbarXRail,"marginRight")),e.railYMarginHeight=o.toInt(n.css(e.scrollbarYRail,"marginTop"))+o.toInt(n.css(e.scrollbarYRail,"marginBottom")),n.css(e.scrollbarXRail,"display","none"),n.css(e.scrollbarYRail,"display","none"),l(t),s(t,"top",t.scrollTop),s(t,"left",t.scrollLeft),n.css(e.scrollbarXRail,"display",""),n.css(e.scrollbarYRail,"display",""))}},function(t,e){t.exports=function(t,e,r,o){var n,i=t=t||{},l=typeof t.default;"object"!==l&&"function"!==l||(n=t,i=t.default);var s="function"==typeof i?i.options:i;if(e&&(s.render=e.render,s.staticRenderFns=e.staticRenderFns),r&&(s._scopeId=r),o){var a=s.computed||(s.computed={});Object.keys(o).forEach(function(t){var e=o[t];a[t]=function(){return e}})}return{esModule:n,exports:i,options:s}}},function(t,e){t.exports={render:function(){var t=this,e=t.$createElement;return(t._self._c||e)(t.$props.tagname,{tag:"section",staticClass:"ps-container",on:{"~mouseover":function(e){t.update(e)},"ps-scroll-y":t.scrollHanle,"ps-scroll-x":t.scrollHanle,"ps-scroll-up":t.scrollHanle,"ps-scroll-down":t.scrollHanle,"ps-scroll-left":t.scrollHanle,"ps-scroll-right":t.scrollHanle,"ps-y-reach-start":t.scrollHanle,"ps-y-reach-end":t.scrollHanle,"ps-x-reach-start":t.scrollHanle,"ps-x-reach-end":t.scrollHanle}},[t._t("default")],2)},staticRenderFns:[]}},function(t,e){function r(t,e){for(var r=0;r<t.length;r++){var o=t[r],n=u[o.id];if(n){n.refs++;for(var i=0;i<n.parts.length;i++)n.parts[i](o.parts[i]);for(;i<o.parts.length;i++)n.parts.push(s(o.parts[i],e))}else{for(var l=[],i=0;i<o.parts.length;i++)l.push(s(o.parts[i],e));u[o.id]={id:o.id,refs:1,parts:l}}}}function o(t){for(var e=[],r={},o=0;o<t.length;o++){var n=t[o],i=n[0],l=n[1],s=n[2],a=n[3],c={css:l,media:s,sourceMap:a};r[i]?r[i].parts.push(c):e.push(r[i]={id:i,parts:[c]})}return e}function n(t,e){var r=f(),o=b[b.length-1];if("top"===t.insertAt)o?o.nextSibling?r.insertBefore(e,o.nextSibling):r.appendChild(e):r.insertBefore(e,r.firstChild),b.push(e);else{if("bottom"!==t.insertAt)throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");r.appendChild(e)}}function i(t){t.parentNode.removeChild(t);var e=b.indexOf(t);e>=0&&b.splice(e,1)}function l(t){var e=document.createElement("style");return e.type="text/css",n(t,e),e}function s(t,e){var r,o,n;if(e.singleton){var s=v++;r=h||(h=l(e)),o=a.bind(null,r,s,!1),n=a.bind(null,r,s,!0)}else r=l(e),o=c.bind(null,r),n=function(){i(r)};return o(t),function(e){if(e){if(e.css===t.css&&e.media===t.media&&e.sourceMap===t.sourceMap)return;o(t=e)}else n()}}function a(t,e,r,o){var n=r?"":o.css;if(t.styleSheet)t.styleSheet.cssText=g(e,n);else{var i=document.createTextNode(n),l=t.childNodes;l[e]&&t.removeChild(l[e]),l.length?t.insertBefore(i,l[e]):t.appendChild(i)}}function c(t,e){var r=e.css,o=e.media,n=e.sourceMap;if(o&&t.setAttribute("media",o),n&&(r+="\n/*# sourceURL="+n.sources[0]+" */",r+="\n/*# sourceMappingURL=data:application/json;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(n))))+" */"),t.styleSheet)t.styleSheet.cssText=r;else{for(;t.firstChild;)t.removeChild(t.firstChild);t.appendChild(document.createTextNode(r))}}var u={},p=function(t){var e;return function(){return void 0===e&&(e=t.apply(this,arguments)),e}},d=p(function(){return/msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase())}),f=p(function(){return document.head||document.getElementsByTagName("head")[0]}),h=null,v=0,b=[];t.exports=function(t,e){if("undefined"!=typeof DEBUG&&DEBUG&&"object"!=typeof document)throw new Error("The style-loader cannot be used in a non-browser environment");e=e||{},void 0===e.singleton&&(e.singleton=d()),void 0===e.insertAt&&(e.insertAt="bottom");var n=o(t);return r(n,e),function(t){for(var i=[],l=0;l<n.length;l++){var s=n[l],a=u[s.id];a.refs--,i.push(a)}if(t){r(o(t),e)}for(var l=0;l<i.length;l++){var a=i[l];if(0===a.refs){for(var c=0;c<a.parts.length;c++)a.parts[c]();delete u[a.id]}}}};var g=function(){var t=[];return function(e,r){return t[e]=r,t.filter(Boolean).join("\n")}}()},function(t,e,r){var o=r(8);"string"==typeof o&&(o=[[t.i,o,""]]);r(27)(o,{});o.locals&&(t.exports=o.locals)}]);
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/vuedraggable/dist/vuedraggable.common.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/vuedraggable/dist/vuedraggable.common.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "fb15");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "02f4":
+/***/ (function(module, exports, __webpack_require__) {
+
+var toInteger = __webpack_require__("4588");
+var defined = __webpack_require__("be13");
+// true  -> String#at
+// false -> String#codePointAt
+module.exports = function (TO_STRING) {
+  return function (that, pos) {
+    var s = String(defined(that));
+    var i = toInteger(pos);
+    var l = s.length;
+    var a, b;
+    if (i < 0 || i >= l) return TO_STRING ? '' : undefined;
+    a = s.charCodeAt(i);
+    return a < 0xd800 || a > 0xdbff || i + 1 === l || (b = s.charCodeAt(i + 1)) < 0xdc00 || b > 0xdfff
+      ? TO_STRING ? s.charAt(i) : a
+      : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
+  };
+};
+
+
+/***/ }),
+
+/***/ "0390":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var at = __webpack_require__("02f4")(true);
+
+ // `AdvanceStringIndex` abstract operation
+// https://tc39.github.io/ecma262/#sec-advancestringindex
+module.exports = function (S, index, unicode) {
+  return index + (unicode ? at(S, index).length : 1);
+};
+
+
+/***/ }),
+
+/***/ "07e3":
+/***/ (function(module, exports) {
+
+var hasOwnProperty = {}.hasOwnProperty;
+module.exports = function (it, key) {
+  return hasOwnProperty.call(it, key);
+};
+
+
+/***/ }),
+
+/***/ "0bfb":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// 21.2.5.3 get RegExp.prototype.flags
+var anObject = __webpack_require__("cb7c");
+module.exports = function () {
+  var that = anObject(this);
+  var result = '';
+  if (that.global) result += 'g';
+  if (that.ignoreCase) result += 'i';
+  if (that.multiline) result += 'm';
+  if (that.unicode) result += 'u';
+  if (that.sticky) result += 'y';
+  return result;
+};
+
+
+/***/ }),
+
+/***/ "0fc9":
+/***/ (function(module, exports, __webpack_require__) {
+
+var toInteger = __webpack_require__("3a38");
+var max = Math.max;
+var min = Math.min;
+module.exports = function (index, length) {
+  index = toInteger(index);
+  return index < 0 ? max(index + length, 0) : min(index, length);
+};
+
+
+/***/ }),
+
+/***/ "1654":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var $at = __webpack_require__("71c1")(true);
+
+// 21.1.3.27 String.prototype[@@iterator]()
+__webpack_require__("30f1")(String, 'String', function (iterated) {
+  this._t = String(iterated); // target
+  this._i = 0;                // next index
+// 21.1.5.2.1 %StringIteratorPrototype%.next()
+}, function () {
+  var O = this._t;
+  var index = this._i;
+  var point;
+  if (index >= O.length) return { value: undefined, done: true };
+  point = $at(O, index);
+  this._i += point.length;
+  return { value: point, done: false };
+});
+
+
+/***/ }),
+
+/***/ "1691":
+/***/ (function(module, exports) {
+
+// IE 8- don't enum bug keys
+module.exports = (
+  'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
+).split(',');
+
+
+/***/ }),
+
+/***/ "1af6":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 22.1.2.2 / 15.4.3.2 Array.isArray(arg)
+var $export = __webpack_require__("63b6");
+
+$export($export.S, 'Array', { isArray: __webpack_require__("9003") });
+
+
+/***/ }),
+
+/***/ "1bc3":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.1 ToPrimitive(input [, PreferredType])
+var isObject = __webpack_require__("f772");
+// instead of the ES6 spec version, we didn't implement @@toPrimitive case
+// and the second argument - flag - preferred type is a string
+module.exports = function (it, S) {
+  if (!isObject(it)) return it;
+  var fn, val;
+  if (S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
+  if (typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it))) return val;
+  if (!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
+  throw TypeError("Can't convert object to primitive value");
+};
+
+
+/***/ }),
+
+/***/ "1ec9":
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__("f772");
+var document = __webpack_require__("e53d").document;
+// typeof document.createElement is 'object' in old IE
+var is = isObject(document) && isObject(document.createElement);
+module.exports = function (it) {
+  return is ? document.createElement(it) : {};
+};
+
+
+/***/ }),
+
+/***/ "20fd":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var $defineProperty = __webpack_require__("d9f6");
+var createDesc = __webpack_require__("aebd");
+
+module.exports = function (object, index, value) {
+  if (index in object) $defineProperty.f(object, index, createDesc(0, value));
+  else object[index] = value;
+};
+
+
+/***/ }),
+
+/***/ "214f":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+__webpack_require__("b0c5");
+var redefine = __webpack_require__("2aba");
+var hide = __webpack_require__("32e9");
+var fails = __webpack_require__("79e5");
+var defined = __webpack_require__("be13");
+var wks = __webpack_require__("2b4c");
+var regexpExec = __webpack_require__("520a");
+
+var SPECIES = wks('species');
+
+var REPLACE_SUPPORTS_NAMED_GROUPS = !fails(function () {
+  // #replace needs built-in support for named groups.
+  // #match works fine because it just return the exec results, even if it has
+  // a "grops" property.
+  var re = /./;
+  re.exec = function () {
+    var result = [];
+    result.groups = { a: '7' };
+    return result;
+  };
+  return ''.replace(re, '$<a>') !== '7';
+});
+
+var SPLIT_WORKS_WITH_OVERWRITTEN_EXEC = (function () {
+  // Chrome 51 has a buggy "split" implementation when RegExp#exec !== nativeExec
+  var re = /(?:)/;
+  var originalExec = re.exec;
+  re.exec = function () { return originalExec.apply(this, arguments); };
+  var result = 'ab'.split(re);
+  return result.length === 2 && result[0] === 'a' && result[1] === 'b';
+})();
+
+module.exports = function (KEY, length, exec) {
+  var SYMBOL = wks(KEY);
+
+  var DELEGATES_TO_SYMBOL = !fails(function () {
+    // String methods call symbol-named RegEp methods
+    var O = {};
+    O[SYMBOL] = function () { return 7; };
+    return ''[KEY](O) != 7;
+  });
+
+  var DELEGATES_TO_EXEC = DELEGATES_TO_SYMBOL ? !fails(function () {
+    // Symbol-named RegExp methods call .exec
+    var execCalled = false;
+    var re = /a/;
+    re.exec = function () { execCalled = true; return null; };
+    if (KEY === 'split') {
+      // RegExp[@@split] doesn't call the regex's exec method, but first creates
+      // a new one. We need to return the patched regex when creating the new one.
+      re.constructor = {};
+      re.constructor[SPECIES] = function () { return re; };
+    }
+    re[SYMBOL]('');
+    return !execCalled;
+  }) : undefined;
+
+  if (
+    !DELEGATES_TO_SYMBOL ||
+    !DELEGATES_TO_EXEC ||
+    (KEY === 'replace' && !REPLACE_SUPPORTS_NAMED_GROUPS) ||
+    (KEY === 'split' && !SPLIT_WORKS_WITH_OVERWRITTEN_EXEC)
+  ) {
+    var nativeRegExpMethod = /./[SYMBOL];
+    var fns = exec(
+      defined,
+      SYMBOL,
+      ''[KEY],
+      function maybeCallNative(nativeMethod, regexp, str, arg2, forceStringMethod) {
+        if (regexp.exec === regexpExec) {
+          if (DELEGATES_TO_SYMBOL && !forceStringMethod) {
+            // The native String method already delegates to @@method (this
+            // polyfilled function), leasing to infinite recursion.
+            // We avoid it by directly calling the native @@method method.
+            return { done: true, value: nativeRegExpMethod.call(regexp, str, arg2) };
+          }
+          return { done: true, value: nativeMethod.call(str, regexp, arg2) };
+        }
+        return { done: false };
+      }
+    );
+    var strfn = fns[0];
+    var rxfn = fns[1];
+
+    redefine(String.prototype, KEY, strfn);
+    hide(RegExp.prototype, SYMBOL, length == 2
+      // 21.2.5.8 RegExp.prototype[@@replace](string, replaceValue)
+      // 21.2.5.11 RegExp.prototype[@@split](string, limit)
+      ? function (string, arg) { return rxfn.call(string, this, arg); }
+      // 21.2.5.6 RegExp.prototype[@@match](string)
+      // 21.2.5.9 RegExp.prototype[@@search](string)
+      : function (string) { return rxfn.call(string, this); }
+    );
+  }
+};
+
+
+/***/ }),
+
+/***/ "230e":
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__("d3f4");
+var document = __webpack_require__("7726").document;
+// typeof document.createElement is 'object' in old IE
+var is = isObject(document) && isObject(document.createElement);
+module.exports = function (it) {
+  return is ? document.createElement(it) : {};
+};
+
+
+/***/ }),
+
+/***/ "23c6":
+/***/ (function(module, exports, __webpack_require__) {
+
+// getting tag from 19.1.3.6 Object.prototype.toString()
+var cof = __webpack_require__("2d95");
+var TAG = __webpack_require__("2b4c")('toStringTag');
+// ES3 wrong here
+var ARG = cof(function () { return arguments; }()) == 'Arguments';
+
+// fallback for IE11 Script Access Denied error
+var tryGet = function (it, key) {
+  try {
+    return it[key];
+  } catch (e) { /* empty */ }
+};
+
+module.exports = function (it) {
+  var O, T, B;
+  return it === undefined ? 'Undefined' : it === null ? 'Null'
+    // @@toStringTag case
+    : typeof (T = tryGet(O = Object(it), TAG)) == 'string' ? T
+    // builtinTag case
+    : ARG ? cof(O)
+    // ES3 arguments fallback
+    : (B = cof(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : B;
+};
+
+
+/***/ }),
+
+/***/ "241e":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.13 ToObject(argument)
+var defined = __webpack_require__("25eb");
+module.exports = function (it) {
+  return Object(defined(it));
+};
+
+
+/***/ }),
+
+/***/ "25eb":
+/***/ (function(module, exports) {
+
+// 7.2.1 RequireObjectCoercible(argument)
+module.exports = function (it) {
+  if (it == undefined) throw TypeError("Can't call method on  " + it);
+  return it;
+};
+
+
+/***/ }),
+
+/***/ "294c":
+/***/ (function(module, exports) {
+
+module.exports = function (exec) {
+  try {
+    return !!exec();
+  } catch (e) {
+    return true;
+  }
+};
+
+
+/***/ }),
+
+/***/ "2aba":
+/***/ (function(module, exports, __webpack_require__) {
+
+var global = __webpack_require__("7726");
+var hide = __webpack_require__("32e9");
+var has = __webpack_require__("69a8");
+var SRC = __webpack_require__("ca5a")('src');
+var $toString = __webpack_require__("fa5b");
+var TO_STRING = 'toString';
+var TPL = ('' + $toString).split(TO_STRING);
+
+__webpack_require__("8378").inspectSource = function (it) {
+  return $toString.call(it);
+};
+
+(module.exports = function (O, key, val, safe) {
+  var isFunction = typeof val == 'function';
+  if (isFunction) has(val, 'name') || hide(val, 'name', key);
+  if (O[key] === val) return;
+  if (isFunction) has(val, SRC) || hide(val, SRC, O[key] ? '' + O[key] : TPL.join(String(key)));
+  if (O === global) {
+    O[key] = val;
+  } else if (!safe) {
+    delete O[key];
+    hide(O, key, val);
+  } else if (O[key]) {
+    O[key] = val;
+  } else {
+    hide(O, key, val);
+  }
+// add fake Function#toString for correct work wrapped methods / constructors with methods like LoDash isNative
+})(Function.prototype, TO_STRING, function toString() {
+  return typeof this == 'function' && this[SRC] || $toString.call(this);
+});
+
+
+/***/ }),
+
+/***/ "2b4c":
+/***/ (function(module, exports, __webpack_require__) {
+
+var store = __webpack_require__("5537")('wks');
+var uid = __webpack_require__("ca5a");
+var Symbol = __webpack_require__("7726").Symbol;
+var USE_SYMBOL = typeof Symbol == 'function';
+
+var $exports = module.exports = function (name) {
+  return store[name] || (store[name] =
+    USE_SYMBOL && Symbol[name] || (USE_SYMBOL ? Symbol : uid)('Symbol.' + name));
+};
+
+$exports.store = store;
+
+
+/***/ }),
+
+/***/ "2d00":
+/***/ (function(module, exports) {
+
+module.exports = false;
+
+
+/***/ }),
+
+/***/ "2d95":
+/***/ (function(module, exports) {
+
+var toString = {}.toString;
+
+module.exports = function (it) {
+  return toString.call(it).slice(8, -1);
+};
+
+
+/***/ }),
+
+/***/ "2fdb":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// 21.1.3.7 String.prototype.includes(searchString, position = 0)
+
+var $export = __webpack_require__("5ca1");
+var context = __webpack_require__("d2c8");
+var INCLUDES = 'includes';
+
+$export($export.P + $export.F * __webpack_require__("5147")(INCLUDES), 'String', {
+  includes: function includes(searchString /* , position = 0 */) {
+    return !!~context(this, searchString, INCLUDES)
+      .indexOf(searchString, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+
+
+/***/ }),
+
+/***/ "30f1":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var LIBRARY = __webpack_require__("b8e3");
+var $export = __webpack_require__("63b6");
+var redefine = __webpack_require__("9138");
+var hide = __webpack_require__("35e8");
+var Iterators = __webpack_require__("481b");
+var $iterCreate = __webpack_require__("8f60");
+var setToStringTag = __webpack_require__("45f2");
+var getPrototypeOf = __webpack_require__("53e2");
+var ITERATOR = __webpack_require__("5168")('iterator');
+var BUGGY = !([].keys && 'next' in [].keys()); // Safari has buggy iterators w/o `next`
+var FF_ITERATOR = '@@iterator';
+var KEYS = 'keys';
+var VALUES = 'values';
+
+var returnThis = function () { return this; };
+
+module.exports = function (Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED) {
+  $iterCreate(Constructor, NAME, next);
+  var getMethod = function (kind) {
+    if (!BUGGY && kind in proto) return proto[kind];
+    switch (kind) {
+      case KEYS: return function keys() { return new Constructor(this, kind); };
+      case VALUES: return function values() { return new Constructor(this, kind); };
+    } return function entries() { return new Constructor(this, kind); };
+  };
+  var TAG = NAME + ' Iterator';
+  var DEF_VALUES = DEFAULT == VALUES;
+  var VALUES_BUG = false;
+  var proto = Base.prototype;
+  var $native = proto[ITERATOR] || proto[FF_ITERATOR] || DEFAULT && proto[DEFAULT];
+  var $default = $native || getMethod(DEFAULT);
+  var $entries = DEFAULT ? !DEF_VALUES ? $default : getMethod('entries') : undefined;
+  var $anyNative = NAME == 'Array' ? proto.entries || $native : $native;
+  var methods, key, IteratorPrototype;
+  // Fix native
+  if ($anyNative) {
+    IteratorPrototype = getPrototypeOf($anyNative.call(new Base()));
+    if (IteratorPrototype !== Object.prototype && IteratorPrototype.next) {
+      // Set @@toStringTag to native iterators
+      setToStringTag(IteratorPrototype, TAG, true);
+      // fix for some old engines
+      if (!LIBRARY && typeof IteratorPrototype[ITERATOR] != 'function') hide(IteratorPrototype, ITERATOR, returnThis);
+    }
+  }
+  // fix Array#{values, @@iterator}.name in V8 / FF
+  if (DEF_VALUES && $native && $native.name !== VALUES) {
+    VALUES_BUG = true;
+    $default = function values() { return $native.call(this); };
+  }
+  // Define iterator
+  if ((!LIBRARY || FORCED) && (BUGGY || VALUES_BUG || !proto[ITERATOR])) {
+    hide(proto, ITERATOR, $default);
+  }
+  // Plug for library
+  Iterators[NAME] = $default;
+  Iterators[TAG] = returnThis;
+  if (DEFAULT) {
+    methods = {
+      values: DEF_VALUES ? $default : getMethod(VALUES),
+      keys: IS_SET ? $default : getMethod(KEYS),
+      entries: $entries
+    };
+    if (FORCED) for (key in methods) {
+      if (!(key in proto)) redefine(proto, key, methods[key]);
+    } else $export($export.P + $export.F * (BUGGY || VALUES_BUG), NAME, methods);
+  }
+  return methods;
+};
+
+
+/***/ }),
+
+/***/ "32a6":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.14 Object.keys(O)
+var toObject = __webpack_require__("241e");
+var $keys = __webpack_require__("c3a1");
+
+__webpack_require__("ce7e")('keys', function () {
+  return function keys(it) {
+    return $keys(toObject(it));
+  };
+});
+
+
+/***/ }),
+
+/***/ "32e9":
+/***/ (function(module, exports, __webpack_require__) {
+
+var dP = __webpack_require__("86cc");
+var createDesc = __webpack_require__("4630");
+module.exports = __webpack_require__("9e1e") ? function (object, key, value) {
+  return dP.f(object, key, createDesc(1, value));
+} : function (object, key, value) {
+  object[key] = value;
+  return object;
+};
+
+
+/***/ }),
+
+/***/ "32fc":
+/***/ (function(module, exports, __webpack_require__) {
+
+var document = __webpack_require__("e53d").document;
+module.exports = document && document.documentElement;
+
+
+/***/ }),
+
+/***/ "335c":
+/***/ (function(module, exports, __webpack_require__) {
+
+// fallback for non-array-like ES3 and non-enumerable old V8 strings
+var cof = __webpack_require__("6b4c");
+// eslint-disable-next-line no-prototype-builtins
+module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
+  return cof(it) == 'String' ? it.split('') : Object(it);
+};
+
+
+/***/ }),
+
+/***/ "355d":
+/***/ (function(module, exports) {
+
+exports.f = {}.propertyIsEnumerable;
+
+
+/***/ }),
+
+/***/ "35e8":
+/***/ (function(module, exports, __webpack_require__) {
+
+var dP = __webpack_require__("d9f6");
+var createDesc = __webpack_require__("aebd");
+module.exports = __webpack_require__("8e60") ? function (object, key, value) {
+  return dP.f(object, key, createDesc(1, value));
+} : function (object, key, value) {
+  object[key] = value;
+  return object;
+};
+
+
+/***/ }),
+
+/***/ "36c3":
+/***/ (function(module, exports, __webpack_require__) {
+
+// to indexed object, toObject with fallback for non-array-like ES3 strings
+var IObject = __webpack_require__("335c");
+var defined = __webpack_require__("25eb");
+module.exports = function (it) {
+  return IObject(defined(it));
+};
+
+
+/***/ }),
+
+/***/ "3702":
+/***/ (function(module, exports, __webpack_require__) {
+
+// check on default Array iterator
+var Iterators = __webpack_require__("481b");
+var ITERATOR = __webpack_require__("5168")('iterator');
+var ArrayProto = Array.prototype;
+
+module.exports = function (it) {
+  return it !== undefined && (Iterators.Array === it || ArrayProto[ITERATOR] === it);
+};
+
+
+/***/ }),
+
+/***/ "3a38":
+/***/ (function(module, exports) {
+
+// 7.1.4 ToInteger
+var ceil = Math.ceil;
+var floor = Math.floor;
+module.exports = function (it) {
+  return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
+};
+
+
+/***/ }),
+
+/***/ "40c3":
+/***/ (function(module, exports, __webpack_require__) {
+
+// getting tag from 19.1.3.6 Object.prototype.toString()
+var cof = __webpack_require__("6b4c");
+var TAG = __webpack_require__("5168")('toStringTag');
+// ES3 wrong here
+var ARG = cof(function () { return arguments; }()) == 'Arguments';
+
+// fallback for IE11 Script Access Denied error
+var tryGet = function (it, key) {
+  try {
+    return it[key];
+  } catch (e) { /* empty */ }
+};
+
+module.exports = function (it) {
+  var O, T, B;
+  return it === undefined ? 'Undefined' : it === null ? 'Null'
+    // @@toStringTag case
+    : typeof (T = tryGet(O = Object(it), TAG)) == 'string' ? T
+    // builtinTag case
+    : ARG ? cof(O)
+    // ES3 arguments fallback
+    : (B = cof(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : B;
+};
+
+
+/***/ }),
+
+/***/ "4588":
+/***/ (function(module, exports) {
+
+// 7.1.4 ToInteger
+var ceil = Math.ceil;
+var floor = Math.floor;
+module.exports = function (it) {
+  return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
+};
+
+
+/***/ }),
+
+/***/ "45f2":
+/***/ (function(module, exports, __webpack_require__) {
+
+var def = __webpack_require__("d9f6").f;
+var has = __webpack_require__("07e3");
+var TAG = __webpack_require__("5168")('toStringTag');
+
+module.exports = function (it, tag, stat) {
+  if (it && !has(it = stat ? it : it.prototype, TAG)) def(it, TAG, { configurable: true, value: tag });
+};
+
+
+/***/ }),
+
+/***/ "4630":
+/***/ (function(module, exports) {
+
+module.exports = function (bitmap, value) {
+  return {
+    enumerable: !(bitmap & 1),
+    configurable: !(bitmap & 2),
+    writable: !(bitmap & 4),
+    value: value
+  };
+};
+
+
+/***/ }),
+
+/***/ "469f":
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__("6c1c");
+__webpack_require__("1654");
+module.exports = __webpack_require__("7d7b");
+
+
+/***/ }),
+
+/***/ "481b":
+/***/ (function(module, exports) {
+
+module.exports = {};
+
+
+/***/ }),
+
+/***/ "4aa6":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("dc62");
+
+/***/ }),
+
+/***/ "4bf8":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.13 ToObject(argument)
+var defined = __webpack_require__("be13");
+module.exports = function (it) {
+  return Object(defined(it));
+};
+
+
+/***/ }),
+
+/***/ "4ee1":
+/***/ (function(module, exports, __webpack_require__) {
+
+var ITERATOR = __webpack_require__("5168")('iterator');
+var SAFE_CLOSING = false;
+
+try {
+  var riter = [7][ITERATOR]();
+  riter['return'] = function () { SAFE_CLOSING = true; };
+  // eslint-disable-next-line no-throw-literal
+  Array.from(riter, function () { throw 2; });
+} catch (e) { /* empty */ }
+
+module.exports = function (exec, skipClosing) {
+  if (!skipClosing && !SAFE_CLOSING) return false;
+  var safe = false;
+  try {
+    var arr = [7];
+    var iter = arr[ITERATOR]();
+    iter.next = function () { return { done: safe = true }; };
+    arr[ITERATOR] = function () { return iter; };
+    exec(arr);
+  } catch (e) { /* empty */ }
+  return safe;
+};
+
+
+/***/ }),
+
+/***/ "50ed":
+/***/ (function(module, exports) {
+
+module.exports = function (done, value) {
+  return { value: value, done: !!done };
+};
+
+
+/***/ }),
+
+/***/ "5147":
+/***/ (function(module, exports, __webpack_require__) {
+
+var MATCH = __webpack_require__("2b4c")('match');
+module.exports = function (KEY) {
+  var re = /./;
+  try {
+    '/./'[KEY](re);
+  } catch (e) {
+    try {
+      re[MATCH] = false;
+      return !'/./'[KEY](re);
+    } catch (f) { /* empty */ }
+  } return true;
+};
+
+
+/***/ }),
+
+/***/ "5168":
+/***/ (function(module, exports, __webpack_require__) {
+
+var store = __webpack_require__("dbdb")('wks');
+var uid = __webpack_require__("62a0");
+var Symbol = __webpack_require__("e53d").Symbol;
+var USE_SYMBOL = typeof Symbol == 'function';
+
+var $exports = module.exports = function (name) {
+  return store[name] || (store[name] =
+    USE_SYMBOL && Symbol[name] || (USE_SYMBOL ? Symbol : uid)('Symbol.' + name));
+};
+
+$exports.store = store;
+
+
+/***/ }),
+
+/***/ "5176":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("51b6");
+
+/***/ }),
+
+/***/ "51b6":
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__("a3c3");
+module.exports = __webpack_require__("584a").Object.assign;
+
+
+/***/ }),
+
+/***/ "520a":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var regexpFlags = __webpack_require__("0bfb");
+
+var nativeExec = RegExp.prototype.exec;
+// This always refers to the native implementation, because the
+// String#replace polyfill uses ./fix-regexp-well-known-symbol-logic.js,
+// which loads this file before patching the method.
+var nativeReplace = String.prototype.replace;
+
+var patchedExec = nativeExec;
+
+var LAST_INDEX = 'lastIndex';
+
+var UPDATES_LAST_INDEX_WRONG = (function () {
+  var re1 = /a/,
+      re2 = /b*/g;
+  nativeExec.call(re1, 'a');
+  nativeExec.call(re2, 'a');
+  return re1[LAST_INDEX] !== 0 || re2[LAST_INDEX] !== 0;
+})();
+
+// nonparticipating capturing group, copied from es5-shim's String#split patch.
+var NPCG_INCLUDED = /()??/.exec('')[1] !== undefined;
+
+var PATCH = UPDATES_LAST_INDEX_WRONG || NPCG_INCLUDED;
+
+if (PATCH) {
+  patchedExec = function exec(str) {
+    var re = this;
+    var lastIndex, reCopy, match, i;
+
+    if (NPCG_INCLUDED) {
+      reCopy = new RegExp('^' + re.source + '$(?!\\s)', regexpFlags.call(re));
+    }
+    if (UPDATES_LAST_INDEX_WRONG) lastIndex = re[LAST_INDEX];
+
+    match = nativeExec.call(re, str);
+
+    if (UPDATES_LAST_INDEX_WRONG && match) {
+      re[LAST_INDEX] = re.global ? match.index + match[0].length : lastIndex;
+    }
+    if (NPCG_INCLUDED && match && match.length > 1) {
+      // Fix browsers whose `exec` methods don't consistently return `undefined`
+      // for NPCG, like IE8. NOTE: This doesn' work for /(.?)?/
+      // eslint-disable-next-line no-loop-func
+      nativeReplace.call(match[0], reCopy, function () {
+        for (i = 1; i < arguments.length - 2; i++) {
+          if (arguments[i] === undefined) match[i] = undefined;
+        }
+      });
+    }
+
+    return match;
+  };
+}
+
+module.exports = patchedExec;
+
+
+/***/ }),
+
+/***/ "53e2":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
+var has = __webpack_require__("07e3");
+var toObject = __webpack_require__("241e");
+var IE_PROTO = __webpack_require__("5559")('IE_PROTO');
+var ObjectProto = Object.prototype;
+
+module.exports = Object.getPrototypeOf || function (O) {
+  O = toObject(O);
+  if (has(O, IE_PROTO)) return O[IE_PROTO];
+  if (typeof O.constructor == 'function' && O instanceof O.constructor) {
+    return O.constructor.prototype;
+  } return O instanceof Object ? ObjectProto : null;
+};
+
+
+/***/ }),
+
+/***/ "549b":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var ctx = __webpack_require__("d864");
+var $export = __webpack_require__("63b6");
+var toObject = __webpack_require__("241e");
+var call = __webpack_require__("b0dc");
+var isArrayIter = __webpack_require__("3702");
+var toLength = __webpack_require__("b447");
+var createProperty = __webpack_require__("20fd");
+var getIterFn = __webpack_require__("7cd6");
+
+$export($export.S + $export.F * !__webpack_require__("4ee1")(function (iter) { Array.from(iter); }), 'Array', {
+  // 22.1.2.1 Array.from(arrayLike, mapfn = undefined, thisArg = undefined)
+  from: function from(arrayLike /* , mapfn = undefined, thisArg = undefined */) {
+    var O = toObject(arrayLike);
+    var C = typeof this == 'function' ? this : Array;
+    var aLen = arguments.length;
+    var mapfn = aLen > 1 ? arguments[1] : undefined;
+    var mapping = mapfn !== undefined;
+    var index = 0;
+    var iterFn = getIterFn(O);
+    var length, result, step, iterator;
+    if (mapping) mapfn = ctx(mapfn, aLen > 2 ? arguments[2] : undefined, 2);
+    // if object isn't iterable or it's array with default iterator - use simple case
+    if (iterFn != undefined && !(C == Array && isArrayIter(iterFn))) {
+      for (iterator = iterFn.call(O), result = new C(); !(step = iterator.next()).done; index++) {
+        createProperty(result, index, mapping ? call(iterator, mapfn, [step.value, index], true) : step.value);
+      }
+    } else {
+      length = toLength(O.length);
+      for (result = new C(length); length > index; index++) {
+        createProperty(result, index, mapping ? mapfn(O[index], index) : O[index]);
+      }
+    }
+    result.length = index;
+    return result;
+  }
+});
+
+
+/***/ }),
+
+/***/ "54a1":
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__("6c1c");
+__webpack_require__("1654");
+module.exports = __webpack_require__("95d5");
+
+
+/***/ }),
+
+/***/ "5537":
+/***/ (function(module, exports, __webpack_require__) {
+
+var core = __webpack_require__("8378");
+var global = __webpack_require__("7726");
+var SHARED = '__core-js_shared__';
+var store = global[SHARED] || (global[SHARED] = {});
+
+(module.exports = function (key, value) {
+  return store[key] || (store[key] = value !== undefined ? value : {});
+})('versions', []).push({
+  version: core.version,
+  mode: __webpack_require__("2d00") ? 'pure' : 'global',
+  copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
+});
+
+
+/***/ }),
+
+/***/ "5559":
+/***/ (function(module, exports, __webpack_require__) {
+
+var shared = __webpack_require__("dbdb")('keys');
+var uid = __webpack_require__("62a0");
+module.exports = function (key) {
+  return shared[key] || (shared[key] = uid(key));
+};
+
+
+/***/ }),
+
+/***/ "584a":
+/***/ (function(module, exports) {
+
+var core = module.exports = { version: '2.6.5' };
+if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
+
+
+/***/ }),
+
+/***/ "5b4e":
+/***/ (function(module, exports, __webpack_require__) {
+
+// false -> Array#indexOf
+// true  -> Array#includes
+var toIObject = __webpack_require__("36c3");
+var toLength = __webpack_require__("b447");
+var toAbsoluteIndex = __webpack_require__("0fc9");
+module.exports = function (IS_INCLUDES) {
+  return function ($this, el, fromIndex) {
+    var O = toIObject($this);
+    var length = toLength(O.length);
+    var index = toAbsoluteIndex(fromIndex, length);
+    var value;
+    // Array#includes uses SameValueZero equality algorithm
+    // eslint-disable-next-line no-self-compare
+    if (IS_INCLUDES && el != el) while (length > index) {
+      value = O[index++];
+      // eslint-disable-next-line no-self-compare
+      if (value != value) return true;
+    // Array#indexOf ignores holes, Array#includes - not
+    } else for (;length > index; index++) if (IS_INCLUDES || index in O) {
+      if (O[index] === el) return IS_INCLUDES || index || 0;
+    } return !IS_INCLUDES && -1;
+  };
+};
+
+
+/***/ }),
+
+/***/ "5ca1":
+/***/ (function(module, exports, __webpack_require__) {
+
+var global = __webpack_require__("7726");
+var core = __webpack_require__("8378");
+var hide = __webpack_require__("32e9");
+var redefine = __webpack_require__("2aba");
+var ctx = __webpack_require__("9b43");
+var PROTOTYPE = 'prototype';
+
+var $export = function (type, name, source) {
+  var IS_FORCED = type & $export.F;
+  var IS_GLOBAL = type & $export.G;
+  var IS_STATIC = type & $export.S;
+  var IS_PROTO = type & $export.P;
+  var IS_BIND = type & $export.B;
+  var target = IS_GLOBAL ? global : IS_STATIC ? global[name] || (global[name] = {}) : (global[name] || {})[PROTOTYPE];
+  var exports = IS_GLOBAL ? core : core[name] || (core[name] = {});
+  var expProto = exports[PROTOTYPE] || (exports[PROTOTYPE] = {});
+  var key, own, out, exp;
+  if (IS_GLOBAL) source = name;
+  for (key in source) {
+    // contains in native
+    own = !IS_FORCED && target && target[key] !== undefined;
+    // export native or passed
+    out = (own ? target : source)[key];
+    // bind timers to global for call from export context
+    exp = IS_BIND && own ? ctx(out, global) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
+    // extend global
+    if (target) redefine(target, key, out, type & $export.U);
+    // export
+    if (exports[key] != out) hide(exports, key, exp);
+    if (IS_PROTO && expProto[key] != out) expProto[key] = out;
+  }
+};
+global.core = core;
+// type bitmap
+$export.F = 1;   // forced
+$export.G = 2;   // global
+$export.S = 4;   // static
+$export.P = 8;   // proto
+$export.B = 16;  // bind
+$export.W = 32;  // wrap
+$export.U = 64;  // safe
+$export.R = 128; // real proto method for `library`
+module.exports = $export;
+
+
+/***/ }),
+
+/***/ "5d73":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("469f");
+
+/***/ }),
+
+/***/ "5f1b":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var classof = __webpack_require__("23c6");
+var builtinExec = RegExp.prototype.exec;
+
+ // `RegExpExec` abstract operation
+// https://tc39.github.io/ecma262/#sec-regexpexec
+module.exports = function (R, S) {
+  var exec = R.exec;
+  if (typeof exec === 'function') {
+    var result = exec.call(R, S);
+    if (typeof result !== 'object') {
+      throw new TypeError('RegExp exec method returned something other than an Object or null');
+    }
+    return result;
+  }
+  if (classof(R) !== 'RegExp') {
+    throw new TypeError('RegExp#exec called on incompatible receiver');
+  }
+  return builtinExec.call(R, S);
+};
+
+
+/***/ }),
+
+/***/ "626a":
+/***/ (function(module, exports, __webpack_require__) {
+
+// fallback for non-array-like ES3 and non-enumerable old V8 strings
+var cof = __webpack_require__("2d95");
+// eslint-disable-next-line no-prototype-builtins
+module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
+  return cof(it) == 'String' ? it.split('') : Object(it);
+};
+
+
+/***/ }),
+
+/***/ "62a0":
+/***/ (function(module, exports) {
+
+var id = 0;
+var px = Math.random();
+module.exports = function (key) {
+  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
+};
+
+
+/***/ }),
+
+/***/ "63b6":
+/***/ (function(module, exports, __webpack_require__) {
+
+var global = __webpack_require__("e53d");
+var core = __webpack_require__("584a");
+var ctx = __webpack_require__("d864");
+var hide = __webpack_require__("35e8");
+var has = __webpack_require__("07e3");
+var PROTOTYPE = 'prototype';
+
+var $export = function (type, name, source) {
+  var IS_FORCED = type & $export.F;
+  var IS_GLOBAL = type & $export.G;
+  var IS_STATIC = type & $export.S;
+  var IS_PROTO = type & $export.P;
+  var IS_BIND = type & $export.B;
+  var IS_WRAP = type & $export.W;
+  var exports = IS_GLOBAL ? core : core[name] || (core[name] = {});
+  var expProto = exports[PROTOTYPE];
+  var target = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE];
+  var key, own, out;
+  if (IS_GLOBAL) source = name;
+  for (key in source) {
+    // contains in native
+    own = !IS_FORCED && target && target[key] !== undefined;
+    if (own && has(exports, key)) continue;
+    // export native or passed
+    out = own ? target[key] : source[key];
+    // prevent global pollution for namespaces
+    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
+    // bind timers to global for call from export context
+    : IS_BIND && own ? ctx(out, global)
+    // wrap global constructors for prevent change them in library
+    : IS_WRAP && target[key] == out ? (function (C) {
+      var F = function (a, b, c) {
+        if (this instanceof C) {
+          switch (arguments.length) {
+            case 0: return new C();
+            case 1: return new C(a);
+            case 2: return new C(a, b);
+          } return new C(a, b, c);
+        } return C.apply(this, arguments);
+      };
+      F[PROTOTYPE] = C[PROTOTYPE];
+      return F;
+    // make static versions for prototype methods
+    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
+    // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
+    if (IS_PROTO) {
+      (exports.virtual || (exports.virtual = {}))[key] = out;
+      // export proto methods to core.%CONSTRUCTOR%.prototype.%NAME%
+      if (type & $export.R && expProto && !expProto[key]) hide(expProto, key, out);
+    }
+  }
+};
+// type bitmap
+$export.F = 1;   // forced
+$export.G = 2;   // global
+$export.S = 4;   // static
+$export.P = 8;   // proto
+$export.B = 16;  // bind
+$export.W = 32;  // wrap
+$export.U = 64;  // safe
+$export.R = 128; // real proto method for `library`
+module.exports = $export;
+
+
+/***/ }),
+
+/***/ "6762":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// https://github.com/tc39/Array.prototype.includes
+var $export = __webpack_require__("5ca1");
+var $includes = __webpack_require__("c366")(true);
+
+$export($export.P, 'Array', {
+  includes: function includes(el /* , fromIndex = 0 */) {
+    return $includes(this, el, arguments.length > 1 ? arguments[1] : undefined);
+  }
+});
+
+__webpack_require__("9c6c")('includes');
+
+
+/***/ }),
+
+/***/ "6821":
+/***/ (function(module, exports, __webpack_require__) {
+
+// to indexed object, toObject with fallback for non-array-like ES3 strings
+var IObject = __webpack_require__("626a");
+var defined = __webpack_require__("be13");
+module.exports = function (it) {
+  return IObject(defined(it));
+};
+
+
+/***/ }),
+
+/***/ "69a8":
+/***/ (function(module, exports) {
+
+var hasOwnProperty = {}.hasOwnProperty;
+module.exports = function (it, key) {
+  return hasOwnProperty.call(it, key);
+};
+
+
+/***/ }),
+
+/***/ "6a99":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.1 ToPrimitive(input [, PreferredType])
+var isObject = __webpack_require__("d3f4");
+// instead of the ES6 spec version, we didn't implement @@toPrimitive case
+// and the second argument - flag - preferred type is a string
+module.exports = function (it, S) {
+  if (!isObject(it)) return it;
+  var fn, val;
+  if (S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
+  if (typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it))) return val;
+  if (!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it))) return val;
+  throw TypeError("Can't convert object to primitive value");
+};
+
+
+/***/ }),
+
+/***/ "6b4c":
+/***/ (function(module, exports) {
+
+var toString = {}.toString;
+
+module.exports = function (it) {
+  return toString.call(it).slice(8, -1);
+};
+
+
+/***/ }),
+
+/***/ "6c1c":
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__("c367");
+var global = __webpack_require__("e53d");
+var hide = __webpack_require__("35e8");
+var Iterators = __webpack_require__("481b");
+var TO_STRING_TAG = __webpack_require__("5168")('toStringTag');
+
+var DOMIterables = ('CSSRuleList,CSSStyleDeclaration,CSSValueList,ClientRectList,DOMRectList,DOMStringList,' +
+  'DOMTokenList,DataTransferItemList,FileList,HTMLAllCollection,HTMLCollection,HTMLFormElement,HTMLSelectElement,' +
+  'MediaList,MimeTypeArray,NamedNodeMap,NodeList,PaintRequestList,Plugin,PluginArray,SVGLengthList,SVGNumberList,' +
+  'SVGPathSegList,SVGPointList,SVGStringList,SVGTransformList,SourceBufferList,StyleSheetList,TextTrackCueList,' +
+  'TextTrackList,TouchList').split(',');
+
+for (var i = 0; i < DOMIterables.length; i++) {
+  var NAME = DOMIterables[i];
+  var Collection = global[NAME];
+  var proto = Collection && Collection.prototype;
+  if (proto && !proto[TO_STRING_TAG]) hide(proto, TO_STRING_TAG, NAME);
+  Iterators[NAME] = Iterators.Array;
+}
+
+
+/***/ }),
+
+/***/ "71c1":
+/***/ (function(module, exports, __webpack_require__) {
+
+var toInteger = __webpack_require__("3a38");
+var defined = __webpack_require__("25eb");
+// true  -> String#at
+// false -> String#codePointAt
+module.exports = function (TO_STRING) {
+  return function (that, pos) {
+    var s = String(defined(that));
+    var i = toInteger(pos);
+    var l = s.length;
+    var a, b;
+    if (i < 0 || i >= l) return TO_STRING ? '' : undefined;
+    a = s.charCodeAt(i);
+    return a < 0xd800 || a > 0xdbff || i + 1 === l || (b = s.charCodeAt(i + 1)) < 0xdc00 || b > 0xdfff
+      ? TO_STRING ? s.charAt(i) : a
+      : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
+  };
+};
+
+
+/***/ }),
+
+/***/ "7726":
+/***/ (function(module, exports) {
+
+// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+var global = module.exports = typeof window != 'undefined' && window.Math == Math
+  ? window : typeof self != 'undefined' && self.Math == Math ? self
+  // eslint-disable-next-line no-new-func
+  : Function('return this')();
+if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
+
+
+/***/ }),
+
+/***/ "774e":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("d2d5");
+
+/***/ }),
+
+/***/ "77f1":
+/***/ (function(module, exports, __webpack_require__) {
+
+var toInteger = __webpack_require__("4588");
+var max = Math.max;
+var min = Math.min;
+module.exports = function (index, length) {
+  index = toInteger(index);
+  return index < 0 ? max(index + length, 0) : min(index, length);
+};
+
+
+/***/ }),
+
+/***/ "794b":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = !__webpack_require__("8e60") && !__webpack_require__("294c")(function () {
+  return Object.defineProperty(__webpack_require__("1ec9")('div'), 'a', { get: function () { return 7; } }).a != 7;
+});
+
+
+/***/ }),
+
+/***/ "79aa":
+/***/ (function(module, exports) {
+
+module.exports = function (it) {
+  if (typeof it != 'function') throw TypeError(it + ' is not a function!');
+  return it;
+};
+
+
+/***/ }),
+
+/***/ "79e5":
+/***/ (function(module, exports) {
+
+module.exports = function (exec) {
+  try {
+    return !!exec();
+  } catch (e) {
+    return true;
+  }
+};
+
+
+/***/ }),
+
+/***/ "7cd6":
+/***/ (function(module, exports, __webpack_require__) {
+
+var classof = __webpack_require__("40c3");
+var ITERATOR = __webpack_require__("5168")('iterator');
+var Iterators = __webpack_require__("481b");
+module.exports = __webpack_require__("584a").getIteratorMethod = function (it) {
+  if (it != undefined) return it[ITERATOR]
+    || it['@@iterator']
+    || Iterators[classof(it)];
+};
+
+
+/***/ }),
+
+/***/ "7d7b":
+/***/ (function(module, exports, __webpack_require__) {
+
+var anObject = __webpack_require__("e4ae");
+var get = __webpack_require__("7cd6");
+module.exports = __webpack_require__("584a").getIterator = function (it) {
+  var iterFn = get(it);
+  if (typeof iterFn != 'function') throw TypeError(it + ' is not iterable!');
+  return anObject(iterFn.call(it));
+};
+
+
+/***/ }),
+
+/***/ "7e90":
+/***/ (function(module, exports, __webpack_require__) {
+
+var dP = __webpack_require__("d9f6");
+var anObject = __webpack_require__("e4ae");
+var getKeys = __webpack_require__("c3a1");
+
+module.exports = __webpack_require__("8e60") ? Object.defineProperties : function defineProperties(O, Properties) {
+  anObject(O);
+  var keys = getKeys(Properties);
+  var length = keys.length;
+  var i = 0;
+  var P;
+  while (length > i) dP.f(O, P = keys[i++], Properties[P]);
+  return O;
+};
+
+
+/***/ }),
+
+/***/ "8378":
+/***/ (function(module, exports) {
+
+var core = module.exports = { version: '2.6.5' };
+if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
+
+
+/***/ }),
+
+/***/ "8436":
+/***/ (function(module, exports) {
+
+module.exports = function () { /* empty */ };
+
+
+/***/ }),
+
+/***/ "86cc":
+/***/ (function(module, exports, __webpack_require__) {
+
+var anObject = __webpack_require__("cb7c");
+var IE8_DOM_DEFINE = __webpack_require__("c69a");
+var toPrimitive = __webpack_require__("6a99");
+var dP = Object.defineProperty;
+
+exports.f = __webpack_require__("9e1e") ? Object.defineProperty : function defineProperty(O, P, Attributes) {
+  anObject(O);
+  P = toPrimitive(P, true);
+  anObject(Attributes);
+  if (IE8_DOM_DEFINE) try {
+    return dP(O, P, Attributes);
+  } catch (e) { /* empty */ }
+  if ('get' in Attributes || 'set' in Attributes) throw TypeError('Accessors not supported!');
+  if ('value' in Attributes) O[P] = Attributes.value;
+  return O;
+};
+
+
+/***/ }),
+
+/***/ "8aae":
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__("32a6");
+module.exports = __webpack_require__("584a").Object.keys;
+
+
+/***/ }),
+
+/***/ "8e60":
+/***/ (function(module, exports, __webpack_require__) {
+
+// Thank's IE8 for his funny defineProperty
+module.exports = !__webpack_require__("294c")(function () {
+  return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
+});
+
+
+/***/ }),
+
+/***/ "8f60":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var create = __webpack_require__("a159");
+var descriptor = __webpack_require__("aebd");
+var setToStringTag = __webpack_require__("45f2");
+var IteratorPrototype = {};
+
+// 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
+__webpack_require__("35e8")(IteratorPrototype, __webpack_require__("5168")('iterator'), function () { return this; });
+
+module.exports = function (Constructor, NAME, next) {
+  Constructor.prototype = create(IteratorPrototype, { next: descriptor(1, next) });
+  setToStringTag(Constructor, NAME + ' Iterator');
+};
+
+
+/***/ }),
+
+/***/ "9003":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.2.2 IsArray(argument)
+var cof = __webpack_require__("6b4c");
+module.exports = Array.isArray || function isArray(arg) {
+  return cof(arg) == 'Array';
+};
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
     if (typeof namespace.hooks.addPack === 'function' && !skipHooks) {
       namespace.hooks.addPack(prefix, normalized);
@@ -715,6 +6433,7 @@ if(false) {}
      */
 
 
+<<<<<<< HEAD
     if (prefix === 'fas') {
       defineIcons('fa', icons);
     }
@@ -919,6 +6638,12 @@ if(false) {}
       }
     }
   }
+=======
+/***/ "9138":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("35e8");
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
   function _defineProperty(obj, key, value) {
     if (key in obj) {
@@ -932,6 +6657,7 @@ if(false) {}
       obj[key] = value;
     }
 
+<<<<<<< HEAD
     return obj;
   }
 
@@ -977,6 +6703,59 @@ if(false) {}
 
       return acc;
     }, {});
+=======
+/***/ }),
+
+/***/ "9306":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// 19.1.2.1 Object.assign(target, source, ...)
+var getKeys = __webpack_require__("c3a1");
+var gOPS = __webpack_require__("9aa9");
+var pIE = __webpack_require__("355d");
+var toObject = __webpack_require__("241e");
+var IObject = __webpack_require__("335c");
+var $assign = Object.assign;
+
+// should work with symbols and should have deterministic property order (V8 bug)
+module.exports = !$assign || __webpack_require__("294c")(function () {
+  var A = {};
+  var B = {};
+  // eslint-disable-next-line no-undef
+  var S = Symbol();
+  var K = 'abcdefghijklmnopqrst';
+  A[S] = 7;
+  K.split('').forEach(function (k) { B[k] = k; });
+  return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
+}) ? function assign(target, source) { // eslint-disable-line no-unused-vars
+  var T = toObject(target);
+  var aLen = arguments.length;
+  var index = 1;
+  var getSymbols = gOPS.f;
+  var isEnum = pIE.f;
+  while (aLen > index) {
+    var S = IObject(arguments[index++]);
+    var keys = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S);
+    var length = keys.length;
+    var j = 0;
+    var key;
+    while (length > j) if (isEnum.call(S, key = keys[j++])) T[key] = S[key];
+  } return T;
+} : $assign;
+
+
+/***/ }),
+
+/***/ "9427":
+/***/ (function(module, exports, __webpack_require__) {
+
+var $export = __webpack_require__("63b6");
+// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
+$export($export.S, 'Object', { create: __webpack_require__("a159") });
+
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
     if (typeof namespace.hooks.addPack === 'function' && !skipHooks) {
       namespace.hooks.addPack(prefix, normalized);
@@ -990,11 +6769,28 @@ if(false) {}
      * this as well.
      */
 
+<<<<<<< HEAD
 
     if (prefix === 'fas') {
       defineIcons('fa', icons);
     }
   }
+=======
+/***/ "95d5":
+/***/ (function(module, exports, __webpack_require__) {
+
+var classof = __webpack_require__("40c3");
+var ITERATOR = __webpack_require__("5168")('iterator');
+var Iterators = __webpack_require__("481b");
+module.exports = __webpack_require__("584a").isIterable = function (it) {
+  var O = Object(it);
+  return O[ITERATOR] !== undefined
+    || '@@iterator' in O
+    // eslint-disable-next-line no-prototype-builtins
+    || Iterators.hasOwnProperty(classof(O));
+};
+
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
   var icons = {
     "ad": [512, 512, [], "f641", "M157.52 272h36.96L176 218.78 157.52 272zM352 256c-13.23 0-24 10.77-24 24s10.77 24 24 24 24-10.77 24-24-10.77-24-24-24zM464 64H48C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM250.58 352h-16.94c-6.81 0-12.88-4.32-15.12-10.75L211.15 320h-70.29l-7.38 21.25A16 16 0 0 1 118.36 352h-16.94c-11.01 0-18.73-10.85-15.12-21.25L140 176.12A23.995 23.995 0 0 1 162.67 160h26.66A23.99 23.99 0 0 1 212 176.13l53.69 154.62c3.61 10.4-4.11 21.25-15.11 21.25zM424 336c0 8.84-7.16 16-16 16h-16c-4.85 0-9.04-2.27-11.98-5.68-8.62 3.66-18.09 5.68-28.02 5.68-39.7 0-72-32.3-72-72s32.3-72 72-72c8.46 0 16.46 1.73 24 4.42V176c0-8.84 7.16-16 16-16h16c8.84 0 16 7.16 16 16v160z"],
@@ -1983,6 +7779,7 @@ if(false) {}
       };
     }
 
+<<<<<<< HEAD
     return _typeof(obj);
   }
 
@@ -1991,6 +7788,13 @@ if(false) {}
       throw new TypeError("Cannot call a class as a function");
     }
   }
+=======
+/***/ "9aa9":
+/***/ (function(module, exports) {
+
+exports.f = Object.getOwnPropertySymbols;
+
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
   function _defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -2002,6 +7806,7 @@ if(false) {}
     }
   }
 
+<<<<<<< HEAD
   function _createClass(Constructor, protoProps, staticProps) {
     if (protoProps) _defineProperties(Constructor.prototype, protoProps);
     if (staticProps) _defineProperties(Constructor, staticProps);
@@ -2027,6 +7832,45 @@ if(false) {}
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i] != null ? arguments[i] : {};
       var ownKeys = Object.keys(source);
+=======
+/***/ "9b43":
+/***/ (function(module, exports, __webpack_require__) {
+
+// optional / simple context binding
+var aFunction = __webpack_require__("d8e8");
+module.exports = function (fn, that, length) {
+  aFunction(fn);
+  if (that === undefined) return fn;
+  switch (length) {
+    case 1: return function (a) {
+      return fn.call(that, a);
+    };
+    case 2: return function (a, b) {
+      return fn.call(that, a, b);
+    };
+    case 3: return function (a, b, c) {
+      return fn.call(that, a, b, c);
+    };
+  }
+  return function (/* ...args */) {
+    return fn.apply(that, arguments);
+  };
+};
+
+
+/***/ }),
+
+/***/ "9c6c":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 22.1.3.31 Array.prototype[@@unscopables]
+var UNSCOPABLES = __webpack_require__("2b4c")('unscopables');
+var ArrayProto = Array.prototype;
+if (ArrayProto[UNSCOPABLES] == undefined) __webpack_require__("32e9")(ArrayProto, UNSCOPABLES, {});
+module.exports = function (key) {
+  ArrayProto[UNSCOPABLES][key] = true;
+};
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
       if (typeof Object.getOwnPropertySymbols === 'function') {
         ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
@@ -2039,17 +7883,30 @@ if(false) {}
       });
     }
 
+<<<<<<< HEAD
     return target;
   }
 
   function _slicedToArray(arr, i) {
     return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
   }
+=======
+/***/ "9def":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.15 ToLength
+var toInteger = __webpack_require__("4588");
+var min = Math.min;
+module.exports = function (it) {
+  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
+};
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
   function _toConsumableArray(arr) {
     return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
   }
 
+<<<<<<< HEAD
   function _arrayWithoutHoles(arr) {
     if (Array.isArray(arr)) {
       for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
@@ -2061,11 +7918,23 @@ if(false) {}
   function _arrayWithHoles(arr) {
     if (Array.isArray(arr)) return arr;
   }
+=======
+/***/ }),
+
+/***/ "9e1e":
+/***/ (function(module, exports, __webpack_require__) {
+
+// Thank's IE8 for his funny defineProperty
+module.exports = !__webpack_require__("79e5")(function () {
+  return Object.defineProperty({}, 'a', { get: function () { return 7; } }).a != 7;
+});
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
   function _iterableToArray(iter) {
     if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
   }
 
+<<<<<<< HEAD
   function _iterableToArrayLimit(arr, i) {
     var _arr = [];
     var _n = true;
@@ -2088,10 +7957,60 @@ if(false) {}
         if (_d) throw _e;
       }
     }
+=======
+/***/ }),
+
+/***/ "a159":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
+var anObject = __webpack_require__("e4ae");
+var dPs = __webpack_require__("7e90");
+var enumBugKeys = __webpack_require__("1691");
+var IE_PROTO = __webpack_require__("5559")('IE_PROTO');
+var Empty = function () { /* empty */ };
+var PROTOTYPE = 'prototype';
+
+// Create object with fake `null` prototype: use iframe Object with cleared prototype
+var createDict = function () {
+  // Thrash, waste and sodomy: IE GC bug
+  var iframe = __webpack_require__("1ec9")('iframe');
+  var i = enumBugKeys.length;
+  var lt = '<';
+  var gt = '>';
+  var iframeDocument;
+  iframe.style.display = 'none';
+  __webpack_require__("32fc").appendChild(iframe);
+  iframe.src = 'javascript:'; // eslint-disable-line no-script-url
+  // createDict = iframe.contentWindow.Object;
+  // html.removeChild(iframe);
+  iframeDocument = iframe.contentWindow.document;
+  iframeDocument.open();
+  iframeDocument.write(lt + 'script' + gt + 'document.F=Object' + lt + '/script' + gt);
+  iframeDocument.close();
+  createDict = iframeDocument.F;
+  while (i--) delete createDict[PROTOTYPE][enumBugKeys[i]];
+  return createDict();
+};
+
+module.exports = Object.create || function create(O, Properties) {
+  var result;
+  if (O !== null) {
+    Empty[PROTOTYPE] = anObject(O);
+    result = new Empty();
+    Empty[PROTOTYPE] = null;
+    // add "__proto__" for Object.getPrototypeOf polyfill
+    result[IE_PROTO] = O;
+  } else result = createDict();
+  return Properties === undefined ? result : dPs(result, Properties);
+};
+
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
     return _arr;
   }
 
+<<<<<<< HEAD
   function _nonIterableSpread() {
     throw new TypeError("Invalid attempt to spread non-iterable instance");
   }
@@ -2099,6 +8018,12 @@ if(false) {}
   function _nonIterableRest() {
     throw new TypeError("Invalid attempt to destructure non-iterable instance");
   }
+=======
+/***/ "a352":
+/***/ (function(module, exports) {
+
+module.exports = __webpack_require__(/*! sortablejs */ "./node_modules/sortablejs/modular/sortable.esm.js");
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
   var noop = function noop() {};
 
@@ -2196,6 +8121,7 @@ if(false) {}
     }
   }
 
+<<<<<<< HEAD
   function coerce(val) {
     // Getting an empty string will occur if the attribute is set on the HTML tag but without a value
     // We'll assume that this is an indication that it should be toggled to true
@@ -2212,9 +8138,20 @@ if(false) {}
       var _ref2 = _slicedToArray(_ref, 2),
           attr = _ref2[0],
           key = _ref2[1];
+=======
+/***/ "a3c3":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.3.1 Object.assign(target, source)
+var $export = __webpack_require__("63b6");
+
+$export($export.S + $export.F, 'Object', { assign: __webpack_require__("9306") });
+
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
       var val = coerce(getAttrConfig(attr));
 
+<<<<<<< HEAD
       if (val !== undefined && val !== null) {
         initial[key] = val;
       }
@@ -2276,6 +8213,130 @@ if(false) {}
   var SETTLED = 'settled';
   var FULFILLED = 'fulfilled';
   var REJECTED = 'rejected';
+=======
+/***/ "a481":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var anObject = __webpack_require__("cb7c");
+var toObject = __webpack_require__("4bf8");
+var toLength = __webpack_require__("9def");
+var toInteger = __webpack_require__("4588");
+var advanceStringIndex = __webpack_require__("0390");
+var regExpExec = __webpack_require__("5f1b");
+var max = Math.max;
+var min = Math.min;
+var floor = Math.floor;
+var SUBSTITUTION_SYMBOLS = /\$([$&`']|\d\d?|<[^>]*>)/g;
+var SUBSTITUTION_SYMBOLS_NO_NAMED = /\$([$&`']|\d\d?)/g;
+
+var maybeToString = function (it) {
+  return it === undefined ? it : String(it);
+};
+
+// @@replace logic
+__webpack_require__("214f")('replace', 2, function (defined, REPLACE, $replace, maybeCallNative) {
+  return [
+    // `String.prototype.replace` method
+    // https://tc39.github.io/ecma262/#sec-string.prototype.replace
+    function replace(searchValue, replaceValue) {
+      var O = defined(this);
+      var fn = searchValue == undefined ? undefined : searchValue[REPLACE];
+      return fn !== undefined
+        ? fn.call(searchValue, O, replaceValue)
+        : $replace.call(String(O), searchValue, replaceValue);
+    },
+    // `RegExp.prototype[@@replace]` method
+    // https://tc39.github.io/ecma262/#sec-regexp.prototype-@@replace
+    function (regexp, replaceValue) {
+      var res = maybeCallNative($replace, regexp, this, replaceValue);
+      if (res.done) return res.value;
+
+      var rx = anObject(regexp);
+      var S = String(this);
+      var functionalReplace = typeof replaceValue === 'function';
+      if (!functionalReplace) replaceValue = String(replaceValue);
+      var global = rx.global;
+      if (global) {
+        var fullUnicode = rx.unicode;
+        rx.lastIndex = 0;
+      }
+      var results = [];
+      while (true) {
+        var result = regExpExec(rx, S);
+        if (result === null) break;
+        results.push(result);
+        if (!global) break;
+        var matchStr = String(result[0]);
+        if (matchStr === '') rx.lastIndex = advanceStringIndex(S, toLength(rx.lastIndex), fullUnicode);
+      }
+      var accumulatedResult = '';
+      var nextSourcePosition = 0;
+      for (var i = 0; i < results.length; i++) {
+        result = results[i];
+        var matched = String(result[0]);
+        var position = max(min(toInteger(result.index), S.length), 0);
+        var captures = [];
+        // NOTE: This is equivalent to
+        //   captures = result.slice(1).map(maybeToString)
+        // but for some reason `nativeSlice.call(result, 1, result.length)` (called in
+        // the slice polyfill when slicing native arrays) "doesn't work" in safari 9 and
+        // causes a crash (https://pastebin.com/N21QzeQA) when trying to debug it.
+        for (var j = 1; j < result.length; j++) captures.push(maybeToString(result[j]));
+        var namedCaptures = result.groups;
+        if (functionalReplace) {
+          var replacerArgs = [matched].concat(captures, position, S);
+          if (namedCaptures !== undefined) replacerArgs.push(namedCaptures);
+          var replacement = String(replaceValue.apply(undefined, replacerArgs));
+        } else {
+          replacement = getSubstitution(matched, S, position, captures, namedCaptures, replaceValue);
+        }
+        if (position >= nextSourcePosition) {
+          accumulatedResult += S.slice(nextSourcePosition, position) + replacement;
+          nextSourcePosition = position + matched.length;
+        }
+      }
+      return accumulatedResult + S.slice(nextSourcePosition);
+    }
+  ];
+
+    // https://tc39.github.io/ecma262/#sec-getsubstitution
+  function getSubstitution(matched, str, position, captures, namedCaptures, replacement) {
+    var tailPos = position + matched.length;
+    var m = captures.length;
+    var symbols = SUBSTITUTION_SYMBOLS_NO_NAMED;
+    if (namedCaptures !== undefined) {
+      namedCaptures = toObject(namedCaptures);
+      symbols = SUBSTITUTION_SYMBOLS;
+    }
+    return $replace.call(replacement, symbols, function (match, ch) {
+      var capture;
+      switch (ch.charAt(0)) {
+        case '$': return '$';
+        case '&': return matched;
+        case '`': return str.slice(0, position);
+        case "'": return str.slice(tailPos);
+        case '<':
+          capture = namedCaptures[ch.slice(1, -1)];
+          break;
+        default: // \d\d?
+          var n = +ch;
+          if (n === 0) return match;
+          if (n > m) {
+            var f = floor(n / 10);
+            if (f === 0) return match;
+            if (f <= m) return captures[f - 1] === undefined ? ch.charAt(1) : captures[f - 1] + ch.charAt(1);
+            return match;
+          }
+          capture = captures[n - 1];
+      }
+      return capture === undefined ? '' : capture;
+    });
+  }
+});
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
   var NOOP = function NOOP() {};
 
@@ -2284,6 +8345,7 @@ if(false) {}
   var asyncQueue = [];
   var asyncTimer;
 
+<<<<<<< HEAD
   function asyncFlush() {
     // run promise callbacks
     for (var i = 0; i < asyncQueue.length; i++) {
@@ -2329,6 +8391,34 @@ if(false) {}
 
     if (typeof callback === 'function') {
       settled = FULFILLED;
+=======
+/***/ "a4bb":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("8aae");
+
+/***/ }),
+
+/***/ "a745":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("f410");
+
+/***/ }),
+
+/***/ "aae3":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.2.8 IsRegExp(argument)
+var isObject = __webpack_require__("d3f4");
+var cof = __webpack_require__("2d95");
+var MATCH = __webpack_require__("2b4c")('match');
+module.exports = function (it) {
+  var isRegExp;
+  return isObject(it) && ((isRegExp = it[MATCH]) !== undefined ? !!isRegExp : cof(it) == 'RegExp');
+};
+
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
       try {
         value = callback(value);
@@ -2337,6 +8427,7 @@ if(false) {}
       }
     }
 
+<<<<<<< HEAD
     if (!handleThenable(promise, value)) {
       if (settled === FULFILLED) {
         resolve(promise, value);
@@ -2347,10 +8438,25 @@ if(false) {}
       }
     }
   }
+=======
+/***/ "aebd":
+/***/ (function(module, exports) {
+
+module.exports = function (bitmap, value) {
+  return {
+    enumerable: !(bitmap & 1),
+    configurable: !(bitmap & 2),
+    writable: !(bitmap & 4),
+    value: value
+  };
+};
+
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
   function handleThenable(promise, value) {
     var resolved;
 
+<<<<<<< HEAD
     try {
       if (promise === value) {
         throw new TypeError('A promises callback cannot return that same promise.');
@@ -2359,12 +8465,29 @@ if(false) {}
       if (value && (typeof value === 'function' || _typeof(value) === 'object')) {
         // then should be retrieved only once
         var then = value.then;
+=======
+/***/ "b0c5":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var regexpExec = __webpack_require__("520a");
+__webpack_require__("5ca1")({
+  target: 'RegExp',
+  proto: true,
+  forced: regexpExec !== /./.exec
+}, {
+  exec: regexpExec
+});
+
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
         if (typeof then === 'function') {
           then.call(value, function (val) {
             if (!resolved) {
               resolved = true;
 
+<<<<<<< HEAD
               if (value === val) {
                 fulfill(promise, val);
               } else {
@@ -2396,6 +8519,36 @@ if(false) {}
       fulfill(promise, value);
     }
   }
+=======
+/***/ "b0dc":
+/***/ (function(module, exports, __webpack_require__) {
+
+// call something on iterator step with safe closing on error
+var anObject = __webpack_require__("e4ae");
+module.exports = function (iterator, fn, value, entries) {
+  try {
+    return entries ? fn(anObject(value)[0], value[1]) : fn(value);
+  // 7.4.6 IteratorClose(iterator, completion)
+  } catch (e) {
+    var ret = iterator['return'];
+    if (ret !== undefined) anObject(ret.call(iterator));
+    throw e;
+  }
+};
+
+
+/***/ }),
+
+/***/ "b447":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.15 ToLength
+var toInteger = __webpack_require__("3a38");
+var min = Math.min;
+module.exports = function (it) {
+  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
+};
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
   function fulfill(promise, value) {
     if (promise._state === PENDING) {
@@ -2413,6 +8566,7 @@ if(false) {}
     }
   }
 
+<<<<<<< HEAD
   function publish(promise) {
     promise._then = promise._then.forEach(invokeCallback);
   }
@@ -2465,10 +8619,60 @@ if(false) {}
         fulfilled: onFulfillment,
         rejected: onRejection
       };
+=======
+/***/ "b8e3":
+/***/ (function(module, exports) {
+
+module.exports = true;
+
+
+/***/ }),
+
+/***/ "be13":
+/***/ (function(module, exports) {
+
+// 7.2.1 RequireObjectCoercible(argument)
+module.exports = function (it) {
+  if (it == undefined) throw TypeError("Can't call method on  " + it);
+  return it;
+};
+
+
+/***/ }),
+
+/***/ "c366":
+/***/ (function(module, exports, __webpack_require__) {
+
+// false -> Array#indexOf
+// true  -> Array#includes
+var toIObject = __webpack_require__("6821");
+var toLength = __webpack_require__("9def");
+var toAbsoluteIndex = __webpack_require__("77f1");
+module.exports = function (IS_INCLUDES) {
+  return function ($this, el, fromIndex) {
+    var O = toIObject($this);
+    var length = toLength(O.length);
+    var index = toAbsoluteIndex(fromIndex, length);
+    var value;
+    // Array#includes uses SameValueZero equality algorithm
+    // eslint-disable-next-line no-self-compare
+    if (IS_INCLUDES && el != el) while (length > index) {
+      value = O[index++];
+      // eslint-disable-next-line no-self-compare
+      if (value != value) return true;
+    // Array#indexOf ignores holes, Array#includes - not
+    } else for (;length > index; index++) if (IS_INCLUDES || index in O) {
+      if (O[index] === el) return IS_INCLUDES || index || 0;
+    } return !IS_INCLUDES && -1;
+  };
+};
+
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
       if ((onRejection || onFulfillment) && !this._handled) {
         this._handled = true;
 
+<<<<<<< HEAD
         if (this._state === REJECTED && isNode) {
           asyncCall(notifyRejectionHandled, this);
         }
@@ -2524,6 +8728,60 @@ if(false) {}
       }
     });
   };
+=======
+/***/ "c367":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var addToUnscopables = __webpack_require__("8436");
+var step = __webpack_require__("50ed");
+var Iterators = __webpack_require__("481b");
+var toIObject = __webpack_require__("36c3");
+
+// 22.1.3.4 Array.prototype.entries()
+// 22.1.3.13 Array.prototype.keys()
+// 22.1.3.29 Array.prototype.values()
+// 22.1.3.30 Array.prototype[@@iterator]()
+module.exports = __webpack_require__("30f1")(Array, 'Array', function (iterated, kind) {
+  this._t = toIObject(iterated); // target
+  this._i = 0;                   // next index
+  this._k = kind;                // kind
+// 22.1.5.2.1 %ArrayIteratorPrototype%.next()
+}, function () {
+  var O = this._t;
+  var kind = this._k;
+  var index = this._i++;
+  if (!O || index >= O.length) {
+    this._t = undefined;
+    return step(1);
+  }
+  if (kind == 'keys') return step(0, index);
+  if (kind == 'values') return step(0, O[index]);
+  return step(0, [index, O[index]]);
+}, 'values');
+
+// argumentsList[@@iterator] is %ArrayProto_values% (9.4.4.6, 9.4.4.7)
+Iterators.Arguments = Iterators.Array;
+
+addToUnscopables('keys');
+addToUnscopables('values');
+addToUnscopables('entries');
+
+
+/***/ }),
+
+/***/ "c3a1":
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.14 / 15.2.3.14 Object.keys(O)
+var $keys = __webpack_require__("e6f3");
+var enumBugKeys = __webpack_require__("1691");
+
+module.exports = Object.keys || function keys(O) {
+  return $keys(O, enumBugKeys);
+};
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
   P.race = function (promises) {
     if (!Array.isArray(promises)) {
@@ -2534,6 +8792,7 @@ if(false) {}
       for (var i = 0, promise; i < promises.length; i++) {
         promise = promises[i];
 
+<<<<<<< HEAD
         if (promise && typeof promise.then === 'function') {
           promise.then(resolve, reject);
         } else {
@@ -2547,6 +8806,20 @@ if(false) {}
     if (value && _typeof(value) === 'object' && value.constructor === P) {
       return value;
     }
+=======
+/***/ "c649":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return insertNodeAt; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return camelize; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return console; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return removeNode; });
+/* harmony import */ var core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("a481");
+/* harmony import */ var core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es6_regexp_replace__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var F_source_Vue_Draggable_node_modules_babel_runtime_corejs2_core_js_object_create__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("4aa6");
+/* harmony import */ var F_source_Vue_Draggable_node_modules_babel_runtime_corejs2_core_js_object_create__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(F_source_Vue_Draggable_node_modules_babel_runtime_corejs2_core_js_object_create__WEBPACK_IMPORTED_MODULE_1__);
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
     return new P(function (resolve) {
       resolve(value);
@@ -2589,6 +8862,7 @@ if(false) {}
       return;
     }
 
+<<<<<<< HEAD
     var style = DOCUMENT.createElement('style');
     style.setAttribute('type', 'text/css');
     style.innerHTML = css;
@@ -2724,6 +8998,56 @@ if(false) {}
 
     return abstract;
   }
+=======
+function getConsole() {
+  if (typeof window !== "undefined") {
+    return window.console;
+  }
+
+  return global.console;
+}
+
+var console = getConsole();
+
+function cached(fn) {
+  var cache = F_source_Vue_Draggable_node_modules_babel_runtime_corejs2_core_js_object_create__WEBPACK_IMPORTED_MODULE_1___default()(null);
+
+  return function cachedFn(str) {
+    var hit = cache[str];
+    return hit || (cache[str] = fn(str));
+  };
+}
+
+var regex = /-(\w)/g;
+var camelize = cached(function (str) {
+  return str.replace(regex, function (_, c) {
+    return c ? c.toUpperCase() : "";
+  });
+});
+
+function removeNode(node) {
+  if (node.parentElement !== null) {
+    node.parentElement.removeChild(node);
+  }
+}
+
+function insertNodeAt(fatherNode, node, position) {
+  var refNode = position === 0 ? fatherNode.children[0] : fatherNode.children[position - 1].nextSibling;
+  fatherNode.insertBefore(node, refNode);
+}
+
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__("c8ba")))
+
+/***/ }),
+
+/***/ "c69a":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = !__webpack_require__("9e1e") && !__webpack_require__("79e5")(function () {
+  return Object.defineProperty(__webpack_require__("230e")('div'), 'a', { get: function () { return 7; } }).a != 7;
+});
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
   function deGroup(abstract) {
     if (abstract.tag === 'g') {
@@ -2805,6 +9129,7 @@ if(false) {}
     };
   }
 
+<<<<<<< HEAD
   function makeIconStandard (_ref) {
     var children = _ref.children,
         attributes = _ref.attributes,
@@ -2931,6 +9256,32 @@ if(false) {}
     if (watchable) {
       content.attributes[DATA_FA_I2SVG] = '';
     }
+=======
+/***/ "c8ba":
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
     if (title) content.children.push({
       tag: 'title',
@@ -2983,6 +9334,7 @@ if(false) {}
       attributes[DATA_FA_I2SVG] = '';
     }
 
+<<<<<<< HEAD
     var styles = _objectSpread({}, extra.styles);
 
     if (transformIsMeaningful(transform)) {
@@ -2994,9 +9346,16 @@ if(false) {}
       });
       styles['-webkit-transform'] = styles['transform'];
     }
+=======
+/***/ "c8bb":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("54a1");
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
     var styleString = joinStyles(styles);
 
+<<<<<<< HEAD
     if (styleString.length > 0) {
       attributes['style'] = styleString;
     }
@@ -3030,6 +9389,16 @@ if(false) {}
     } : {}, {
       'class': extra.classes.join(' ')
     });
+=======
+/***/ "ca5a":
+/***/ (function(module, exports) {
+
+var id = 0;
+var px = Math.random();
+module.exports = function (key) {
+  return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
+};
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
     var styleString = joinStyles(extra.styles);
 
@@ -3037,6 +9406,7 @@ if(false) {}
       attributes['style'] = styleString;
     }
 
+<<<<<<< HEAD
     var val = [];
     val.push({
       tag: 'span',
@@ -3056,9 +9426,20 @@ if(false) {}
 
     return val;
   }
+=======
+/***/ "cb7c":
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__("d3f4");
+module.exports = function (it) {
+  if (!isObject(it)) throw TypeError(it + ' is not an object!');
+  return it;
+};
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
   var noop$1 = function noop() {};
 
+<<<<<<< HEAD
   var p = config.measurePerformance && PERFORMANCE && PERFORMANCE.mark && PERFORMANCE.measure ? PERFORMANCE : {
     mark: noop$1,
     measure: noop$1
@@ -3154,10 +9535,44 @@ if(false) {}
       } else {
         acc[iconName] = icon;
       }
+=======
+/***/ }),
+
+/***/ "ce7e":
+/***/ (function(module, exports, __webpack_require__) {
+
+// most Object methods by ES6 should accept primitives
+var $export = __webpack_require__("63b6");
+var core = __webpack_require__("584a");
+var fails = __webpack_require__("294c");
+module.exports = function (KEY, exec) {
+  var fn = (core.Object || {})[KEY] || Object[KEY];
+  var exp = {};
+  exp[KEY] = exec(fn);
+  $export($export.S + $export.F * fails(function () { fn(1); }), 'Object', exp);
+};
+
+
+/***/ }),
+
+/***/ "d2c8":
+/***/ (function(module, exports, __webpack_require__) {
+
+// helper for String#{startsWith, endsWith, includes}
+var isRegExp = __webpack_require__("aae3");
+var defined = __webpack_require__("be13");
+
+module.exports = function (that, searchString, NAME) {
+  if (isRegExp(searchString)) throw TypeError('String#' + NAME + " doesn't accept regex!");
+  return String(defined(that));
+};
+
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
       return acc;
     }, {});
 
+<<<<<<< HEAD
     if (typeof namespace.hooks.addPack === 'function' && !skipHooks) {
       namespace.hooks.addPack(prefix, normalized);
     } else {
@@ -3285,9 +9700,55 @@ if(false) {}
       return "<".concat(tag, " ").concat(joinAttributes(attributes), ">").concat(children.map(toHtml).join(''), "</").concat(tag, ">");
     }
   }
+=======
+/***/ "d2d5":
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__("1654");
+__webpack_require__("549b");
+module.exports = __webpack_require__("584a").Array.from;
+
+
+/***/ }),
+
+/***/ "d3f4":
+/***/ (function(module, exports) {
+
+module.exports = function (it) {
+  return typeof it === 'object' ? it !== null : typeof it === 'function';
+};
+
+
+/***/ }),
+
+/***/ "d864":
+/***/ (function(module, exports, __webpack_require__) {
+
+// optional / simple context binding
+var aFunction = __webpack_require__("79aa");
+module.exports = function (fn, that, length) {
+  aFunction(fn);
+  if (that === undefined) return fn;
+  switch (length) {
+    case 1: return function (a) {
+      return fn.call(that, a);
+    };
+    case 2: return function (a, b) {
+      return fn.call(that, a, b);
+    };
+    case 3: return function (a, b, c) {
+      return fn.call(that, a, b, c);
+    };
+  }
+  return function (/* ...args */) {
+    return fn.apply(that, arguments);
+  };
+};
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
   var noop$2 = function noop() {};
 
+<<<<<<< HEAD
   function isWatched(node) {
     var i2svg = node.getAttribute ? node.getAttribute(DATA_FA_I2SVG) : null;
     return typeof i2svg === 'string';
@@ -3322,11 +9783,24 @@ if(false) {}
       var node = mutation[0];
       var abstract = mutation[1]; // If we already have a replaced node we do not want to continue nesting within it.
       // Short-circuit to the standard replacement
+=======
+/***/ }),
+
+/***/ "d8e8":
+/***/ (function(module, exports) {
+
+module.exports = function (it) {
+  if (typeof it != 'function') throw TypeError(it + ' is not a function!');
+  return it;
+};
+
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
       if (~classArray(node).indexOf(config.replacementClass)) {
         return mutators.replace(mutation);
       }
 
+<<<<<<< HEAD
       var forSvg = new RegExp("".concat(config.familyPrefix, "-.*"));
       delete abstract[0].attributes.style;
       delete abstract[0].attributes.id;
@@ -3389,6 +9863,46 @@ if(false) {}
     if (!MUTATION_OBSERVER) {
       return;
     }
+=======
+/***/ "d9f6":
+/***/ (function(module, exports, __webpack_require__) {
+
+var anObject = __webpack_require__("e4ae");
+var IE8_DOM_DEFINE = __webpack_require__("794b");
+var toPrimitive = __webpack_require__("1bc3");
+var dP = Object.defineProperty;
+
+exports.f = __webpack_require__("8e60") ? Object.defineProperty : function defineProperty(O, P, Attributes) {
+  anObject(O);
+  P = toPrimitive(P, true);
+  anObject(Attributes);
+  if (IE8_DOM_DEFINE) try {
+    return dP(O, P, Attributes);
+  } catch (e) { /* empty */ }
+  if ('get' in Attributes || 'set' in Attributes) throw TypeError('Accessors not supported!');
+  if ('value' in Attributes) O[P] = Attributes.value;
+  return O;
+};
+
+
+/***/ }),
+
+/***/ "dbdb":
+/***/ (function(module, exports, __webpack_require__) {
+
+var core = __webpack_require__("584a");
+var global = __webpack_require__("e53d");
+var SHARED = '__core-js_shared__';
+var store = global[SHARED] || (global[SHARED] = {});
+
+(module.exports = function (key, value) {
+  return store[key] || (store[key] = value !== undefined ? value : {});
+})('versions', []).push({
+  version: core.version,
+  mode: __webpack_require__("b8e3") ? 'pure' : 'global',
+  copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
+});
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
     if (!config.observeMutations) {
       return;
@@ -3407,6 +9921,7 @@ if(false) {}
             pseudoElementsCallback(mutationRecord.target);
           }
 
+<<<<<<< HEAD
           treeCallback(mutationRecord.target);
         }
 
@@ -3440,11 +9955,22 @@ if(false) {}
     if (!mo) return;
     mo.disconnect();
   }
+=======
+/***/ "dc62":
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__("9427");
+var $Object = __webpack_require__("584a").Object;
+module.exports = function create(P, D) {
+  return $Object.create(P, D);
+};
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
   function styleParser (node) {
     var style = node.getAttribute('style');
     var val = [];
 
+<<<<<<< HEAD
     if (style) {
       val = style.split(';').reduce(function (acc, style) {
         var styles = style.split(':');
@@ -3461,6 +9987,19 @@ if(false) {}
 
     return val;
   }
+=======
+/***/ }),
+
+/***/ "e4ae":
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__("f772");
+module.exports = function (it) {
+  if (!isObject(it)) throw TypeError(it + ' is not an object!');
+  return it;
+};
+
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
   function classParser (node) {
     var existingPrefix = node.getAttribute('data-prefix');
@@ -3468,6 +10007,7 @@ if(false) {}
     var innerText = node.innerText !== undefined ? node.innerText.trim() : '';
     var val = getCanonicalIcon(classArray(node));
 
+<<<<<<< HEAD
     if (existingPrefix && existingIconName) {
       val.prefix = existingPrefix;
       val.iconName = existingIconName;
@@ -3478,10 +10018,23 @@ if(false) {}
     } else if (val.prefix && innerText.length === 1) {
       val.iconName = byUnicode(val.prefix, toHex(node.innerText));
     }
+=======
+/***/ "e53d":
+/***/ (function(module, exports) {
+
+// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+var global = module.exports = typeof window != 'undefined' && window.Math == Math
+  ? window : typeof self != 'undefined' && self.Math == Math ? self
+  // eslint-disable-next-line no-new-func
+  : Function('return this')();
+if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
+
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
     return val;
   }
 
+<<<<<<< HEAD
   var parseTransformString = function parseTransformString(transformString) {
     var transform = {
       size: 16,
@@ -3536,11 +10089,69 @@ if(false) {}
           case 'up':
             acc.y = acc.y - rest;
             break;
+=======
+/***/ "e6f3":
+/***/ (function(module, exports, __webpack_require__) {
+
+var has = __webpack_require__("07e3");
+var toIObject = __webpack_require__("36c3");
+var arrayIndexOf = __webpack_require__("5b4e")(false);
+var IE_PROTO = __webpack_require__("5559")('IE_PROTO');
+
+module.exports = function (object, names) {
+  var O = toIObject(object);
+  var i = 0;
+  var result = [];
+  var key;
+  for (key in O) if (key != IE_PROTO) has(O, key) && result.push(key);
+  // Don't enum bug & hidden keys
+  while (names.length > i) if (has(O, key = names[i++])) {
+    ~arrayIndexOf(result, key) || result.push(key);
+  }
+  return result;
+};
+
+
+/***/ }),
+
+/***/ "f410":
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__("1af6");
+module.exports = __webpack_require__("584a").Array.isArray;
+
+
+/***/ }),
+
+/***/ "f559":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+// 21.1.3.18 String.prototype.startsWith(searchString [, position ])
+
+var $export = __webpack_require__("5ca1");
+var toLength = __webpack_require__("9def");
+var context = __webpack_require__("d2c8");
+var STARTS_WITH = 'startsWith';
+var $startsWith = ''[STARTS_WITH];
+
+$export($export.P + $export.F * __webpack_require__("5147")(STARTS_WITH), 'String', {
+  startsWith: function startsWith(searchString /* , position = 0 */) {
+    var that = context(this, searchString, STARTS_WITH);
+    var index = toLength(Math.min(arguments.length > 1 ? arguments[1] : undefined, that.length));
+    var search = String(searchString);
+    return $startsWith
+      ? $startsWith.call(that, search, index)
+      : that.slice(index, index + search.length) === search;
+  }
+});
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
           case 'down':
             acc.y = acc.y + rest;
             break;
 
+<<<<<<< HEAD
           case 'rotate':
             acc.rotate = acc.rotate + rest;
             break;
@@ -3564,11 +10175,23 @@ if(false) {}
       if (acc.name !== 'class' && acc.name !== 'style') {
         acc[attr.name] = attr.value;
       }
+=======
+/***/ }),
+
+/***/ "f772":
+/***/ (function(module, exports) {
+
+module.exports = function (it) {
+  return typeof it === 'object' ? it !== null : typeof it === 'function';
+};
+
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
       return acc;
     }, {});
     var title = node.getAttribute('title');
 
+<<<<<<< HEAD
     if (config.autoA11y) {
       if (title) {
         extraAttributes['aria-labelledby'] = "".concat(config.replacementClass, "-title-").concat(nextUniqueId());
@@ -3580,10 +10203,18 @@ if(false) {}
 
     return extraAttributes;
   }
+=======
+/***/ "fa5b":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("5537")('native-function-to-string', Function.toString);
+
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
   function maskParser (node) {
     var mask = node.getAttribute('data-fa-mask');
 
+<<<<<<< HEAD
     if (!mask) {
       return emptyCanonicalIcon();
     } else {
@@ -3949,6 +10580,126 @@ if(false) {}
         // This node is already being processed
         return resolve();
       }
+=======
+/***/ "fb15":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/setPublicPath.js
+// This file is imported into lib/wc client bundles.
+
+if (typeof window !== 'undefined') {
+  var setPublicPath_i
+  if ((setPublicPath_i = window.document.currentScript) && (setPublicPath_i = setPublicPath_i.src.match(/(.+\/)[^/]+\.js(\?.*)?$/))) {
+    __webpack_require__.p = setPublicPath_i[1] // eslint-disable-line
+  }
+}
+
+// Indicate to webpack that this file can be concatenated
+/* harmony default export */ var setPublicPath = (null);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/object/assign.js
+var object_assign = __webpack_require__("5176");
+var assign_default = /*#__PURE__*/__webpack_require__.n(object_assign);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.string.starts-with.js
+var es6_string_starts_with = __webpack_require__("f559");
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/object/keys.js
+var keys = __webpack_require__("a4bb");
+var keys_default = /*#__PURE__*/__webpack_require__.n(keys);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/array/is-array.js
+var is_array = __webpack_require__("a745");
+var is_array_default = /*#__PURE__*/__webpack_require__.n(is_array);
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/arrayWithHoles.js
+
+function _arrayWithHoles(arr) {
+  if (is_array_default()(arr)) return arr;
+}
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/get-iterator.js
+var get_iterator = __webpack_require__("5d73");
+var get_iterator_default = /*#__PURE__*/__webpack_require__.n(get_iterator);
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/iterableToArrayLimit.js
+
+function _iterableToArrayLimit(arr, i) {
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = get_iterator_default()(arr), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableRest.js
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js
+
+
+
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
+}
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es7.array.includes.js
+var es7_array_includes = __webpack_require__("6762");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.string.includes.js
+var es6_string_includes = __webpack_require__("2fdb");
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/arrayWithoutHoles.js
+
+function _arrayWithoutHoles(arr) {
+  if (is_array_default()(arr)) {
+    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
+    }
+
+    return arr2;
+  }
+}
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/array/from.js
+var from = __webpack_require__("774e");
+var from_default = /*#__PURE__*/__webpack_require__.n(from);
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime-corejs2/core-js/is-iterable.js
+var is_iterable = __webpack_require__("c8bb");
+var is_iterable_default = /*#__PURE__*/__webpack_require__.n(is_iterable);
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/iterableToArray.js
+
+
+function _iterableToArray(iter) {
+  if (is_iterable_default()(Object(iter)) || Object.prototype.toString.call(iter) === "[object Arguments]") return from_default()(iter);
+}
+// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/nonIterableSpread.js
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
+// CONCATENATED MODULE: ./node_modules/@babel/runtime-corejs2/helpers/esm/toConsumableArray.js
+
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
       var children = toArray(node.children);
       var alreadyProcessedPseudoElement = children.filter(function (c) {
@@ -3980,6 +10731,7 @@ if(false) {}
             node.removeChild(alreadyProcessedPseudoElement);
           }
 
+<<<<<<< HEAD
           var meta = blankMeta();
           var extra = meta.extra;
           extra.attributes[DATA_FA_PSEUDO_ELEMENT] = position;
@@ -4024,6 +10776,20 @@ if(false) {}
   function processable(node) {
     return node.parentNode !== document.head && !~TAGNAMES_TO_SKIP_FOR_PSEUDOELEMENTS.indexOf(node.tagName.toUpperCase()) && !node.getAttribute(DATA_FA_PSEUDO_ELEMENT) && (!node.parentNode || node.parentNode.tagName !== 'svg');
   }
+=======
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
+}
+// EXTERNAL MODULE: external {"commonjs":"sortablejs","commonjs2":"sortablejs","amd":"sortablejs","root":"Sortable"}
+var external_commonjs_sortablejs_commonjs2_sortablejs_amd_sortablejs_root_Sortable_ = __webpack_require__("a352");
+var external_commonjs_sortablejs_commonjs2_sortablejs_amd_sortablejs_root_Sortable_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_sortablejs_commonjs2_sortablejs_amd_sortablejs_root_Sortable_);
+
+// EXTERNAL MODULE: ./src/util/helper.js
+var helper = __webpack_require__("c649");
+
+// CONCATENATED MODULE: ./src/vuedraggable.js
+
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
   function searchPseudoElements (root) {
     if (!IS_DOM) return;
@@ -4062,6 +10828,7 @@ if(false) {}
     return s;
   }
 
+<<<<<<< HEAD
   var Library =
   /*#__PURE__*/
   function () {
@@ -4426,9 +11193,117 @@ if(false) {}
 }());
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js"), __webpack_require__(/*! ./../../../timers-browserify/main.js */ "./node_modules/timers-browserify/main.js").setImmediate))
+=======
 
-/***/ }),
 
+
+function buildAttribute(object, propName, value) {
+  if (value === undefined) {
+    return object;
+  }
+
+  object = object || {};
+  object[propName] = value;
+  return object;
+}
+
+function computeVmIndex(vnodes, element) {
+  return vnodes.map(function (elt) {
+    return elt.elm;
+  }).indexOf(element);
+}
+
+function _computeIndexes(slots, children, isTransition, footerOffset) {
+  if (!slots) {
+    return [];
+  }
+
+  var elmFromNodes = slots.map(function (elt) {
+    return elt.elm;
+  });
+  var footerIndex = children.length - footerOffset;
+
+  var rawIndexes = _toConsumableArray(children).map(function (elt, idx) {
+    return idx >= footerIndex ? elmFromNodes.length : elmFromNodes.indexOf(elt);
+  });
+
+  return isTransition ? rawIndexes.filter(function (ind) {
+    return ind !== -1;
+  }) : rawIndexes;
+}
+
+function emit(evtName, evtData) {
+  var _this = this;
+
+  this.$nextTick(function () {
+    return _this.$emit(evtName.toLowerCase(), evtData);
+  });
+}
+
+function delegateAndEmit(evtName) {
+  var _this2 = this;
+
+  return function (evtData) {
+    if (_this2.realList !== null) {
+      _this2["onDrag" + evtName](evtData);
+    }
+
+    emit.call(_this2, evtName, evtData);
+  };
+}
+
+function isTransitionName(name) {
+  return ["transition-group", "TransitionGroup"].includes(name);
+}
+
+function vuedraggable_isTransition(slots) {
+  if (!slots || slots.length !== 1) {
+    return false;
+  }
+
+  var _slots = _slicedToArray(slots, 1),
+      componentOptions = _slots[0].componentOptions;
+
+  if (!componentOptions) {
+    return false;
+  }
+
+  return isTransitionName(componentOptions.tag);
+}
+
+function getSlot(slot, scopedSlot, key) {
+  return slot[key] || (scopedSlot[key] ? scopedSlot[key]() : undefined);
+}
+
+function computeChildrenAndOffsets(children, slot, scopedSlot) {
+  var headerOffset = 0;
+  var footerOffset = 0;
+  var header = getSlot(slot, scopedSlot, "header");
+
+  if (header) {
+    headerOffset = header.length;
+    children = children ? [].concat(_toConsumableArray(header), _toConsumableArray(children)) : _toConsumableArray(header);
+  }
+
+  var footer = getSlot(slot, scopedSlot, "footer");
+
+  if (footer) {
+    footerOffset = footer.length;
+    children = children ? [].concat(_toConsumableArray(children), _toConsumableArray(footer)) : _toConsumableArray(footer);
+  }
+
+  return {
+    children: children,
+    headerOffset: headerOffset,
+    footerOffset: footerOffset
+  };
+}
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
+
+function getComponentAttributes($attrs, componentData) {
+  var attributes = null;
+
+<<<<<<< HEAD
 /***/ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot":
 /*!*******************************************************************************!*\
   !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot ***!
@@ -4437,9 +11312,22 @@ if(false) {}
 /***/ (function(module, exports) {
 
 module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.eot?088a34f78f530102fd9661173b4a4f26";
+=======
+  var update = function update(name, value) {
+    attributes = buildAttribute(attributes, name, value);
+  };
 
-/***/ }),
+  var attrs = keys_default()($attrs).filter(function (key) {
+    return key === "id" || key.startsWith("data-");
+  }).reduce(function (res, key) {
+    res[key] = $attrs[key];
+    return res;
+  }, {});
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
+  update("attrs", attrs);
+
+<<<<<<< HEAD
 /***/ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg":
 /*!*******************************************************************************!*\
   !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg ***!
@@ -4448,9 +11336,21 @@ module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.e
 /***/ (function(module, exports) {
 
 module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.svg?d72293118cda50ec50c39957d9d836d0";
+=======
+  if (!componentData) {
+    return attributes;
+  }
 
-/***/ }),
+  var on = componentData.on,
+      props = componentData.props,
+      componentDataAttrs = componentData.attrs;
+  update("on", on);
+  update("props", props);
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
+  assign_default()(attributes.attrs, componentDataAttrs);
+
+<<<<<<< HEAD
 /***/ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf":
 /*!*******************************************************************************!*\
   !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf ***!
@@ -4470,9 +11370,104 @@ module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.t
 /***/ (function(module, exports) {
 
 module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.woff?f4920c94c0861c537f72ba36590f6362";
+=======
+  return attributes;
+}
 
-/***/ }),
+var eventsListened = ["Start", "Add", "Remove", "Update", "End"];
+var eventsToEmit = ["Choose", "Unchoose", "Sort", "Filter", "Clone"];
+var readonlyProperties = ["Move"].concat(eventsListened, eventsToEmit).map(function (evt) {
+  return "on" + evt;
+});
+var draggingElement = null;
+var vuedraggable_props = {
+  options: Object,
+  list: {
+    type: Array,
+    required: false,
+    default: null
+  },
+  value: {
+    type: Array,
+    required: false,
+    default: null
+  },
+  noTransitionOnDrag: {
+    type: Boolean,
+    default: false
+  },
+  clone: {
+    type: Function,
+    default: function _default(original) {
+      return original;
+    }
+  },
+  element: {
+    type: String,
+    default: "div"
+  },
+  tag: {
+    type: String,
+    default: null
+  },
+  move: {
+    type: Function,
+    default: null
+  },
+  componentData: {
+    type: Object,
+    required: false,
+    default: null
+  }
+};
+var draggableComponent = {
+  name: "draggable",
+  inheritAttrs: false,
+  props: vuedraggable_props,
+  data: function data() {
+    return {
+      transitionMode: false,
+      noneFunctionalComponentMode: false
+    };
+  },
+  render: function render(h) {
+    var slots = this.$slots.default;
+    this.transitionMode = vuedraggable_isTransition(slots);
 
+    var _computeChildrenAndOf = computeChildrenAndOffsets(slots, this.$slots, this.$scopedSlots),
+        children = _computeChildrenAndOf.children,
+        headerOffset = _computeChildrenAndOf.headerOffset,
+        footerOffset = _computeChildrenAndOf.footerOffset;
+
+    this.headerOffset = headerOffset;
+    this.footerOffset = footerOffset;
+    var attributes = getComponentAttributes(this.$attrs, this.componentData);
+    return h(this.getTag(), attributes, children);
+  },
+  created: function created() {
+    if (this.list !== null && this.value !== null) {
+      helper["b" /* console */].error("Value and list props are mutually exclusive! Please set one or another.");
+    }
+
+    if (this.element !== "div") {
+      helper["b" /* console */].warn("Element props is deprecated please use tag props instead. See https://github.com/SortableJS/Vue.Draggable/blob/master/documentation/migrate.md#element-props");
+    }
+
+    if (this.options !== undefined) {
+      helper["b" /* console */].warn("Options props is deprecated, add sortable options directly as vue.draggable item, or use v-bind. See https://github.com/SortableJS/Vue.Draggable/blob/master/documentation/migrate.md#options-props");
+    }
+  },
+  mounted: function mounted() {
+    var _this3 = this;
+
+    this.noneFunctionalComponentMode = this.getTag().toLowerCase() !== this.$el.nodeName.toLowerCase() && !this.getIsFunctional();
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
+
+    if (this.noneFunctionalComponentMode && this.transitionMode) {
+      throw new Error("Transition-group inside component is not supported. Please alter tag value or remove transition-group. Current tag value: ".concat(this.getTag()));
+    }
+
+<<<<<<< HEAD
 /***/ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2":
 /*!*********************************************************************************!*\
   !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2 ***!
@@ -4503,9 +11498,130 @@ module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.
 /***/ (function(module, exports) {
 
 module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.svg?d2e53334c22a9a4937bc26e84b36e1e0";
+=======
+    var optionsAdded = {};
+    eventsListened.forEach(function (elt) {
+      optionsAdded["on" + elt] = delegateAndEmit.call(_this3, elt);
+    });
+    eventsToEmit.forEach(function (elt) {
+      optionsAdded["on" + elt] = emit.bind(_this3, elt);
+    });
 
-/***/ }),
+    var attributes = keys_default()(this.$attrs).reduce(function (res, key) {
+      res[Object(helper["a" /* camelize */])(key)] = _this3.$attrs[key];
+      return res;
+    }, {});
 
+    var options = assign_default()({}, this.options, attributes, optionsAdded, {
+      onMove: function onMove(evt, originalEvent) {
+        return _this3.onDragMove(evt, originalEvent);
+      }
+    });
+
+    !("draggable" in options) && (options.draggable = ">*");
+    this._sortable = new external_commonjs_sortablejs_commonjs2_sortablejs_amd_sortablejs_root_Sortable_default.a(this.rootContainer, options);
+    this.computeIndexes();
+  },
+  beforeDestroy: function beforeDestroy() {
+    if (this._sortable !== undefined) this._sortable.destroy();
+  },
+  computed: {
+    rootContainer: function rootContainer() {
+      return this.transitionMode ? this.$el.children[0] : this.$el;
+    },
+    realList: function realList() {
+      return this.list ? this.list : this.value;
+    }
+  },
+  watch: {
+    options: {
+      handler: function handler(newOptionValue) {
+        this.updateOptions(newOptionValue);
+      },
+      deep: true
+    },
+    $attrs: {
+      handler: function handler(newOptionValue) {
+        this.updateOptions(newOptionValue);
+      },
+      deep: true
+    },
+    realList: function realList() {
+      this.computeIndexes();
+    }
+  },
+  methods: {
+    getIsFunctional: function getIsFunctional() {
+      var fnOptions = this._vnode.fnOptions;
+      return fnOptions && fnOptions.functional;
+    },
+    getTag: function getTag() {
+      return this.tag || this.element;
+    },
+    updateOptions: function updateOptions(newOptionValue) {
+      for (var property in newOptionValue) {
+        var value = Object(helper["a" /* camelize */])(property);
+
+        if (readonlyProperties.indexOf(value) === -1) {
+          this._sortable.option(value, newOptionValue[property]);
+        }
+      }
+    },
+    getChildrenNodes: function getChildrenNodes() {
+      if (this.noneFunctionalComponentMode) {
+        return this.$children[0].$slots.default;
+      }
+
+      var rawNodes = this.$slots.default;
+      return this.transitionMode ? rawNodes[0].child.$slots.default : rawNodes;
+    },
+    computeIndexes: function computeIndexes() {
+      var _this4 = this;
+
+      this.$nextTick(function () {
+        _this4.visibleIndexes = _computeIndexes(_this4.getChildrenNodes(), _this4.rootContainer.children, _this4.transitionMode, _this4.footerOffset);
+      });
+    },
+    getUnderlyingVm: function getUnderlyingVm(htmlElt) {
+      var index = computeVmIndex(this.getChildrenNodes() || [], htmlElt);
+
+      if (index === -1) {
+        //Edge case during move callback: related element might be
+        //an element different from collection
+        return null;
+      }
+
+      var element = this.realList[index];
+      return {
+        index: index,
+        element: element
+      };
+    },
+    getUnderlyingPotencialDraggableComponent: function getUnderlyingPotencialDraggableComponent(_ref) {
+      var vue = _ref.__vue__;
+
+      if (!vue || !vue.$options || !isTransitionName(vue.$options._componentTag)) {
+        if (!("realList" in vue) && vue.$children.length === 1 && "realList" in vue.$children[0]) return vue.$children[0];
+        return vue;
+      }
+
+      return vue.$parent;
+    },
+    emitChanges: function emitChanges(evt) {
+      var _this5 = this;
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
+
+      this.$nextTick(function () {
+        _this5.$emit("change", evt);
+      });
+    },
+    alterList: function alterList(onList) {
+      if (this.list) {
+        onList(this.list);
+        return;
+      }
+
+<<<<<<< HEAD
 /***/ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf":
 /*!********************************************************************************!*\
   !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf ***!
@@ -4514,9 +11630,21 @@ module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.
 /***/ (function(module, exports) {
 
 module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.ttf?ece54318791c51b52dfdc689efdb6271";
+=======
+      var newList = _toConsumableArray(this.value);
 
-/***/ }),
+      onList(newList);
+      this.$emit("input", newList);
+    },
+    spliceList: function spliceList() {
+      var _arguments = arguments;
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
+      var spliceList = function spliceList(list) {
+        return list.splice.apply(list, _toConsumableArray(_arguments));
+      };
+
+<<<<<<< HEAD
 /***/ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff":
 /*!*********************************************************************************!*\
   !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff ***!
@@ -4536,9 +11664,58 @@ module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.
 /***/ (function(module, exports) {
 
 module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.woff2?9efb86976bd53e159166c12365f61e25";
+=======
+      this.alterList(spliceList);
+    },
+    updatePosition: function updatePosition(oldIndex, newIndex) {
+      var updatePosition = function updatePosition(list) {
+        return list.splice(newIndex, 0, list.splice(oldIndex, 1)[0]);
+      };
 
-/***/ }),
+      this.alterList(updatePosition);
+    },
+    getRelatedContextFromMoveEvent: function getRelatedContextFromMoveEvent(_ref2) {
+      var to = _ref2.to,
+          related = _ref2.related;
+      var component = this.getUnderlyingPotencialDraggableComponent(to);
 
+      if (!component) {
+        return {
+          component: component
+        };
+      }
+
+      var list = component.realList;
+      var context = {
+        list: list,
+        component: component
+      };
+
+      if (to !== related && list && component.getUnderlyingVm) {
+        var destination = component.getUnderlyingVm(related);
+
+        if (destination) {
+          return assign_default()(destination, context);
+        }
+      }
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
+
+      return context;
+    },
+    getVmIndex: function getVmIndex(domIndex) {
+      var indexes = this.visibleIndexes;
+      var numberIndexes = indexes.length;
+      return domIndex > numberIndexes - 1 ? numberIndexes : indexes[domIndex];
+    },
+    getComponent: function getComponent() {
+      return this.$slots.default[0].componentInstance;
+    },
+    resetTransitionData: function resetTransitionData(index) {
+      if (!this.noTransitionOnDrag || !this.transitionMode) {
+        return;
+      }
+
+<<<<<<< HEAD
 /***/ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.eot":
 /*!******************************************************************************!*\
   !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.eot ***!
@@ -4580,9 +11757,119 @@ module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.tt
 /***/ (function(module, exports) {
 
 module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.woff?93f284548b42ab76fe3fd03a9d3a2180";
+=======
+      var nodes = this.getChildrenNodes();
+      nodes[index].data = null;
+      var transitionContainer = this.getComponent();
+      transitionContainer.children = [];
+      transitionContainer.kept = undefined;
+    },
+    onDragStart: function onDragStart(evt) {
+      this.context = this.getUnderlyingVm(evt.item);
+      evt.item._underlying_vm_ = this.clone(this.context.element);
+      draggingElement = evt.item;
+    },
+    onDragAdd: function onDragAdd(evt) {
+      var element = evt.item._underlying_vm_;
 
-/***/ }),
+      if (element === undefined) {
+        return;
+      }
 
+      Object(helper["d" /* removeNode */])(evt.item);
+      var newIndex = this.getVmIndex(evt.newIndex);
+      this.spliceList(newIndex, 0, element);
+      this.computeIndexes();
+      var added = {
+        element: element,
+        newIndex: newIndex
+      };
+      this.emitChanges({
+        added: added
+      });
+    },
+    onDragRemove: function onDragRemove(evt) {
+      Object(helper["c" /* insertNodeAt */])(this.rootContainer, evt.item, evt.oldIndex);
+
+      if (evt.pullMode === "clone") {
+        Object(helper["d" /* removeNode */])(evt.clone);
+        return;
+      }
+
+      var oldIndex = this.context.index;
+      this.spliceList(oldIndex, 1);
+      var removed = {
+        element: this.context.element,
+        oldIndex: oldIndex
+      };
+      this.resetTransitionData(oldIndex);
+      this.emitChanges({
+        removed: removed
+      });
+    },
+    onDragUpdate: function onDragUpdate(evt) {
+      Object(helper["d" /* removeNode */])(evt.item);
+      Object(helper["c" /* insertNodeAt */])(evt.from, evt.item, evt.oldIndex);
+      var oldIndex = this.context.index;
+      var newIndex = this.getVmIndex(evt.newIndex);
+      this.updatePosition(oldIndex, newIndex);
+      var moved = {
+        element: this.context.element,
+        oldIndex: oldIndex,
+        newIndex: newIndex
+      };
+      this.emitChanges({
+        moved: moved
+      });
+    },
+    updateProperty: function updateProperty(evt, propertyName) {
+      evt.hasOwnProperty(propertyName) && (evt[propertyName] += this.headerOffset);
+    },
+    computeFutureIndex: function computeFutureIndex(relatedContext, evt) {
+      if (!relatedContext.element) {
+        return 0;
+      }
+
+      var domChildren = _toConsumableArray(evt.to.children).filter(function (el) {
+        return el.style["display"] !== "none";
+      });
+
+      var currentDOMIndex = domChildren.indexOf(evt.related);
+      var currentIndex = relatedContext.component.getVmIndex(currentDOMIndex);
+      var draggedInList = domChildren.indexOf(draggingElement) !== -1;
+      return draggedInList || !evt.willInsertAfter ? currentIndex : currentIndex + 1;
+    },
+    onDragMove: function onDragMove(evt, originalEvent) {
+      var onMove = this.move;
+
+      if (!onMove || !this.realList) {
+        return true;
+      }
+
+      var relatedContext = this.getRelatedContextFromMoveEvent(evt);
+      var draggedContext = this.context;
+      var futureIndex = this.computeFutureIndex(relatedContext, evt);
+
+      assign_default()(draggedContext, {
+        futureIndex: futureIndex
+      });
+
+      var sendEvt = assign_default()({}, evt, {
+        relatedContext: relatedContext,
+        draggedContext: draggedContext
+      });
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
+
+      return onMove(sendEvt, originalEvent);
+    },
+    onDragEnd: function onDragEnd() {
+      this.computeIndexes();
+      draggingElement = null;
+    }
+  }
+};
+
+<<<<<<< HEAD
 /***/ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2":
 /*!********************************************************************************!*\
   !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2 ***!
@@ -4591,9 +11878,17 @@ module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.wo
 /***/ (function(module, exports) {
 
 module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.woff2?f6121be597a72928f54e7ab5b95512a1";
+=======
+if (typeof window !== "undefined" && "Vue" in window) {
+  window.Vue.component("draggable", draggableComponent);
+}
 
-/***/ }),
+/* harmony default export */ var vuedraggable = (draggableComponent);
+// CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
 
+
+<<<<<<< HEAD
 /***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/@fortawesome/fontawesome-free/css/all.css":
 /*!************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./node_modules/@fortawesome/fontawesome-free/css/all.css ***!
@@ -4610,7 +11905,16 @@ exports = module.exports = __webpack_require__(/*! ../../../css-loader/lib/css-b
 exports.push([module.i, "/*!\n * Font Awesome Free 5.12.0 by @fontawesome - https://fontawesome.com\n * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)\n */\n\n.fa,\n.fas,\n.far,\n.fal,\n.fad,\n.fab {\n  -moz-osx-font-smoothing: grayscale;\n  -webkit-font-smoothing: antialiased;\n  display: inline-block;\n  font-style: normal;\n  font-variant: normal;\n  text-rendering: auto;\n  line-height: 1;\n}\n\n.fa-lg {\n  font-size: 1.33333em;\n  line-height: 0.75em;\n  vertical-align: -.0667em;\n}\n\n.fa-xs {\n  font-size: .75em;\n}\n\n.fa-sm {\n  font-size: .875em;\n}\n\n.fa-1x {\n  font-size: 1em;\n}\n\n.fa-2x {\n  font-size: 2em;\n}\n\n.fa-3x {\n  font-size: 3em;\n}\n\n.fa-4x {\n  font-size: 4em;\n}\n\n.fa-5x {\n  font-size: 5em;\n}\n\n.fa-6x {\n  font-size: 6em;\n}\n\n.fa-7x {\n  font-size: 7em;\n}\n\n.fa-8x {\n  font-size: 8em;\n}\n\n.fa-9x {\n  font-size: 9em;\n}\n\n.fa-10x {\n  font-size: 10em;\n}\n\n.fa-fw {\n  width: 1.25em;\n}\n\n[dir] .fa-fw {\n  text-align: center;\n}\n\n.fa-ul {\n  list-style-type: none;\n}\n\n[dir=ltr] .fa-ul {\n  margin-left: 2.5em;\n  padding-left: 0;\n}\n\n[dir=rtl] .fa-ul {\n  margin-right: 2.5em;\n  padding-right: 0;\n}\n\n.fa-ul > li {\n  position: relative;\n}\n\n.fa-li {\n  position: absolute;\n  width: 2em;\n  line-height: inherit;\n}\n\n[dir] .fa-li {\n  text-align: center;\n}\n\n[dir=ltr] .fa-li {\n  left: -2em;\n}\n\n[dir=rtl] .fa-li {\n  right: -2em;\n}\n\n[dir] .fa-border {\n  border: solid 0.08em #eee;\n  border-radius: .1em;\n  padding: .2em .25em .15em;\n}\n\n[dir=ltr] .fa-pull-left {\n  float: left;\n}\n\n[dir=rtl] .fa-pull-left {\n  float: right;\n}\n\n[dir=ltr] .fa-pull-right {\n  float: right;\n}\n\n[dir=rtl] .fa-pull-right {\n  float: left;\n}\n\n[dir=ltr] .fa.fa-pull-left, [dir=ltr] .fas.fa-pull-left, [dir=ltr] .far.fa-pull-left, [dir=ltr] .fal.fa-pull-left, [dir=ltr] .fab.fa-pull-left {\n  margin-right: .3em;\n}\n\n[dir=rtl] .fa.fa-pull-left, [dir=rtl] .fas.fa-pull-left, [dir=rtl] .far.fa-pull-left, [dir=rtl] .fal.fa-pull-left, [dir=rtl] .fab.fa-pull-left {\n  margin-left: .3em;\n}\n\n[dir=ltr] .fa.fa-pull-right, [dir=ltr] .fas.fa-pull-right, [dir=ltr] .far.fa-pull-right, [dir=ltr] .fal.fa-pull-right, [dir=ltr] .fab.fa-pull-right {\n  margin-left: .3em;\n}\n\n[dir=rtl] .fa.fa-pull-right, [dir=rtl] .fas.fa-pull-right, [dir=rtl] .far.fa-pull-right, [dir=rtl] .fal.fa-pull-right, [dir=rtl] .fab.fa-pull-right {\n  margin-right: .3em;\n}\n\n[dir=ltr] .fa-spin {\n  -webkit-animation:  fa-spin-ltr 2s infinite linear;\n  animation:  fa-spin-ltr 2s infinite linear;\n}\n\n[dir=rtl] .fa-spin {\n  -webkit-animation:  fa-spin-rtl 2s infinite linear;\n  animation:  fa-spin-rtl 2s infinite linear;\n}\n\n[dir=ltr] .fa-pulse {\n  -webkit-animation:  fa-spin-ltr 1s infinite steps(8);\n  animation:  fa-spin-ltr 1s infinite steps(8);\n}\n\n[dir=rtl] .fa-pulse {\n  -webkit-animation:  fa-spin-rtl 1s infinite steps(8);\n  animation:  fa-spin-rtl 1s infinite steps(8);\n}\n\n@-webkit-keyframes fa-spin-ltr {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n@-webkit-keyframes fa-spin-rtl {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n\n  100% {\n    -webkit-transform: rotate(-360deg);\n    transform: rotate(-360deg);\n  }\n}\n\n@keyframes fa-spin-ltr {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n\n@keyframes fa-spin-rtl {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n\n  100% {\n    -webkit-transform: rotate(-360deg);\n    transform: rotate(-360deg);\n  }\n}\n\n.fa-rotate-90 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=1)\";\n}\n\n[dir=ltr] .fa-rotate-90 {\n  -webkit-transform: rotate(90deg);\n  transform: rotate(90deg);\n}\n\n[dir=rtl] .fa-rotate-90 {\n  -webkit-transform: rotate(-90deg);\n  transform: rotate(-90deg);\n}\n\n.fa-rotate-180 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2)\";\n}\n\n[dir=ltr] .fa-rotate-180 {\n  -webkit-transform: rotate(180deg);\n  transform: rotate(180deg);\n}\n\n[dir=rtl] .fa-rotate-180 {\n  -webkit-transform: rotate(-180deg);\n  transform: rotate(-180deg);\n}\n\n.fa-rotate-270 {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=3)\";\n}\n\n[dir=ltr] .fa-rotate-270 {\n  -webkit-transform: rotate(270deg);\n  transform: rotate(270deg);\n}\n\n[dir=rtl] .fa-rotate-270 {\n  -webkit-transform: rotate(-270deg);\n  transform: rotate(-270deg);\n}\n\n.fa-flip-horizontal {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)\";\n  -webkit-transform: scale(-1, 1);\n}\n\n[dir] .fa-flip-horizontal {\n  -webkit-transform: scale(-1, 1);\n          transform: scale(-1, 1);\n}\n\n.fa-flip-vertical {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)\";\n  -webkit-transform: scale(1, -1);\n}\n\n[dir] .fa-flip-vertical {\n  -webkit-transform: scale(1, -1);\n          transform: scale(1, -1);\n}\n\n.fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {\n  -ms-filter: \"progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)\";\n  -webkit-transform: scale(-1, -1);\n}\n\n[dir] .fa-flip-both, [dir] .fa-flip-horizontal.fa-flip-vertical {\n  -webkit-transform: scale(-1, -1);\n          transform: scale(-1, -1);\n}\n\n:root .fa-rotate-90,\n:root .fa-rotate-180,\n:root .fa-rotate-270,\n:root .fa-flip-horizontal,\n:root .fa-flip-vertical,\n:root .fa-flip-both {\n  -webkit-filter: none;\n  filter: none;\n}\n\n.fa-stack {\n  display: inline-block;\n  height: 2em;\n  line-height: 2em;\n  position: relative;\n  vertical-align: middle;\n  width: 2.5em;\n}\n\n.fa-stack-1x,\n.fa-stack-2x {\n  position: absolute;\n  width: 100%;\n}\n\n[dir] .fa-stack-1x, [dir] .fa-stack-2x {\n  text-align: center;\n}\n\n[dir=ltr] .fa-stack-1x, [dir=ltr] .fa-stack-2x {\n  left: 0;\n}\n\n[dir=rtl] .fa-stack-1x, [dir=rtl] .fa-stack-2x {\n  right: 0;\n}\n\n.fa-stack-1x {\n  line-height: inherit;\n}\n\n.fa-stack-2x {\n  font-size: 2em;\n}\n\n.fa-inverse {\n  color: #fff;\n}\n\n/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen\nreaders do not read off random characters that represent icons */\n\n.fa-500px:before {\n  content: \"\\F26E\";\n}\n\n.fa-accessible-icon:before {\n  content: \"\\F368\";\n}\n\n.fa-accusoft:before {\n  content: \"\\F369\";\n}\n\n.fa-acquisitions-incorporated:before {\n  content: \"\\F6AF\";\n}\n\n.fa-ad:before {\n  content: \"\\F641\";\n}\n\n.fa-address-book:before {\n  content: \"\\F2B9\";\n}\n\n.fa-address-card:before {\n  content: \"\\F2BB\";\n}\n\n.fa-adjust:before {\n  content: \"\\F042\";\n}\n\n.fa-adn:before {\n  content: \"\\F170\";\n}\n\n.fa-adobe:before {\n  content: \"\\F778\";\n}\n\n.fa-adversal:before {\n  content: \"\\F36A\";\n}\n\n.fa-affiliatetheme:before {\n  content: \"\\F36B\";\n}\n\n.fa-air-freshener:before {\n  content: \"\\F5D0\";\n}\n\n.fa-airbnb:before {\n  content: \"\\F834\";\n}\n\n.fa-algolia:before {\n  content: \"\\F36C\";\n}\n\n.fa-align-center:before {\n  content: \"\\F037\";\n}\n\n.fa-align-justify:before {\n  content: \"\\F039\";\n}\n\n.fa-align-left:before {\n  content: \"\\F036\";\n}\n\n.fa-align-right:before {\n  content: \"\\F038\";\n}\n\n.fa-alipay:before {\n  content: \"\\F642\";\n}\n\n.fa-allergies:before {\n  content: \"\\F461\";\n}\n\n.fa-amazon:before {\n  content: \"\\F270\";\n}\n\n.fa-amazon-pay:before {\n  content: \"\\F42C\";\n}\n\n.fa-ambulance:before {\n  content: \"\\F0F9\";\n}\n\n.fa-american-sign-language-interpreting:before {\n  content: \"\\F2A3\";\n}\n\n.fa-amilia:before {\n  content: \"\\F36D\";\n}\n\n.fa-anchor:before {\n  content: \"\\F13D\";\n}\n\n.fa-android:before {\n  content: \"\\F17B\";\n}\n\n.fa-angellist:before {\n  content: \"\\F209\";\n}\n\n.fa-angle-double-down:before {\n  content: \"\\F103\";\n}\n\n.fa-angle-double-left:before {\n  content: \"\\F100\";\n}\n\n.fa-angle-double-right:before {\n  content: \"\\F101\";\n}\n\n.fa-angle-double-up:before {\n  content: \"\\F102\";\n}\n\n.fa-angle-down:before {\n  content: \"\\F107\";\n}\n\n.fa-angle-left:before {\n  content: \"\\F104\";\n}\n\n.fa-angle-right:before {\n  content: \"\\F105\";\n}\n\n.fa-angle-up:before {\n  content: \"\\F106\";\n}\n\n.fa-angry:before {\n  content: \"\\F556\";\n}\n\n.fa-angrycreative:before {\n  content: \"\\F36E\";\n}\n\n.fa-angular:before {\n  content: \"\\F420\";\n}\n\n.fa-ankh:before {\n  content: \"\\F644\";\n}\n\n.fa-app-store:before {\n  content: \"\\F36F\";\n}\n\n.fa-app-store-ios:before {\n  content: \"\\F370\";\n}\n\n.fa-apper:before {\n  content: \"\\F371\";\n}\n\n.fa-apple:before {\n  content: \"\\F179\";\n}\n\n.fa-apple-alt:before {\n  content: \"\\F5D1\";\n}\n\n.fa-apple-pay:before {\n  content: \"\\F415\";\n}\n\n.fa-archive:before {\n  content: \"\\F187\";\n}\n\n.fa-archway:before {\n  content: \"\\F557\";\n}\n\n.fa-arrow-alt-circle-down:before {\n  content: \"\\F358\";\n}\n\n.fa-arrow-alt-circle-left:before {\n  content: \"\\F359\";\n}\n\n.fa-arrow-alt-circle-right:before {\n  content: \"\\F35A\";\n}\n\n.fa-arrow-alt-circle-up:before {\n  content: \"\\F35B\";\n}\n\n.fa-arrow-circle-down:before {\n  content: \"\\F0AB\";\n}\n\n.fa-arrow-circle-left:before {\n  content: \"\\F0A8\";\n}\n\n.fa-arrow-circle-right:before {\n  content: \"\\F0A9\";\n}\n\n.fa-arrow-circle-up:before {\n  content: \"\\F0AA\";\n}\n\n.fa-arrow-down:before {\n  content: \"\\F063\";\n}\n\n.fa-arrow-left:before {\n  content: \"\\F060\";\n}\n\n.fa-arrow-right:before {\n  content: \"\\F061\";\n}\n\n.fa-arrow-up:before {\n  content: \"\\F062\";\n}\n\n.fa-arrows-alt:before {\n  content: \"\\F0B2\";\n}\n\n.fa-arrows-alt-h:before {\n  content: \"\\F337\";\n}\n\n.fa-arrows-alt-v:before {\n  content: \"\\F338\";\n}\n\n.fa-artstation:before {\n  content: \"\\F77A\";\n}\n\n.fa-assistive-listening-systems:before {\n  content: \"\\F2A2\";\n}\n\n.fa-asterisk:before {\n  content: \"\\F069\";\n}\n\n.fa-asymmetrik:before {\n  content: \"\\F372\";\n}\n\n.fa-at:before {\n  content: \"\\F1FA\";\n}\n\n.fa-atlas:before {\n  content: \"\\F558\";\n}\n\n.fa-atlassian:before {\n  content: \"\\F77B\";\n}\n\n.fa-atom:before {\n  content: \"\\F5D2\";\n}\n\n.fa-audible:before {\n  content: \"\\F373\";\n}\n\n.fa-audio-description:before {\n  content: \"\\F29E\";\n}\n\n.fa-autoprefixer:before {\n  content: \"\\F41C\";\n}\n\n.fa-avianex:before {\n  content: \"\\F374\";\n}\n\n.fa-aviato:before {\n  content: \"\\F421\";\n}\n\n.fa-award:before {\n  content: \"\\F559\";\n}\n\n.fa-aws:before {\n  content: \"\\F375\";\n}\n\n.fa-baby:before {\n  content: \"\\F77C\";\n}\n\n.fa-baby-carriage:before {\n  content: \"\\F77D\";\n}\n\n.fa-backspace:before {\n  content: \"\\F55A\";\n}\n\n.fa-backward:before {\n  content: \"\\F04A\";\n}\n\n.fa-bacon:before {\n  content: \"\\F7E5\";\n}\n\n.fa-bahai:before {\n  content: \"\\F666\";\n}\n\n.fa-balance-scale:before {\n  content: \"\\F24E\";\n}\n\n.fa-balance-scale-left:before {\n  content: \"\\F515\";\n}\n\n.fa-balance-scale-right:before {\n  content: \"\\F516\";\n}\n\n.fa-ban:before {\n  content: \"\\F05E\";\n}\n\n.fa-band-aid:before {\n  content: \"\\F462\";\n}\n\n.fa-bandcamp:before {\n  content: \"\\F2D5\";\n}\n\n.fa-barcode:before {\n  content: \"\\F02A\";\n}\n\n.fa-bars:before {\n  content: \"\\F0C9\";\n}\n\n.fa-baseball-ball:before {\n  content: \"\\F433\";\n}\n\n.fa-basketball-ball:before {\n  content: \"\\F434\";\n}\n\n.fa-bath:before {\n  content: \"\\F2CD\";\n}\n\n.fa-battery-empty:before {\n  content: \"\\F244\";\n}\n\n.fa-battery-full:before {\n  content: \"\\F240\";\n}\n\n.fa-battery-half:before {\n  content: \"\\F242\";\n}\n\n.fa-battery-quarter:before {\n  content: \"\\F243\";\n}\n\n.fa-battery-three-quarters:before {\n  content: \"\\F241\";\n}\n\n.fa-battle-net:before {\n  content: \"\\F835\";\n}\n\n.fa-bed:before {\n  content: \"\\F236\";\n}\n\n.fa-beer:before {\n  content: \"\\F0FC\";\n}\n\n.fa-behance:before {\n  content: \"\\F1B4\";\n}\n\n.fa-behance-square:before {\n  content: \"\\F1B5\";\n}\n\n.fa-bell:before {\n  content: \"\\F0F3\";\n}\n\n.fa-bell-slash:before {\n  content: \"\\F1F6\";\n}\n\n.fa-bezier-curve:before {\n  content: \"\\F55B\";\n}\n\n.fa-bible:before {\n  content: \"\\F647\";\n}\n\n.fa-bicycle:before {\n  content: \"\\F206\";\n}\n\n.fa-biking:before {\n  content: \"\\F84A\";\n}\n\n.fa-bimobject:before {\n  content: \"\\F378\";\n}\n\n.fa-binoculars:before {\n  content: \"\\F1E5\";\n}\n\n.fa-biohazard:before {\n  content: \"\\F780\";\n}\n\n.fa-birthday-cake:before {\n  content: \"\\F1FD\";\n}\n\n.fa-bitbucket:before {\n  content: \"\\F171\";\n}\n\n.fa-bitcoin:before {\n  content: \"\\F379\";\n}\n\n.fa-bity:before {\n  content: \"\\F37A\";\n}\n\n.fa-black-tie:before {\n  content: \"\\F27E\";\n}\n\n.fa-blackberry:before {\n  content: \"\\F37B\";\n}\n\n.fa-blender:before {\n  content: \"\\F517\";\n}\n\n.fa-blender-phone:before {\n  content: \"\\F6B6\";\n}\n\n.fa-blind:before {\n  content: \"\\F29D\";\n}\n\n.fa-blog:before {\n  content: \"\\F781\";\n}\n\n.fa-blogger:before {\n  content: \"\\F37C\";\n}\n\n.fa-blogger-b:before {\n  content: \"\\F37D\";\n}\n\n.fa-bluetooth:before {\n  content: \"\\F293\";\n}\n\n.fa-bluetooth-b:before {\n  content: \"\\F294\";\n}\n\n.fa-bold:before {\n  content: \"\\F032\";\n}\n\n.fa-bolt:before {\n  content: \"\\F0E7\";\n}\n\n.fa-bomb:before {\n  content: \"\\F1E2\";\n}\n\n.fa-bone:before {\n  content: \"\\F5D7\";\n}\n\n.fa-bong:before {\n  content: \"\\F55C\";\n}\n\n.fa-book:before {\n  content: \"\\F02D\";\n}\n\n.fa-book-dead:before {\n  content: \"\\F6B7\";\n}\n\n.fa-book-medical:before {\n  content: \"\\F7E6\";\n}\n\n.fa-book-open:before {\n  content: \"\\F518\";\n}\n\n.fa-book-reader:before {\n  content: \"\\F5DA\";\n}\n\n.fa-bookmark:before {\n  content: \"\\F02E\";\n}\n\n.fa-bootstrap:before {\n  content: \"\\F836\";\n}\n\n.fa-border-all:before {\n  content: \"\\F84C\";\n}\n\n.fa-border-none:before {\n  content: \"\\F850\";\n}\n\n.fa-border-style:before {\n  content: \"\\F853\";\n}\n\n.fa-bowling-ball:before {\n  content: \"\\F436\";\n}\n\n.fa-box:before {\n  content: \"\\F466\";\n}\n\n.fa-box-open:before {\n  content: \"\\F49E\";\n}\n\n.fa-boxes:before {\n  content: \"\\F468\";\n}\n\n.fa-braille:before {\n  content: \"\\F2A1\";\n}\n\n.fa-brain:before {\n  content: \"\\F5DC\";\n}\n\n.fa-bread-slice:before {\n  content: \"\\F7EC\";\n}\n\n.fa-briefcase:before {\n  content: \"\\F0B1\";\n}\n\n.fa-briefcase-medical:before {\n  content: \"\\F469\";\n}\n\n.fa-broadcast-tower:before {\n  content: \"\\F519\";\n}\n\n.fa-broom:before {\n  content: \"\\F51A\";\n}\n\n.fa-brush:before {\n  content: \"\\F55D\";\n}\n\n.fa-btc:before {\n  content: \"\\F15A\";\n}\n\n.fa-buffer:before {\n  content: \"\\F837\";\n}\n\n.fa-bug:before {\n  content: \"\\F188\";\n}\n\n.fa-building:before {\n  content: \"\\F1AD\";\n}\n\n.fa-bullhorn:before {\n  content: \"\\F0A1\";\n}\n\n.fa-bullseye:before {\n  content: \"\\F140\";\n}\n\n.fa-burn:before {\n  content: \"\\F46A\";\n}\n\n.fa-buromobelexperte:before {\n  content: \"\\F37F\";\n}\n\n.fa-bus:before {\n  content: \"\\F207\";\n}\n\n.fa-bus-alt:before {\n  content: \"\\F55E\";\n}\n\n.fa-business-time:before {\n  content: \"\\F64A\";\n}\n\n.fa-buy-n-large:before {\n  content: \"\\F8A6\";\n}\n\n.fa-buysellads:before {\n  content: \"\\F20D\";\n}\n\n.fa-calculator:before {\n  content: \"\\F1EC\";\n}\n\n.fa-calendar:before {\n  content: \"\\F133\";\n}\n\n.fa-calendar-alt:before {\n  content: \"\\F073\";\n}\n\n.fa-calendar-check:before {\n  content: \"\\F274\";\n}\n\n.fa-calendar-day:before {\n  content: \"\\F783\";\n}\n\n.fa-calendar-minus:before {\n  content: \"\\F272\";\n}\n\n.fa-calendar-plus:before {\n  content: \"\\F271\";\n}\n\n.fa-calendar-times:before {\n  content: \"\\F273\";\n}\n\n.fa-calendar-week:before {\n  content: \"\\F784\";\n}\n\n.fa-camera:before {\n  content: \"\\F030\";\n}\n\n.fa-camera-retro:before {\n  content: \"\\F083\";\n}\n\n.fa-campground:before {\n  content: \"\\F6BB\";\n}\n\n.fa-canadian-maple-leaf:before {\n  content: \"\\F785\";\n}\n\n.fa-candy-cane:before {\n  content: \"\\F786\";\n}\n\n.fa-cannabis:before {\n  content: \"\\F55F\";\n}\n\n.fa-capsules:before {\n  content: \"\\F46B\";\n}\n\n.fa-car:before {\n  content: \"\\F1B9\";\n}\n\n.fa-car-alt:before {\n  content: \"\\F5DE\";\n}\n\n.fa-car-battery:before {\n  content: \"\\F5DF\";\n}\n\n.fa-car-crash:before {\n  content: \"\\F5E1\";\n}\n\n.fa-car-side:before {\n  content: \"\\F5E4\";\n}\n\n.fa-caravan:before {\n  content: \"\\F8FF\";\n}\n\n.fa-caret-down:before {\n  content: \"\\F0D7\";\n}\n\n.fa-caret-left:before {\n  content: \"\\F0D9\";\n}\n\n.fa-caret-right:before {\n  content: \"\\F0DA\";\n}\n\n.fa-caret-square-down:before {\n  content: \"\\F150\";\n}\n\n.fa-caret-square-left:before {\n  content: \"\\F191\";\n}\n\n.fa-caret-square-right:before {\n  content: \"\\F152\";\n}\n\n.fa-caret-square-up:before {\n  content: \"\\F151\";\n}\n\n.fa-caret-up:before {\n  content: \"\\F0D8\";\n}\n\n.fa-carrot:before {\n  content: \"\\F787\";\n}\n\n.fa-cart-arrow-down:before {\n  content: \"\\F218\";\n}\n\n.fa-cart-plus:before {\n  content: \"\\F217\";\n}\n\n.fa-cash-register:before {\n  content: \"\\F788\";\n}\n\n.fa-cat:before {\n  content: \"\\F6BE\";\n}\n\n.fa-cc-amazon-pay:before {\n  content: \"\\F42D\";\n}\n\n.fa-cc-amex:before {\n  content: \"\\F1F3\";\n}\n\n.fa-cc-apple-pay:before {\n  content: \"\\F416\";\n}\n\n.fa-cc-diners-club:before {\n  content: \"\\F24C\";\n}\n\n.fa-cc-discover:before {\n  content: \"\\F1F2\";\n}\n\n.fa-cc-jcb:before {\n  content: \"\\F24B\";\n}\n\n.fa-cc-mastercard:before {\n  content: \"\\F1F1\";\n}\n\n.fa-cc-paypal:before {\n  content: \"\\F1F4\";\n}\n\n.fa-cc-stripe:before {\n  content: \"\\F1F5\";\n}\n\n.fa-cc-visa:before {\n  content: \"\\F1F0\";\n}\n\n.fa-centercode:before {\n  content: \"\\F380\";\n}\n\n.fa-centos:before {\n  content: \"\\F789\";\n}\n\n.fa-certificate:before {\n  content: \"\\F0A3\";\n}\n\n.fa-chair:before {\n  content: \"\\F6C0\";\n}\n\n.fa-chalkboard:before {\n  content: \"\\F51B\";\n}\n\n.fa-chalkboard-teacher:before {\n  content: \"\\F51C\";\n}\n\n.fa-charging-station:before {\n  content: \"\\F5E7\";\n}\n\n.fa-chart-area:before {\n  content: \"\\F1FE\";\n}\n\n.fa-chart-bar:before {\n  content: \"\\F080\";\n}\n\n.fa-chart-line:before {\n  content: \"\\F201\";\n}\n\n.fa-chart-pie:before {\n  content: \"\\F200\";\n}\n\n.fa-check:before {\n  content: \"\\F00C\";\n}\n\n.fa-check-circle:before {\n  content: \"\\F058\";\n}\n\n.fa-check-double:before {\n  content: \"\\F560\";\n}\n\n.fa-check-square:before {\n  content: \"\\F14A\";\n}\n\n.fa-cheese:before {\n  content: \"\\F7EF\";\n}\n\n.fa-chess:before {\n  content: \"\\F439\";\n}\n\n.fa-chess-bishop:before {\n  content: \"\\F43A\";\n}\n\n.fa-chess-board:before {\n  content: \"\\F43C\";\n}\n\n.fa-chess-king:before {\n  content: \"\\F43F\";\n}\n\n.fa-chess-knight:before {\n  content: \"\\F441\";\n}\n\n.fa-chess-pawn:before {\n  content: \"\\F443\";\n}\n\n.fa-chess-queen:before {\n  content: \"\\F445\";\n}\n\n.fa-chess-rook:before {\n  content: \"\\F447\";\n}\n\n.fa-chevron-circle-down:before {\n  content: \"\\F13A\";\n}\n\n.fa-chevron-circle-left:before {\n  content: \"\\F137\";\n}\n\n.fa-chevron-circle-right:before {\n  content: \"\\F138\";\n}\n\n.fa-chevron-circle-up:before {\n  content: \"\\F139\";\n}\n\n.fa-chevron-down:before {\n  content: \"\\F078\";\n}\n\n.fa-chevron-left:before {\n  content: \"\\F053\";\n}\n\n.fa-chevron-right:before {\n  content: \"\\F054\";\n}\n\n.fa-chevron-up:before {\n  content: \"\\F077\";\n}\n\n.fa-child:before {\n  content: \"\\F1AE\";\n}\n\n.fa-chrome:before {\n  content: \"\\F268\";\n}\n\n.fa-chromecast:before {\n  content: \"\\F838\";\n}\n\n.fa-church:before {\n  content: \"\\F51D\";\n}\n\n.fa-circle:before {\n  content: \"\\F111\";\n}\n\n.fa-circle-notch:before {\n  content: \"\\F1CE\";\n}\n\n.fa-city:before {\n  content: \"\\F64F\";\n}\n\n.fa-clinic-medical:before {\n  content: \"\\F7F2\";\n}\n\n.fa-clipboard:before {\n  content: \"\\F328\";\n}\n\n.fa-clipboard-check:before {\n  content: \"\\F46C\";\n}\n\n.fa-clipboard-list:before {\n  content: \"\\F46D\";\n}\n\n.fa-clock:before {\n  content: \"\\F017\";\n}\n\n.fa-clone:before {\n  content: \"\\F24D\";\n}\n\n.fa-closed-captioning:before {\n  content: \"\\F20A\";\n}\n\n.fa-cloud:before {\n  content: \"\\F0C2\";\n}\n\n.fa-cloud-download-alt:before {\n  content: \"\\F381\";\n}\n\n.fa-cloud-meatball:before {\n  content: \"\\F73B\";\n}\n\n.fa-cloud-moon:before {\n  content: \"\\F6C3\";\n}\n\n.fa-cloud-moon-rain:before {\n  content: \"\\F73C\";\n}\n\n.fa-cloud-rain:before {\n  content: \"\\F73D\";\n}\n\n.fa-cloud-showers-heavy:before {\n  content: \"\\F740\";\n}\n\n.fa-cloud-sun:before {\n  content: \"\\F6C4\";\n}\n\n.fa-cloud-sun-rain:before {\n  content: \"\\F743\";\n}\n\n.fa-cloud-upload-alt:before {\n  content: \"\\F382\";\n}\n\n.fa-cloudscale:before {\n  content: \"\\F383\";\n}\n\n.fa-cloudsmith:before {\n  content: \"\\F384\";\n}\n\n.fa-cloudversify:before {\n  content: \"\\F385\";\n}\n\n.fa-cocktail:before {\n  content: \"\\F561\";\n}\n\n.fa-code:before {\n  content: \"\\F121\";\n}\n\n.fa-code-branch:before {\n  content: \"\\F126\";\n}\n\n.fa-codepen:before {\n  content: \"\\F1CB\";\n}\n\n.fa-codiepie:before {\n  content: \"\\F284\";\n}\n\n.fa-coffee:before {\n  content: \"\\F0F4\";\n}\n\n.fa-cog:before {\n  content: \"\\F013\";\n}\n\n.fa-cogs:before {\n  content: \"\\F085\";\n}\n\n.fa-coins:before {\n  content: \"\\F51E\";\n}\n\n.fa-columns:before {\n  content: \"\\F0DB\";\n}\n\n.fa-comment:before {\n  content: \"\\F075\";\n}\n\n.fa-comment-alt:before {\n  content: \"\\F27A\";\n}\n\n.fa-comment-dollar:before {\n  content: \"\\F651\";\n}\n\n.fa-comment-dots:before {\n  content: \"\\F4AD\";\n}\n\n.fa-comment-medical:before {\n  content: \"\\F7F5\";\n}\n\n.fa-comment-slash:before {\n  content: \"\\F4B3\";\n}\n\n.fa-comments:before {\n  content: \"\\F086\";\n}\n\n.fa-comments-dollar:before {\n  content: \"\\F653\";\n}\n\n.fa-compact-disc:before {\n  content: \"\\F51F\";\n}\n\n.fa-compass:before {\n  content: \"\\F14E\";\n}\n\n.fa-compress:before {\n  content: \"\\F066\";\n}\n\n.fa-compress-alt:before {\n  content: \"\\F422\";\n}\n\n.fa-compress-arrows-alt:before {\n  content: \"\\F78C\";\n}\n\n.fa-concierge-bell:before {\n  content: \"\\F562\";\n}\n\n.fa-confluence:before {\n  content: \"\\F78D\";\n}\n\n.fa-connectdevelop:before {\n  content: \"\\F20E\";\n}\n\n.fa-contao:before {\n  content: \"\\F26D\";\n}\n\n.fa-cookie:before {\n  content: \"\\F563\";\n}\n\n.fa-cookie-bite:before {\n  content: \"\\F564\";\n}\n\n.fa-copy:before {\n  content: \"\\F0C5\";\n}\n\n.fa-copyright:before {\n  content: \"\\F1F9\";\n}\n\n.fa-cotton-bureau:before {\n  content: \"\\F89E\";\n}\n\n.fa-couch:before {\n  content: \"\\F4B8\";\n}\n\n.fa-cpanel:before {\n  content: \"\\F388\";\n}\n\n.fa-creative-commons:before {\n  content: \"\\F25E\";\n}\n\n.fa-creative-commons-by:before {\n  content: \"\\F4E7\";\n}\n\n.fa-creative-commons-nc:before {\n  content: \"\\F4E8\";\n}\n\n.fa-creative-commons-nc-eu:before {\n  content: \"\\F4E9\";\n}\n\n.fa-creative-commons-nc-jp:before {\n  content: \"\\F4EA\";\n}\n\n.fa-creative-commons-nd:before {\n  content: \"\\F4EB\";\n}\n\n.fa-creative-commons-pd:before {\n  content: \"\\F4EC\";\n}\n\n.fa-creative-commons-pd-alt:before {\n  content: \"\\F4ED\";\n}\n\n.fa-creative-commons-remix:before {\n  content: \"\\F4EE\";\n}\n\n.fa-creative-commons-sa:before {\n  content: \"\\F4EF\";\n}\n\n.fa-creative-commons-sampling:before {\n  content: \"\\F4F0\";\n}\n\n.fa-creative-commons-sampling-plus:before {\n  content: \"\\F4F1\";\n}\n\n.fa-creative-commons-share:before {\n  content: \"\\F4F2\";\n}\n\n.fa-creative-commons-zero:before {\n  content: \"\\F4F3\";\n}\n\n.fa-credit-card:before {\n  content: \"\\F09D\";\n}\n\n.fa-critical-role:before {\n  content: \"\\F6C9\";\n}\n\n.fa-crop:before {\n  content: \"\\F125\";\n}\n\n.fa-crop-alt:before {\n  content: \"\\F565\";\n}\n\n.fa-cross:before {\n  content: \"\\F654\";\n}\n\n.fa-crosshairs:before {\n  content: \"\\F05B\";\n}\n\n.fa-crow:before {\n  content: \"\\F520\";\n}\n\n.fa-crown:before {\n  content: \"\\F521\";\n}\n\n.fa-crutch:before {\n  content: \"\\F7F7\";\n}\n\n.fa-css3:before {\n  content: \"\\F13C\";\n}\n\n.fa-css3-alt:before {\n  content: \"\\F38B\";\n}\n\n.fa-cube:before {\n  content: \"\\F1B2\";\n}\n\n.fa-cubes:before {\n  content: \"\\F1B3\";\n}\n\n.fa-cut:before {\n  content: \"\\F0C4\";\n}\n\n.fa-cuttlefish:before {\n  content: \"\\F38C\";\n}\n\n.fa-d-and-d:before {\n  content: \"\\F38D\";\n}\n\n.fa-d-and-d-beyond:before {\n  content: \"\\F6CA\";\n}\n\n.fa-dashcube:before {\n  content: \"\\F210\";\n}\n\n.fa-database:before {\n  content: \"\\F1C0\";\n}\n\n.fa-deaf:before {\n  content: \"\\F2A4\";\n}\n\n.fa-delicious:before {\n  content: \"\\F1A5\";\n}\n\n.fa-democrat:before {\n  content: \"\\F747\";\n}\n\n.fa-deploydog:before {\n  content: \"\\F38E\";\n}\n\n.fa-deskpro:before {\n  content: \"\\F38F\";\n}\n\n.fa-desktop:before {\n  content: \"\\F108\";\n}\n\n.fa-dev:before {\n  content: \"\\F6CC\";\n}\n\n.fa-deviantart:before {\n  content: \"\\F1BD\";\n}\n\n.fa-dharmachakra:before {\n  content: \"\\F655\";\n}\n\n.fa-dhl:before {\n  content: \"\\F790\";\n}\n\n.fa-diagnoses:before {\n  content: \"\\F470\";\n}\n\n.fa-diaspora:before {\n  content: \"\\F791\";\n}\n\n.fa-dice:before {\n  content: \"\\F522\";\n}\n\n.fa-dice-d20:before {\n  content: \"\\F6CF\";\n}\n\n.fa-dice-d6:before {\n  content: \"\\F6D1\";\n}\n\n.fa-dice-five:before {\n  content: \"\\F523\";\n}\n\n.fa-dice-four:before {\n  content: \"\\F524\";\n}\n\n.fa-dice-one:before {\n  content: \"\\F525\";\n}\n\n.fa-dice-six:before {\n  content: \"\\F526\";\n}\n\n.fa-dice-three:before {\n  content: \"\\F527\";\n}\n\n.fa-dice-two:before {\n  content: \"\\F528\";\n}\n\n.fa-digg:before {\n  content: \"\\F1A6\";\n}\n\n.fa-digital-ocean:before {\n  content: \"\\F391\";\n}\n\n.fa-digital-tachograph:before {\n  content: \"\\F566\";\n}\n\n.fa-directions:before {\n  content: \"\\F5EB\";\n}\n\n.fa-discord:before {\n  content: \"\\F392\";\n}\n\n.fa-discourse:before {\n  content: \"\\F393\";\n}\n\n.fa-divide:before {\n  content: \"\\F529\";\n}\n\n.fa-dizzy:before {\n  content: \"\\F567\";\n}\n\n.fa-dna:before {\n  content: \"\\F471\";\n}\n\n.fa-dochub:before {\n  content: \"\\F394\";\n}\n\n.fa-docker:before {\n  content: \"\\F395\";\n}\n\n.fa-dog:before {\n  content: \"\\F6D3\";\n}\n\n.fa-dollar-sign:before {\n  content: \"\\F155\";\n}\n\n.fa-dolly:before {\n  content: \"\\F472\";\n}\n\n.fa-dolly-flatbed:before {\n  content: \"\\F474\";\n}\n\n.fa-donate:before {\n  content: \"\\F4B9\";\n}\n\n.fa-door-closed:before {\n  content: \"\\F52A\";\n}\n\n.fa-door-open:before {\n  content: \"\\F52B\";\n}\n\n.fa-dot-circle:before {\n  content: \"\\F192\";\n}\n\n.fa-dove:before {\n  content: \"\\F4BA\";\n}\n\n.fa-download:before {\n  content: \"\\F019\";\n}\n\n.fa-draft2digital:before {\n  content: \"\\F396\";\n}\n\n.fa-drafting-compass:before {\n  content: \"\\F568\";\n}\n\n.fa-dragon:before {\n  content: \"\\F6D5\";\n}\n\n.fa-draw-polygon:before {\n  content: \"\\F5EE\";\n}\n\n.fa-dribbble:before {\n  content: \"\\F17D\";\n}\n\n.fa-dribbble-square:before {\n  content: \"\\F397\";\n}\n\n.fa-dropbox:before {\n  content: \"\\F16B\";\n}\n\n.fa-drum:before {\n  content: \"\\F569\";\n}\n\n.fa-drum-steelpan:before {\n  content: \"\\F56A\";\n}\n\n.fa-drumstick-bite:before {\n  content: \"\\F6D7\";\n}\n\n.fa-drupal:before {\n  content: \"\\F1A9\";\n}\n\n.fa-dumbbell:before {\n  content: \"\\F44B\";\n}\n\n.fa-dumpster:before {\n  content: \"\\F793\";\n}\n\n.fa-dumpster-fire:before {\n  content: \"\\F794\";\n}\n\n.fa-dungeon:before {\n  content: \"\\F6D9\";\n}\n\n.fa-dyalog:before {\n  content: \"\\F399\";\n}\n\n.fa-earlybirds:before {\n  content: \"\\F39A\";\n}\n\n.fa-ebay:before {\n  content: \"\\F4F4\";\n}\n\n.fa-edge:before {\n  content: \"\\F282\";\n}\n\n.fa-edit:before {\n  content: \"\\F044\";\n}\n\n.fa-egg:before {\n  content: \"\\F7FB\";\n}\n\n.fa-eject:before {\n  content: \"\\F052\";\n}\n\n.fa-elementor:before {\n  content: \"\\F430\";\n}\n\n.fa-ellipsis-h:before {\n  content: \"\\F141\";\n}\n\n.fa-ellipsis-v:before {\n  content: \"\\F142\";\n}\n\n.fa-ello:before {\n  content: \"\\F5F1\";\n}\n\n.fa-ember:before {\n  content: \"\\F423\";\n}\n\n.fa-empire:before {\n  content: \"\\F1D1\";\n}\n\n.fa-envelope:before {\n  content: \"\\F0E0\";\n}\n\n.fa-envelope-open:before {\n  content: \"\\F2B6\";\n}\n\n.fa-envelope-open-text:before {\n  content: \"\\F658\";\n}\n\n.fa-envelope-square:before {\n  content: \"\\F199\";\n}\n\n.fa-envira:before {\n  content: \"\\F299\";\n}\n\n.fa-equals:before {\n  content: \"\\F52C\";\n}\n\n.fa-eraser:before {\n  content: \"\\F12D\";\n}\n\n.fa-erlang:before {\n  content: \"\\F39D\";\n}\n\n.fa-ethereum:before {\n  content: \"\\F42E\";\n}\n\n.fa-ethernet:before {\n  content: \"\\F796\";\n}\n\n.fa-etsy:before {\n  content: \"\\F2D7\";\n}\n\n.fa-euro-sign:before {\n  content: \"\\F153\";\n}\n\n.fa-evernote:before {\n  content: \"\\F839\";\n}\n\n.fa-exchange-alt:before {\n  content: \"\\F362\";\n}\n\n.fa-exclamation:before {\n  content: \"\\F12A\";\n}\n\n.fa-exclamation-circle:before {\n  content: \"\\F06A\";\n}\n\n.fa-exclamation-triangle:before {\n  content: \"\\F071\";\n}\n\n.fa-expand:before {\n  content: \"\\F065\";\n}\n\n.fa-expand-alt:before {\n  content: \"\\F424\";\n}\n\n.fa-expand-arrows-alt:before {\n  content: \"\\F31E\";\n}\n\n.fa-expeditedssl:before {\n  content: \"\\F23E\";\n}\n\n.fa-external-link-alt:before {\n  content: \"\\F35D\";\n}\n\n.fa-external-link-square-alt:before {\n  content: \"\\F360\";\n}\n\n.fa-eye:before {\n  content: \"\\F06E\";\n}\n\n.fa-eye-dropper:before {\n  content: \"\\F1FB\";\n}\n\n.fa-eye-slash:before {\n  content: \"\\F070\";\n}\n\n.fa-facebook:before {\n  content: \"\\F09A\";\n}\n\n.fa-facebook-f:before {\n  content: \"\\F39E\";\n}\n\n.fa-facebook-messenger:before {\n  content: \"\\F39F\";\n}\n\n.fa-facebook-square:before {\n  content: \"\\F082\";\n}\n\n.fa-fan:before {\n  content: \"\\F863\";\n}\n\n.fa-fantasy-flight-games:before {\n  content: \"\\F6DC\";\n}\n\n.fa-fast-backward:before {\n  content: \"\\F049\";\n}\n\n.fa-fast-forward:before {\n  content: \"\\F050\";\n}\n\n.fa-fax:before {\n  content: \"\\F1AC\";\n}\n\n.fa-feather:before {\n  content: \"\\F52D\";\n}\n\n.fa-feather-alt:before {\n  content: \"\\F56B\";\n}\n\n.fa-fedex:before {\n  content: \"\\F797\";\n}\n\n.fa-fedora:before {\n  content: \"\\F798\";\n}\n\n.fa-female:before {\n  content: \"\\F182\";\n}\n\n.fa-fighter-jet:before {\n  content: \"\\F0FB\";\n}\n\n.fa-figma:before {\n  content: \"\\F799\";\n}\n\n.fa-file:before {\n  content: \"\\F15B\";\n}\n\n.fa-file-alt:before {\n  content: \"\\F15C\";\n}\n\n.fa-file-archive:before {\n  content: \"\\F1C6\";\n}\n\n.fa-file-audio:before {\n  content: \"\\F1C7\";\n}\n\n.fa-file-code:before {\n  content: \"\\F1C9\";\n}\n\n.fa-file-contract:before {\n  content: \"\\F56C\";\n}\n\n.fa-file-csv:before {\n  content: \"\\F6DD\";\n}\n\n.fa-file-download:before {\n  content: \"\\F56D\";\n}\n\n.fa-file-excel:before {\n  content: \"\\F1C3\";\n}\n\n.fa-file-export:before {\n  content: \"\\F56E\";\n}\n\n.fa-file-image:before {\n  content: \"\\F1C5\";\n}\n\n.fa-file-import:before {\n  content: \"\\F56F\";\n}\n\n.fa-file-invoice:before {\n  content: \"\\F570\";\n}\n\n.fa-file-invoice-dollar:before {\n  content: \"\\F571\";\n}\n\n.fa-file-medical:before {\n  content: \"\\F477\";\n}\n\n.fa-file-medical-alt:before {\n  content: \"\\F478\";\n}\n\n.fa-file-pdf:before {\n  content: \"\\F1C1\";\n}\n\n.fa-file-powerpoint:before {\n  content: \"\\F1C4\";\n}\n\n.fa-file-prescription:before {\n  content: \"\\F572\";\n}\n\n.fa-file-signature:before {\n  content: \"\\F573\";\n}\n\n.fa-file-upload:before {\n  content: \"\\F574\";\n}\n\n.fa-file-video:before {\n  content: \"\\F1C8\";\n}\n\n.fa-file-word:before {\n  content: \"\\F1C2\";\n}\n\n.fa-fill:before {\n  content: \"\\F575\";\n}\n\n.fa-fill-drip:before {\n  content: \"\\F576\";\n}\n\n.fa-film:before {\n  content: \"\\F008\";\n}\n\n.fa-filter:before {\n  content: \"\\F0B0\";\n}\n\n.fa-fingerprint:before {\n  content: \"\\F577\";\n}\n\n.fa-fire:before {\n  content: \"\\F06D\";\n}\n\n.fa-fire-alt:before {\n  content: \"\\F7E4\";\n}\n\n.fa-fire-extinguisher:before {\n  content: \"\\F134\";\n}\n\n.fa-firefox:before {\n  content: \"\\F269\";\n}\n\n.fa-firefox-browser:before {\n  content: \"\\F907\";\n}\n\n.fa-first-aid:before {\n  content: \"\\F479\";\n}\n\n.fa-first-order:before {\n  content: \"\\F2B0\";\n}\n\n.fa-first-order-alt:before {\n  content: \"\\F50A\";\n}\n\n.fa-firstdraft:before {\n  content: \"\\F3A1\";\n}\n\n.fa-fish:before {\n  content: \"\\F578\";\n}\n\n.fa-fist-raised:before {\n  content: \"\\F6DE\";\n}\n\n.fa-flag:before {\n  content: \"\\F024\";\n}\n\n.fa-flag-checkered:before {\n  content: \"\\F11E\";\n}\n\n.fa-flag-usa:before {\n  content: \"\\F74D\";\n}\n\n.fa-flask:before {\n  content: \"\\F0C3\";\n}\n\n.fa-flickr:before {\n  content: \"\\F16E\";\n}\n\n.fa-flipboard:before {\n  content: \"\\F44D\";\n}\n\n.fa-flushed:before {\n  content: \"\\F579\";\n}\n\n.fa-fly:before {\n  content: \"\\F417\";\n}\n\n.fa-folder:before {\n  content: \"\\F07B\";\n}\n\n.fa-folder-minus:before {\n  content: \"\\F65D\";\n}\n\n.fa-folder-open:before {\n  content: \"\\F07C\";\n}\n\n.fa-folder-plus:before {\n  content: \"\\F65E\";\n}\n\n.fa-font:before {\n  content: \"\\F031\";\n}\n\n.fa-font-awesome:before {\n  content: \"\\F2B4\";\n}\n\n.fa-font-awesome-alt:before {\n  content: \"\\F35C\";\n}\n\n.fa-font-awesome-flag:before {\n  content: \"\\F425\";\n}\n\n.fa-font-awesome-logo-full:before {\n  content: \"\\F4E6\";\n}\n\n.fa-fonticons:before {\n  content: \"\\F280\";\n}\n\n.fa-fonticons-fi:before {\n  content: \"\\F3A2\";\n}\n\n.fa-football-ball:before {\n  content: \"\\F44E\";\n}\n\n.fa-fort-awesome:before {\n  content: \"\\F286\";\n}\n\n.fa-fort-awesome-alt:before {\n  content: \"\\F3A3\";\n}\n\n.fa-forumbee:before {\n  content: \"\\F211\";\n}\n\n.fa-forward:before {\n  content: \"\\F04E\";\n}\n\n.fa-foursquare:before {\n  content: \"\\F180\";\n}\n\n.fa-free-code-camp:before {\n  content: \"\\F2C5\";\n}\n\n.fa-freebsd:before {\n  content: \"\\F3A4\";\n}\n\n.fa-frog:before {\n  content: \"\\F52E\";\n}\n\n.fa-frown:before {\n  content: \"\\F119\";\n}\n\n.fa-frown-open:before {\n  content: \"\\F57A\";\n}\n\n.fa-fulcrum:before {\n  content: \"\\F50B\";\n}\n\n.fa-funnel-dollar:before {\n  content: \"\\F662\";\n}\n\n.fa-futbol:before {\n  content: \"\\F1E3\";\n}\n\n.fa-galactic-republic:before {\n  content: \"\\F50C\";\n}\n\n.fa-galactic-senate:before {\n  content: \"\\F50D\";\n}\n\n.fa-gamepad:before {\n  content: \"\\F11B\";\n}\n\n.fa-gas-pump:before {\n  content: \"\\F52F\";\n}\n\n.fa-gavel:before {\n  content: \"\\F0E3\";\n}\n\n.fa-gem:before {\n  content: \"\\F3A5\";\n}\n\n.fa-genderless:before {\n  content: \"\\F22D\";\n}\n\n.fa-get-pocket:before {\n  content: \"\\F265\";\n}\n\n.fa-gg:before {\n  content: \"\\F260\";\n}\n\n.fa-gg-circle:before {\n  content: \"\\F261\";\n}\n\n.fa-ghost:before {\n  content: \"\\F6E2\";\n}\n\n.fa-gift:before {\n  content: \"\\F06B\";\n}\n\n.fa-gifts:before {\n  content: \"\\F79C\";\n}\n\n.fa-git:before {\n  content: \"\\F1D3\";\n}\n\n.fa-git-alt:before {\n  content: \"\\F841\";\n}\n\n.fa-git-square:before {\n  content: \"\\F1D2\";\n}\n\n.fa-github:before {\n  content: \"\\F09B\";\n}\n\n.fa-github-alt:before {\n  content: \"\\F113\";\n}\n\n.fa-github-square:before {\n  content: \"\\F092\";\n}\n\n.fa-gitkraken:before {\n  content: \"\\F3A6\";\n}\n\n.fa-gitlab:before {\n  content: \"\\F296\";\n}\n\n.fa-gitter:before {\n  content: \"\\F426\";\n}\n\n.fa-glass-cheers:before {\n  content: \"\\F79F\";\n}\n\n.fa-glass-martini:before {\n  content: \"\\F000\";\n}\n\n.fa-glass-martini-alt:before {\n  content: \"\\F57B\";\n}\n\n.fa-glass-whiskey:before {\n  content: \"\\F7A0\";\n}\n\n.fa-glasses:before {\n  content: \"\\F530\";\n}\n\n.fa-glide:before {\n  content: \"\\F2A5\";\n}\n\n.fa-glide-g:before {\n  content: \"\\F2A6\";\n}\n\n.fa-globe:before {\n  content: \"\\F0AC\";\n}\n\n.fa-globe-africa:before {\n  content: \"\\F57C\";\n}\n\n.fa-globe-americas:before {\n  content: \"\\F57D\";\n}\n\n.fa-globe-asia:before {\n  content: \"\\F57E\";\n}\n\n.fa-globe-europe:before {\n  content: \"\\F7A2\";\n}\n\n.fa-gofore:before {\n  content: \"\\F3A7\";\n}\n\n.fa-golf-ball:before {\n  content: \"\\F450\";\n}\n\n.fa-goodreads:before {\n  content: \"\\F3A8\";\n}\n\n.fa-goodreads-g:before {\n  content: \"\\F3A9\";\n}\n\n.fa-google:before {\n  content: \"\\F1A0\";\n}\n\n.fa-google-drive:before {\n  content: \"\\F3AA\";\n}\n\n.fa-google-play:before {\n  content: \"\\F3AB\";\n}\n\n.fa-google-plus:before {\n  content: \"\\F2B3\";\n}\n\n.fa-google-plus-g:before {\n  content: \"\\F0D5\";\n}\n\n.fa-google-plus-square:before {\n  content: \"\\F0D4\";\n}\n\n.fa-google-wallet:before {\n  content: \"\\F1EE\";\n}\n\n.fa-gopuram:before {\n  content: \"\\F664\";\n}\n\n.fa-graduation-cap:before {\n  content: \"\\F19D\";\n}\n\n.fa-gratipay:before {\n  content: \"\\F184\";\n}\n\n.fa-grav:before {\n  content: \"\\F2D6\";\n}\n\n.fa-greater-than:before {\n  content: \"\\F531\";\n}\n\n.fa-greater-than-equal:before {\n  content: \"\\F532\";\n}\n\n.fa-grimace:before {\n  content: \"\\F57F\";\n}\n\n.fa-grin:before {\n  content: \"\\F580\";\n}\n\n.fa-grin-alt:before {\n  content: \"\\F581\";\n}\n\n.fa-grin-beam:before {\n  content: \"\\F582\";\n}\n\n.fa-grin-beam-sweat:before {\n  content: \"\\F583\";\n}\n\n.fa-grin-hearts:before {\n  content: \"\\F584\";\n}\n\n.fa-grin-squint:before {\n  content: \"\\F585\";\n}\n\n.fa-grin-squint-tears:before {\n  content: \"\\F586\";\n}\n\n.fa-grin-stars:before {\n  content: \"\\F587\";\n}\n\n.fa-grin-tears:before {\n  content: \"\\F588\";\n}\n\n.fa-grin-tongue:before {\n  content: \"\\F589\";\n}\n\n.fa-grin-tongue-squint:before {\n  content: \"\\F58A\";\n}\n\n.fa-grin-tongue-wink:before {\n  content: \"\\F58B\";\n}\n\n.fa-grin-wink:before {\n  content: \"\\F58C\";\n}\n\n.fa-grip-horizontal:before {\n  content: \"\\F58D\";\n}\n\n.fa-grip-lines:before {\n  content: \"\\F7A4\";\n}\n\n.fa-grip-lines-vertical:before {\n  content: \"\\F7A5\";\n}\n\n.fa-grip-vertical:before {\n  content: \"\\F58E\";\n}\n\n.fa-gripfire:before {\n  content: \"\\F3AC\";\n}\n\n.fa-grunt:before {\n  content: \"\\F3AD\";\n}\n\n.fa-guitar:before {\n  content: \"\\F7A6\";\n}\n\n.fa-gulp:before {\n  content: \"\\F3AE\";\n}\n\n.fa-h-square:before {\n  content: \"\\F0FD\";\n}\n\n.fa-hacker-news:before {\n  content: \"\\F1D4\";\n}\n\n.fa-hacker-news-square:before {\n  content: \"\\F3AF\";\n}\n\n.fa-hackerrank:before {\n  content: \"\\F5F7\";\n}\n\n.fa-hamburger:before {\n  content: \"\\F805\";\n}\n\n.fa-hammer:before {\n  content: \"\\F6E3\";\n}\n\n.fa-hamsa:before {\n  content: \"\\F665\";\n}\n\n.fa-hand-holding:before {\n  content: \"\\F4BD\";\n}\n\n.fa-hand-holding-heart:before {\n  content: \"\\F4BE\";\n}\n\n.fa-hand-holding-usd:before {\n  content: \"\\F4C0\";\n}\n\n.fa-hand-lizard:before {\n  content: \"\\F258\";\n}\n\n.fa-hand-middle-finger:before {\n  content: \"\\F806\";\n}\n\n.fa-hand-paper:before {\n  content: \"\\F256\";\n}\n\n.fa-hand-peace:before {\n  content: \"\\F25B\";\n}\n\n.fa-hand-point-down:before {\n  content: \"\\F0A7\";\n}\n\n.fa-hand-point-left:before {\n  content: \"\\F0A5\";\n}\n\n.fa-hand-point-right:before {\n  content: \"\\F0A4\";\n}\n\n.fa-hand-point-up:before {\n  content: \"\\F0A6\";\n}\n\n.fa-hand-pointer:before {\n  content: \"\\F25A\";\n}\n\n.fa-hand-rock:before {\n  content: \"\\F255\";\n}\n\n.fa-hand-scissors:before {\n  content: \"\\F257\";\n}\n\n.fa-hand-spock:before {\n  content: \"\\F259\";\n}\n\n.fa-hands:before {\n  content: \"\\F4C2\";\n}\n\n.fa-hands-helping:before {\n  content: \"\\F4C4\";\n}\n\n.fa-handshake:before {\n  content: \"\\F2B5\";\n}\n\n.fa-hanukiah:before {\n  content: \"\\F6E6\";\n}\n\n.fa-hard-hat:before {\n  content: \"\\F807\";\n}\n\n.fa-hashtag:before {\n  content: \"\\F292\";\n}\n\n.fa-hat-cowboy:before {\n  content: \"\\F8C0\";\n}\n\n.fa-hat-cowboy-side:before {\n  content: \"\\F8C1\";\n}\n\n.fa-hat-wizard:before {\n  content: \"\\F6E8\";\n}\n\n.fa-hdd:before {\n  content: \"\\F0A0\";\n}\n\n.fa-heading:before {\n  content: \"\\F1DC\";\n}\n\n.fa-headphones:before {\n  content: \"\\F025\";\n}\n\n.fa-headphones-alt:before {\n  content: \"\\F58F\";\n}\n\n.fa-headset:before {\n  content: \"\\F590\";\n}\n\n.fa-heart:before {\n  content: \"\\F004\";\n}\n\n.fa-heart-broken:before {\n  content: \"\\F7A9\";\n}\n\n.fa-heartbeat:before {\n  content: \"\\F21E\";\n}\n\n.fa-helicopter:before {\n  content: \"\\F533\";\n}\n\n.fa-highlighter:before {\n  content: \"\\F591\";\n}\n\n.fa-hiking:before {\n  content: \"\\F6EC\";\n}\n\n.fa-hippo:before {\n  content: \"\\F6ED\";\n}\n\n.fa-hips:before {\n  content: \"\\F452\";\n}\n\n.fa-hire-a-helper:before {\n  content: \"\\F3B0\";\n}\n\n.fa-history:before {\n  content: \"\\F1DA\";\n}\n\n.fa-hockey-puck:before {\n  content: \"\\F453\";\n}\n\n.fa-holly-berry:before {\n  content: \"\\F7AA\";\n}\n\n.fa-home:before {\n  content: \"\\F015\";\n}\n\n.fa-hooli:before {\n  content: \"\\F427\";\n}\n\n.fa-hornbill:before {\n  content: \"\\F592\";\n}\n\n.fa-horse:before {\n  content: \"\\F6F0\";\n}\n\n.fa-horse-head:before {\n  content: \"\\F7AB\";\n}\n\n.fa-hospital:before {\n  content: \"\\F0F8\";\n}\n\n.fa-hospital-alt:before {\n  content: \"\\F47D\";\n}\n\n.fa-hospital-symbol:before {\n  content: \"\\F47E\";\n}\n\n.fa-hot-tub:before {\n  content: \"\\F593\";\n}\n\n.fa-hotdog:before {\n  content: \"\\F80F\";\n}\n\n.fa-hotel:before {\n  content: \"\\F594\";\n}\n\n.fa-hotjar:before {\n  content: \"\\F3B1\";\n}\n\n.fa-hourglass:before {\n  content: \"\\F254\";\n}\n\n.fa-hourglass-end:before {\n  content: \"\\F253\";\n}\n\n.fa-hourglass-half:before {\n  content: \"\\F252\";\n}\n\n.fa-hourglass-start:before {\n  content: \"\\F251\";\n}\n\n.fa-house-damage:before {\n  content: \"\\F6F1\";\n}\n\n.fa-houzz:before {\n  content: \"\\F27C\";\n}\n\n.fa-hryvnia:before {\n  content: \"\\F6F2\";\n}\n\n.fa-html5:before {\n  content: \"\\F13B\";\n}\n\n.fa-hubspot:before {\n  content: \"\\F3B2\";\n}\n\n.fa-i-cursor:before {\n  content: \"\\F246\";\n}\n\n.fa-ice-cream:before {\n  content: \"\\F810\";\n}\n\n.fa-icicles:before {\n  content: \"\\F7AD\";\n}\n\n.fa-icons:before {\n  content: \"\\F86D\";\n}\n\n.fa-id-badge:before {\n  content: \"\\F2C1\";\n}\n\n.fa-id-card:before {\n  content: \"\\F2C2\";\n}\n\n.fa-id-card-alt:before {\n  content: \"\\F47F\";\n}\n\n.fa-ideal:before {\n  content: \"\\F913\";\n}\n\n.fa-igloo:before {\n  content: \"\\F7AE\";\n}\n\n.fa-image:before {\n  content: \"\\F03E\";\n}\n\n.fa-images:before {\n  content: \"\\F302\";\n}\n\n.fa-imdb:before {\n  content: \"\\F2D8\";\n}\n\n.fa-inbox:before {\n  content: \"\\F01C\";\n}\n\n.fa-indent:before {\n  content: \"\\F03C\";\n}\n\n.fa-industry:before {\n  content: \"\\F275\";\n}\n\n.fa-infinity:before {\n  content: \"\\F534\";\n}\n\n.fa-info:before {\n  content: \"\\F129\";\n}\n\n.fa-info-circle:before {\n  content: \"\\F05A\";\n}\n\n.fa-instagram:before {\n  content: \"\\F16D\";\n}\n\n.fa-intercom:before {\n  content: \"\\F7AF\";\n}\n\n.fa-internet-explorer:before {\n  content: \"\\F26B\";\n}\n\n.fa-invision:before {\n  content: \"\\F7B0\";\n}\n\n.fa-ioxhost:before {\n  content: \"\\F208\";\n}\n\n.fa-italic:before {\n  content: \"\\F033\";\n}\n\n.fa-itch-io:before {\n  content: \"\\F83A\";\n}\n\n.fa-itunes:before {\n  content: \"\\F3B4\";\n}\n\n.fa-itunes-note:before {\n  content: \"\\F3B5\";\n}\n\n.fa-java:before {\n  content: \"\\F4E4\";\n}\n\n.fa-jedi:before {\n  content: \"\\F669\";\n}\n\n.fa-jedi-order:before {\n  content: \"\\F50E\";\n}\n\n.fa-jenkins:before {\n  content: \"\\F3B6\";\n}\n\n.fa-jira:before {\n  content: \"\\F7B1\";\n}\n\n.fa-joget:before {\n  content: \"\\F3B7\";\n}\n\n.fa-joint:before {\n  content: \"\\F595\";\n}\n\n.fa-joomla:before {\n  content: \"\\F1AA\";\n}\n\n.fa-journal-whills:before {\n  content: \"\\F66A\";\n}\n\n.fa-js:before {\n  content: \"\\F3B8\";\n}\n\n.fa-js-square:before {\n  content: \"\\F3B9\";\n}\n\n.fa-jsfiddle:before {\n  content: \"\\F1CC\";\n}\n\n.fa-kaaba:before {\n  content: \"\\F66B\";\n}\n\n.fa-kaggle:before {\n  content: \"\\F5FA\";\n}\n\n.fa-key:before {\n  content: \"\\F084\";\n}\n\n.fa-keybase:before {\n  content: \"\\F4F5\";\n}\n\n.fa-keyboard:before {\n  content: \"\\F11C\";\n}\n\n.fa-keycdn:before {\n  content: \"\\F3BA\";\n}\n\n.fa-khanda:before {\n  content: \"\\F66D\";\n}\n\n.fa-kickstarter:before {\n  content: \"\\F3BB\";\n}\n\n.fa-kickstarter-k:before {\n  content: \"\\F3BC\";\n}\n\n.fa-kiss:before {\n  content: \"\\F596\";\n}\n\n.fa-kiss-beam:before {\n  content: \"\\F597\";\n}\n\n.fa-kiss-wink-heart:before {\n  content: \"\\F598\";\n}\n\n.fa-kiwi-bird:before {\n  content: \"\\F535\";\n}\n\n.fa-korvue:before {\n  content: \"\\F42F\";\n}\n\n.fa-landmark:before {\n  content: \"\\F66F\";\n}\n\n.fa-language:before {\n  content: \"\\F1AB\";\n}\n\n.fa-laptop:before {\n  content: \"\\F109\";\n}\n\n.fa-laptop-code:before {\n  content: \"\\F5FC\";\n}\n\n.fa-laptop-medical:before {\n  content: \"\\F812\";\n}\n\n.fa-laravel:before {\n  content: \"\\F3BD\";\n}\n\n.fa-lastfm:before {\n  content: \"\\F202\";\n}\n\n.fa-lastfm-square:before {\n  content: \"\\F203\";\n}\n\n.fa-laugh:before {\n  content: \"\\F599\";\n}\n\n.fa-laugh-beam:before {\n  content: \"\\F59A\";\n}\n\n.fa-laugh-squint:before {\n  content: \"\\F59B\";\n}\n\n.fa-laugh-wink:before {\n  content: \"\\F59C\";\n}\n\n.fa-layer-group:before {\n  content: \"\\F5FD\";\n}\n\n.fa-leaf:before {\n  content: \"\\F06C\";\n}\n\n.fa-leanpub:before {\n  content: \"\\F212\";\n}\n\n.fa-lemon:before {\n  content: \"\\F094\";\n}\n\n.fa-less:before {\n  content: \"\\F41D\";\n}\n\n.fa-less-than:before {\n  content: \"\\F536\";\n}\n\n.fa-less-than-equal:before {\n  content: \"\\F537\";\n}\n\n.fa-level-down-alt:before {\n  content: \"\\F3BE\";\n}\n\n.fa-level-up-alt:before {\n  content: \"\\F3BF\";\n}\n\n.fa-life-ring:before {\n  content: \"\\F1CD\";\n}\n\n.fa-lightbulb:before {\n  content: \"\\F0EB\";\n}\n\n.fa-line:before {\n  content: \"\\F3C0\";\n}\n\n.fa-link:before {\n  content: \"\\F0C1\";\n}\n\n.fa-linkedin:before {\n  content: \"\\F08C\";\n}\n\n.fa-linkedin-in:before {\n  content: \"\\F0E1\";\n}\n\n.fa-linode:before {\n  content: \"\\F2B8\";\n}\n\n.fa-linux:before {\n  content: \"\\F17C\";\n}\n\n.fa-lira-sign:before {\n  content: \"\\F195\";\n}\n\n.fa-list:before {\n  content: \"\\F03A\";\n}\n\n.fa-list-alt:before {\n  content: \"\\F022\";\n}\n\n.fa-list-ol:before {\n  content: \"\\F0CB\";\n}\n\n.fa-list-ul:before {\n  content: \"\\F0CA\";\n}\n\n.fa-location-arrow:before {\n  content: \"\\F124\";\n}\n\n.fa-lock:before {\n  content: \"\\F023\";\n}\n\n.fa-lock-open:before {\n  content: \"\\F3C1\";\n}\n\n.fa-long-arrow-alt-down:before {\n  content: \"\\F309\";\n}\n\n.fa-long-arrow-alt-left:before {\n  content: \"\\F30A\";\n}\n\n.fa-long-arrow-alt-right:before {\n  content: \"\\F30B\";\n}\n\n.fa-long-arrow-alt-up:before {\n  content: \"\\F30C\";\n}\n\n.fa-low-vision:before {\n  content: \"\\F2A8\";\n}\n\n.fa-luggage-cart:before {\n  content: \"\\F59D\";\n}\n\n.fa-lyft:before {\n  content: \"\\F3C3\";\n}\n\n.fa-magento:before {\n  content: \"\\F3C4\";\n}\n\n.fa-magic:before {\n  content: \"\\F0D0\";\n}\n\n.fa-magnet:before {\n  content: \"\\F076\";\n}\n\n.fa-mail-bulk:before {\n  content: \"\\F674\";\n}\n\n.fa-mailchimp:before {\n  content: \"\\F59E\";\n}\n\n.fa-male:before {\n  content: \"\\F183\";\n}\n\n.fa-mandalorian:before {\n  content: \"\\F50F\";\n}\n\n.fa-map:before {\n  content: \"\\F279\";\n}\n\n.fa-map-marked:before {\n  content: \"\\F59F\";\n}\n\n.fa-map-marked-alt:before {\n  content: \"\\F5A0\";\n}\n\n.fa-map-marker:before {\n  content: \"\\F041\";\n}\n\n.fa-map-marker-alt:before {\n  content: \"\\F3C5\";\n}\n\n.fa-map-pin:before {\n  content: \"\\F276\";\n}\n\n.fa-map-signs:before {\n  content: \"\\F277\";\n}\n\n.fa-markdown:before {\n  content: \"\\F60F\";\n}\n\n.fa-marker:before {\n  content: \"\\F5A1\";\n}\n\n.fa-mars:before {\n  content: \"\\F222\";\n}\n\n.fa-mars-double:before {\n  content: \"\\F227\";\n}\n\n.fa-mars-stroke:before {\n  content: \"\\F229\";\n}\n\n.fa-mars-stroke-h:before {\n  content: \"\\F22B\";\n}\n\n.fa-mars-stroke-v:before {\n  content: \"\\F22A\";\n}\n\n.fa-mask:before {\n  content: \"\\F6FA\";\n}\n\n.fa-mastodon:before {\n  content: \"\\F4F6\";\n}\n\n.fa-maxcdn:before {\n  content: \"\\F136\";\n}\n\n.fa-mdb:before {\n  content: \"\\F8CA\";\n}\n\n.fa-medal:before {\n  content: \"\\F5A2\";\n}\n\n.fa-medapps:before {\n  content: \"\\F3C6\";\n}\n\n.fa-medium:before {\n  content: \"\\F23A\";\n}\n\n.fa-medium-m:before {\n  content: \"\\F3C7\";\n}\n\n.fa-medkit:before {\n  content: \"\\F0FA\";\n}\n\n.fa-medrt:before {\n  content: \"\\F3C8\";\n}\n\n.fa-meetup:before {\n  content: \"\\F2E0\";\n}\n\n.fa-megaport:before {\n  content: \"\\F5A3\";\n}\n\n.fa-meh:before {\n  content: \"\\F11A\";\n}\n\n.fa-meh-blank:before {\n  content: \"\\F5A4\";\n}\n\n.fa-meh-rolling-eyes:before {\n  content: \"\\F5A5\";\n}\n\n.fa-memory:before {\n  content: \"\\F538\";\n}\n\n.fa-mendeley:before {\n  content: \"\\F7B3\";\n}\n\n.fa-menorah:before {\n  content: \"\\F676\";\n}\n\n.fa-mercury:before {\n  content: \"\\F223\";\n}\n\n.fa-meteor:before {\n  content: \"\\F753\";\n}\n\n.fa-microblog:before {\n  content: \"\\F91A\";\n}\n\n.fa-microchip:before {\n  content: \"\\F2DB\";\n}\n\n.fa-microphone:before {\n  content: \"\\F130\";\n}\n\n.fa-microphone-alt:before {\n  content: \"\\F3C9\";\n}\n\n.fa-microphone-alt-slash:before {\n  content: \"\\F539\";\n}\n\n.fa-microphone-slash:before {\n  content: \"\\F131\";\n}\n\n.fa-microscope:before {\n  content: \"\\F610\";\n}\n\n.fa-microsoft:before {\n  content: \"\\F3CA\";\n}\n\n.fa-minus:before {\n  content: \"\\F068\";\n}\n\n.fa-minus-circle:before {\n  content: \"\\F056\";\n}\n\n.fa-minus-square:before {\n  content: \"\\F146\";\n}\n\n.fa-mitten:before {\n  content: \"\\F7B5\";\n}\n\n.fa-mix:before {\n  content: \"\\F3CB\";\n}\n\n.fa-mixcloud:before {\n  content: \"\\F289\";\n}\n\n.fa-mizuni:before {\n  content: \"\\F3CC\";\n}\n\n.fa-mobile:before {\n  content: \"\\F10B\";\n}\n\n.fa-mobile-alt:before {\n  content: \"\\F3CD\";\n}\n\n.fa-modx:before {\n  content: \"\\F285\";\n}\n\n.fa-monero:before {\n  content: \"\\F3D0\";\n}\n\n.fa-money-bill:before {\n  content: \"\\F0D6\";\n}\n\n.fa-money-bill-alt:before {\n  content: \"\\F3D1\";\n}\n\n.fa-money-bill-wave:before {\n  content: \"\\F53A\";\n}\n\n.fa-money-bill-wave-alt:before {\n  content: \"\\F53B\";\n}\n\n.fa-money-check:before {\n  content: \"\\F53C\";\n}\n\n.fa-money-check-alt:before {\n  content: \"\\F53D\";\n}\n\n.fa-monument:before {\n  content: \"\\F5A6\";\n}\n\n.fa-moon:before {\n  content: \"\\F186\";\n}\n\n.fa-mortar-pestle:before {\n  content: \"\\F5A7\";\n}\n\n.fa-mosque:before {\n  content: \"\\F678\";\n}\n\n.fa-motorcycle:before {\n  content: \"\\F21C\";\n}\n\n.fa-mountain:before {\n  content: \"\\F6FC\";\n}\n\n.fa-mouse:before {\n  content: \"\\F8CC\";\n}\n\n.fa-mouse-pointer:before {\n  content: \"\\F245\";\n}\n\n.fa-mug-hot:before {\n  content: \"\\F7B6\";\n}\n\n.fa-music:before {\n  content: \"\\F001\";\n}\n\n.fa-napster:before {\n  content: \"\\F3D2\";\n}\n\n.fa-neos:before {\n  content: \"\\F612\";\n}\n\n.fa-network-wired:before {\n  content: \"\\F6FF\";\n}\n\n.fa-neuter:before {\n  content: \"\\F22C\";\n}\n\n.fa-newspaper:before {\n  content: \"\\F1EA\";\n}\n\n.fa-nimblr:before {\n  content: \"\\F5A8\";\n}\n\n.fa-node:before {\n  content: \"\\F419\";\n}\n\n.fa-node-js:before {\n  content: \"\\F3D3\";\n}\n\n.fa-not-equal:before {\n  content: \"\\F53E\";\n}\n\n.fa-notes-medical:before {\n  content: \"\\F481\";\n}\n\n.fa-npm:before {\n  content: \"\\F3D4\";\n}\n\n.fa-ns8:before {\n  content: \"\\F3D5\";\n}\n\n.fa-nutritionix:before {\n  content: \"\\F3D6\";\n}\n\n.fa-object-group:before {\n  content: \"\\F247\";\n}\n\n.fa-object-ungroup:before {\n  content: \"\\F248\";\n}\n\n.fa-odnoklassniki:before {\n  content: \"\\F263\";\n}\n\n.fa-odnoklassniki-square:before {\n  content: \"\\F264\";\n}\n\n.fa-oil-can:before {\n  content: \"\\F613\";\n}\n\n.fa-old-republic:before {\n  content: \"\\F510\";\n}\n\n.fa-om:before {\n  content: \"\\F679\";\n}\n\n.fa-opencart:before {\n  content: \"\\F23D\";\n}\n\n.fa-openid:before {\n  content: \"\\F19B\";\n}\n\n.fa-opera:before {\n  content: \"\\F26A\";\n}\n\n.fa-optin-monster:before {\n  content: \"\\F23C\";\n}\n\n.fa-orcid:before {\n  content: \"\\F8D2\";\n}\n\n.fa-osi:before {\n  content: \"\\F41A\";\n}\n\n.fa-otter:before {\n  content: \"\\F700\";\n}\n\n.fa-outdent:before {\n  content: \"\\F03B\";\n}\n\n.fa-page4:before {\n  content: \"\\F3D7\";\n}\n\n.fa-pagelines:before {\n  content: \"\\F18C\";\n}\n\n.fa-pager:before {\n  content: \"\\F815\";\n}\n\n.fa-paint-brush:before {\n  content: \"\\F1FC\";\n}\n\n.fa-paint-roller:before {\n  content: \"\\F5AA\";\n}\n\n.fa-palette:before {\n  content: \"\\F53F\";\n}\n\n.fa-palfed:before {\n  content: \"\\F3D8\";\n}\n\n.fa-pallet:before {\n  content: \"\\F482\";\n}\n\n.fa-paper-plane:before {\n  content: \"\\F1D8\";\n}\n\n.fa-paperclip:before {\n  content: \"\\F0C6\";\n}\n\n.fa-parachute-box:before {\n  content: \"\\F4CD\";\n}\n\n.fa-paragraph:before {\n  content: \"\\F1DD\";\n}\n\n.fa-parking:before {\n  content: \"\\F540\";\n}\n\n.fa-passport:before {\n  content: \"\\F5AB\";\n}\n\n.fa-pastafarianism:before {\n  content: \"\\F67B\";\n}\n\n.fa-paste:before {\n  content: \"\\F0EA\";\n}\n\n.fa-patreon:before {\n  content: \"\\F3D9\";\n}\n\n.fa-pause:before {\n  content: \"\\F04C\";\n}\n\n.fa-pause-circle:before {\n  content: \"\\F28B\";\n}\n\n.fa-paw:before {\n  content: \"\\F1B0\";\n}\n\n.fa-paypal:before {\n  content: \"\\F1ED\";\n}\n\n.fa-peace:before {\n  content: \"\\F67C\";\n}\n\n.fa-pen:before {\n  content: \"\\F304\";\n}\n\n.fa-pen-alt:before {\n  content: \"\\F305\";\n}\n\n.fa-pen-fancy:before {\n  content: \"\\F5AC\";\n}\n\n.fa-pen-nib:before {\n  content: \"\\F5AD\";\n}\n\n.fa-pen-square:before {\n  content: \"\\F14B\";\n}\n\n.fa-pencil-alt:before {\n  content: \"\\F303\";\n}\n\n.fa-pencil-ruler:before {\n  content: \"\\F5AE\";\n}\n\n.fa-penny-arcade:before {\n  content: \"\\F704\";\n}\n\n.fa-people-carry:before {\n  content: \"\\F4CE\";\n}\n\n.fa-pepper-hot:before {\n  content: \"\\F816\";\n}\n\n.fa-percent:before {\n  content: \"\\F295\";\n}\n\n.fa-percentage:before {\n  content: \"\\F541\";\n}\n\n.fa-periscope:before {\n  content: \"\\F3DA\";\n}\n\n.fa-person-booth:before {\n  content: \"\\F756\";\n}\n\n.fa-phabricator:before {\n  content: \"\\F3DB\";\n}\n\n.fa-phoenix-framework:before {\n  content: \"\\F3DC\";\n}\n\n.fa-phoenix-squadron:before {\n  content: \"\\F511\";\n}\n\n.fa-phone:before {\n  content: \"\\F095\";\n}\n\n.fa-phone-alt:before {\n  content: \"\\F879\";\n}\n\n.fa-phone-slash:before {\n  content: \"\\F3DD\";\n}\n\n.fa-phone-square:before {\n  content: \"\\F098\";\n}\n\n.fa-phone-square-alt:before {\n  content: \"\\F87B\";\n}\n\n.fa-phone-volume:before {\n  content: \"\\F2A0\";\n}\n\n.fa-photo-video:before {\n  content: \"\\F87C\";\n}\n\n.fa-php:before {\n  content: \"\\F457\";\n}\n\n.fa-pied-piper:before {\n  content: \"\\F2AE\";\n}\n\n.fa-pied-piper-alt:before {\n  content: \"\\F1A8\";\n}\n\n.fa-pied-piper-hat:before {\n  content: \"\\F4E5\";\n}\n\n.fa-pied-piper-pp:before {\n  content: \"\\F1A7\";\n}\n\n.fa-pied-piper-square:before {\n  content: \"\\F91E\";\n}\n\n.fa-piggy-bank:before {\n  content: \"\\F4D3\";\n}\n\n.fa-pills:before {\n  content: \"\\F484\";\n}\n\n.fa-pinterest:before {\n  content: \"\\F0D2\";\n}\n\n.fa-pinterest-p:before {\n  content: \"\\F231\";\n}\n\n.fa-pinterest-square:before {\n  content: \"\\F0D3\";\n}\n\n.fa-pizza-slice:before {\n  content: \"\\F818\";\n}\n\n.fa-place-of-worship:before {\n  content: \"\\F67F\";\n}\n\n.fa-plane:before {\n  content: \"\\F072\";\n}\n\n.fa-plane-arrival:before {\n  content: \"\\F5AF\";\n}\n\n.fa-plane-departure:before {\n  content: \"\\F5B0\";\n}\n\n.fa-play:before {\n  content: \"\\F04B\";\n}\n\n.fa-play-circle:before {\n  content: \"\\F144\";\n}\n\n.fa-playstation:before {\n  content: \"\\F3DF\";\n}\n\n.fa-plug:before {\n  content: \"\\F1E6\";\n}\n\n.fa-plus:before {\n  content: \"\\F067\";\n}\n\n.fa-plus-circle:before {\n  content: \"\\F055\";\n}\n\n.fa-plus-square:before {\n  content: \"\\F0FE\";\n}\n\n.fa-podcast:before {\n  content: \"\\F2CE\";\n}\n\n.fa-poll:before {\n  content: \"\\F681\";\n}\n\n.fa-poll-h:before {\n  content: \"\\F682\";\n}\n\n.fa-poo:before {\n  content: \"\\F2FE\";\n}\n\n.fa-poo-storm:before {\n  content: \"\\F75A\";\n}\n\n.fa-poop:before {\n  content: \"\\F619\";\n}\n\n.fa-portrait:before {\n  content: \"\\F3E0\";\n}\n\n.fa-pound-sign:before {\n  content: \"\\F154\";\n}\n\n.fa-power-off:before {\n  content: \"\\F011\";\n}\n\n.fa-pray:before {\n  content: \"\\F683\";\n}\n\n.fa-praying-hands:before {\n  content: \"\\F684\";\n}\n\n.fa-prescription:before {\n  content: \"\\F5B1\";\n}\n\n.fa-prescription-bottle:before {\n  content: \"\\F485\";\n}\n\n.fa-prescription-bottle-alt:before {\n  content: \"\\F486\";\n}\n\n.fa-print:before {\n  content: \"\\F02F\";\n}\n\n.fa-procedures:before {\n  content: \"\\F487\";\n}\n\n.fa-product-hunt:before {\n  content: \"\\F288\";\n}\n\n.fa-project-diagram:before {\n  content: \"\\F542\";\n}\n\n.fa-pushed:before {\n  content: \"\\F3E1\";\n}\n\n.fa-puzzle-piece:before {\n  content: \"\\F12E\";\n}\n\n.fa-python:before {\n  content: \"\\F3E2\";\n}\n\n.fa-qq:before {\n  content: \"\\F1D6\";\n}\n\n.fa-qrcode:before {\n  content: \"\\F029\";\n}\n\n.fa-question:before {\n  content: \"\\F128\";\n}\n\n.fa-question-circle:before {\n  content: \"\\F059\";\n}\n\n.fa-quidditch:before {\n  content: \"\\F458\";\n}\n\n.fa-quinscape:before {\n  content: \"\\F459\";\n}\n\n.fa-quora:before {\n  content: \"\\F2C4\";\n}\n\n.fa-quote-left:before {\n  content: \"\\F10D\";\n}\n\n.fa-quote-right:before {\n  content: \"\\F10E\";\n}\n\n.fa-quran:before {\n  content: \"\\F687\";\n}\n\n.fa-r-project:before {\n  content: \"\\F4F7\";\n}\n\n.fa-radiation:before {\n  content: \"\\F7B9\";\n}\n\n.fa-radiation-alt:before {\n  content: \"\\F7BA\";\n}\n\n.fa-rainbow:before {\n  content: \"\\F75B\";\n}\n\n.fa-random:before {\n  content: \"\\F074\";\n}\n\n.fa-raspberry-pi:before {\n  content: \"\\F7BB\";\n}\n\n.fa-ravelry:before {\n  content: \"\\F2D9\";\n}\n\n.fa-react:before {\n  content: \"\\F41B\";\n}\n\n.fa-reacteurope:before {\n  content: \"\\F75D\";\n}\n\n.fa-readme:before {\n  content: \"\\F4D5\";\n}\n\n.fa-rebel:before {\n  content: \"\\F1D0\";\n}\n\n.fa-receipt:before {\n  content: \"\\F543\";\n}\n\n.fa-record-vinyl:before {\n  content: \"\\F8D9\";\n}\n\n.fa-recycle:before {\n  content: \"\\F1B8\";\n}\n\n.fa-red-river:before {\n  content: \"\\F3E3\";\n}\n\n.fa-reddit:before {\n  content: \"\\F1A1\";\n}\n\n.fa-reddit-alien:before {\n  content: \"\\F281\";\n}\n\n.fa-reddit-square:before {\n  content: \"\\F1A2\";\n}\n\n.fa-redhat:before {\n  content: \"\\F7BC\";\n}\n\n.fa-redo:before {\n  content: \"\\F01E\";\n}\n\n.fa-redo-alt:before {\n  content: \"\\F2F9\";\n}\n\n.fa-registered:before {\n  content: \"\\F25D\";\n}\n\n.fa-remove-format:before {\n  content: \"\\F87D\";\n}\n\n.fa-renren:before {\n  content: \"\\F18B\";\n}\n\n.fa-reply:before {\n  content: \"\\F3E5\";\n}\n\n.fa-reply-all:before {\n  content: \"\\F122\";\n}\n\n.fa-replyd:before {\n  content: \"\\F3E6\";\n}\n\n.fa-republican:before {\n  content: \"\\F75E\";\n}\n\n.fa-researchgate:before {\n  content: \"\\F4F8\";\n}\n\n.fa-resolving:before {\n  content: \"\\F3E7\";\n}\n\n.fa-restroom:before {\n  content: \"\\F7BD\";\n}\n\n.fa-retweet:before {\n  content: \"\\F079\";\n}\n\n.fa-rev:before {\n  content: \"\\F5B2\";\n}\n\n.fa-ribbon:before {\n  content: \"\\F4D6\";\n}\n\n.fa-ring:before {\n  content: \"\\F70B\";\n}\n\n.fa-road:before {\n  content: \"\\F018\";\n}\n\n.fa-robot:before {\n  content: \"\\F544\";\n}\n\n.fa-rocket:before {\n  content: \"\\F135\";\n}\n\n.fa-rocketchat:before {\n  content: \"\\F3E8\";\n}\n\n.fa-rockrms:before {\n  content: \"\\F3E9\";\n}\n\n.fa-route:before {\n  content: \"\\F4D7\";\n}\n\n.fa-rss:before {\n  content: \"\\F09E\";\n}\n\n.fa-rss-square:before {\n  content: \"\\F143\";\n}\n\n.fa-ruble-sign:before {\n  content: \"\\F158\";\n}\n\n.fa-ruler:before {\n  content: \"\\F545\";\n}\n\n.fa-ruler-combined:before {\n  content: \"\\F546\";\n}\n\n.fa-ruler-horizontal:before {\n  content: \"\\F547\";\n}\n\n.fa-ruler-vertical:before {\n  content: \"\\F548\";\n}\n\n.fa-running:before {\n  content: \"\\F70C\";\n}\n\n.fa-rupee-sign:before {\n  content: \"\\F156\";\n}\n\n.fa-sad-cry:before {\n  content: \"\\F5B3\";\n}\n\n.fa-sad-tear:before {\n  content: \"\\F5B4\";\n}\n\n.fa-safari:before {\n  content: \"\\F267\";\n}\n\n.fa-salesforce:before {\n  content: \"\\F83B\";\n}\n\n.fa-sass:before {\n  content: \"\\F41E\";\n}\n\n.fa-satellite:before {\n  content: \"\\F7BF\";\n}\n\n.fa-satellite-dish:before {\n  content: \"\\F7C0\";\n}\n\n.fa-save:before {\n  content: \"\\F0C7\";\n}\n\n.fa-schlix:before {\n  content: \"\\F3EA\";\n}\n\n.fa-school:before {\n  content: \"\\F549\";\n}\n\n.fa-screwdriver:before {\n  content: \"\\F54A\";\n}\n\n.fa-scribd:before {\n  content: \"\\F28A\";\n}\n\n.fa-scroll:before {\n  content: \"\\F70E\";\n}\n\n.fa-sd-card:before {\n  content: \"\\F7C2\";\n}\n\n.fa-search:before {\n  content: \"\\F002\";\n}\n\n.fa-search-dollar:before {\n  content: \"\\F688\";\n}\n\n.fa-search-location:before {\n  content: \"\\F689\";\n}\n\n.fa-search-minus:before {\n  content: \"\\F010\";\n}\n\n.fa-search-plus:before {\n  content: \"\\F00E\";\n}\n\n.fa-searchengin:before {\n  content: \"\\F3EB\";\n}\n\n.fa-seedling:before {\n  content: \"\\F4D8\";\n}\n\n.fa-sellcast:before {\n  content: \"\\F2DA\";\n}\n\n.fa-sellsy:before {\n  content: \"\\F213\";\n}\n\n.fa-server:before {\n  content: \"\\F233\";\n}\n\n.fa-servicestack:before {\n  content: \"\\F3EC\";\n}\n\n.fa-shapes:before {\n  content: \"\\F61F\";\n}\n\n.fa-share:before {\n  content: \"\\F064\";\n}\n\n.fa-share-alt:before {\n  content: \"\\F1E0\";\n}\n\n.fa-share-alt-square:before {\n  content: \"\\F1E1\";\n}\n\n.fa-share-square:before {\n  content: \"\\F14D\";\n}\n\n.fa-shekel-sign:before {\n  content: \"\\F20B\";\n}\n\n.fa-shield-alt:before {\n  content: \"\\F3ED\";\n}\n\n.fa-ship:before {\n  content: \"\\F21A\";\n}\n\n.fa-shipping-fast:before {\n  content: \"\\F48B\";\n}\n\n.fa-shirtsinbulk:before {\n  content: \"\\F214\";\n}\n\n.fa-shoe-prints:before {\n  content: \"\\F54B\";\n}\n\n.fa-shopping-bag:before {\n  content: \"\\F290\";\n}\n\n.fa-shopping-basket:before {\n  content: \"\\F291\";\n}\n\n.fa-shopping-cart:before {\n  content: \"\\F07A\";\n}\n\n.fa-shopware:before {\n  content: \"\\F5B5\";\n}\n\n.fa-shower:before {\n  content: \"\\F2CC\";\n}\n\n.fa-shuttle-van:before {\n  content: \"\\F5B6\";\n}\n\n.fa-sign:before {\n  content: \"\\F4D9\";\n}\n\n.fa-sign-in-alt:before {\n  content: \"\\F2F6\";\n}\n\n.fa-sign-language:before {\n  content: \"\\F2A7\";\n}\n\n.fa-sign-out-alt:before {\n  content: \"\\F2F5\";\n}\n\n.fa-signal:before {\n  content: \"\\F012\";\n}\n\n.fa-signature:before {\n  content: \"\\F5B7\";\n}\n\n.fa-sim-card:before {\n  content: \"\\F7C4\";\n}\n\n.fa-simplybuilt:before {\n  content: \"\\F215\";\n}\n\n.fa-sistrix:before {\n  content: \"\\F3EE\";\n}\n\n.fa-sitemap:before {\n  content: \"\\F0E8\";\n}\n\n.fa-sith:before {\n  content: \"\\F512\";\n}\n\n.fa-skating:before {\n  content: \"\\F7C5\";\n}\n\n.fa-sketch:before {\n  content: \"\\F7C6\";\n}\n\n.fa-skiing:before {\n  content: \"\\F7C9\";\n}\n\n.fa-skiing-nordic:before {\n  content: \"\\F7CA\";\n}\n\n.fa-skull:before {\n  content: \"\\F54C\";\n}\n\n.fa-skull-crossbones:before {\n  content: \"\\F714\";\n}\n\n.fa-skyatlas:before {\n  content: \"\\F216\";\n}\n\n.fa-skype:before {\n  content: \"\\F17E\";\n}\n\n.fa-slack:before {\n  content: \"\\F198\";\n}\n\n.fa-slack-hash:before {\n  content: \"\\F3EF\";\n}\n\n.fa-slash:before {\n  content: \"\\F715\";\n}\n\n.fa-sleigh:before {\n  content: \"\\F7CC\";\n}\n\n.fa-sliders-h:before {\n  content: \"\\F1DE\";\n}\n\n.fa-slideshare:before {\n  content: \"\\F1E7\";\n}\n\n.fa-smile:before {\n  content: \"\\F118\";\n}\n\n.fa-smile-beam:before {\n  content: \"\\F5B8\";\n}\n\n.fa-smile-wink:before {\n  content: \"\\F4DA\";\n}\n\n.fa-smog:before {\n  content: \"\\F75F\";\n}\n\n.fa-smoking:before {\n  content: \"\\F48D\";\n}\n\n.fa-smoking-ban:before {\n  content: \"\\F54D\";\n}\n\n.fa-sms:before {\n  content: \"\\F7CD\";\n}\n\n.fa-snapchat:before {\n  content: \"\\F2AB\";\n}\n\n.fa-snapchat-ghost:before {\n  content: \"\\F2AC\";\n}\n\n.fa-snapchat-square:before {\n  content: \"\\F2AD\";\n}\n\n.fa-snowboarding:before {\n  content: \"\\F7CE\";\n}\n\n.fa-snowflake:before {\n  content: \"\\F2DC\";\n}\n\n.fa-snowman:before {\n  content: \"\\F7D0\";\n}\n\n.fa-snowplow:before {\n  content: \"\\F7D2\";\n}\n\n.fa-socks:before {\n  content: \"\\F696\";\n}\n\n.fa-solar-panel:before {\n  content: \"\\F5BA\";\n}\n\n.fa-sort:before {\n  content: \"\\F0DC\";\n}\n\n.fa-sort-alpha-down:before {\n  content: \"\\F15D\";\n}\n\n.fa-sort-alpha-down-alt:before {\n  content: \"\\F881\";\n}\n\n.fa-sort-alpha-up:before {\n  content: \"\\F15E\";\n}\n\n.fa-sort-alpha-up-alt:before {\n  content: \"\\F882\";\n}\n\n.fa-sort-amount-down:before {\n  content: \"\\F160\";\n}\n\n.fa-sort-amount-down-alt:before {\n  content: \"\\F884\";\n}\n\n.fa-sort-amount-up:before {\n  content: \"\\F161\";\n}\n\n.fa-sort-amount-up-alt:before {\n  content: \"\\F885\";\n}\n\n.fa-sort-down:before {\n  content: \"\\F0DD\";\n}\n\n.fa-sort-numeric-down:before {\n  content: \"\\F162\";\n}\n\n.fa-sort-numeric-down-alt:before {\n  content: \"\\F886\";\n}\n\n.fa-sort-numeric-up:before {\n  content: \"\\F163\";\n}\n\n.fa-sort-numeric-up-alt:before {\n  content: \"\\F887\";\n}\n\n.fa-sort-up:before {\n  content: \"\\F0DE\";\n}\n\n.fa-soundcloud:before {\n  content: \"\\F1BE\";\n}\n\n.fa-sourcetree:before {\n  content: \"\\F7D3\";\n}\n\n.fa-spa:before {\n  content: \"\\F5BB\";\n}\n\n.fa-space-shuttle:before {\n  content: \"\\F197\";\n}\n\n.fa-speakap:before {\n  content: \"\\F3F3\";\n}\n\n.fa-speaker-deck:before {\n  content: \"\\F83C\";\n}\n\n.fa-spell-check:before {\n  content: \"\\F891\";\n}\n\n.fa-spider:before {\n  content: \"\\F717\";\n}\n\n.fa-spinner:before {\n  content: \"\\F110\";\n}\n\n.fa-splotch:before {\n  content: \"\\F5BC\";\n}\n\n.fa-spotify:before {\n  content: \"\\F1BC\";\n}\n\n.fa-spray-can:before {\n  content: \"\\F5BD\";\n}\n\n.fa-square:before {\n  content: \"\\F0C8\";\n}\n\n.fa-square-full:before {\n  content: \"\\F45C\";\n}\n\n.fa-square-root-alt:before {\n  content: \"\\F698\";\n}\n\n.fa-squarespace:before {\n  content: \"\\F5BE\";\n}\n\n.fa-stack-exchange:before {\n  content: \"\\F18D\";\n}\n\n.fa-stack-overflow:before {\n  content: \"\\F16C\";\n}\n\n.fa-stackpath:before {\n  content: \"\\F842\";\n}\n\n.fa-stamp:before {\n  content: \"\\F5BF\";\n}\n\n.fa-star:before {\n  content: \"\\F005\";\n}\n\n.fa-star-and-crescent:before {\n  content: \"\\F699\";\n}\n\n.fa-star-half:before {\n  content: \"\\F089\";\n}\n\n.fa-star-half-alt:before {\n  content: \"\\F5C0\";\n}\n\n.fa-star-of-david:before {\n  content: \"\\F69A\";\n}\n\n.fa-star-of-life:before {\n  content: \"\\F621\";\n}\n\n.fa-staylinked:before {\n  content: \"\\F3F5\";\n}\n\n.fa-steam:before {\n  content: \"\\F1B6\";\n}\n\n.fa-steam-square:before {\n  content: \"\\F1B7\";\n}\n\n.fa-steam-symbol:before {\n  content: \"\\F3F6\";\n}\n\n.fa-step-backward:before {\n  content: \"\\F048\";\n}\n\n.fa-step-forward:before {\n  content: \"\\F051\";\n}\n\n.fa-stethoscope:before {\n  content: \"\\F0F1\";\n}\n\n.fa-sticker-mule:before {\n  content: \"\\F3F7\";\n}\n\n.fa-sticky-note:before {\n  content: \"\\F249\";\n}\n\n.fa-stop:before {\n  content: \"\\F04D\";\n}\n\n.fa-stop-circle:before {\n  content: \"\\F28D\";\n}\n\n.fa-stopwatch:before {\n  content: \"\\F2F2\";\n}\n\n.fa-store:before {\n  content: \"\\F54E\";\n}\n\n.fa-store-alt:before {\n  content: \"\\F54F\";\n}\n\n.fa-strava:before {\n  content: \"\\F428\";\n}\n\n.fa-stream:before {\n  content: \"\\F550\";\n}\n\n.fa-street-view:before {\n  content: \"\\F21D\";\n}\n\n.fa-strikethrough:before {\n  content: \"\\F0CC\";\n}\n\n.fa-stripe:before {\n  content: \"\\F429\";\n}\n\n.fa-stripe-s:before {\n  content: \"\\F42A\";\n}\n\n.fa-stroopwafel:before {\n  content: \"\\F551\";\n}\n\n.fa-studiovinari:before {\n  content: \"\\F3F8\";\n}\n\n.fa-stumbleupon:before {\n  content: \"\\F1A4\";\n}\n\n.fa-stumbleupon-circle:before {\n  content: \"\\F1A3\";\n}\n\n.fa-subscript:before {\n  content: \"\\F12C\";\n}\n\n.fa-subway:before {\n  content: \"\\F239\";\n}\n\n.fa-suitcase:before {\n  content: \"\\F0F2\";\n}\n\n.fa-suitcase-rolling:before {\n  content: \"\\F5C1\";\n}\n\n.fa-sun:before {\n  content: \"\\F185\";\n}\n\n.fa-superpowers:before {\n  content: \"\\F2DD\";\n}\n\n.fa-superscript:before {\n  content: \"\\F12B\";\n}\n\n.fa-supple:before {\n  content: \"\\F3F9\";\n}\n\n.fa-surprise:before {\n  content: \"\\F5C2\";\n}\n\n.fa-suse:before {\n  content: \"\\F7D6\";\n}\n\n.fa-swatchbook:before {\n  content: \"\\F5C3\";\n}\n\n.fa-swift:before {\n  content: \"\\F8E1\";\n}\n\n.fa-swimmer:before {\n  content: \"\\F5C4\";\n}\n\n.fa-swimming-pool:before {\n  content: \"\\F5C5\";\n}\n\n.fa-symfony:before {\n  content: \"\\F83D\";\n}\n\n.fa-synagogue:before {\n  content: \"\\F69B\";\n}\n\n.fa-sync:before {\n  content: \"\\F021\";\n}\n\n.fa-sync-alt:before {\n  content: \"\\F2F1\";\n}\n\n.fa-syringe:before {\n  content: \"\\F48E\";\n}\n\n.fa-table:before {\n  content: \"\\F0CE\";\n}\n\n.fa-table-tennis:before {\n  content: \"\\F45D\";\n}\n\n.fa-tablet:before {\n  content: \"\\F10A\";\n}\n\n.fa-tablet-alt:before {\n  content: \"\\F3FA\";\n}\n\n.fa-tablets:before {\n  content: \"\\F490\";\n}\n\n.fa-tachometer-alt:before {\n  content: \"\\F3FD\";\n}\n\n.fa-tag:before {\n  content: \"\\F02B\";\n}\n\n.fa-tags:before {\n  content: \"\\F02C\";\n}\n\n.fa-tape:before {\n  content: \"\\F4DB\";\n}\n\n.fa-tasks:before {\n  content: \"\\F0AE\";\n}\n\n.fa-taxi:before {\n  content: \"\\F1BA\";\n}\n\n.fa-teamspeak:before {\n  content: \"\\F4F9\";\n}\n\n.fa-teeth:before {\n  content: \"\\F62E\";\n}\n\n.fa-teeth-open:before {\n  content: \"\\F62F\";\n}\n\n.fa-telegram:before {\n  content: \"\\F2C6\";\n}\n\n.fa-telegram-plane:before {\n  content: \"\\F3FE\";\n}\n\n.fa-temperature-high:before {\n  content: \"\\F769\";\n}\n\n.fa-temperature-low:before {\n  content: \"\\F76B\";\n}\n\n.fa-tencent-weibo:before {\n  content: \"\\F1D5\";\n}\n\n.fa-tenge:before {\n  content: \"\\F7D7\";\n}\n\n.fa-terminal:before {\n  content: \"\\F120\";\n}\n\n.fa-text-height:before {\n  content: \"\\F034\";\n}\n\n.fa-text-width:before {\n  content: \"\\F035\";\n}\n\n.fa-th:before {\n  content: \"\\F00A\";\n}\n\n.fa-th-large:before {\n  content: \"\\F009\";\n}\n\n.fa-th-list:before {\n  content: \"\\F00B\";\n}\n\n.fa-the-red-yeti:before {\n  content: \"\\F69D\";\n}\n\n.fa-theater-masks:before {\n  content: \"\\F630\";\n}\n\n.fa-themeco:before {\n  content: \"\\F5C6\";\n}\n\n.fa-themeisle:before {\n  content: \"\\F2B2\";\n}\n\n.fa-thermometer:before {\n  content: \"\\F491\";\n}\n\n.fa-thermometer-empty:before {\n  content: \"\\F2CB\";\n}\n\n.fa-thermometer-full:before {\n  content: \"\\F2C7\";\n}\n\n.fa-thermometer-half:before {\n  content: \"\\F2C9\";\n}\n\n.fa-thermometer-quarter:before {\n  content: \"\\F2CA\";\n}\n\n.fa-thermometer-three-quarters:before {\n  content: \"\\F2C8\";\n}\n\n.fa-think-peaks:before {\n  content: \"\\F731\";\n}\n\n.fa-thumbs-down:before {\n  content: \"\\F165\";\n}\n\n.fa-thumbs-up:before {\n  content: \"\\F164\";\n}\n\n.fa-thumbtack:before {\n  content: \"\\F08D\";\n}\n\n.fa-ticket-alt:before {\n  content: \"\\F3FF\";\n}\n\n.fa-times:before {\n  content: \"\\F00D\";\n}\n\n.fa-times-circle:before {\n  content: \"\\F057\";\n}\n\n.fa-tint:before {\n  content: \"\\F043\";\n}\n\n.fa-tint-slash:before {\n  content: \"\\F5C7\";\n}\n\n.fa-tired:before {\n  content: \"\\F5C8\";\n}\n\n.fa-toggle-off:before {\n  content: \"\\F204\";\n}\n\n.fa-toggle-on:before {\n  content: \"\\F205\";\n}\n\n.fa-toilet:before {\n  content: \"\\F7D8\";\n}\n\n.fa-toilet-paper:before {\n  content: \"\\F71E\";\n}\n\n.fa-toolbox:before {\n  content: \"\\F552\";\n}\n\n.fa-tools:before {\n  content: \"\\F7D9\";\n}\n\n.fa-tooth:before {\n  content: \"\\F5C9\";\n}\n\n.fa-torah:before {\n  content: \"\\F6A0\";\n}\n\n.fa-torii-gate:before {\n  content: \"\\F6A1\";\n}\n\n.fa-tractor:before {\n  content: \"\\F722\";\n}\n\n.fa-trade-federation:before {\n  content: \"\\F513\";\n}\n\n.fa-trademark:before {\n  content: \"\\F25C\";\n}\n\n.fa-traffic-light:before {\n  content: \"\\F637\";\n}\n\n.fa-trailer:before {\n  content: \"\\F941\";\n}\n\n.fa-train:before {\n  content: \"\\F238\";\n}\n\n.fa-tram:before {\n  content: \"\\F7DA\";\n}\n\n.fa-transgender:before {\n  content: \"\\F224\";\n}\n\n.fa-transgender-alt:before {\n  content: \"\\F225\";\n}\n\n.fa-trash:before {\n  content: \"\\F1F8\";\n}\n\n.fa-trash-alt:before {\n  content: \"\\F2ED\";\n}\n\n.fa-trash-restore:before {\n  content: \"\\F829\";\n}\n\n.fa-trash-restore-alt:before {\n  content: \"\\F82A\";\n}\n\n.fa-tree:before {\n  content: \"\\F1BB\";\n}\n\n.fa-trello:before {\n  content: \"\\F181\";\n}\n\n.fa-tripadvisor:before {\n  content: \"\\F262\";\n}\n\n.fa-trophy:before {\n  content: \"\\F091\";\n}\n\n.fa-truck:before {\n  content: \"\\F0D1\";\n}\n\n.fa-truck-loading:before {\n  content: \"\\F4DE\";\n}\n\n.fa-truck-monster:before {\n  content: \"\\F63B\";\n}\n\n.fa-truck-moving:before {\n  content: \"\\F4DF\";\n}\n\n.fa-truck-pickup:before {\n  content: \"\\F63C\";\n}\n\n.fa-tshirt:before {\n  content: \"\\F553\";\n}\n\n.fa-tty:before {\n  content: \"\\F1E4\";\n}\n\n.fa-tumblr:before {\n  content: \"\\F173\";\n}\n\n.fa-tumblr-square:before {\n  content: \"\\F174\";\n}\n\n.fa-tv:before {\n  content: \"\\F26C\";\n}\n\n.fa-twitch:before {\n  content: \"\\F1E8\";\n}\n\n.fa-twitter:before {\n  content: \"\\F099\";\n}\n\n.fa-twitter-square:before {\n  content: \"\\F081\";\n}\n\n.fa-typo3:before {\n  content: \"\\F42B\";\n}\n\n.fa-uber:before {\n  content: \"\\F402\";\n}\n\n.fa-ubuntu:before {\n  content: \"\\F7DF\";\n}\n\n.fa-uikit:before {\n  content: \"\\F403\";\n}\n\n.fa-umbraco:before {\n  content: \"\\F8E8\";\n}\n\n.fa-umbrella:before {\n  content: \"\\F0E9\";\n}\n\n.fa-umbrella-beach:before {\n  content: \"\\F5CA\";\n}\n\n.fa-underline:before {\n  content: \"\\F0CD\";\n}\n\n.fa-undo:before {\n  content: \"\\F0E2\";\n}\n\n.fa-undo-alt:before {\n  content: \"\\F2EA\";\n}\n\n.fa-uniregistry:before {\n  content: \"\\F404\";\n}\n\n.fa-unity:before {\n  content: \"\\F949\";\n}\n\n.fa-universal-access:before {\n  content: \"\\F29A\";\n}\n\n.fa-university:before {\n  content: \"\\F19C\";\n}\n\n.fa-unlink:before {\n  content: \"\\F127\";\n}\n\n.fa-unlock:before {\n  content: \"\\F09C\";\n}\n\n.fa-unlock-alt:before {\n  content: \"\\F13E\";\n}\n\n.fa-untappd:before {\n  content: \"\\F405\";\n}\n\n.fa-upload:before {\n  content: \"\\F093\";\n}\n\n.fa-ups:before {\n  content: \"\\F7E0\";\n}\n\n.fa-usb:before {\n  content: \"\\F287\";\n}\n\n.fa-user:before {\n  content: \"\\F007\";\n}\n\n.fa-user-alt:before {\n  content: \"\\F406\";\n}\n\n.fa-user-alt-slash:before {\n  content: \"\\F4FA\";\n}\n\n.fa-user-astronaut:before {\n  content: \"\\F4FB\";\n}\n\n.fa-user-check:before {\n  content: \"\\F4FC\";\n}\n\n.fa-user-circle:before {\n  content: \"\\F2BD\";\n}\n\n.fa-user-clock:before {\n  content: \"\\F4FD\";\n}\n\n.fa-user-cog:before {\n  content: \"\\F4FE\";\n}\n\n.fa-user-edit:before {\n  content: \"\\F4FF\";\n}\n\n.fa-user-friends:before {\n  content: \"\\F500\";\n}\n\n.fa-user-graduate:before {\n  content: \"\\F501\";\n}\n\n.fa-user-injured:before {\n  content: \"\\F728\";\n}\n\n.fa-user-lock:before {\n  content: \"\\F502\";\n}\n\n.fa-user-md:before {\n  content: \"\\F0F0\";\n}\n\n.fa-user-minus:before {\n  content: \"\\F503\";\n}\n\n.fa-user-ninja:before {\n  content: \"\\F504\";\n}\n\n.fa-user-nurse:before {\n  content: \"\\F82F\";\n}\n\n.fa-user-plus:before {\n  content: \"\\F234\";\n}\n\n.fa-user-secret:before {\n  content: \"\\F21B\";\n}\n\n.fa-user-shield:before {\n  content: \"\\F505\";\n}\n\n.fa-user-slash:before {\n  content: \"\\F506\";\n}\n\n.fa-user-tag:before {\n  content: \"\\F507\";\n}\n\n.fa-user-tie:before {\n  content: \"\\F508\";\n}\n\n.fa-user-times:before {\n  content: \"\\F235\";\n}\n\n.fa-users:before {\n  content: \"\\F0C0\";\n}\n\n.fa-users-cog:before {\n  content: \"\\F509\";\n}\n\n.fa-usps:before {\n  content: \"\\F7E1\";\n}\n\n.fa-ussunnah:before {\n  content: \"\\F407\";\n}\n\n.fa-utensil-spoon:before {\n  content: \"\\F2E5\";\n}\n\n.fa-utensils:before {\n  content: \"\\F2E7\";\n}\n\n.fa-vaadin:before {\n  content: \"\\F408\";\n}\n\n.fa-vector-square:before {\n  content: \"\\F5CB\";\n}\n\n.fa-venus:before {\n  content: \"\\F221\";\n}\n\n.fa-venus-double:before {\n  content: \"\\F226\";\n}\n\n.fa-venus-mars:before {\n  content: \"\\F228\";\n}\n\n.fa-viacoin:before {\n  content: \"\\F237\";\n}\n\n.fa-viadeo:before {\n  content: \"\\F2A9\";\n}\n\n.fa-viadeo-square:before {\n  content: \"\\F2AA\";\n}\n\n.fa-vial:before {\n  content: \"\\F492\";\n}\n\n.fa-vials:before {\n  content: \"\\F493\";\n}\n\n.fa-viber:before {\n  content: \"\\F409\";\n}\n\n.fa-video:before {\n  content: \"\\F03D\";\n}\n\n.fa-video-slash:before {\n  content: \"\\F4E2\";\n}\n\n.fa-vihara:before {\n  content: \"\\F6A7\";\n}\n\n.fa-vimeo:before {\n  content: \"\\F40A\";\n}\n\n.fa-vimeo-square:before {\n  content: \"\\F194\";\n}\n\n.fa-vimeo-v:before {\n  content: \"\\F27D\";\n}\n\n.fa-vine:before {\n  content: \"\\F1CA\";\n}\n\n.fa-vk:before {\n  content: \"\\F189\";\n}\n\n.fa-vnv:before {\n  content: \"\\F40B\";\n}\n\n.fa-voicemail:before {\n  content: \"\\F897\";\n}\n\n.fa-volleyball-ball:before {\n  content: \"\\F45F\";\n}\n\n.fa-volume-down:before {\n  content: \"\\F027\";\n}\n\n.fa-volume-mute:before {\n  content: \"\\F6A9\";\n}\n\n.fa-volume-off:before {\n  content: \"\\F026\";\n}\n\n.fa-volume-up:before {\n  content: \"\\F028\";\n}\n\n.fa-vote-yea:before {\n  content: \"\\F772\";\n}\n\n.fa-vr-cardboard:before {\n  content: \"\\F729\";\n}\n\n.fa-vuejs:before {\n  content: \"\\F41F\";\n}\n\n.fa-walking:before {\n  content: \"\\F554\";\n}\n\n.fa-wallet:before {\n  content: \"\\F555\";\n}\n\n.fa-warehouse:before {\n  content: \"\\F494\";\n}\n\n.fa-water:before {\n  content: \"\\F773\";\n}\n\n.fa-wave-square:before {\n  content: \"\\F83E\";\n}\n\n.fa-waze:before {\n  content: \"\\F83F\";\n}\n\n.fa-weebly:before {\n  content: \"\\F5CC\";\n}\n\n.fa-weibo:before {\n  content: \"\\F18A\";\n}\n\n.fa-weight:before {\n  content: \"\\F496\";\n}\n\n.fa-weight-hanging:before {\n  content: \"\\F5CD\";\n}\n\n.fa-weixin:before {\n  content: \"\\F1D7\";\n}\n\n.fa-whatsapp:before {\n  content: \"\\F232\";\n}\n\n.fa-whatsapp-square:before {\n  content: \"\\F40C\";\n}\n\n.fa-wheelchair:before {\n  content: \"\\F193\";\n}\n\n.fa-whmcs:before {\n  content: \"\\F40D\";\n}\n\n.fa-wifi:before {\n  content: \"\\F1EB\";\n}\n\n.fa-wikipedia-w:before {\n  content: \"\\F266\";\n}\n\n.fa-wind:before {\n  content: \"\\F72E\";\n}\n\n.fa-window-close:before {\n  content: \"\\F410\";\n}\n\n.fa-window-maximize:before {\n  content: \"\\F2D0\";\n}\n\n.fa-window-minimize:before {\n  content: \"\\F2D1\";\n}\n\n.fa-window-restore:before {\n  content: \"\\F2D2\";\n}\n\n.fa-windows:before {\n  content: \"\\F17A\";\n}\n\n.fa-wine-bottle:before {\n  content: \"\\F72F\";\n}\n\n.fa-wine-glass:before {\n  content: \"\\F4E3\";\n}\n\n.fa-wine-glass-alt:before {\n  content: \"\\F5CE\";\n}\n\n.fa-wix:before {\n  content: \"\\F5CF\";\n}\n\n.fa-wizards-of-the-coast:before {\n  content: \"\\F730\";\n}\n\n.fa-wolf-pack-battalion:before {\n  content: \"\\F514\";\n}\n\n.fa-won-sign:before {\n  content: \"\\F159\";\n}\n\n.fa-wordpress:before {\n  content: \"\\F19A\";\n}\n\n.fa-wordpress-simple:before {\n  content: \"\\F411\";\n}\n\n.fa-wpbeginner:before {\n  content: \"\\F297\";\n}\n\n.fa-wpexplorer:before {\n  content: \"\\F2DE\";\n}\n\n.fa-wpforms:before {\n  content: \"\\F298\";\n}\n\n.fa-wpressr:before {\n  content: \"\\F3E4\";\n}\n\n.fa-wrench:before {\n  content: \"\\F0AD\";\n}\n\n.fa-x-ray:before {\n  content: \"\\F497\";\n}\n\n.fa-xbox:before {\n  content: \"\\F412\";\n}\n\n.fa-xing:before {\n  content: \"\\F168\";\n}\n\n.fa-xing-square:before {\n  content: \"\\F169\";\n}\n\n.fa-y-combinator:before {\n  content: \"\\F23B\";\n}\n\n.fa-yahoo:before {\n  content: \"\\F19E\";\n}\n\n.fa-yammer:before {\n  content: \"\\F840\";\n}\n\n.fa-yandex:before {\n  content: \"\\F413\";\n}\n\n.fa-yandex-international:before {\n  content: \"\\F414\";\n}\n\n.fa-yarn:before {\n  content: \"\\F7E3\";\n}\n\n.fa-yelp:before {\n  content: \"\\F1E9\";\n}\n\n.fa-yen-sign:before {\n  content: \"\\F157\";\n}\n\n.fa-yin-yang:before {\n  content: \"\\F6AD\";\n}\n\n.fa-yoast:before {\n  content: \"\\F2B1\";\n}\n\n.fa-youtube:before {\n  content: \"\\F167\";\n}\n\n.fa-youtube-square:before {\n  content: \"\\F431\";\n}\n\n.fa-zhihu:before {\n  content: \"\\F63F\";\n}\n\n.sr-only {\n  clip: rect(0, 0, 0, 0);\n  height: 1px;\n  overflow: hidden;\n  position: absolute;\n  width: 1px;\n}\n\n[dir] .sr-only {\n  border: 0;\n  margin: -1px;\n  padding: 0;\n}\n\n.sr-only-focusable:active, .sr-only-focusable:focus {\n  clip: auto;\n  height: auto;\n  overflow: visible;\n  position: static;\n  width: auto;\n}\n\n[dir] .sr-only-focusable:active, [dir] .sr-only-focusable:focus {\n  margin: 0;\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Brands';\n\n  font-style: normal;\n\n  font-weight: normal;\n\n  font-display: auto;\n\n  src: url(" + escape(__webpack_require__(/*! ../webfonts/fa-brands-400.eot */ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot")) + ");\n\n  src: url(" + escape(__webpack_require__(/*! ../webfonts/fa-brands-400.eot */ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.eot")) + "?#iefix) format(\"embedded-opentype\"), url(" + escape(__webpack_require__(/*! ../webfonts/fa-brands-400.woff2 */ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2")) + ") format(\"woff2\"), url(" + escape(__webpack_require__(/*! ../webfonts/fa-brands-400.woff */ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff")) + ") format(\"woff\"), url(" + escape(__webpack_require__(/*! ../webfonts/fa-brands-400.ttf */ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf")) + ") format(\"truetype\"), url(" + escape(__webpack_require__(/*! ../webfonts/fa-brands-400.svg */ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.svg")) + "#fontawesome) format(\"svg\");\n}\n\n.fab {\n  font-family: 'Font Awesome 5 Brands';\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n\n  font-style: normal;\n\n  font-weight: 400;\n\n  font-display: auto;\n\n  src: url(" + escape(__webpack_require__(/*! ../webfonts/fa-regular-400.eot */ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.eot")) + ");\n\n  src: url(" + escape(__webpack_require__(/*! ../webfonts/fa-regular-400.eot */ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.eot")) + "?#iefix) format(\"embedded-opentype\"), url(" + escape(__webpack_require__(/*! ../webfonts/fa-regular-400.woff2 */ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2")) + ") format(\"woff2\"), url(" + escape(__webpack_require__(/*! ../webfonts/fa-regular-400.woff */ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff")) + ") format(\"woff\"), url(" + escape(__webpack_require__(/*! ../webfonts/fa-regular-400.ttf */ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf")) + ") format(\"truetype\"), url(" + escape(__webpack_require__(/*! ../webfonts/fa-regular-400.svg */ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.svg")) + "#fontawesome) format(\"svg\");\n}\n\n.far {\n  font-family: 'Font Awesome 5 Free';\n  font-weight: 400;\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n\n  font-style: normal;\n\n  font-weight: 900;\n\n  font-display: auto;\n\n  src: url(" + escape(__webpack_require__(/*! ../webfonts/fa-solid-900.eot */ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.eot")) + ");\n\n  src: url(" + escape(__webpack_require__(/*! ../webfonts/fa-solid-900.eot */ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.eot")) + "?#iefix) format(\"embedded-opentype\"), url(" + escape(__webpack_require__(/*! ../webfonts/fa-solid-900.woff2 */ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2")) + ") format(\"woff2\"), url(" + escape(__webpack_require__(/*! ../webfonts/fa-solid-900.woff */ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff")) + ") format(\"woff\"), url(" + escape(__webpack_require__(/*! ../webfonts/fa-solid-900.ttf */ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf")) + ") format(\"truetype\"), url(" + escape(__webpack_require__(/*! ../webfonts/fa-solid-900.svg */ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.svg")) + "#fontawesome) format(\"svg\");\n}\n\n.fa,\n.fas {\n  font-family: 'Font Awesome 5 Free';\n  font-weight: 900;\n}\n", ""]);
 
 // exports
+=======
+/* harmony default export */ var entry_lib = __webpack_exports__["default"] = (vuedraggable);
 
+
+
+/***/ })
+>>>>>>> 1e7f1c5ffa3ecb58bed3588ef67a6589920686b5
+
+/******/ })["default"];
+//# sourceMappingURL=vuedraggable.common.js.map
 
 /***/ })
 
