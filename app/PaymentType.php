@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Status extends Model
+class PaymentType extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'pretty_name'];
 
     public function orders()
     {

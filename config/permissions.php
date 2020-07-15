@@ -347,4 +347,32 @@ return [
             'display_name' => 'Delete Design Price',
         ],
     ],
+
+    'Order' => [
+        [
+            'name' => 'create-order',
+            'guard_name' => 'api',
+            'display_name' => 'Create Order',
+        ],
+        [
+            'name' => 'browse-order',
+            'guard_name' => 'api',
+            'display_name' => 'Browse Order',
+        ],
+        [
+            'name' => 'view-order',
+            'guard_name' => 'api',
+            'display_name' => 'View Order',
+        ],
+        [
+            'name' => 'edit-order',
+            'guard_name' => 'api',
+            'display_name' => 'Edit Order',
+        ],
+        [
+            'name' => 'delete-order',
+            'guard_name' => 'api',
+            'display_name' => 'Delete Order',
+        ],
+    ],
 ];

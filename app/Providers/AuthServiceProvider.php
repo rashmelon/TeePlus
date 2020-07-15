@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Order;
+use App\Policies\OrderPolicy;
 use App\Policies\PriceCombinationPolicy;
 use App\Policies\PrintCriteriaPolicy;
 use App\Policies\ProductPolicy;
@@ -41,6 +43,7 @@ class AuthServiceProvider extends ServiceProvider
         UserProduct::class => UserProductPolicy::class,
         ShippingMethod::class => ShippingMethodPolicy::class,
         Status::class => StatusPolicy::class,
+        Order::class => OrderPolicy::class,
     ];
 
     /**
