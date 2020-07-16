@@ -17,4 +17,26 @@ class Design extends Model
     {
         return $this->hasMany(DesignPrintPrice::class);
     }
+
+    public function printCriteria()
+    {
+        return $this->belongsToMany(PrintCriteria::class, 'design_print_prices');
+    }
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class, 'order_products');
+    }
+
+    public function orderProducts()
+    {
+        return $this->hasMany(OrderProduct::class);
+    }
+
+    public function scopeCategory($query, $value)
+    {
+        $query->whereHas('printCriteria', function ($query) use ($value){
+            $query->where('category_id', $value);
+        });
+    }
 }

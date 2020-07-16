@@ -18,6 +18,16 @@ class PriceCombination extends Model
         return $this->belongsToMany(Product::class, 'product_price_combinations');
     }
 
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class, 'order_products');
+    }
+
+    public function orderProducts()
+    {
+        return $this->hasMany(OrderProduct::class);
+    }
+
     public function scopeProduct(Builder $query, $value)
     {
         return $query->whereHas('products', function ($query) use ($value){
