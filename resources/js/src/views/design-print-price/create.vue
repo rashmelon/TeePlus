@@ -84,7 +84,6 @@
 	                design_id:this.designId
                 })
                     .then(response => {
-                        
                         this.is_requesting = false;
                         this.$vs.notify({title: 'Success', text: response.data.message, iconPack: 'feather', icon: 'icon-check', color: 'success'});})
                     .catch(error => {

@@ -511,6 +511,28 @@ const router = new Router({
                 },
 
 
+
+                {
+                    path: '/dashboard/order/create',
+                    name: 'create-order',
+                    component: () => import('./views/order/create.vue'),
+                    beforeEnter: guard,
+                    meta: {
+                        /*breadcrumb: [
+                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Order', url: '/dashboard/order', i18n: 'Order'},
+                            {title: 'Create', active: true, i18n: 'Create'},
+                        ],*/
+                        pageTitle: 'Create Order',
+                        pageTitle_i18n: 'Create Order',
+                        // permission: 'create-order'
+                    }
+                },
+
+
+
+
+
                 {
                     path: '/dashboard/settings/role',
                     name: 'role',

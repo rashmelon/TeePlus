@@ -171,6 +171,14 @@
                 })
                     .then(response => {
 						this.designPrintPrice.push(response.data.data)
+
+                        console.log(this.form.print_criteria_id);
+                        console.log(this.printCriterias);
+
+                        this.printCriterias = this.printCriterias.filter(type => {
+                            return type.id !== this.form.print_criteria_id
+                        });
+                        
                         this.form= {
                             print_criteria_id: null,
                             price: 0,
@@ -184,20 +192,14 @@
 
             },
 	        confirmDeleteDesign(item) {
-                this.$vs.dialog({
-                    type: 'confirm',
-                    color: 'danger',
-                    title: `Are you sure!`,
-                    text: 'This data can not be retrieved again.',
-                    accept: this.deleteDesignPrice,
-                    parameters: item
-                });
+                this.$vs.dialog({type: 'confirm', color: 'danger', title: `Are you sure!`, text: 'This data can not be retrieved again.', accept: this.deleteDesignPrice, parameters: item});
             },
             deleteDesignPrice(item){
                 this.is_requesting = true;
                 this.$vs.loading({container: `#btn-delete-${item.id}`, color: 'danger', scale: 0.45});
                 this.$store.dispatch('designPrintPrice/delete', item.id)
                     .then(response => {
+                        this.printCriterias.push(item.print_criteria)
                         this.is_requesting = false;
                         this.$vs.loading.close(`#btn-delete-${item.id} > .con-vs-loading`);
                         this.designPrintPrice = this.designPrintPrice.filter(type => {

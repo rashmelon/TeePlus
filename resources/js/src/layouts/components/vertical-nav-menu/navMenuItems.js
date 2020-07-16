@@ -7,6 +7,15 @@ export default [
     },
 
     {
+        url: "/dashboard/order/create",
+        name: "Order",
+        icon: "CodesandboxIcon",
+        i18n: "Order",
+        slug: "order",
+        // permission: 'browse-category'
+    },
+
+    {
         url: "/dashboard/category",
         name: "Category",
         icon: "ArchiveIcon",
