@@ -550,6 +550,26 @@ const router = new Router({
 
 
 
+                {
+                    path: '/dashboard/order/edit/:id',
+                    name: 'edit-order',
+                    component: () => import('./views/order/edit.vue'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Order', url: '/dashboard/order', i18n: 'Order'},
+                            {title: 'Edit', active: true, i18n: 'Edit'},
+                        ],
+                        pageTitle: 'Edit Order',
+                        pageTitle_i18n: 'Edit Order',
+                        permission: 'edit-order'
+                    }
+                },
+
+
+
+
 
                 {
                     path: '/dashboard/settings/role',

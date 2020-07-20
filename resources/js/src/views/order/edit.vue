@@ -1,11 +1,11 @@
 <template>
 	<div>
 		<div class=" w-full mb-base">
-			<div ref="create" title="Create product">
+			<div ref="edit" title="Create product">
 
-				<vx-card>
+				<!--<vx-card>
 					<div class="vx-row">
-						<div class="vx-col md:w-12/12 w-full my-3" v-if="designs.length">
+						&lt;!&ndash;<div class="vx-col md:w-12/12 w-full my-3" v-if="designs.length">
 							
 							<div class="vx-row">
 								<div
@@ -26,13 +26,13 @@
 									</label>
 								</div>
 							</div>
-						</div>
+						</div>&ndash;&gt;
 						
-						<div class="vx-col md:w-12/12 w-full mt-5">
+						&lt;!&ndash;<div class="vx-col md:w-12/12 w-full mt-5">
 							<div class="centerx pt-6">
 								<vs-input-number v-model="cartItem.quantity" min="1" label="Quantity:"/>
 							</div>
-						</div>
+						</div>&ndash;&gt;
 						
 						
 						<div class="vx-col md:w-12/12 w-full my-3" v-if="categories.length">
@@ -99,12 +99,12 @@
 						</vs-button>
 					</div>
 					
-				</vx-card>
+				</vx-card>-->
 				
 				
 				
 				
-				<vx-card ref="cart" v-if="tempProducts.length" class="mt-4">
+				<!--<vx-card ref="cart" v-if="tempProducts.length" class="mt-4">
 					<vs-table
 						:data="tempProducts"
 					>
@@ -142,11 +142,11 @@
 							</vs-tr>
 						</template>
 					</vs-table>
-				</vx-card>
+				</vx-card>-->
 
 				
 				
-				<vx-card ref="order" v-if="tempProducts.length" class="mt-4">
+				<vx-card ref="order" class="mt-4">
 					<div class="vx-row">
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							<vs-input
@@ -219,6 +219,8 @@
 							/>
 						</div>
 						
+						
+						
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							<vs-input
 								label-placeholder="External tracking number"
@@ -281,13 +283,13 @@
 		
 		<div>
 			<vs-button
-				@click="create"
+				@click="edit"
 				class="mb-4"
 				color="primary"
 				icon="icon-save"
 				icon-pack="feather"
 				type="filled"
-			>Create order
+			>Update order
 			</vs-button>
 		</div>
 	
@@ -300,12 +302,15 @@
     import 'vue-form-wizard/dist/vue-form-wizard.min.css'
 
     export default {
-        name: "create",
+        name: "edit",
         mounted() {
+            this.getOrder();
+            this.getStatuses();
+            this.getShippingPrice();
+/*
             this.getCategories();
 	        this.getDesigns();
-	        this.getStatuses();
-	        this.getShippingPrice();
+*/
         },
         computed: {
             validateForm() {
@@ -348,14 +353,13 @@
             },
         },
         methods: {
-            create() {
+            edit() {
                 this.$validator.validateAll().then(result => {
                     if (result) {
                         // if form have no errors
                         this.is_requesting = true;
 
-                        console.log(this.tempProducts)
-                        for (let i = 0; i < this.tempProducts.length; i++) {
+                        /*for (let i = 0; i < this.tempProducts.length; i++) {
 							let item = {};
                             item.quantity = this.tempProducts[i].quantity;
                             item.product_id = this.tempProducts[i].product.id;
@@ -363,14 +367,14 @@
                             item.design_id = this.tempProducts[i].design.id;
 
                             this.order.orderProducts.push(item);
-                        }
+                        }*/
                         
                         
                         
                         
                         let sentObject = {...this.order}
 
-                        // create new object for sending object without extra data
+                        // edit new object for sending object without extra data
                         let form_data = new FormData();
 
                         for (let key in sentObject) {
@@ -381,7 +385,7 @@
                             }
                         }
 
-                        this.$store.dispatch('order/create', form_data)
+                        this.$store.dispatch('order/update', {id: this.$route.params.id, data: form_data})
                             .then(response => {
                                 this.$vs.notify({
                                     title: 'Success',
@@ -427,8 +431,21 @@
 	        },
 
 
+
+            getOrder() {
+                this.$store.dispatch('order/view', this.$route.params.id)
+                    .then(response => {
+                        this.order = response.data.data;
+                        console.log('order: ',this.order)
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});});
+            },
+	        
+	        
             getShippingPrice() {
-                this.$vs.loading({container: this.$refs.create.$el, scale: 0.5});
+                this.$vs.loading({container: this.$refs.edit.$el, scale: 0.5});
                 this.$store.dispatch('shippingPrice/getData', this.payload)
                     .then(response => {
                         this.shippingPrices = response.data.data;
@@ -439,7 +456,7 @@
 
                     })
                     .then(() => {
-                        this.$vs.loading.close(this.$refs.create.$el);
+                        this.$vs.loading.close(this.$refs.edit.$el);
                     });
             },
             getCategories() {
@@ -491,7 +508,7 @@
                         this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});});
             },
             getStatuses() {
-                this.$vs.loading({container: this.$refs.create.$el, scale: 0.5});
+                this.$vs.loading({container: this.$refs.edit.$el, scale: 0.5});
                 this.$store.dispatch('status/getData', this.payload)
                     .then(response => {
                         this.statuses = response.data.data;
@@ -500,10 +517,10 @@
                         this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'})
 
                     })
-                    .then(()=>{this.$vs.loading.close(this.$refs.create.$el);});
+                    .then(()=>{this.$vs.loading.close(this.$refs.edit.$el);});
             },
             getDesigns() {
-                this.$vs.loading({container: this.$refs.create.$el, scale: 0.5});
+                this.$vs.loading({container: this.$refs.edit.$el, scale: 0.5});
                 let payload = this.payload;
                 if (this.$store.getters['auth/userData'].roles[0].name==='Seller'){
                     payload = '?seller='+this.$store.getters['auth/userData'].id
@@ -513,10 +530,10 @@
                         this.designs = response.data.data;
                         console.log(this.designs)
                         
-                        this.$vs.loading.close(this.$refs.create.$el);
+                        this.$vs.loading.close(this.$refs.edit.$el);
                     })
                     .catch(error => {
-                        this.$vs.loading.close(this.$refs.create.$el);
+                        this.$vs.loading.close(this.$refs.edit.$el);
                         this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});
                     });
             },
