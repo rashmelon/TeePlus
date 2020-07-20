@@ -513,19 +513,37 @@ const router = new Router({
 
 
                 {
+                    path: '/dashboard/order',
+                    name: 'order',
+                    component: () => import('./views/order/browse.vue'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Order', active: true, i18n: 'Order'},
+                        ],
+                        pageTitle: 'Browse Order',
+                        pageTitle_i18n: 'Browse Order',
+                        permission: 'browse-order'
+                    }
+                },
+
+
+
+                {
                     path: '/dashboard/order/create',
                     name: 'create-order',
                     component: () => import('./views/order/create.vue'),
                     beforeEnter: guard,
                     meta: {
-                        /*breadcrumb: [
+                        breadcrumb: [
                             {title: 'Home', url: '/dashboard', i18n: 'Home'},
                             {title: 'Order', url: '/dashboard/order', i18n: 'Order'},
                             {title: 'Create', active: true, i18n: 'Create'},
-                        ],*/
+                        ],
                         pageTitle: 'Create Order',
                         pageTitle_i18n: 'Create Order',
-                        // permission: 'create-order'
+                        permission: 'create-order'
                     }
                 },
 

@@ -73967,6 +73967,27 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
         permission: 'view-design'
       }
     }, {
+      path: '/dashboard/order',
+      name: 'order',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 46).then(__webpack_require__.bind(null, /*! ./views/order/browse.vue */ "./resources/js/src/views/order/browse.vue"));
+      },
+      beforeEnter: guard,
+      meta: {
+        breadcrumb: [{
+          title: 'Home',
+          url: '/dashboard',
+          i18n: 'Home'
+        }, {
+          title: 'Order',
+          active: true,
+          i18n: 'Order'
+        }],
+        pageTitle: 'Browse Order',
+        pageTitle_i18n: 'Browse Order',
+        permission: 'browse-order'
+      }
+    }, {
       path: '/dashboard/order/create',
       name: 'create-order',
       component: function component() {
@@ -73974,14 +73995,22 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       },
       beforeEnter: guard,
       meta: {
-        /*breadcrumb: [
-            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-            {title: 'Order', url: '/dashboard/order', i18n: 'Order'},
-            {title: 'Create', active: true, i18n: 'Create'},
-        ],*/
+        breadcrumb: [{
+          title: 'Home',
+          url: '/dashboard',
+          i18n: 'Home'
+        }, {
+          title: 'Order',
+          url: '/dashboard/order',
+          i18n: 'Order'
+        }, {
+          title: 'Create',
+          active: true,
+          i18n: 'Create'
+        }],
         pageTitle: 'Create Order',
-        pageTitle_i18n: 'Create Order' // permission: 'create-order'
-
+        pageTitle_i18n: 'Create Order',
+        permission: 'create-order'
       }
     }, {
       path: '/dashboard/settings/role',

@@ -111,6 +111,7 @@ __webpack_require__.r(__webpack_exports__);
       });
       this.$store.dispatch('status/getData', this.payload).then(function (response) {
         _this.statuses = response.data.data;
+        console.log(_this.statuses);
       }).catch(function (error) {
         _this.$vs.notify({
           title: 'Error',

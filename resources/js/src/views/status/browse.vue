@@ -98,6 +98,7 @@
                 this.$store.dispatch('status/getData', this.payload)
                     .then(response => {
                         this.statuses = response.data.data;
+                        console.log(this.statuses)
                     })
                     .catch(error => {
                         this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'})

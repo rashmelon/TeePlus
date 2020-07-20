@@ -6862,12 +6862,12 @@ __webpack_require__.r(__webpack_exports__);
   slug: "home",
   icon: "HomeIcon"
 }, {
-  url: "/dashboard/order/create",
+  url: "/dashboard/order",
   name: "Order",
   icon: "CodesandboxIcon",
   i18n: "Order",
-  slug: "order" // permission: 'browse-category'
-
+  slug: "order",
+  permission: 'browse-order'
 }, {
   url: "/dashboard/category",
   name: "Category",

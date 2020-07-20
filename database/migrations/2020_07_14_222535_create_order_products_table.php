@@ -25,6 +25,7 @@ class CreateOrderProductsTable extends Migration
             $table->foreign('product_id')->references('id')->on('products')->onDelete('set null');
             $table->foreign('price_combination_id')->references('id')->on('price_combinations')->onDelete('set null');
             $table->foreign('design_id')->references('id')->on('designs')->onDelete('set null');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

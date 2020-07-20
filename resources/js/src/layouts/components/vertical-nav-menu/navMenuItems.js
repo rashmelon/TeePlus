@@ -7,12 +7,12 @@ export default [
     },
 
     {
-        url: "/dashboard/order/create",
+        url: "/dashboard/order",
         name: "Order",
         icon: "CodesandboxIcon",
         i18n: "Order",
         slug: "order",
-        // permission: 'browse-category'
+        permission: 'browse-order'
     },
 
     {
