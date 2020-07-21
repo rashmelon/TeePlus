@@ -228,16 +228,6 @@
 						</div>
 						
 						
-						
-						<div class="vx-col md:w-12/12 w-full mb-3">
-							<vs-input
-								label-placeholder="Internal tracking number"
-								class="w-full"
-								v-model="order.internal_tracking"
-							/>
-						</div>
-						
-						
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							
 							<vs-select
