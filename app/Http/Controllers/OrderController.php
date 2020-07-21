@@ -55,6 +55,8 @@ class OrderController extends Controller
 
         $data = $request->validated();
 
+        $data['internal_tracking'] = str_random(10);
+
         $order = Order::create($data);
 
         Status::find($data['status_id'])->orders()->save($order);
@@ -87,7 +89,9 @@ class OrderController extends Controller
     {
         $this->authorize('show', Order::class);
 
-        return ApiResponse::showRespond($order, OrderTransformer::class)->execute();
+        $order->load('orderProducts');
+
+        return ApiResponse::showRespond($order, OrderTransformer::class, ['orderProducts'])->execute();
     }
 
     /**

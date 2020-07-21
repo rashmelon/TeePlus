@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $fillable = ['customer_name', 'phone_number', 'additional_number', 'address', 'shipping_note', 'internal_tracking',
-        'external_tracking', 'discount', 'additional_fees', 'additional_fees_details'
+        'external_tracking', 'discount', 'additional_fees', 'additional_fees_details',
     ];
 
     protected $with = ['status', 'paymentType', 'shippingPrice'];

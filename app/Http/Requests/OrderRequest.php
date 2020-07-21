@@ -36,7 +36,8 @@ class OrderRequest extends FormRequest
                 'additional_fees_details' => '',
                 'status_id' => 'required|exists:statuses,id',
                 'shipping_price_id' => 'required|exists:shipping_prices,id',
-                'orderProducts' => 'required'
+                'orderProducts' => 'required',
+                'external_tracking' => ''
             ];
         }
         else if (sizeof($segments) == 3){
@@ -51,7 +52,8 @@ class OrderRequest extends FormRequest
                 'additional_fees_details' => '',
                 'status_id' => 'exists:statuses,id',
                 'shipping_price_id' => 'exists:shipping_prices,id',
-                'orderProducts' => ''
+                'orderProducts' => '',
+                'external_tracking' => ''
             ];
         }
     }
