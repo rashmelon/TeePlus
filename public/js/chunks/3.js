@@ -6857,40 +6857,40 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ([{
-  url: "/dashboard",
+  url: "/",
   name: "Home",
   slug: "home",
   icon: "HomeIcon"
 }, {
-  url: "/dashboard/order",
+  url: "/order",
   name: "Order",
   icon: "CodesandboxIcon",
   i18n: "Order",
   slug: "order",
   permission: 'browse-order'
 }, {
-  url: "/dashboard/category",
+  url: "/category",
   name: "Category",
   icon: "ArchiveIcon",
   i18n: "Category",
   slug: "category",
   permission: 'browse-category'
 }, {
-  url: "/dashboard/product",
+  url: "/product",
   name: "Product",
   slug: "Product",
   i18n: "Product",
   icon: "CoffeeIcon",
   permission: 'browse-product'
 }, {
-  url: "/dashboard/status",
+  url: "/status",
   name: "Status",
   slug: "status",
   icon: "CheckCircleIcon",
   i18n: "Status",
   permission: 'browse-status'
 }, {
-  url: "/dashboard/design",
+  url: "/design",
   name: "Design",
   slug: "design",
   icon: "GitlabIcon",
@@ -6903,19 +6903,19 @@ __webpack_require__.r(__webpack_exports__);
   permission: 'browse-shipping-method',
   submenu: [{
     permission: "browse-shipping-method",
-    url: "/dashboard/shipping",
+    url: "/shipping",
     slug: "shipping",
     name: "Shipping Methods",
     i18n: "Shipping Methods"
   }, {
     permission: "browse-shipping-price",
-    url: "/dashboard/shipping-price",
+    url: "/shipping-price",
     slug: "shipping-price",
     name: "Shipping Price",
     i18n: "Shipping Price"
   }]
 }, {
-  url: "/dashboard/user",
+  url: "/user",
   name: "User",
   slug: "user",
   icon: "UserIcon",
@@ -6928,7 +6928,7 @@ __webpack_require__.r(__webpack_exports__);
   permission: "browse-role",
   submenu: [{
     permission: "browse-role",
-    url: '/dashboard/settings/role',
+    url: '/settings/role',
     name: "Roles & Permissions",
     slug: "role",
     i18n: "Roles"

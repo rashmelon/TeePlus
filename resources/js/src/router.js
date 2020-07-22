@@ -24,59 +24,27 @@ const router = new Router({
                 // Theme Routes
                 // =============================================================================
                 {
-                    path: '/dashboard',
+                    path: '/',
                     name: 'home',
                     component: () => import('./views/Home.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home', active: true},
+                            {title: 'Home', url: '', i18n: 'Home', active: true},
                         ],
                         pageTitle: 'Home',
                         pageTitle_i18n: 'Home'
                     },
                 },
-                {
-                    path: '/dashboard/package',
-                    name: 'package',
-                    component: () => import('./views/package/browse.vue'),
-                    beforeEnter: guard,
-                    meta: {
-                        breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'Package', active: true, i18n: 'Package'},
-                        ],
-                        pageTitle: 'Package',
-                        pageTitle_i18n: 'Package',
-                        permission: 'browse-package'
-                    }
-                },
-                {
-                    path: '/dashboard/package/create',
-                    name: 'create-package',
-                    component: () => import('./views/package/create.vue'),
-                    beforeEnter: guard,
-                    meta: {
-                        breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'Package', i18n: 'Package'},
-                            {title: 'Create', active: true},
-                        ],
-                        pageTitle: 'Create Package',
-                        pageTitle_i18n: 'Package',
-                        permission: 'create-package'
-                    }
-                },
-
 
                 {
-                    path: '/dashboard/user',
+                    path: '/user',
                     name: 'user',
                     component: () => import('./views/user/browse.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Home', url: '', i18n: 'Home'},
                             {title: 'User', active: true, i18n: 'User'},
                         ],
                         pageTitle: 'User',
@@ -85,14 +53,14 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/user/create',
+                    path: '/user/create',
                     name: 'add-user',
                     component: () => import('./views/user/create.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'User', url: '/dashboard/user', i18n: 'User'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'User', url: '/user', i18n: 'User'},
                             {title: 'Add Employee', active: true, i18n: 'AddUser'},
                         ],
                         pageTitle: 'Add User',
@@ -101,14 +69,14 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/user/:id',
+                    path: '/user/:id',
                     name: 'view-user',
                     component: () => import('./views/user/view.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'User', url: '/dashboard/user', i18n: 'User'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'User', url: '/user', i18n: 'User'},
                             {title: 'Profile', active: true, i18n: 'UserProfile'},
                         ],
                         pageTitle: 'Edit User',
@@ -117,14 +85,14 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/user/:id/edit',
+                    path: '/user/:id/edit',
                     name: 'edit-user',
                     component: () => import('./views/user/edit.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'User', url: '/dashboard/user', i18n: 'User'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'User', url: '/user', i18n: 'User'},
                             {title: 'Edit User', active: true, i18n: 'editUser'},
                         ],
                         pageTitle: 'Edit User',
@@ -133,14 +101,14 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/user/:id/products',
+                    path: '/user/:id/products',
                     name: 'edit-user-product',
                     component: () => import('./views/user_product/edit.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'User', url: '/dashboard/user', i18n: 'User'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'User', url: '/user', i18n: 'User'},
                             {title: 'user product', active: true, i18n: 'user product'},
                         ],
                         pageTitle: 'User Products',
@@ -154,13 +122,13 @@ const router = new Router({
 
 
                 {
-                    path: '/dashboard/category',
+                    path: '/category',
                     name: 'category',
                     component: () => import('./views/category/browse.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Home', url: '', i18n: 'Home'},
                             {title: 'Category', active: true, i18n: 'Category'},
                         ],
                         pageTitle: 'Category',
@@ -169,14 +137,14 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/category/create',
+                    path: '/category/create',
                     name: 'create-category',
                     component: () => import('./views/category/create.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'Category', url: '/dashboard/category', i18n: 'Category'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Category', url: '/category', i18n: 'Category'},
                             {title: 'Create', active: true, i18n: 'Create'},
                         ],
                         pageTitle: 'Create Category',
@@ -185,14 +153,14 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/category/edit/:id',
+                    path: '/category/edit/:id',
                     name: 'edit-category',
                     component: () => import('./views/category/edit.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'Category', url: '/dashboard/category', i18n: 'Category'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Category', url: '/category', i18n: 'Category'},
                             {title: 'Edit', active: true, i18n: 'Edit'},
                         ],
                         pageTitle: 'Edit Category',
@@ -201,14 +169,14 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/category/view/:id',
+                    path: '/category/view/:id',
                     name: 'view-category',
                     component: () => import('./views/category/view.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'Category', url: '/dashboard/category', i18n: 'Category'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Category', url: '/category', i18n: 'Category'},
                             {title: 'View', active: true, i18n: 'View'},
                         ],
                         pageTitle: 'View Category',
@@ -219,13 +187,13 @@ const router = new Router({
 
 
                 {
-                    path: '/dashboard/product',
+                    path: '/product',
                     name: 'product',
                     component: () => import('./views/product/browse.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Home', url: '', i18n: 'Home'},
                             {title: 'Product', active: true, i18n: 'Product'},
                         ],
                         pageTitle: 'Product',
@@ -234,14 +202,14 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/product/create',
+                    path: '/product/create',
                     name: 'create-product',
                     component: () => import('./views/product/create.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'Product', url: '/dashboard/product', i18n: 'Product'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Product', url: '/product', i18n: 'Product'},
                             {title: 'Create', active: true, i18n: 'Create'},
                         ],
                         pageTitle: 'Create Product',
@@ -250,14 +218,14 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/product/edit/:id',
+                    path: '/product/edit/:id',
                     name: 'edit-product',
                     component: () => import('./views/product/edit.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'Product', url: '/dashboard/product', i18n: 'Product'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Product', url: '/product', i18n: 'Product'},
                             {title: 'Edit', active: true, i18n: 'Edit'},
                         ],
                         pageTitle: 'Edit Product',
@@ -266,14 +234,14 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/product/view/:id',
+                    path: '/product/view/:id',
                     name: 'view-product',
                     component: () => import('./views/product/view.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'Product', url: '/dashboard/product', i18n: 'Product'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Product', url: '/product', i18n: 'Product'},
                             {title: 'View', active: true, i18n: 'View'},
                         ],
                         pageTitle: 'View Product',
@@ -284,13 +252,13 @@ const router = new Router({
 
 
                 {
-                    path: '/dashboard/shipping',
+                    path: '/shipping',
                     name: 'shipping',
                     component: () => import('./views/shipping/browse.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Home', url: '', i18n: 'Home'},
                             {title: 'Shipping', active: true, i18n: 'Shipping'},
                         ],
                         pageTitle: 'Shipping',
@@ -299,14 +267,14 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/shipping/create',
+                    path: '/shipping/create',
                     name: 'create-shipping',
                     component: () => import('./views/shipping/create.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'Shipping', url: '/dashboard/shipping', i18n: 'Shipping'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Shipping', url: '/shipping', i18n: 'Shipping'},
                             {title: 'Create', active: true, i18n: 'Create'},
                         ],
                         pageTitle: 'Create Shipping',
@@ -315,14 +283,14 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/shipping/edit/:id',
+                    path: '/shipping/edit/:id',
                     name: 'edit-shipping',
                     component: () => import('./views/shipping/edit.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'Shipping', url: '/dashboard/shipping', i18n: 'Shipping'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Shipping', url: '/shipping', i18n: 'Shipping'},
                             {title: 'Edit', active: true, i18n: 'Edit'},
                         ],
                         pageTitle: 'Edit Shipping',
@@ -333,13 +301,13 @@ const router = new Router({
 
 
                 {
-                    path: '/dashboard/shipping-price',
+                    path: '/shipping-price',
                     name: 'shipping-price',
                     component: () => import('./views/shipping-price/browse.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Home', url: '', i18n: 'Home'},
                             {title: 'Shipping Price', active: true, i18n: 'Shipping Price'},
                         ],
                         pageTitle: 'Shipping Price',
@@ -348,14 +316,14 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/shipping-price/create',
+                    path: '/shipping-price/create',
                     name: 'create-shipping-price',
                     component: () => import('./views/shipping-price/create.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'Shipping Price', url: '/dashboard/shipping-price', i18n: 'Shipping Price'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Shipping Price', url: '/shipping-price', i18n: 'Shipping Price'},
                             {title: 'Create', active: true, i18n: 'Create'},
                         ],
                         pageTitle: 'Create Shipping price',
@@ -364,14 +332,14 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/shipping-price/edit/:id',
+                    path: '/shipping-price/edit/:id',
                     name: 'edit-shipping-price',
                     component: () => import('./views/shipping-price/edit.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'Shipping', url: '/dashboard/shipping-price', i18n: 'Shipping Price'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Shipping', url: '/shipping-price', i18n: 'Shipping Price'},
                             {title: 'Edit', active: true, i18n: 'Edit'},
                         ],
                         pageTitle: 'Edit Shipping price',
@@ -380,14 +348,14 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/shipping-price/view/:id',
+                    path: '/shipping-price/view/:id',
                     name: 'view-shipping-price',
                     component: () => import('./views/shipping-price/view.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'Shipping Price', url: '/dashboard/shipping-price', i18n: 'Shipping Price'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Shipping Price', url: '/shipping-price', i18n: 'Shipping Price'},
                             {title: 'View', active: true, i18n: 'View'},
                         ],
                         pageTitle: 'View Shipping Price',
@@ -398,13 +366,13 @@ const router = new Router({
 
 
                 {
-                    path: '/dashboard/status',
+                    path: '/status',
                     name: 'status',
                     component: () => import('./views/status/browse.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Home', url: '', i18n: 'Home'},
                             {title: 'Status', active: true, i18n: 'Status'},
                         ],
                         pageTitle: 'Status',
@@ -413,14 +381,14 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/status/create',
+                    path: '/status/create',
                     name: 'create-status',
                     component: () => import('./views/status/create.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'Status', url: '/dashboard/status', i18n: 'Status'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Status', url: '/status', i18n: 'Status'},
                             {title: 'Create', active: true, i18n: 'Create'},
                         ],
                         pageTitle: 'Create Status',
@@ -429,14 +397,14 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/status/edit/:id',
+                    path: '/status/edit/:id',
                     name: 'edit-status',
                     component: () => import('./views/status/edit.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'Status', url: '/dashboard/status', i18n: 'Status'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Status', url: '/status', i18n: 'Status'},
                             {title: 'Edit', active: true, i18n: 'Edit'},
                         ],
                         pageTitle: 'Edit Status',
@@ -447,13 +415,13 @@ const router = new Router({
 
 
                 {
-                    path: '/dashboard/design',
+                    path: '/design',
                     name: 'design',
                     component: () => import('./views/design/browse.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Home', url: '', i18n: 'Home'},
                             {title: 'Design', active: true, i18n: 'Design'},
                         ],
                         pageTitle: 'Design',
@@ -462,14 +430,14 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/design/create',
+                    path: '/design/create',
                     name: 'create-design',
                     component: () => import('./views/design/create.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'Design', url: '/dashboard/design', i18n: 'Design'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Design', url: '/design', i18n: 'Design'},
                             {title: 'Create', active: true, i18n: 'Create'},
                         ],
                         pageTitle: 'Create Design',
@@ -478,14 +446,14 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/design/edit/:id',
+                    path: '/design/edit/:id',
                     name: 'edit-design',
                     component: () => import('./views/design/edit.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'Design', url: '/dashboard/design', i18n: 'Design'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Design', url: '/design', i18n: 'Design'},
                             {title: 'Edit', active: true, i18n: 'Edit'},
                         ],
                         pageTitle: 'Edit Design',
@@ -494,14 +462,14 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/design/view/:id',
+                    path: '/design/view/:id',
                     name: 'view-design',
                     component: () => import('./views/design/view.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'Design', url: '/dashboard/design', i18n: 'Design'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Design', url: '/design', i18n: 'Design'},
                             {title: 'View', active: true, i18n: 'View'},
                         ],
                         pageTitle: 'View Design',
@@ -513,13 +481,13 @@ const router = new Router({
 
 
                 {
-                    path: '/dashboard/order',
+                    path: '/order',
                     name: 'order',
                     component: () => import('./views/order/browse.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
+                            {title: 'Home', url: '', i18n: 'Home'},
                             {title: 'Order', active: true, i18n: 'Order'},
                         ],
                         pageTitle: 'Browse Order',
@@ -531,14 +499,14 @@ const router = new Router({
 
 
                 {
-                    path: '/dashboard/order/create',
+                    path: '/order/create',
                     name: 'create-order',
                     component: () => import('./views/order/create.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'Order', url: '/dashboard/order', i18n: 'Order'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Order', url: '/order', i18n: 'Order'},
                             {title: 'Create', active: true, i18n: 'Create'},
                         ],
                         pageTitle: 'Create Order',
@@ -551,14 +519,33 @@ const router = new Router({
 
 
                 {
-                    path: '/dashboard/order/edit/:id',
+                    path: '/order/view/:id',
+                    name: 'view-order',
+                    component: () => import('./views/order/view.vue'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Order', url: '/order', i18n: 'Order'},
+                            {title: 'View', active: true, i18n: 'View'},
+                        ],
+                        pageTitle: 'View Order',
+                        pageTitle_i18n: 'View Order',
+                        permission: 'view-order'
+                    }
+                },
+
+
+
+                {
+                    path: '/order/edit/:id',
                     name: 'edit-order',
                     component: () => import('./views/order/edit.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard', i18n: 'Home'},
-                            {title: 'Order', url: '/dashboard/order', i18n: 'Order'},
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Order', url: '/order', i18n: 'Order'},
                             {title: 'Edit', active: true, i18n: 'Edit'},
                         ],
                         pageTitle: 'Edit Order',
@@ -572,13 +559,13 @@ const router = new Router({
 
 
                 {
-                    path: '/dashboard/settings/role',
+                    path: '/settings/role',
                     name: 'role',
                     component: () => import('./views/settings/Role/Roles.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard'},
+                            {title: 'Home', url: ''},
                             {title: 'Settings'},
                             {title: 'Roles', active: true}
                         ],
@@ -587,15 +574,15 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/settings/role/create',
+                    path: '/settings/role/create',
                     name: 'create-role',
                     component: () => import('./views/settings/Role/Create.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard'},
+                            {title: 'Home', url: ''},
                             {title: 'Settings'},
-                            {title: 'Roles', url: '/dashboard/settings/role'},
+                            {title: 'Roles', url: '/settings/role'},
                             {title: 'Create Role', active: true}
                         ],
                         pageTitle: "Create Role",
@@ -603,15 +590,15 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/settings/role/:id',
+                    path: '/settings/role/:id',
                     name: 'view-role',
                     component: () => import('./views/settings/Role/View.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard'},
+                            {title: 'Home', url: ''},
                             {title: 'Settings'},
-                            {title: 'Roles', url: '/dashboard/settings/role'},
+                            {title: 'Roles', url: '/settings/role'},
                             {title: 'Role Information', active: true}
                         ],
                         pageTitle: "Role Information",
@@ -619,15 +606,15 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/settings/role/edit/:id',
+                    path: '/settings/role/edit/:id',
                     name: 'edit-role',
                     component: () => import('./views/settings/Role/Edit.vue'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard'},
+                            {title: 'Home', url: ''},
                             {title: 'Settings'},
-                            {title: 'Roles', url: '/dashboard/settings/role'},
+                            {title: 'Roles', url: '/settings/role'},
                             {title: 'Edit Role', active: true}
                         ],
                         pageTitle: "Edit Role",
@@ -635,13 +622,13 @@ const router = new Router({
                     }
                 },
                 {
-                    path: '/dashboard/profile',
+                    path: '/profile',
                     name: 'profile',
                     component: () => import('./views/profile/profile'),
                     beforeEnter: guard,
                     meta: {
                         breadcrumb: [
-                            {title: 'Home', url: '/dashboard'},
+                            {title: 'Home', url: ''},
                             {title: 'Profile', active: true}
                         ],
                         pageTitle: "Profile"
@@ -669,17 +656,17 @@ const router = new Router({
                         // PAGES
                         // =============================================================================
                         {
-                            path: '/dashboard/login',
+                            path: '/login',
                             name: 'pageLogin',
                             component: () => import('./views/pages/Login.vue')
                         },
                         {
-                            path: '/dashboard/error-403',
+                            path: '/error-403',
                             name: 'pageError403',
                             component: () => import('./views/pages/NotAuthorized.vue')
                         },
                         {
-                            path: '/dashboard/error-404',
+                            path: '/error-404',
                             name: 'pageError404',
                             component: () => import('./views/pages/Error404.vue')
                         },

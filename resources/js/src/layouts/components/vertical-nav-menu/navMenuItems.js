@@ -1,13 +1,13 @@
 export default [
     {
-        url: "/dashboard",
+        url: "/",
         name: "Home",
         slug: "home",
         icon: "HomeIcon",
     },
 
     {
-        url: "/dashboard/order",
+        url: "/order",
         name: "Order",
         icon: "CodesandboxIcon",
         i18n: "Order",
@@ -16,7 +16,7 @@ export default [
     },
 
     {
-        url: "/dashboard/category",
+        url: "/category",
         name: "Category",
         icon: "ArchiveIcon",
         i18n: "Category",
@@ -25,7 +25,7 @@ export default [
     },
 
     {
-        url: "/dashboard/product",
+        url: "/product",
         name: "Product",
         slug: "Product",
         i18n: "Product",
@@ -35,7 +35,7 @@ export default [
 
 
     {
-        url: "/dashboard/status",
+        url: "/status",
         name: "Status",
         slug: "status",
         icon: "CheckCircleIcon",
@@ -45,7 +45,7 @@ export default [
 
 
     {
-        url: "/dashboard/design",
+        url: "/design",
         name: "Design",
         slug: "design",
         icon: "GitlabIcon",
@@ -62,14 +62,14 @@ export default [
         submenu: [
             {
                 permission: "browse-shipping-method",
-                url: "/dashboard/shipping",
+                url: "/shipping",
                 slug: "shipping",
                 name: "Shipping Methods",
                 i18n: "Shipping Methods",
             },
             {
                 permission: "browse-shipping-price",
-                url: "/dashboard/shipping-price",
+                url: "/shipping-price",
                 slug: "shipping-price",
                 name: "Shipping Price",
                 i18n: "Shipping Price",
@@ -78,7 +78,7 @@ export default [
     },
 
     {
-        url: "/dashboard/user",
+        url: "/user",
         name: "User",
         slug: "user",
         icon: "UserIcon",
@@ -95,7 +95,7 @@ export default [
         submenu: [
             {
                 permission: "browse-role",
-                url: '/dashboard/settings/role',
+                url: '/settings/role',
                 name: "Roles & Permissions",
                 slug: "role",
                 i18n: "Roles",

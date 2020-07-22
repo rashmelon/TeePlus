@@ -3,9 +3,9 @@
 		<div class=" w-full mb-base">
 			<div ref="edit" title="Create product">
 
-				<!--<vx-card>
+				<vx-card>
 					<div class="vx-row">
-						&lt;!&ndash;<div class="vx-col md:w-12/12 w-full my-3" v-if="designs.length">
+						<div class="vx-col md:w-12/12 w-full my-3" v-if="designs.length">
 							
 							<div class="vx-row">
 								<div
@@ -26,13 +26,13 @@
 									</label>
 								</div>
 							</div>
-						</div>&ndash;&gt;
+						</div>
 						
-						&lt;!&ndash;<div class="vx-col md:w-12/12 w-full mt-5">
+						<div class="vx-col md:w-12/12 w-full mt-5">
 							<div class="centerx pt-6">
 								<vs-input-number v-model="cartItem.quantity" min="1" label="Quantity:"/>
 							</div>
-						</div>&ndash;&gt;
+						</div>
 						
 						
 						<div class="vx-col md:w-12/12 w-full my-3" v-if="categories.length">
@@ -99,12 +99,12 @@
 						</vs-button>
 					</div>
 					
-				</vx-card>-->
+				</vx-card>
 				
 				
 				
 				
-				<!--<vx-card ref="cart" v-if="tempProducts.length" class="mt-4">
+				<vx-card ref="cart" v-if="tempProducts.length" class="mt-4">
 					<vs-table
 						:data="tempProducts"
 					>
@@ -120,7 +120,7 @@
 						<template slot-scope="{data}">
 							<vs-tr :key="index" v-for="(item, index) in data">
 								<vs-td>
-									{{ item.category.name }}
+									{{ item.product.category_id }}
 								</vs-td>
 								
 								<vs-td>
@@ -128,7 +128,7 @@
 								</vs-td>
 								
 								<vs-td>
-									{{ item.priceCombination.combination}}
+									{{ item.price_combination.combination}}
 								</vs-td>
 								
 								<vs-td>
@@ -142,7 +142,7 @@
 							</vs-tr>
 						</template>
 					</vs-table>
-				</vx-card>-->
+				</vx-card>
 
 				
 				
@@ -223,6 +223,16 @@
 						
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							<vs-input
+								label-placeholder="Internal tracking number"
+								class="w-full"
+								disabled
+								:value="order.internal_tracking"
+							/>
+						</div>
+						
+						
+						<div class="vx-col md:w-12/12 w-full mb-3">
+							<vs-input
 								label-placeholder="External tracking number"
 								class="w-full"
 								v-model="order.external_tracking"
@@ -295,13 +305,14 @@
     export default {
         name: "edit",
         mounted() {
+
+            this.getCategories();
+            this.getDesigns();
+            
             this.getOrder();
             this.getStatuses();
             this.getShippingPrice();
-/*
-            this.getCategories();
-	        this.getDesigns();
-*/
+            
         },
         computed: {
             validateForm() {
@@ -349,17 +360,6 @@
                     if (result) {
                         // if form have no errors
                         this.is_requesting = true;
-
-                        /*for (let i = 0; i < this.tempProducts.length; i++) {
-							let item = {};
-                            item.quantity = this.tempProducts[i].quantity;
-                            item.product_id = this.tempProducts[i].product.id;
-                            item.price_combination_id = this.tempProducts[i].priceCombination.id;
-                            item.design_id = this.tempProducts[i].design.id;
-
-                            this.order.orderProducts.push(item);
-                        }*/
-                        
                         
                         
                         
@@ -428,6 +428,14 @@
                     .then(response => {
                         this.order = response.data.data;
                         console.log('order: ',this.order)
+	                    
+	                    
+	                    // get current order products
+	                    this.tempProducts = this.order.order_products;
+	                    
+	                    
+	                    // set current design
+                        this.cartItem.design = this.order.order_products[0].design;
                     })
                     .catch(error => {
                         console.log(error);

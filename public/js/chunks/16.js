@@ -306,16 +306,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -1261,27 +1251,6 @@ var render = function() {
                             _vm.$set(_vm.order, "external_tracking", $$v)
                           },
                           expression: "order.external_tracking"
-                        }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "vx-col md:w-12/12 w-full mb-3" },
-                    [
-                      _c("vs-input", {
-                        staticClass: "w-full",
-                        attrs: {
-                          "label-placeholder": "Internal tracking number"
-                        },
-                        model: {
-                          value: _vm.order.internal_tracking,
-                          callback: function($$v) {
-                            _vm.$set(_vm.order, "internal_tracking", $$v)
-                          },
-                          expression: "order.internal_tracking"
                         }
                       })
                     ],
