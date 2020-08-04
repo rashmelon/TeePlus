@@ -8,6 +8,8 @@ class Design extends Model
 {
     protected $fillable = ['name'];
 
+    protected $with = ['images'];
+
     public function images()
     {
         return $this->morphMany(Media::class, 'mediable')->where('relation', 'image');

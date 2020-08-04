@@ -67,10 +67,10 @@ const actions = {
     {
         switch (payload.error.response.status) {
             case 401:
-                router.push('/dashboard/error-403');
+                router.push('/error-403');
                 break;
             case 403:
-                router.push('/dashboard/error-403');
+                router.push('/error-403');
                 break;
             default:
                 payload.reject(payload.error);

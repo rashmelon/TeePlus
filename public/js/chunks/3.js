@@ -4395,10 +4395,7 @@ var render = function() {
                       on: {
                         click: function($event) {
                           return _vm.$router.push(
-                            "/dashboard/" +
-                              ntf.data.model +
-                              "/" +
-                              ntf.data.model_id
+                            "/" + ntf.data.model + "/" + ntf.data.model_id
                           )
                         }
                       }
@@ -4521,9 +4518,7 @@ var render = function() {
                           "flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white",
                         on: {
                           click: function($event) {
-                            _vm.$router
-                              .push("/dashboard/profile")
-                              .catch(function() {})
+                            _vm.$router.push("/profile").catch(function() {})
                           }
                         }
                       },

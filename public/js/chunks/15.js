@@ -138,6 +138,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -198,6 +204,14 @@ __webpack_require__.r(__webpack_exports__);
     editOrder: function editOrder(id) {
       this.$router.push({
         name: 'edit-order',
+        params: {
+          'id': id
+        }
+      });
+    },
+    returnOrder: function returnOrder(id) {
+      this.$router.push({
+        name: 'return-order',
         params: {
           'id': id
         }
@@ -564,7 +578,7 @@ var render = function() {
                                       _c("div", { staticClass: "flex mb-4" }, [
                                         _c(
                                           "div",
-                                          { staticClass: "w-1/3 mx-2" },
+                                          { staticClass: "w-1/4 mx-2" },
                                           [
                                             _vm.can("view-order")
                                               ? _c("vs-button", {
@@ -593,7 +607,7 @@ var render = function() {
                                         _vm._v(" "),
                                         _c(
                                           "div",
-                                          { staticClass: "w-1/3 mx-2" },
+                                          { staticClass: "w-1/4 mx-2" },
                                           [
                                             _vm.can("edit-order")
                                               ? _c("vs-button", {
@@ -622,7 +636,34 @@ var render = function() {
                                         _vm._v(" "),
                                         _c(
                                           "div",
-                                          { staticClass: "w-1/3 mx-3" },
+                                          { staticClass: "w-1/4 mx-2" },
+                                          [
+                                            _c("vs-button", {
+                                              staticClass:
+                                                "vs-con-loading__container",
+                                              attrs: {
+                                                id: "btn-return-" + order.id,
+                                                radius: "",
+                                                color: "primary",
+                                                type: "border",
+                                                "icon-pack": "feather",
+                                                icon: "icon-corner-left-down"
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.returnOrder(
+                                                    order.id
+                                                  )
+                                                }
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "w-1/4 mx-3" },
                                           [
                                             _vm.can("delete-order")
                                               ? _c("vs-button", {
@@ -668,7 +709,7 @@ var render = function() {
                     ],
                     null,
                     false,
-                    3147606259
+                    3757752988
                   )
                 },
                 [

@@ -55,9 +55,11 @@ class OrderController extends Controller
 
         $data = $request->validated();
 
-        $data['internal_tracking'] = str_random(10);
-
         $order = Order::create($data);
+
+        $data['internal_tracking'] = str_slug($request->user()->name).'-'.$order->id;
+
+        $order->update($data);
 
         Status::find($data['status_id'])->orders()->save($order);
         PaymentType::where('name', 'cash')->first()->orders()->save($order);
@@ -89,9 +91,9 @@ class OrderController extends Controller
     {
         $this->authorize('show', Order::class);
 
-        $order->load('orderProducts');
+        $order->load(['orderProducts', 'orderProducts.product.category']);
 
-        return ApiResponse::showRespond($order, OrderTransformer::class, ['orderProducts'])->execute();
+        return ApiResponse::showRespond($order, OrderTransformer::class, ['order_products'])->execute();
     }
 
     /**

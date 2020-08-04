@@ -3,7 +3,7 @@
         <vx-card ref="browse" title="Packages List" collapse-action refreshContentAction @refresh="getPackages">
             <vs-table search :data="packages">
                 <template slot="header">
-                    <vs-button v-if="can('browse-package')" to="/dashboard/package/create" size="small" icon-pack="feather" icon="icon-plus">Create Package</vs-button>
+                    <vs-button v-if="can('browse-package')" to="/package/create" size="small" icon-pack="feather" icon="icon-plus">Create Package</vs-button>
                 </template>
                 <template slot="thead">
                     <vs-th>#</vs-th>

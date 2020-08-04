@@ -6,7 +6,7 @@
                     <b class="text-left vx-col w-full">{{agencies.length}} results found in {{resultTime}}ms</b>
                 </vs-col>
                 <vs-col v-if="can('create-agency')" vs-type="flex" vs-justify="center" vs-align="center" vs-w="3">
-                    <vs-button to="/dashboard/agency/create" vs-w="3" color="primary" type="filled" icon-pack="feather" icon="icon-user-plus">&nbsp;&nbsp;Add Agency</vs-button>
+                    <vs-button to="/agency/create" vs-w="3" color="primary" type="filled" icon-pack="feather" icon="icon-user-plus">&nbsp;&nbsp;Add Agency</vs-button>
                 </vs-col>
             </vs-row>
         </div>
@@ -35,10 +35,10 @@
                                 </vx-tooltip>
                             </span>
                             <span v-if="can('edit-agency')||$store.getters['auth/userData'].id===$route.params.id" class="flex items-center">
-                                <vs-button :to="`/dashboard/agency/${agency.id}/edit`" color="warning" type="filled" icon-pack="feather" icon="icon-edit"></vs-button>
+                                <vs-button :to="`/agency/${agency.id}/edit`" color="warning" type="filled" icon-pack="feather" icon="icon-edit"></vs-button>
                             </span>
                             <span v-if="can('view-agency')||$store.getters['auth/userData'].id===$route.params.id" class="flex items-center">
-                                <vs-button :to="`/dashboard/agency/${agency.id}`" type="gradient" icon-pack="feather" icon="icon-eye">View</vs-button>
+                                <vs-button :to="`/agency/${agency.id}`" type="gradient" icon-pack="feather" icon="icon-eye">View</vs-button>
                             </span>
                         </div>
                     </template>

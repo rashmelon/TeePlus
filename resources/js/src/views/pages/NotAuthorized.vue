@@ -7,7 +7,7 @@
             <p class="sm:mx-0 mx-4 sm:mb-12 mb-8 d-theme-text-inverse">
                 Contact your administrator for access.
             </p>
-            <vs-button size="large" to="/dashboard">Back to Home</vs-button>
+            <vs-button size="large" to="/">Back to Home</vs-button>
         </div>
     </div>
 </template>

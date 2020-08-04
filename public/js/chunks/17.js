@@ -243,82 +243,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -669,310 +593,6 @@ var render = function() {
         { ref: "edit", attrs: { title: "Create product" } },
         [
           _c("vx-card", [
-            _c("div", { staticClass: "vx-row" }, [
-              _vm.designs.length
-                ? _c("div", { staticClass: "vx-col md:w-12/12 w-full my-3" }, [
-                    _c(
-                      "div",
-                      { staticClass: "vx-row" },
-                      _vm._l(_vm.designs, function(item, index) {
-                        return _vm.designs.length
-                          ? _c(
-                              "div",
-                              {
-                                key: item.id,
-                                staticClass:
-                                  "vx-col md:w-4/12 w-full single-design"
-                              },
-                              [
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass: "w-full ",
-                                    attrs: { for: "design-" + item.id }
-                                  },
-                                  [
-                                    _c("input", {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: _vm.cartItem.design,
-                                          expression: "cartItem.design"
-                                        }
-                                      ],
-                                      attrs: {
-                                        type: "radio",
-                                        id: "design-" + item.id,
-                                        name: "design"
-                                      },
-                                      domProps: {
-                                        value: item,
-                                        checked: _vm._q(
-                                          _vm.cartItem.design,
-                                          item
-                                        )
-                                      },
-                                      on: {
-                                        change: function($event) {
-                                          return _vm.$set(
-                                            _vm.cartItem,
-                                            "design",
-                                            item
-                                          )
-                                        }
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c("span", { staticClass: "overlay" }, [
-                                      _c(
-                                        "span",
-                                        {
-                                          staticClass:
-                                            "feather-icon feather-check-circle"
-                                        },
-                                        [
-                                          _c(
-                                            "svg",
-                                            {
-                                              staticClass:
-                                                "feather feather-check-circle ",
-                                              attrs: {
-                                                xmlns:
-                                                  "http://www.w3.org/2000/svg",
-                                                width: "24px",
-                                                height: "24px",
-                                                viewBox: "0 0 24 24",
-                                                fill: "none",
-                                                stroke: "currentColor",
-                                                "stroke-width": "2",
-                                                "stroke-linecap": "round",
-                                                "stroke-linejoin": "round"
-                                              }
-                                            },
-                                            [
-                                              _c("path", {
-                                                attrs: {
-                                                  d:
-                                                    "M22 11.08V12a10 10 0 1 1-5.93-9.14"
-                                                }
-                                              }),
-                                              _c("polyline", {
-                                                attrs: {
-                                                  points:
-                                                    "22 4 12 14.01 9 11.01"
-                                                }
-                                              })
-                                            ]
-                                          )
-                                        ]
-                                      )
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("img", {
-                                      staticClass: "w-full h-full",
-                                      attrs: {
-                                        src: item.images[0].url,
-                                        alt: ""
-                                      }
-                                    }),
-                                    _vm._v(" "),
-                                    _c("p", { staticClass: "text-center" }, [
-                                      _vm._v(_vm._s(item.name))
-                                    ])
-                                  ]
-                                )
-                              ]
-                            )
-                          : _vm._e()
-                      }),
-                      0
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _c("div", { staticClass: "vx-col md:w-12/12 w-full mt-5" }, [
-                _c(
-                  "div",
-                  { staticClass: "centerx pt-6" },
-                  [
-                    _c("vs-input-number", {
-                      attrs: { min: "1", label: "Quantity:" },
-                      model: {
-                        value: _vm.cartItem.quantity,
-                        callback: function($$v) {
-                          _vm.$set(_vm.cartItem, "quantity", $$v)
-                        },
-                        expression: "cartItem.quantity"
-                      }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _vm.categories.length
-                ? _c(
-                    "div",
-                    { staticClass: "vx-col md:w-12/12 w-full my-3" },
-                    [
-                      _c(
-                        "vs-select",
-                        {
-                          directives: [
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "required",
-                              expression: "'required'"
-                            }
-                          ],
-                          staticClass: "w-full",
-                          attrs: { label: "Category", name: "category" },
-                          on: { change: _vm.getProducts },
-                          model: {
-                            value: _vm.cartItem.category,
-                            callback: function($$v) {
-                              _vm.$set(_vm.cartItem, "category", $$v)
-                            },
-                            expression: "cartItem.category"
-                          }
-                        },
-                        _vm._l(_vm.categories, function(category) {
-                          return _c("vs-select-item", {
-                            key: category.id,
-                            attrs: {
-                              text:
-                                category.name + " - " + category.description,
-                              value: category
-                            }
-                          })
-                        }),
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.errors.has("category"),
-                              expression: "errors.has('category')"
-                            }
-                          ],
-                          staticClass: "text-danger text-sm"
-                        },
-                        [_vm._v(_vm._s(_vm.errors.first("category")))]
-                      )
-                    ],
-                    1
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.products.length
-                ? _c(
-                    "div",
-                    { staticClass: "vx-col md:w-12/12 w-full my-3" },
-                    [
-                      _c(
-                        "vs-select",
-                        {
-                          directives: [
-                            {
-                              name: "validate",
-                              rawName: "v-validate",
-                              value: "required",
-                              expression: "'required'"
-                            }
-                          ],
-                          staticClass: "w-full",
-                          attrs: { label: "Product", name: "product" },
-                          on: { change: _vm.getCombinations },
-                          model: {
-                            value: _vm.cartItem.product,
-                            callback: function($$v) {
-                              _vm.$set(_vm.cartItem, "product", $$v)
-                            },
-                            expression: "cartItem.product"
-                          }
-                        },
-                        _vm._l(_vm.products, function(product) {
-                          return _c("vs-select-item", {
-                            key: product.id,
-                            attrs: {
-                              text:
-                                product.base_price +
-                                " - " +
-                                product.name +
-                                " - " +
-                                product.description,
-                              value: product
-                            }
-                          })
-                        }),
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.errors.has("product"),
-                              expression: "errors.has('product')"
-                            }
-                          ],
-                          staticClass: "text-danger text-sm"
-                        },
-                        [_vm._v(_vm._s(_vm.errors.first("product")))]
-                      )
-                    ],
-                    1
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.combinations.length
-                ? _c(
-                    "div",
-                    { staticClass: "vx-col md:w-12/12 w-full my-3" },
-                    [
-                      _c(
-                        "vs-select",
-                        {
-                          staticClass: "w-full",
-                          attrs: {
-                            label: "Combinations",
-                            "label-placeholder": "Combinations"
-                          },
-                          model: {
-                            value: _vm.cartItem.priceCombination,
-                            callback: function($$v) {
-                              _vm.$set(_vm.cartItem, "priceCombination", $$v)
-                            },
-                            expression: "cartItem.priceCombination"
-                          }
-                        },
-                        _vm._l(_vm.combinations, function(item) {
-                          return _c("vs-select-item", {
-                            key: item.id,
-                            attrs: {
-                              text: item.price + " - " + item.combination,
-                              value: item
-                            }
-                          })
-                        }),
-                        1
-                      )
-                    ],
-                    1
-                  )
-                : _vm._e()
-            ]),
-            _vm._v(" "),
             _c(
               "div",
               [
@@ -1020,9 +640,26 @@ var render = function() {
                                   { key: index },
                                   [
                                     _c("vs-td", [
+                                      _c("img", {
+                                        staticClass: "preview-large",
+                                        attrs: {
+                                          src: item.design.images[0].url
+                                        }
+                                      })
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("vs-td", [
                                       _vm._v(
                                         "\n\t\t\t\t\t\t\t\t" +
-                                          _vm._s(item.product.category_id) +
+                                          _vm._s(item.product.name) +
+                                          "\n\t\t\t\t\t\t\t"
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("vs-td", [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t" +
+                                          _vm._s(item.product.category.name) +
                                           "\n\t\t\t\t\t\t\t"
                                       )
                                     ]),
@@ -1048,14 +685,6 @@ var render = function() {
                                     _c("vs-td", [
                                       _vm._v(
                                         "\n\t\t\t\t\t\t\t\t" +
-                                          _vm._s(item.product.name) +
-                                          "\n\t\t\t\t\t\t\t"
-                                      )
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("vs-td", [
-                                      _vm._v(
-                                        "\n\t\t\t\t\t\t\t\t" +
                                           _vm._s(item.quantity) +
                                           "\n\t\t\t\t\t\t\t"
                                       )
@@ -1069,7 +698,7 @@ var render = function() {
                         ],
                         null,
                         false,
-                        3301633880
+                        4099654862
                       )
                     },
                     [
@@ -1077,13 +706,17 @@ var render = function() {
                         "template",
                         { slot: "thead" },
                         [
+                          _c("vs-th", { attrs: { width: "200px" } }, [
+                            _vm._v("Image")
+                          ]),
+                          _vm._v(" "),
+                          _c("vs-th", [_vm._v("Product")]),
+                          _vm._v(" "),
                           _c("vs-th", [_vm._v("Category")]),
                           _vm._v(" "),
                           _c("vs-th", [_vm._v("Design")]),
                           _vm._v(" "),
                           _c("vs-th", [_vm._v("Price Combination")]),
-                          _vm._v(" "),
-                          _c("vs-th", [_vm._v("Product")]),
                           _vm._v(" "),
                           _c("vs-th", [_vm._v("Quantity")])
                         ],

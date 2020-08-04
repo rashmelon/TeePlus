@@ -96,21 +96,27 @@
                         <vs-td>
                             <vs-row>
                                 <div class="flex mb-4">
-                                    <div class="w-1/3 mx-2">
+                                    <div class="w-1/4 mx-2">
                                         <vs-button
                                             v-if="can('view-order')"
                                             :id="`btn-view-${order.id}`" class="vs-con-loading__container" radius color="success" type="border"
                                            icon-pack="feather" icon="icon-eye"
                                            @click=viewOrder(order.id)></vs-button>
                                     </div>
-                                    <div class="w-1/3 mx-2"><!--v-if="can('edit-order')"-->
+                                    <div class="w-1/4 mx-2">
                                         <vs-button :id="`btn-edit-${order.id}`" class="vs-con-loading__container"
                                                    v-if="can('edit-order')"
                                                    radius color="warning" type="border"
                                                    icon-pack="feather" icon="icon-edit"
                                                    @click=editOrder(order.id)></vs-button>
                                     </div>
-                                    <div class="w-1/3 mx-3"><!-- v-if="can('delete-order')"-->
+                                    <div class="w-1/4 mx-2"><!--v-if="can('edit-order')"-->
+                                        <vs-button :id="`btn-return-${order.id}`" class="vs-con-loading__container"
+                                                   radius color="primary" type="border"
+                                                   icon-pack="feather" icon="icon-corner-left-down"
+                                                   @click=returnOrder(order.id)></vs-button>
+                                    </div>
+                                    <div class="w-1/4 mx-3">
                                         <vs-button :id="`btn-delete-${order.id}`" class="vs-con-loading__container"
                                                    v-if="can('delete-order')"
                                                    radius color="danger" type="border"
@@ -172,6 +178,9 @@
 
             editOrder(id) {
                 this.$router.push({name: 'edit-order', params: {'id': id}})
+            },
+            returnOrder(id) {
+                this.$router.push({name: 'return-order', params: {'id': id}})
             },
             confirmDeleteOrder(item) {
                 this.$vs.dialog({

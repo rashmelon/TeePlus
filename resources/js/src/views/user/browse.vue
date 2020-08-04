@@ -7,7 +7,7 @@
                     <b class="text-left vx-col w-full">{{users.length}} results found in {{resultTime}}ms</b>
                 </vs-col>
                 <vs-col v-if="can('create-user')" vs-type="flex" vs-justify="center" vs-align="center" vs-w="3">
-                    <vs-button to="/dashboard/user/create" vs-w="3" color="primary" type="filled" icon-pack="feather"
+                    <vs-button :to="{name:'add-user'}" vs-w="3" color="primary" type="filled" icon-pack="feather"
                                icon="icon-user-plus">&nbsp;&nbsp;Add User</vs-button>
                 </vs-col>
             </vs-row>
@@ -42,11 +42,11 @@
                                                color="danger" type="filled" icon-pack="feather" icon="icon-trash"></vs-button>
                             </span>
                             <span v-if="can('edit-user')||$store.getters['auth/userData'].id===$route.params.id" class="flex items-center">
-                                <vs-button :to="`/dashboard/user/${user.id}/edit`" color="warning" type="filled" icon-pack="feather"
+                                <vs-button :to="`/user/${user.id}/edit`" color="warning" type="filled" icon-pack="feather"
                                            icon="icon-edit"></vs-button>
                             </span>
                             <span v-if="can('view-user')||$store.getters['auth/userData'].id===$route.params.id" class="flex items-center">
-                                <vs-button :to="`/dashboard/user/${user.id}`" type="gradient" icon-pack="feather" icon="icon-eye">View
+                                <vs-button :to="`/user/${user.id}`" type="gradient" icon-pack="feather" icon="icon-eye">View
                                 </vs-button>
                             </span>
                         </div>

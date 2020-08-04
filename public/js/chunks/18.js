@@ -189,6 +189,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -344,9 +349,18 @@ var render = function() {
                                   { key: index },
                                   [
                                     _c("vs-td", [
+                                      _c("img", {
+                                        staticClass: "preview-large",
+                                        attrs: {
+                                          src: item.design.images[0].url
+                                        }
+                                      })
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("vs-td", [
                                       _vm._v(
                                         "\n\t\t\t\t\t\t\t\t" +
-                                          _vm._s(item.product.category_id) +
+                                          _vm._s(item.product.category.name) +
                                           "\n\t\t\t\t\t\t\t"
                                       )
                                     ]),
@@ -393,7 +407,7 @@ var render = function() {
                         ],
                         null,
                         false,
-                        3301633880
+                        2561319598
                       )
                     },
                     [
@@ -401,6 +415,10 @@ var render = function() {
                         "template",
                         { slot: "thead" },
                         [
+                          _c("vs-th", { attrs: { width: "200px" } }, [
+                            _vm._v("Image")
+                          ]),
+                          _vm._v(" "),
                           _c("vs-th", [_vm._v("Category")]),
                           _vm._v(" "),
                           _c("vs-th", [_vm._v("Design")]),

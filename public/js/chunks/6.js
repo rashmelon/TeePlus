@@ -606,10 +606,7 @@ var render = function() {
                                   "vs-button",
                                   {
                                     attrs: {
-                                      to:
-                                        "/dashboard/agency/" +
-                                        _vm.ag_id +
-                                        "/edit",
+                                      to: "/agency/" + _vm.ag_id + "/edit",
                                       color: "warning",
                                       type: "filled",
                                       "icon-pack": "feather",
@@ -803,9 +800,7 @@ var render = function() {
                                 {
                                   attrs: {
                                     to:
-                                      "/dashboard/employee/" +
-                                      _vm.employee.id +
-                                      "/edit",
+                                      "/employee/" + _vm.employee.id + "/edit",
                                     color: "warning",
                                     type: "filled",
                                     "icon-pack": "feather",

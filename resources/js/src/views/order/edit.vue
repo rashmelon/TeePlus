@@ -4,88 +4,6 @@
 			<div ref="edit" title="Create product">
 
 				<vx-card>
-					<div class="vx-row">
-						<div class="vx-col md:w-12/12 w-full my-3" v-if="designs.length">
-							
-							<div class="vx-row">
-								<div
-									class="vx-col md:w-4/12 w-full single-design"
-									v-if="designs.length"
-									v-for="(item,index) in designs"
-									:key="item.id"
-								>
-									<label :for="`design-${item.id}`" class="w-full ">
-										<input type="radio" v-model="cartItem.design" :value="item" :id="`design-${item.id}`" name="design">
-										<span class="overlay">
-											<span class="feather-icon feather-check-circle">
-												<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle "><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-											</span>
-										</span>
-										<img :src="item.images[0].url" class="w-full h-full"  alt="">
-										<p class="text-center">{{item.name}}</p>
-									</label>
-								</div>
-							</div>
-						</div>
-						
-						<div class="vx-col md:w-12/12 w-full mt-5">
-							<div class="centerx pt-6">
-								<vs-input-number v-model="cartItem.quantity" min="1" label="Quantity:"/>
-							</div>
-						</div>
-						
-						
-						<div class="vx-col md:w-12/12 w-full my-3" v-if="categories.length">
-							<vs-select
-								@change="getProducts"
-								class="w-full"
-								label="Category"
-								name="category"
-								v-model="cartItem.category"
-								v-validate="'required'"
-							>
-								<vs-select-item :key="category.id" :text="`${category.name} - ${category.description}`" :value="category" v-for="category in categories"/>
-							</vs-select>
-							<span class="text-danger text-sm" v-show="errors.has('category')">{{ errors.first('category') }}</span>
-
-						</div>
-						
-						
-						<div class="vx-col md:w-12/12 w-full my-3" v-if="products.length">
-							<vs-select
-								@change="getCombinations"
-								class="w-full"
-								label="Product"
-								name="product"
-								v-model="cartItem.product"
-								v-validate="'required'"
-							
-							>
-								<vs-select-item :key="product.id" :text="`${product.base_price} - ${product.name} - ${product.description}`" :value="product" v-for="product in products"/>
-							</vs-select>
-							<span class="text-danger text-sm" v-show="errors.has('product')">{{ errors.first('product') }}</span>
-						
-						</div>
-						
-						<div class="vx-col md:w-12/12 w-full my-3" v-if="combinations.length">
-							<vs-select
-								class="w-full"
-								label="Combinations"
-								label-placeholder="Combinations"
-								v-model="cartItem.priceCombination"
-							>
-								<vs-select-item
-									:key="item.id"
-									:text='`${item.price} - ${item.combination}`'
-									:value="item"
-									v-for="item in combinations"/>
-							</vs-select>
-						
-						</div>
-					
-					</div>
-					
-					
 					<div>
 						<vs-button
 							@click="addToCart"
@@ -110,17 +28,27 @@
 					>
 						
 						<template slot="thead">
+							<vs-th width="200px">Image</vs-th>
+							<vs-th>Product</vs-th>
 							<vs-th>Category</vs-th>
 							<vs-th>Design</vs-th>
 							<vs-th>Price Combination</vs-th>
-							<vs-th>Product</vs-th>
 							<vs-th>Quantity</vs-th>
 						</template>
 						
 						<template slot-scope="{data}">
 							<vs-tr :key="index" v-for="(item, index) in data">
 								<vs-td>
-									{{ item.product.category_id }}
+									<img
+										:src="item.design.images[0].url"
+										class="preview-large">
+								</vs-td>
+								<vs-td>
+									{{ item.product.name }}
+								</vs-td>
+								
+								<vs-td>
+									{{ item.product.category.name }}
 								</vs-td>
 								
 								<vs-td>
@@ -129,10 +57,6 @@
 								
 								<vs-td>
 									{{ item.price_combination.combination}}
-								</vs-td>
-								
-								<vs-td>
-									{{ item.product.name }}
 								</vs-td>
 								
 								<vs-td>

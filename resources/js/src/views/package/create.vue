@@ -346,7 +346,7 @@
                 }
                 this.$store.dispatch('package/create', form_data)
                     .then(response => {
-                        this.$router.push(`/dashboard/package`);
+                        this.$router.push(`/package`);
                         this.$vs.notify({
                             title: 'Success',
                             text: response.data.message,

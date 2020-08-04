@@ -164,7 +164,7 @@
                     .then(response => {
                         this.is_requesting=false;
                         this.$vs.loading.close(`#btn-edit > .con-vs-loading`);
-                        this.$router.push(`/dashboard/agency/${this.$route.params.id}`);
+                        this.$router.push(`/agency/${this.$route.params.id}`);
                         this.$vs.notify({
                             title: 'Success',
                             text: response.data.message,

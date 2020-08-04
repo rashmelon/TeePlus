@@ -12,7 +12,7 @@
 
       <component :is="scrollbarTag" ref="mainSidebarPs" class="scroll-area--nofications-dropdown p-0 mb-10" :settings="settings" :key="$vs.rtl">
         <ul class="bordered-items">
-          <li v-for="ntf in unreadNotifications" :key="ntf.index" class="flex justify-between px-4 py-4 notification cursor-pointer" @click="$router.push(`/dashboard/${ntf.data.model}/${ntf.data.model_id}`)">
+          <li v-for="ntf in unreadNotifications" :key="ntf.index" class="flex justify-between px-4 py-4 notification cursor-pointer" @click="$router.push(`/${ntf.data.model}/${ntf.data.model_id}`)">
             <div class="flex items-start">
 <!--              <feather-icon :icon="ntf.icon" :svgClasses="[`text-${ntf.type}`, 'stroke-current mr-1 h-6 w-6']"></feather-icon>-->
               <div class="mx-2">

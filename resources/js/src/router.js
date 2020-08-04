@@ -555,6 +555,24 @@ const router = new Router({
                 },
 
 
+                {
+                    path: '/order/return/:id',
+                    name: 'return-order',
+                    component: () => import('./views/order/return.vue'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Order', url: '/order', i18n: 'Order'},
+                            {title: 'Return', active: true, i18n: 'Return'},
+                        ],
+                        pageTitle: 'Return Order',
+                        pageTitle_i18n: 'Return Order',
+                        // permission: 'return-order'
+                    }
+                },
+
+
 
 
 

@@ -2,8 +2,6 @@
 	<div>
 		<div class=" w-full mb-base">
 			<div ref="edit" title="Create product">
-
-				
 				
 				<vx-card ref="cart" v-if="tempProducts.length" class="mt-4">
 					<vs-table
@@ -11,6 +9,7 @@
 					>
 						
 						<template slot="thead">
+							<vs-th width="200px">Image</vs-th>
 							<vs-th>Category</vs-th>
 							<vs-th>Design</vs-th>
 							<vs-th>Price Combination</vs-th>
@@ -21,7 +20,12 @@
 						<template slot-scope="{data}">
 							<vs-tr :key="index" v-for="(item, index) in data">
 								<vs-td>
-									{{ item.product.category_id }}
+									<img
+										:src="item.design.images[0].url"
+										class="preview-large">
+								</vs-td>
+								<vs-td>
+									{{ item.product.category.name }}
 								</vs-td>
 								
 								<vs-td>
@@ -148,7 +152,8 @@
 								class="w-full"
 								v-model="order.status.name"
 							/>
-						</div>
+						</div
+						>
 						
 						
 						

@@ -83,7 +83,7 @@
                   this.$vs.loading.close(this.$refs.edit.$refs.content);
                   this.role = response.data.data;
                   if (response.data.data.length===0) {
-                      this.$router.push('/dashboard/error-404');
+                      this.$router.push('/error-404');
                   } else {
                       response.data.data.permissions.forEach(permission => {
                           this.rolePermissions.push(permission.name)
@@ -116,7 +116,7 @@
                 .then(response => {
                     this.is_requesting=false;
                     this.$vs.loading.close(`#btn-save > .con-vs-loading`);
-                    this.$router.push(`/dashboard/settings/role/${this.$route.params.id}`);
+                    this.$router.push(`/settings/role/${this.$route.params.id}`);
                     this.$vs.notify({
                         title: 'Success',
                         text: response.data.message,

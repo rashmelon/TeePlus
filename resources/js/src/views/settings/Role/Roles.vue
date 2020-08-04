@@ -5,7 +5,7 @@
             <vx-card ref="roles" title="Roles List" collapse-action refreshContentAction @refresh="getRoles">
                 <vs-table search :data="roles">
                     <template slot="header">
-                        <vs-button v-if="can('create-role')" size="small" to="/dashboard/settings/role/create" icon-pack="feather" icon="icon-plus" type="filled">Create Role</vs-button>
+                        <vs-button v-if="can('create-role')" size="small" to="/settings/role/create" icon-pack="feather" icon="icon-plus" type="filled">Create Role</vs-button>
                     </template>
                     <template slot="thead">
                         <vs-th sort-key="id">ID</vs-th>
@@ -31,10 +31,10 @@
                                 <vs-row>
                                     <div class="flex mb-4">
                                         <div class="w-1/3" v-if="can('view-role')">
-                                            <vs-button :to="`/dashboard/settings/role/${role.id}`" radius color="primary" type="border" icon-pack="feather" icon="icon-eye"></vs-button>
+                                            <vs-button :to="`/settings/role/${role.id}`" radius color="primary" type="border" icon-pack="feather" icon="icon-eye"></vs-button>
                                         </div>
                                         <div class="w-1/3 ml-5" v-if="can('edit-role')">
-                                            <vs-button :to="`/dashboard/settings/role/edit/${role.id}`" radius color="warning" type="border" icon-pack="feather" icon="icon-edit"></vs-button>
+                                            <vs-button :to="`/settings/role/edit/${role.id}`" radius color="warning" type="border" icon-pack="feather" icon="icon-edit"></vs-button>
                                         </div>
                                         <div class="w-1/3 ml-5" v-if="can('delete-role')">
                                             <vs-button :id="`btn-type-delete-${role.id}`" class="vs-con-loading__container" radius color="danger" type="border" icon-pack="feather" icon="icon-trash" @click="is_requesting?$store.dispatch('viewWaitMessage', $vs):confirmDeleteRole(role)"></vs-button>
