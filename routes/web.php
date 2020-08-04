@@ -11,8 +11,8 @@
 |
 */
 
-Route::Auth();
-Auth::routes(['verify' => true]);
+//Route::Auth();
+//Auth::routes(['verify' => true]);
 Route::get('/', 'ApplicationController')->where('any', '.*');
 Route::get('/{any}', 'ApplicationController')->where('any', '.*');
 
