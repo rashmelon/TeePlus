@@ -10,6 +10,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>@yield('title') {{ config('app.name', 'TeePlus') }}</title>
+        <link rel="stylesheet" href="{{ asset(mix('css/main.css'))}}">
     </head>
     <body>
 
