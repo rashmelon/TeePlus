@@ -11,6 +11,7 @@
 </template>
 
 <script>
+	import themeOptions from './../../../../../themeConfig'
   export default {
     name: "ToggleDarkmode",
     data() {
@@ -20,26 +21,22 @@
     },
 	  methods:{
       switchMode(){
-        this.$store.dispatch('updateTheme',this.theme)
-        localStorage.setItem("theme", this.theme)
+				let theme=this.switchDarkmode?'dark':'light'
+
+
+        this.$store.dispatch('updateTheme',theme)
+        localStorage.setItem("theme", theme)
+
       }
 	  },
 
     computed: {
-      darkTheme() {
-        return this.$store.state.theme
-      },
-	    theme(){
-        return this.switchDarkmode?'dark':'light'
-	    }
+
     },
 
 	  mounted() {
-      if (this.darkTheme == 'dark'){
-        this.switchDarkmode = true
-      } else{
-        this.switchDarkmode = false
-      }
+      // this.$store.dispatch('updateTheme','dark')
+
     }
 
   }

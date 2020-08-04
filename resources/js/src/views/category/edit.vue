@@ -1,119 +1,49 @@
 <template>
     <div>
-        <div v-if="can('edit-employee')" class="vx-col w-full mb-base">
-            <div ref="create" title="Edit Category">
+        <div v-if="can('edit-category')" class="w-full mb-base">
+            <div ref="loadingContainer">
 
-                <form-wizard color="rgb(var(--vs-primary))" :title="null" :subtitle="null" finishButtonText="Submit" @on-complete="create">
-                    <tab-content title="Category data" class="mb-5">
-                        <vx-card class="vx-row">
-                            <div class="vx-col sm:w-2/2 w-full mb-3">
-                                <div class="image-preview" style="display: inline-flex;">
-                                    <img alt="photo" class="preview" :src="uploadedImage?uploadedImage:'/images/no-image-found.png'">
-                                </div>
-                                <div style="display: inline-flex;position: relative;top: -15px;">
-                                    <input id="img-upload" type="file" @change="previewImage" accept="image/*">
-                                    <vs-button size="small" icon-pack="feather" icon="icon-upload" type="gradient" onclick="document.getElementById('img-upload').click()">Upload Photo</vs-button>
-                                </div>
+                <vx-card class="my-5" collapse-action>
+                    <div class="vx-row">
+                        <div class="vx-col md:w-6/6 w-full mb-3">
+                            <div class="image-preview" style="display: inline-flex;">
+                                <img :src="uploadedImage?uploadedImage:'/images/no-image-found.png'" alt="photo" class="preview-large">
                             </div>
-                            <div class="vx-col sm:w-2/2 w-full mb-3">
-                                <vs-input label="Category Name" v-model="form.name" class="w-full" />
+                            <div class="d-block mt-3">
+                                <input @change="previewImage" accept="image/*" id="img-upload" type="file">
+                                <vs-button icon="icon-upload" icon-pack="feather" onclick="document.getElementById('img-upload').click()" size="small"
+                                           type="gradient">Upload Photo
+                                </vs-button>
                             </div>
+                        </div>
+                        <div class="vx-col sm:w-2/2 w-full mb-3">
+                            <vs-input
+                              class="w-full"
+                              label="Category Name"
+                              name="name"
+                              v-model="form.name"
+                              v-validate="'required'"
+                            />
+                            <span class="text-danger text-sm" v-show="errors.has('name')">{{ errors.first('name') }}</span>
+                        </div>
+                        <div class="vx-col md:w-1/1 w-full mt-3">
+                            <vs-textarea
+                              class="mb-0"
+                              label="Description"
+                              name="description"
+                              v-model="form.description"
+                              v-validate="'required'"
+                            />
+                            <span class="text-danger text-sm" v-show="errors.has('description')">{{ errors.first('description')
+                                    }}</span>
 
-                            <div class="vx-col md:w-1/1 w-full mt-3">
-                                <vs-textarea label="Description" v-model="form.description" />
-                            </div>
+                        </div>
+                    </div>
+                </vx-card>
 
-                        </vx-card>
-                    </tab-content>
+                <ShowCombinations :catId="$route.params.id"/>
 
-                    <tab-content title="Combinations" class="mb-5">
-                        <vx-card class="vx-row">
-                            <div class="vx-col md:w-1/1 w-full mt-3">
-                                <transition-group mode="out-in" name="slide-down">
-                                    <div class="vx-row"  :key="attr.id" v-for="(attr,index) in form.attributes">
-                                        <div class="vx-col md:w-8/12 w-full mb-3">
-                                            <vs-input label="Combination" v-model="attr.combination" class="w-full" />
-                                        </div>
-
-                                        <div class="vx-col md:w-2/12 w-full mb-3">
-                                            <vs-input type="number" label="Price" v-model="attr.price" class="w-full" />
-                                        </div>
-
-                                        <div class="vx-col md:w-2/12 w-full mb-3">
-                                            <div class="attribute-actions mt-5">
-                                                <vs-button
-                                                  @click="removeAttribute(index)"
-                                                  v-if="index || ( !index && index> 1)"
-                                                  icon-pack="feather"
-                                                  icon="icon-minus"
-                                                  color="danger"
-                                                  type="border"
-                                                  radius
-                                                  class="ml-2"
-                                                ></vs-button>
-
-                                                <vs-button
-                                                  @click="addAttribute"
-                                                  v-if="index === form.attributes.length-1"
-                                                  icon-pack="feather"
-                                                  icon="icon-plus"
-                                                  color="primary"
-                                                  type="border"
-                                                  radius
-                                                  class="ml-2"
-                                                ></vs-button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </transition-group>
-                            </div>
-                        </vx-card>
-                    </tab-content>
-
-                    <tab-content title="Printing Criteria" class="mb-5">
-                        <vx-card class="vx-row">
-                            <div class="vx-col md:w-1/1 w-full mt-3">
-                                <transition-group mode="out-in" name="slide-down">
-                                    <div class="vx-row"  :key="criteria.id" v-for="(criteria,index) in form.printingCriteria">
-                                        <div class="vx-col md:w-8/12 w-full mb-3">
-                                            <vs-input label="Criteria" v-model="criteria.criteria" class="w-full" />
-                                        </div>
-
-                                        <div class="vx-col md:w-2/12 w-full mb-3">
-                                            <vs-input type="number" label="Price" v-model="criteria.price" class="w-full" />
-                                        </div>
-
-                                        <div class="vx-col md:w-2/12 w-full mb-3">
-                                            <div class="attribute-actions mt-5">
-                                                <vs-button
-                                                  @click="removePrintingCriteria(index)"
-                                                  v-if="index || ( !index && index> 1)"
-                                                  icon-pack="feather"
-                                                  icon="icon-minus"
-                                                  color="danger"
-                                                  type="border"
-                                                  radius
-                                                  class="ml-2"
-                                                ></vs-button>
-
-                                                <vs-button
-                                                  @click="addPrintingCriteria"
-                                                  v-if="index === form.printingCriteria.length-1"
-                                                  icon-pack="feather"
-                                                  icon="icon-plus"
-                                                  color="primary"
-                                                  type="border"
-                                                  radius
-                                                  class="ml-2"
-                                                ></vs-button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </transition-group>
-                            </div>
-                        </vx-card>
-                    </tab-content>
-                </form-wizard>
+                <ShowCriterias :catId="$route.params.id"/>
 
             </div>
         </div>
@@ -121,108 +51,44 @@
 </template>
 
 <script>
-    import {FormWizard, TabContent} from 'vue-form-wizard'
-    import 'vue-form-wizard/dist/vue-form-wizard.min.css'
-    import { uuid } from '../../utils'
+    import ShowCombinations from '../combination/ShowSingle'
+    import ShowCriterias from '../criteria/ShowSingle'
 
     export default {
-        name: "create",
-        mounted() {
-
-        },
-        computed: {
-            validateForm() {
-                return !this.errors.any()
-                  && this.form.name !== ''
-            }
-        },
+        name: "edit",
         data: function () {
             return {
-                form: {
-                    name: '',
-                    description: '',
-                    attributes:[
-                        {
-                            id: uuid(),
-                            combination:'',
-                            price:''
-                        },
-                    ],
-                    printingCriteria:[
-                        {
-                            id: uuid(),
-                            criteria: '',
-                            price: ''
-                        }
-                    ]
-                },
+                form: {},
                 uploadedImage: null,
                 is_requesting: false
             }
         },
         components: {
-            FormWizard,
-            TabContent
+            ShowCombinations,
+            ShowCriterias
+        },
+        mounted(){
+            this.getCategory()
         },
         methods: {
-            addAttribute(){
-                this.form.attributes.push({
-                    id:uuid(),
-                    name:'',
-                    values:''
+            addAttribute() {
+                this.form.priceCombinations.push({
+                    combination: '',
+                    price: ''
                 })
             },
             removeAttribute(index) {
-                this.form.attributes.splice(index, 1);
+                this.form.priceCombinations.splice(index, 1);
             },
-            addPrintingCriteria(){
-                this.form.printingCriteria.push({
-                    id:uuid(),
+            addPrintingCriteria() {
+                this.form.printCriterias.push({
                     criteria: '',
                     price: ''
                 })
             },
-            removePrintingCriteria(index){
-                this.form.printingCriteria.splice(index, 1);
+            removePrintingCriteria(index) {
+                this.form.printCriterias.splice(index, 1);
             },
-            uploadImages(e){
-                let selectedImages = e.target.files;
-                if (!selectedImages.length) {
-                    return false;
-                }
-                this.form.images = [];
-                for (let i = 0; i < selectedImages.length; i++) {
-                    this.form.images.push(selectedImages[i]);
-                }
-            },
-
-            create() {
-                console.log(this.form)
-                this.$vs.notify({
-                    title: 'Error',
-                    text: 'not yet handled',
-                    iconPack: 'feather',
-                    icon: 'icon-alert-circle',
-                    color: 'danger'
-                });
-
-                /*this.is_requesting=true;
-                let form_data = new FormData();
-
-                for (let key in this.form ) {
-                    if ((key === 'images') && this.form.hasOwnProperty(key)){
-                        for (let i=0; i<this.form[key].length; i++){
-                            form_data.append(key+'[]', this.form[key][i]);
-                        }
-                    }
-                    else {
-                        form_data.append(key, this.form[key]);
-                    }
-                }
-                */
-
-            },
-
             previewImage: function(event) {
                 // Reference to the DOM input element
                 var input = event.target;
@@ -240,7 +106,86 @@
                     // Start the reader job - read file as a data url (base64 format)
                     reader.readAsDataURL(input.files[0]);
                 }
-            }
+            },
+
+            getCategory(){
+                // this.$vs.loading({container: this.$refs.loadingContainer.$el, scale: 0.5});
+                this.$store.dispatch('category/view', this.$route.params.id)
+                  .then(response => {
+                      this.form = response.data.data;
+
+                      // preview used image
+                      if (this.form.image){
+                          this.uploadedImage = this.form.image.url
+                      }
+                  })
+                  .catch(error => {
+                      console.log(error);
+                      this.$vs.notify({
+                          title: 'Error',
+                          text: error.response.data.error,
+                          iconPack: 'feather',
+                          icon: 'icon-alert-circle',
+                          color: 'danger'
+                      });
+                  })
+
+            },
+
+            edit() {
+                this.$validator.validateAll().then(result => {
+                    if (result) {
+                        // if form have no errors
+                        this.is_requesting = true;
+                        let form_data = new FormData();
+
+                        for (let key in this.form) {
+                            if ((key === 'image') && this.form.hasOwnProperty(key)) {
+                                if (this.form[key]) {
+                                    for (let i = 0; i < this.form[key].length; i++) {
+                                        form_data.append(key, this.form[key][i]);
+                                    }
+                                }
+                            } else {
+                                form_data.append(key, this.form[key]);
+                            }
+                        }
+
+                        this.$store.dispatch('category/update', {id: this.$route.params.id, data: form_data})
+                          .then(response => {
+                              this.$vs.notify({
+                                  title: 'Success',
+                                  text: response.data.message,
+                                  iconPack: 'feather',
+                                  icon: 'icon-check',
+                                  color: 'success'
+                              });
+                              this.$router.push({name: 'category'});
+
+                          })
+                          .catch(error => {
+                              this.$vs.notify({
+                                  title: 'Error',
+                                  text: error.response.data.error,
+                                  iconPack: 'feather',
+                                  icon: 'icon-alert-circle',
+                                  color: 'danger'
+                              });
+                          });
+                    } else {
+                        this.$vs.notify({
+                            title: 'Error',
+                            text: 'Fix form validation errors',
+                            iconPack: 'feather',
+                            icon: 'icon-alert-circle',
+                            color: 'danger'
+                        });
+                    }
+
+                })
+            },
+
+
         }
     }
 </script>
@@ -257,14 +202,6 @@
         display: none;
     }
 
-    img.preview {
-        width: 55px;
-        height: 55px;
-        border-radius: 50%;
-        background-color: white;
-        border: 1px solid #DDD;
-        padding: 5px;
-    }
 
     .vs-input-number {
         width: fit-content;

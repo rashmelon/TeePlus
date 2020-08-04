@@ -5,7 +5,7 @@
             <img src="@assets/images/pages/404.png" alt="graphic-404" class="mx-auto mb-4">
             <h1 class="mb-12 text-5xl d-theme-heading-color">404 - Page Not Found!</h1>
             <p class="mb-16 d-theme-text-inverse">paraphonic unassessable foramination Caulopteris worral Spirophyton encrimson esparcet aggerate chondrule restate whistler shallopy biosystematy area bertram plotting unstarting quarterstaff.</p>
-            <vs-button size="large" to="/dashboard">Back to Home</vs-button>
+            <vs-button size="large" to="/">Back to Home</vs-button>
         </div>
     </div>
 </template>

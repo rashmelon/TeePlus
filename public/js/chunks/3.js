@@ -1070,6 +1070,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -1662,6 +1664,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _themeConfig__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../../../themeConfig */ "./resources/js/themeConfig.js");
 //
 //
 //
@@ -1674,6 +1677,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ToggleDarkmode",
   data: function data() {
@@ -1683,24 +1687,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     switchMode: function switchMode() {
-      this.$store.dispatch('updateTheme', this.theme);
-      localStorage.setItem("theme", this.theme);
+      var theme = this.switchDarkmode ? 'dark' : 'light';
+      this.$store.dispatch('updateTheme', theme);
+      localStorage.setItem("theme", theme);
     }
   },
-  computed: {
-    darkTheme: function darkTheme() {
-      return this.$store.state.theme;
-    },
-    theme: function theme() {
-      return this.switchDarkmode ? 'dark' : 'light';
-    }
-  },
-  mounted: function mounted() {
-    if (this.darkTheme == 'dark') {
-      this.switchDarkmode = true;
-    } else {
-      this.switchDarkmode = false;
-    }
+  computed: {},
+  mounted: function mounted() {// this.$store.dispatch('updateTheme','dark')
   }
 });
 
@@ -4021,12 +4014,6 @@ var render = function() {
             _vm._v(" "),
             _c("vs-spacer"),
             _vm._v(" "),
-            _c("search-bar"),
-            _vm._v(" "),
-            _c("ToggleDarkmode"),
-            _vm._v(" "),
-            _c("notification-drop-down"),
-            _vm._v(" "),
             _c("profile-drop-down")
           ],
           1
@@ -4408,10 +4395,7 @@ var render = function() {
                       on: {
                         click: function($event) {
                           return _vm.$router.push(
-                            "/dashboard/" +
-                              ntf.data.model +
-                              "/" +
-                              ntf.data.model_id
+                            "/" + ntf.data.model + "/" + ntf.data.model_id
                           )
                         }
                       }
@@ -4534,9 +4518,7 @@ var render = function() {
                           "flex py-2 px-4 cursor-pointer hover:bg-primary hover:text-white",
                         on: {
                           click: function($event) {
-                            _vm.$router
-                              .push("/dashboard/profile")
-                              .catch(function() {})
+                            _vm.$router.push("/profile").catch(function() {})
                           }
                         }
                       },
@@ -6870,61 +6852,81 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ([{
-  url: "/dashboard",
+  url: "/",
   name: "Home",
   slug: "home",
   icon: "HomeIcon"
 }, {
+  url: "/order",
+  name: "Order",
+  icon: "CodesandboxIcon",
+  i18n: "Order",
+  slug: "order",
+  permission: 'browse-order'
+}, {
+  url: "/category",
   name: "Category",
   icon: "ArchiveIcon",
   i18n: "Category",
-  submenu: [{
-    url: "/dashboard/category",
-    name: "Browse",
-    slug: "category",
-    i18n: "Browse",
-    permission: 'browse-employee'
-  }, {
-    url: "/dashboard/category/create",
-    name: "Create",
-    slug: "category/create",
-    i18n: "Create",
-    permission: 'create-employee'
-  }]
+  slug: "category",
+  permission: 'browse-category'
 }, {
+  url: "/product",
   name: "Product",
-  icon: "CoffeeIcon",
+  slug: "Product",
   i18n: "Product",
+  icon: "CoffeeIcon",
+  permission: 'browse-product'
+}, {
+  url: "/status",
+  name: "Status",
+  slug: "status",
+  icon: "CheckCircleIcon",
+  i18n: "Status",
+  permission: 'browse-status'
+}, {
+  url: "/design",
+  name: "Design",
+  slug: "design",
+  icon: "GitlabIcon",
+  i18n: "Design" // permission: 'browse-design'
+
+}, {
+  name: "Shipping",
+  icon: "ShoppingCartIcon",
+  i18n: "Shipping",
+  permission: 'browse-shipping-method',
   submenu: [{
-    url: "/dashboard/product",
-    name: "Browse",
-    slug: "product",
-    i18n: "Browse",
-    permission: 'browse-employee'
+    permission: "browse-shipping-method",
+    url: "/shipping",
+    slug: "shipping",
+    name: "Shipping Methods",
+    i18n: "Shipping Methods"
   }, {
-    url: "/dashboard/product/create",
-    name: "Create",
-    slug: "product/create",
-    i18n: "Create",
-    permission: 'browse-employee'
+    permission: "browse-shipping-price",
+    url: "/shipping-price",
+    slug: "shipping-price",
+    name: "Shipping Price",
+    i18n: "Shipping Price"
   }]
 }, {
-  url: "/dashboard/employee",
-  name: "Employee",
-  slug: "employee",
+  url: "/user",
+  name: "User",
+  slug: "user",
   icon: "UserIcon",
-  i18n: "Employee",
-  permission: 'browse-employee'
+  i18n: "User",
+  permission: 'browse-user'
 }, {
   name: "Settings",
   icon: "SettingsIcon",
   i18n: "Settings",
+  permission: "browse-role",
   submenu: [{
-    url: '/dashboard/settings/role',
+    permission: "browse-role",
+    url: '/settings/role',
     name: "Roles & Permissions",
     slug: "role",
-    i18n: "Roles",
-    permission: "browse-role"
+    i18n: "Roles"
   }]
 }]);
 

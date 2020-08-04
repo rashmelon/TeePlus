@@ -1,82 +1,105 @@
-
 export default [
-  {
-    url: "/dashboard",
-    name: "Home",
-    slug: "home",
-    icon: "HomeIcon",
-  },
+    {
+        url: "/",
+        name: "Home",
+        slug: "home",
+        icon: "HomeIcon",
+    },
 
-  {
-    name: "Category",
-    icon: "ArchiveIcon",
-    i18n: "Category",
-    submenu: [
-      {
-        url: "/dashboard/category",
-        name: "Browse",
+    {
+        url: "/order",
+        name: "Order",
+        icon: "CodesandboxIcon",
+        i18n: "Order",
+        slug: "order",
+        permission: 'browse-order'
+    },
+
+    {
+        url: "/category",
+        name: "Category",
+        icon: "ArchiveIcon",
+        i18n: "Category",
         slug: "category",
-        i18n: "Browse",
-        permission: 'browse-employee'
-      },
-      {
-        url: "/dashboard/category/create",
-        name: "Create",
-        slug: "category/create",
-        i18n: "Create",
-        permission: 'create-employee'
-      },
-    ]
-  },
+        permission: 'browse-category'
+    },
+
+    {
+        url: "/product",
+        name: "Product",
+        slug: "Product",
+        i18n: "Product",
+        icon: "CoffeeIcon",
+        permission: 'browse-product'
+    },
 
 
-
-  {
-    name: "Product",
-    icon: "CoffeeIcon",
-    i18n: "Product",
-    submenu: [
-      {
-        url: "/dashboard/product",
-        name: "Browse",
-        slug: "product",
-        i18n: "Browse",
-        permission: 'browse-employee'
-      },
-      {
-        url: "/dashboard/product/create",
-        name: "Create",
-        slug: "product/create",
-        i18n: "Create",
-        permission: 'browse-employee'
-      },
-    ]
-  },
+    {
+        url: "/status",
+        name: "Status",
+        slug: "status",
+        icon: "CheckCircleIcon",
+        i18n: "Status",
+        permission: 'browse-status'
+    },
 
 
-  {
-      url: "/dashboard/employee",
-      name: "Employee",
-      slug: "employee",
-      icon: "UserIcon",
-      i18n: "Employee",
-      permission: 'browse-employee'
-  },
+    {
+        url: "/design",
+        name: "Design",
+        slug: "design",
+        icon: "GitlabIcon",
+        i18n: "Design",
+        // permission: 'browse-design'
+    },
 
 
+    {
+        name: "Shipping",
+        icon: "ShoppingCartIcon",
+        i18n: "Shipping",
+        permission: 'browse-shipping-method',
+        submenu: [
+            {
+                permission: "browse-shipping-method",
+                url: "/shipping",
+                slug: "shipping",
+                name: "Shipping Methods",
+                i18n: "Shipping Methods",
+            },
+            {
+                permission: "browse-shipping-price",
+                url: "/shipping-price",
+                slug: "shipping-price",
+                name: "Shipping Price",
+                i18n: "Shipping Price",
+            }
+        ]
+    },
 
-  {
-      name: "Settings",
-      icon: "SettingsIcon",
-      i18n: "Settings",
-      submenu: [
-          {
-              url: '/dashboard/settings/role',
-              name: "Roles & Permissions",
-              slug: "role",
-              i18n: "Roles",
-              permission: "browse-role"
-          }
-      ]
-  },
+    {
+        url: "/user",
+        name: "User",
+        slug: "user",
+        icon: "UserIcon",
+        i18n: "User",
+        permission: 'browse-user'
+    },
+
+
+    {
+        name: "Settings",
+        icon: "SettingsIcon",
+        i18n: "Settings",
+        permission: "browse-role",
+        submenu: [
+            {
+                permission: "browse-role",
+                url: '/settings/role',
+                name: "Roles & Permissions",
+                slug: "role",
+                i18n: "Roles",
+            }
+        ]
+    },
 ]

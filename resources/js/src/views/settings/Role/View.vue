@@ -41,7 +41,7 @@ export default {
             this.$store.dispatch('rolesAndPermissions/view', this.$route.params.id)
                 .then(response => {
                     this.$vs.loading.close(this.$refs.view.$refs.content);
-                    response.data.data.length===0?this.$router.push('/dashboard/error-404'):this.role = response.data.data;
+                    response.data.data.length===0?this.$router.push('/error-404'):this.role = response.data.data;
                 })
                 .catch(error => {
                     console.log(error);

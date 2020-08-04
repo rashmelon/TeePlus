@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RoleRequest;
 use App\Http\Responses\Facades\ApiResponse;
-use App\IndexResponse;
-use App\Responses\Facades\ResponseFacade;
 use App\Transformers\RoleTransformer;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\JsonResponse;

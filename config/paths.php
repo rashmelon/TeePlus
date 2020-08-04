@@ -1,8 +1,15 @@
 <?php
-
 return [
-    'image' => [
-        'create' => 'storage',
-        'get' => '/storage/',
+    \App\User::class => [
+        'image' => 'user/image',
+    ],
+    \App\Category::class => [
+        'image' => 'category/image',
+    ],
+    \App\Product::class => [
+        'image' => 'product/image',
+    ],
+    \App\Design::class => [
+        'image' => 'design/image',
     ],
 ];

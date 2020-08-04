@@ -2,30 +2,24 @@
 
 namespace App\Providers;
 
-use App\Accommodation;
-use App\Agency;
-use App\Booking;
-use App\ContactUs;
-use App\CustomPackage;
-use App\Insurance;
-use App\Lusion;
-use App\Package;
-use App\Policies\AccommodationPolicy;
-use App\Policies\AgencyPolicy;
-use App\Policies\BookingPolicy;
-use App\Policies\ContactUsPolicy;
-use App\Policies\CustomPackagePolicy;
-use App\Policies\EmployeePolicy;
-use App\Policies\InsurancePolicy;
-use App\Policies\LusionPolicy;
-use App\Policies\PackagePolicy;
+use App\Order;
+use App\Policies\OrderPolicy;
+use App\Policies\PriceCombinationPolicy;
+use App\Policies\PrintCriteriaPolicy;
+use App\Policies\ProductPolicy;
+use App\Policies\ShippingMethodPolicy;
+use App\Policies\StatusPolicy;
+use App\Policies\UserPolicy;
 use App\Policies\PermissionPolicy;
-use App\Policies\PostPolicy;
 use App\Policies\RolePolicy;
-use App\Policies\SchedulePolicy;
-use App\Post;
-use App\Schedule;
+use App\Policies\UserProductPolicy;
+use App\PriceCombination;
+use App\PrintCriteria;
+use App\Product;
+use App\ShippingMethod;
+use App\Status;
 use App\User;
+use App\UserProduct;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Passport\Passport;
@@ -40,20 +34,16 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
-        User::class => EmployeePolicy::class,
+        User::class => UserPolicy::class,
         Role::class => RolePolicy::class,
         Permission::class => PermissionPolicy::class,
-        Agency::class => AgencyPolicy::class,
-        Package::class => PackagePolicy::class,
-        Lusion::class => LusionPolicy::class,
-        Schedule::class => SchedulePolicy::class,
-        Accommodation::class => AccommodationPolicy::class,
-        Booking::class => BookingPolicy::class,
-        Post::class => PostPolicy::class,
-        Insurance::class => InsurancePolicy::class,
-        ContactUs::class => ContactUsPolicy::class,
-        CustomPackage::class => CustomPackagePolicy::class,
+        PriceCombination::class => PriceCombinationPolicy::class,
+        PrintCriteria::class => PrintCriteriaPolicy::class,
+        Product::class => ProductPolicy::class,
+        UserProduct::class => UserProductPolicy::class,
+        ShippingMethod::class => ShippingMethodPolicy::class,
+        Status::class => StatusPolicy::class,
+        Order::class => OrderPolicy::class,
     ];
 
     /**

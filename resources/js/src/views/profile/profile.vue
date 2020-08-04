@@ -26,7 +26,7 @@
 
                     <vs-row class="mt-5 mb-5">
                         <vs-col vs-type="flex" vs-align="center" vs-justify="center">
-                            <vs-button :to="`/dashboard/employee/${employee.id}/edit`" color="warning" type="filled" icon-pack="feather" icon="icon-edit">Edit Information</vs-button>
+                            <vs-button :to="`/employee/${employee.id}/edit`" color="warning" type="filled" icon-pack="feather" icon="icon-edit">Edit Information</vs-button>
                         </vs-col>
                     </vs-row>
                 </vs-row>
@@ -57,7 +57,7 @@
         methods: {
             getEmployeeData() {
                 this.$vs.loading({container: this.$refs.view.$refs.content, scale: 0.5});
-                this.$store.dispatch('employee/view', this.$store.getters['auth/userData'].id)
+                this.$store.dispatch('user/view', this.$store.getters['auth/userData'].id)
                     .then(response => {
                         this.employee = response.data.data;
                         this.$vs.loading.close(this.$refs.view.$refs.content);

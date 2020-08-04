@@ -126,7 +126,7 @@ export default {
     VNavMenuGroup,
     VNavMenuItem,
     VuePerfectScrollbar,
-    Logo
+    Logo,
   },
   props: {
     logo:             { type: String },

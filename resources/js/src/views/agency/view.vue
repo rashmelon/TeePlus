@@ -50,7 +50,7 @@
 
                     <vs-row class="mt-5 mb-5">
                         <vs-col vs-type="flex" vs-align="center" vs-justify="center">
-                            <vs-button :to="`/dashboard/agency/${ag_id}/edit`" color="warning" type="filled" icon-pack="feather" icon="icon-edit">Edit Information</vs-button>
+                            <vs-button :to="`/agency/${ag_id}/edit`" color="warning" type="filled" icon-pack="feather" icon="icon-edit">Edit Information</vs-button>
                         </vs-col>
                     </vs-row>
                 </vs-row>

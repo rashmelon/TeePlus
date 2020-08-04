@@ -1,0 +1,134 @@
+<template>
+	<div>
+		<div class=" w-full mb-base" v-if="form">
+			<vx-card ref="edit"  title="Edit Shipping Method">
+
+				<div class="vx-row">
+					<div class="vx-col sm:w-1/2 w-full mb-3">
+
+						<vs-input
+							class="w-full"
+							label="Shipping Method"
+							v-model="form.city.name"
+							disabled
+						/>
+					</div>
+					<div class="vx-col sm:w-1/2 w-full mb-3">
+						<vs-input
+							class="w-full"
+							label="Shipping Method"
+							v-model="form.shipping_method.name"
+							disabled
+						/>
+					</div>
+					<div class="vx-col sm:w-1/2 w-full mb-3">
+						<vs-input
+							class="w-full"
+							label="Price"
+							type="number"
+							name="price"
+							v-model="form.price"
+							v-validate="'required|min_value:0'"
+						/>
+						<span class="text-danger text-sm" v-show="errors.has('price')">{{ errors.first('price') }}</span>
+					</div>
+					<div class="vx-col sm:w-1/2 w-full mb-3">
+						<vs-input
+							class="w-full"
+							label="Days"
+							type="number"
+							name="days"
+							v-model="form.days"
+							v-validate="'required|min_value:0'"
+						/>
+						<span class="text-danger text-sm" v-show="errors.has('days')">{{ errors.first('days') }}</span>
+					</div>
+				</div>
+
+
+				<div class="mt-4 ">
+					<vs-button
+						@click="edit"
+						class="mb-4 ml-auto"
+						color="primary"
+						icon="icon-save"
+						icon-pack="feather"
+						type="filled"
+					>Edit
+					</vs-button>
+				</div>
+			</vx-card>
+		</div>
+	</div>
+</template>
+
+<script>
+
+    export default {
+        name: "edit",
+        mounted() {
+            this.getShippingPrice();
+        },
+        data: function () {
+            return {
+                form: null,
+                is_requesting: false
+            }
+        },
+        props: {
+            payload: {
+                required: false,
+                default: ''
+            },
+        },
+        methods: {
+            getShippingPrice(){
+                this.$store.dispatch('shippingPrice/view', this.$route.params.id)
+                    .then(response => {
+                        this.form = response.data.data;
+
+                        console.log(this.form)
+                    })
+                    .catch(error => {
+                        this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'})
+                    })
+            },
+            edit(){
+                this.$validator.validateAll().then(result => {
+                    if (result) {
+						// if form have no errors
+                        this.is_requesting = true;
+
+                        let form_data = new FormData();
+
+                        for (let key in this.form) {
+                            form_data.append(key, this.form[key]);
+                        }
+
+                        this.$store.dispatch('shippingPrice/update', {id: this.$route.params.id,data:form_data})
+                            .then(response => {
+                                this.$vs.notify({title: 'Success', text: response.data.message, iconPack: 'feather', icon: 'icon-check', color: 'success'});
+                                this.$router.push({name: 'shipping-price'});
+                                this.is_requesting = false;
+
+                            })
+                            .catch(error => {console.log(error);this.$vs.notify({title: 'Error', text: error.response.data.errors[Object.keys(error.response.data.errors)[0]][0], iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});this.is_requesting = false;});
+
+                    }
+                })
+
+            }
+        }
+    }
+</script>
+
+<style>
+	.vs-input-number {
+		width: fit-content;
+	}
+
+	.attribute-actions {
+		align-items: baseline;
+		display: flex;
+	}
+</style>

@@ -18,7 +18,7 @@ export default {
                 commit("SET_BEARER", {accessToken: response.data.data.access_token});
 
                 // Navigate User to homepage
-                router.push(router.currentRoute.query.to || '/dashboard');
+                router.push(router.currentRoute.query.to || '/');
 
                 resolve(response)
             }else {
@@ -34,7 +34,7 @@ export default {
 
     logoutJWT({ commit }) {
         commit("LOGOUT");
-        router.push('/dashboard/login');
+        router.push('/login');
     },
 
     registerUserJWT({ commit }, payload) {
