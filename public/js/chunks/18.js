@@ -10,7 +10,12 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _filters_filters__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../filters/filters */ "./resources/js/src/filters/filters.js");
-//
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -113,10 +118,20 @@ __webpack_require__.r(__webpack_exports__);
     getOrder: function getOrder() {
       var _this = this;
 
+      this.$vs.loading();
       this.$store.dispatch('order/view', this.$route.params.id).then(function (response) {
-        _this.order = response.data.data; // get current order products
+        _this.order = response.data.data;
+        console.log(_this.order.order_products); // get current order products
+        // this.tempProducts = this.order.order_products
 
-        _this.tempProducts = _this.order.order_products;
+        for (var j = 0; j < _this.order.order_products.length; j++) {
+          for (var i = 0; i < _this.order.order_products[j].quantity; i++) {
+            // counter variable to make every object different
+            _this.tempProducts.push(_objectSpread({}, _this.order.order_products[j], {
+              loopIdentifier: "".concat(_this.order.order_products[j].id, "-").concat(i + 1)
+            }));
+          }
+        }
       }).catch(function (error) {
         console.log(error);
 
@@ -127,6 +142,8 @@ __webpack_require__.r(__webpack_exports__);
           icon: 'icon-alert-circle',
           color: 'danger'
         });
+      }).then(function () {
+        _this.$vs.loading.close();
       });
     }
   }
@@ -244,6 +261,14 @@ var render = function() {
                                     _c("vs-td", [
                                       _vm._v(
                                         "\n\t\t\t\t\t\t\t\t" +
+                                          _vm._s(item.loopIdentifier) +
+                                          "\n\t\t\t\t\t\t\t"
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("vs-td", [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t" +
                                           _vm._s(item.product.category.name) +
                                           "\n\t\t\t\t\t\t\t"
                                       )
@@ -273,14 +298,6 @@ var render = function() {
                                           _vm._s(item.product.name) +
                                           "\n\t\t\t\t\t\t\t"
                                       )
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("vs-td", [
-                                      _vm._v(
-                                        "\n\t\t\t\t\t\t\t\t" +
-                                          _vm._s(item.quantity) +
-                                          "\n\t\t\t\t\t\t\t"
-                                      )
                                     ])
                                   ],
                                   1
@@ -291,7 +308,7 @@ var render = function() {
                         ],
                         null,
                         false,
-                        220420413
+                        185203993
                       ),
                       model: {
                         value: _vm.returnProducts,
@@ -310,15 +327,15 @@ var render = function() {
                             _vm._v("Image")
                           ]),
                           _vm._v(" "),
+                          _c("vs-th", [_vm._v("Identifier")]),
+                          _vm._v(" "),
                           _c("vs-th", [_vm._v("Category")]),
                           _vm._v(" "),
                           _c("vs-th", [_vm._v("Design")]),
                           _vm._v(" "),
                           _c("vs-th", [_vm._v("Price Combination")]),
                           _vm._v(" "),
-                          _c("vs-th", [_vm._v("Product")]),
-                          _vm._v(" "),
-                          _c("vs-th", [_vm._v("Quantity")])
+                          _c("vs-th", [_vm._v("Product")])
                         ],
                         1
                       )
@@ -338,9 +355,9 @@ var render = function() {
                 "vs-button",
                 {
                   attrs: {
+                    disabled: !_vm.returnProducts.length,
                     color: "primary",
-                    type: "filled",
-                    disabled: !_vm.returnProducts.length
+                    type: "filled"
                   },
                   on: { click: _vm.returnProd }
                 },
