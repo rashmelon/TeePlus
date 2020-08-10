@@ -33,6 +33,8 @@ class ProductTransformer extends TransformerAbstract
      */
     public function transform(Product $product)
     {
+        $product->remainig = $product->quantity - $product->sold();
+
         return $product->toArray();
     }
 

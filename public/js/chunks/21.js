@@ -119,6 +119,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -572,6 +579,53 @@ var render = function() {
                               staticClass: "text-danger text-sm"
                             },
                             [_vm._v(_vm._s(_vm.errors.first("base price")))]
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "vx-col md:w-2/12 mb-3" },
+                        [
+                          _c("vs-input", {
+                            directives: [
+                              {
+                                name: "validate",
+                                rawName: "v-validate",
+                                value: "required|min_value:0",
+                                expression: "'required|min_value:0'"
+                              }
+                            ],
+                            staticClass: "w-full",
+                            attrs: {
+                              label: "Quantity",
+                              name: "quantity",
+                              type: "number"
+                            },
+                            model: {
+                              value: _vm.form.quantity,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "quantity", $$v)
+                              },
+                              expression: "form.quantity"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "span",
+                            {
+                              directives: [
+                                {
+                                  name: "show",
+                                  rawName: "v-show",
+                                  value: _vm.errors.has("quantity"),
+                                  expression: "errors.has('quantity')"
+                                }
+                              ],
+                              staticClass: "text-danger text-sm"
+                            },
+                            [_vm._v(_vm._s(_vm.errors.first("quantity")))]
                           )
                         ],
                         1

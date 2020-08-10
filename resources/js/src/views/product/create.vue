@@ -49,6 +49,13 @@
 									<span class="text-danger text-sm" v-show="errors.has('base price')">{{ errors.first('base price') }}</span>
 
 								</div>
+								<div class="vx-col md:w-2/12 mb-3">
+									<vs-input class="w-full" label="Quantity" name="quantity" type="number"
+									          v-model="form.quantity"
+									          v-validate="'required|min_value:0'"/>
+									<span class="text-danger text-sm" v-show="errors.has('quantity')">{{ errors.first('quantity') }}</span>
+
+								</div>
 								<div class="vx-col md:w-6/6 w-full mt-3">
 									<vs-textarea label="Description" v-model="form.description"/>
 								</div>

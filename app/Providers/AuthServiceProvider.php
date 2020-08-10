@@ -7,6 +7,7 @@ use App\Policies\OrderPolicy;
 use App\Policies\PriceCombinationPolicy;
 use App\Policies\PrintCriteriaPolicy;
 use App\Policies\ProductPolicy;
+use App\Policies\RestoredItemPolicy;
 use App\Policies\ShippingMethodPolicy;
 use App\Policies\StatusPolicy;
 use App\Policies\UserPolicy;
@@ -16,6 +17,7 @@ use App\Policies\UserProductPolicy;
 use App\PriceCombination;
 use App\PrintCriteria;
 use App\Product;
+use App\RestoredItem;
 use App\ShippingMethod;
 use App\Status;
 use App\User;
@@ -44,6 +46,7 @@ class AuthServiceProvider extends ServiceProvider
         ShippingMethod::class => ShippingMethodPolicy::class,
         Status::class => StatusPolicy::class,
         Order::class => OrderPolicy::class,
+        RestoredItem::class => RestoredItemPolicy::class,
     ];
 
     /**

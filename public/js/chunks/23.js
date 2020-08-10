@@ -218,14 +218,17 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "vx-col w-12/12 w-full  mb-3" }, [
-                  _vm.form.category_id ? _c("h5") : _vm._e()
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "vx-col w-12/12 w-full  mb-3" }, [
+                  _vm._v("\n\t\t\t\t\t\tBase Price: "),
                   _c("h5", [_vm._v(_vm._s(this.form.base_price))])
                 ]),
                 _vm._v(" "),
+                _c("div", { staticClass: "vx-col w-12/12 w-full  mb-3" }, [
+                  _vm._v("\n\t\t\t\t\t\tQuantity: "),
+                  _c("h5", [_vm._v(_vm._s(this.form.quantity))])
+                ]),
+                _vm._v(" "),
                 _c("div", { staticClass: "vx-col w-6/6 w-full mt-3" }, [
+                  _vm._v("\n\t\t\t\t\t\tDescription: "),
                   _c("h5", [_vm._v(_vm._s(this.form.description))])
                 ])
               ]),

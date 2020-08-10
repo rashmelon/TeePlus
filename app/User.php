@@ -47,6 +47,11 @@ class User extends Authenticatable
         return $this->morphOne(Media::class, 'mediable')->where('relation', 'image');
     }
 
+    public function restoredItems()
+    {
+        return $this->hasMany(RestoredItem::class);
+    }
+
     public function scopeEmployees($query)
     {
         return $query->whereHas('roles', function ($query) {

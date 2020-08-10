@@ -29,6 +29,7 @@
                     <vs-th>Name</vs-th>
                     <vs-th>Description</vs-th>
                     <vs-th>Base price</vs-th>
+                    <vs-th>Quantity</vs-th>
                     <vs-th>Created At</vs-th>
                     <vs-th>Action</vs-th>
                 </template>
@@ -56,6 +57,10 @@
 
                         <vs-td :data="product.base_price">
                             {{ product.base_price}}
+                        </vs-td>
+
+                        <vs-td :data="product.quantity">
+                            {{ product.quantity}}
                         </vs-td>
 
                         <vs-td :data="product.created_at">

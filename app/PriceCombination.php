@@ -28,6 +28,11 @@ class PriceCombination extends Model
         return $this->hasMany(OrderProduct::class);
     }
 
+    public function restoredItems()
+    {
+        return $this->hasMany(RestoredItem::class);
+    }
+
     public function scopeProduct(Builder $query, $value)
     {
         return $query->whereHas('products', function ($query) use ($value){

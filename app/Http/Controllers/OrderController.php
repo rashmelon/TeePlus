@@ -10,12 +10,14 @@ use App\OrderProduct;
 use App\PaymentType;
 use App\PriceCombination;
 use App\Product;
+use App\RestoredItem;
 use App\ShippingPrice;
 use App\Status;
 use App\Transformers\OrderTransformer;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -55,6 +57,8 @@ class OrderController extends Controller
 
         $data = $request->validated();
 
+        DB::beginTransaction();
+
         $order = Order::create($data);
 
         $data['internal_tracking'] = str_slug($request->user()->name).'-'.$order->id;
@@ -69,11 +73,31 @@ class OrderController extends Controller
             $order_product = OrderProduct::create([
                 'quantity' => $data->quantity,
             ]);
-            Product::find($data->product_id)->orderProducts()->save($order_product);
+            $product = Product::find($data->product_id);
+            if (isset($data->id)){
+                $product->fill([
+                    'quantity' => $product->quantity+1
+                ]);
+                $product->save();
+                RestoredItem::find($data->id)->delete();
+            }
+
+            if ($product->quantity - $product->sold() < $data->quantity){
+                DB::rollBack();
+
+                return ApiResponse::setMessage('The given data was invalid.')->setErrors([
+                    "product" => [
+                        "the amount chosen for product '$product->name' is greater than our stock"
+                    ]
+                ])->setStatusCode(422)->execute();
+            }
+            $product->orderProducts()->save($order_product);
             PriceCombination::find($data->price_combination_id)->orderProducts()->save($order_product);
             Design::find($data->design_id)->orderProducts()->save($order_product);
             $order->orderProducts()->save($order_product);
         }
+
+        DB::commit();
 
         $order->load('status', 'paymentType', 'shippingPrice');
 
