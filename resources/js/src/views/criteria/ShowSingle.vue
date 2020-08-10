@@ -16,6 +16,7 @@
 
 						<vs-td>
 							<vs-input
+								label-placeholder="Criteria"
 								class="w-full"
 								v-model="criteria.criteria"
 							/>
@@ -24,6 +25,7 @@
 
 						<vs-td>
 							<vs-input
+								label-placeholder="Price"
 								class="w-full"
 								v-model="criteria.price"
 								type="number"

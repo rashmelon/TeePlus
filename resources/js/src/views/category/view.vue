@@ -105,7 +105,7 @@
         },
         methods: {
             getCategory(){
-                // this.$vs.loading({container: this.$refs.loadingContainer.$el, scale: 0.5});
+                this.$vs.loading();
                 this.$store.dispatch('category/view', this.$route.params.id)
                   .then(response => {
                       this.form = response.data.data;
@@ -128,7 +128,9 @@
                           icon: 'icon-alert-circle',
                           color: 'danger'
                       });
-                  })
+                  }).then(()=>{
+                    this.$vs.loading.close()
+                })
 
             },
             getCombinations(){

@@ -239,6 +239,7 @@
           if (result) {
             // if form have no errors
             this.is_requesting = true;
+             this.$vs.loading();
 
             let form_data = new FormData();
 
@@ -263,16 +264,19 @@
 
               })
               .catch(error => {
-                console.log(error);
-                this.$vs.notify({
-                  title: 'Error',
-                  text: error.response.data.errors[Object.keys(error.response.data.errors)[0]][0],
-                  iconPack: 'feather',
-                  icon: 'icon-alert-circle',
-                  color: 'danger'
-                });
+                  for (const [key, value] of Object.entries(error.response.data.errors)){
+                      this.$vs.notify({
+                          title: key,
+                          text: value[0],
+                          iconPack: 'feather',
+                          icon: 'icon-alert-circle',
+                          color: 'danger'
+                      });
+                  }
                 this.is_requesting = false;
-              });
+              }).then(()=>{
+                this.$vs.loading.close()
+            })
           } else {
             this.$vs.notify({
               title: 'Error',

@@ -117,7 +117,7 @@ __webpack_require__.r(__webpack_exports__);
     getCategory: function getCategory() {
       var _this = this;
 
-      // this.$vs.loading({container: this.$refs.loadingContainer.$el, scale: 0.5});
+      this.$vs.loading();
       this.$store.dispatch('category/view', this.$route.params.id).then(function (response) {
         _this.form = response.data.data; // preview used image
 
@@ -138,6 +138,8 @@ __webpack_require__.r(__webpack_exports__);
           icon: 'icon-alert-circle',
           color: 'danger'
         });
+      }).then(function () {
+        _this.$vs.loading.close();
       });
     },
     getCombinations: function getCombinations() {

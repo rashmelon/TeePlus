@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class=" w-full mb-base text-center">
+		<div class=" w-full mb-base ">
 			<div ref="edit" title="Edit Product">
 
 				<vx-card>
@@ -24,10 +24,35 @@
 						</div>
 					</div>
 
-					<h2 class="mt-5 mb-2">Combinations</h2>
-					<h5 v-for="item in form.priceCombinations">{{item.combination}}</h5>
-
 				</vx-card>
+				
+				<div>
+					<vx-card class="my-5" collapse-action title="Product Combinations">
+						<vs-table
+							:data="form.priceCombinations"
+						>
+							<template slot="thead">
+								<vs-th>Combination</vs-th>
+								<vs-th>Price</vs-th>
+							</template>
+							
+							<template slot-scope="{data}">
+								<vs-tr :key="index" v-for="(item, index) in data">
+									
+									<vs-td>
+										{{item.combination}}
+									</vs-td>
+									
+									
+									<vs-td>
+										{{item.price}}
+									</vs-td>
+								</vs-tr>
+							</template>
+						</vs-table>
+					
+					</vx-card>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -58,8 +83,6 @@
             getCategory(id) {
                 this.$store.dispatch('category/view', id)
                     .then(response => {
-
-
                         this.$set(this.form, 'category', response.data.data.name)
                     })
                     .catch(error => {
@@ -74,6 +97,8 @@
             },
 
             getProduct() {
+                this.$vs.loading();
+
                 this.$store.dispatch('product/view', this.$route.params.id)
                     .then(response => {
                         this.form = response.data.data;
@@ -100,7 +125,9 @@
                             icon: 'icon-alert-circle',
                             color: 'danger'
                         });
-                    })
+                    }).then(()=>{
+                    this.$vs.loading.close()
+                })
 
             },
         }

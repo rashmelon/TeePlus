@@ -38,7 +38,20 @@
                                     }}</span>
 
                         </div>
+    
+                        <div class="vx-col md:w-1/1 w-full mt-3">
+    
+                            <vs-button
+                                @click="edit"
+                                color="primary"
+                                type="filled"
+                                size="small"
+                                icon-pack="feather"
+                                icon="icon-save">Update category</vs-button>
+                        
+                        </div>
                     </div>
+    
                 </vx-card>
 
                 <ShowCombinations :catId="$route.params.id"/>
@@ -109,6 +122,7 @@
             },
 
             getCategory(){
+                this.$vs.loading();
                 // this.$vs.loading({container: this.$refs.loadingContainer.$el, scale: 0.5});
                 this.$store.dispatch('category/view', this.$route.params.id)
                   .then(response => {
@@ -128,7 +142,9 @@
                           icon: 'icon-alert-circle',
                           color: 'danger'
                       });
-                  })
+                  }).then(()=>{
+                    this.$vs.loading.close()
+                })
 
             },
 
@@ -137,6 +153,8 @@
                     if (result) {
                         // if form have no errors
                         this.is_requesting = true;
+                        this.$vs.loading();
+
                         let form_data = new FormData();
 
                         for (let key in this.form) {
@@ -164,14 +182,18 @@
 
                           })
                           .catch(error => {
-                              this.$vs.notify({
-                                  title: 'Error',
-                                  text: error.response.data.error,
-                                  iconPack: 'feather',
-                                  icon: 'icon-alert-circle',
-                                  color: 'danger'
-                              });
-                          });
+                              for (const [key, value] of Object.entries(error.response.data.errors)){
+                                  this.$vs.notify({
+                                      title: key,
+                                      text: value[0],
+                                      iconPack: 'feather',
+                                      icon: 'icon-alert-circle',
+                                      color: 'danger'
+                                  });
+                              }
+                          }).then(()=>{
+                            this.$vs.loading.close()
+                        })
                     } else {
                         this.$vs.notify({
                             title: 'Error',

@@ -92,6 +92,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CreateCombination",
   props: ['catId'],
@@ -178,6 +180,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Create__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Create */ "./resources/js/src/views/combination/Create.vue");
+//
+//
 //
 //
 //
@@ -464,6 +468,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CreatePrintCriteria",
   props: ['catId'],
@@ -550,6 +556,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Create__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Create */ "./resources/js/src/views/criteria/Create.vue");
+//
+//
 //
 //
 //
@@ -819,7 +827,10 @@ var render = function() {
                           }
                         ],
                         staticClass: "w-full",
-                        attrs: { name: "combination-" + index },
+                        attrs: {
+                          "label-placeholder": "Combination",
+                          name: "combination-" + index
+                        },
                         model: {
                           value: attr.combination,
                           callback: function($$v) {
@@ -866,7 +877,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "w-full",
-                        attrs: { name: "price-" + index, type: "number" },
+                        attrs: {
+                          "label-placeholder": "Price",
+                          name: "price-" + index,
+                          type: "number"
+                        },
                         model: {
                           value: attr.price,
                           callback: function($$v) {
@@ -1006,6 +1021,7 @@ var render = function() {
                             [
                               _c("vs-input", {
                                 staticClass: "w-full",
+                                attrs: { "label-placeholder": "Combination" },
                                 model: {
                                   value: combination.combination,
                                   callback: function($$v) {
@@ -1023,7 +1039,10 @@ var render = function() {
                             [
                               _c("vs-input", {
                                 staticClass: "w-full",
-                                attrs: { type: "number" },
+                                attrs: {
+                                  "label-placeholder": "Price",
+                                  type: "number"
+                                },
                                 model: {
                                   value: combination.price,
                                   callback: function($$v) {
@@ -1221,7 +1240,10 @@ var render = function() {
                           }
                         ],
                         staticClass: "w-full",
-                        attrs: { name: "criteria-" + index },
+                        attrs: {
+                          "label-placeholder": "Criteria",
+                          name: "criteria-" + index
+                        },
                         model: {
                           value: attr.criteria,
                           callback: function($$v) {
@@ -1264,7 +1286,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "w-full",
-                        attrs: { name: "price-" + index, type: "number" },
+                        attrs: {
+                          "label-placeholder": "Price",
+                          name: "price-" + index,
+                          type: "number"
+                        },
                         model: {
                           value: attr.price,
                           callback: function($$v) {
@@ -1404,6 +1430,7 @@ var render = function() {
                             [
                               _c("vs-input", {
                                 staticClass: "w-full",
+                                attrs: { "label-placeholder": "Criteria" },
                                 model: {
                                   value: criteria.criteria,
                                   callback: function($$v) {
@@ -1421,7 +1448,10 @@ var render = function() {
                             [
                               _c("vs-input", {
                                 staticClass: "w-full",
-                                attrs: { type: "number" },
+                                attrs: {
+                                  "label-placeholder": "Price",
+                                  type: "number"
+                                },
                                 model: {
                                   value: criteria.price,
                                   callback: function($$v) {

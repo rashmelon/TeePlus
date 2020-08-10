@@ -11,6 +11,27 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _combination_ShowSingle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../combination/ShowSingle */ "./resources/js/src/views/combination/ShowSingle.vue");
 /* harmony import */ var _criteria_ShowSingle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../criteria/ShowSingle */ "./resources/js/src/views/criteria/ShowSingle.vue");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -124,7 +145,8 @@ __webpack_require__.r(__webpack_exports__);
     getCategory: function getCategory() {
       var _this2 = this;
 
-      // this.$vs.loading({container: this.$refs.loadingContainer.$el, scale: 0.5});
+      this.$vs.loading(); // this.$vs.loading({container: this.$refs.loadingContainer.$el, scale: 0.5});
+
       this.$store.dispatch('category/view', this.$route.params.id).then(function (response) {
         _this2.form = response.data.data; // preview used image
 
@@ -141,6 +163,8 @@ __webpack_require__.r(__webpack_exports__);
           icon: 'icon-alert-circle',
           color: 'danger'
         });
+      }).then(function () {
+        _this2.$vs.loading.close();
       });
     },
     edit: function edit() {
@@ -150,6 +174,9 @@ __webpack_require__.r(__webpack_exports__);
         if (result) {
           // if form have no errors
           _this3.is_requesting = true;
+
+          _this3.$vs.loading();
+
           var form_data = new FormData();
 
           for (var key in _this3.form) {
@@ -180,13 +207,21 @@ __webpack_require__.r(__webpack_exports__);
               name: 'category'
             });
           }).catch(function (error) {
-            _this3.$vs.notify({
-              title: 'Error',
-              text: error.response.data.error,
-              iconPack: 'feather',
-              icon: 'icon-alert-circle',
-              color: 'danger'
-            });
+            for (var _i = 0, _Object$entries = Object.entries(error.response.data.errors); _i < _Object$entries.length; _i++) {
+              var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+                  _key = _Object$entries$_i[0],
+                  value = _Object$entries$_i[1];
+
+              _this3.$vs.notify({
+                title: _key,
+                text: value[0],
+                iconPack: 'feather',
+                icon: 'icon-alert-circle',
+                color: 'danger'
+              });
+            }
+          }).then(function () {
+            _this3.$vs.loading.close();
           });
         } else {
           _this3.$vs.notify({
@@ -417,6 +452,28 @@ var render = function() {
                             staticClass: "text-danger text-sm"
                           },
                           [_vm._v(_vm._s(_vm.errors.first("description")))]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "vx-col md:w-1/1 w-full mt-3" },
+                      [
+                        _c(
+                          "vs-button",
+                          {
+                            attrs: {
+                              color: "primary",
+                              type: "filled",
+                              size: "small",
+                              "icon-pack": "feather",
+                              icon: "icon-save"
+                            },
+                            on: { click: _vm.edit }
+                          },
+                          [_vm._v("Update category")]
                         )
                       ],
                       1

@@ -9,7 +9,7 @@ export default {
       return new Promise((resolve, reject) => {
         jwt.login(payload.userDetails.email, payload.userDetails.password)
           .then(response => {
-            // If there's user data in response
+              // If there's user data in response
             if(response.data.data.user) {
                 // Update user details
                 commit('UPDATE_USER_INFO', {userInfo: response.data.data.user.data});

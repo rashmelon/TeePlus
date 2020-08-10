@@ -12,10 +12,19 @@
 										<img :src="uploadedImage?uploadedImage:'/images/no-image-found.png'" alt="photo" class="preview-large">
 									</div>
 									<div class="d-block mt-3">
-										<input @change="previewImage" accept="image/*" id="img-upload" type="file">
-										<vs-button icon="icon-upload" icon-pack="feather" onclick="document.getElementById('img-upload').click()" size="small"
-										           type="gradient">Upload Photo
+										<input @change="previewImage" accept="image/*" id="img-upload" type="file"
+										       name="Image"
+										       v-validate="'required'">
+										<vs-button
+											icon="icon-upload"
+											icon-pack="feather"
+											onclick="document.getElementById('img-upload').click()"
+											size="small"
+											type="gradient"
+										>Upload Photo
 										</vs-button>
+										<span class="text-danger text-sm" v-show="errors.has('Image')">{{ errors.first('Image') }}</span>
+									
 									</div>
 								</div>
 								<div class="vx-col md:w-4/12">
@@ -33,7 +42,7 @@
 									<span class="text-danger text-sm" v-show="errors.has('category')">{{ errors.first('category') }}</span>
 
 								</div>
-								<div class="vx-col md:w-6/12 mb-3">
+								<div class="vx-col md:w-5/12 mb-3">
 									<vs-input
 										class="w-full"
 										label="Product Name"
@@ -42,15 +51,26 @@
 										v-validate="'required'"/>
 									<span class="text-danger text-sm" v-show="errors.has('name')">{{ errors.first('name') }}</span>
 								</div>
-								<div class="vx-col md:w-2/12 mb-3">
-									<vs-input class="w-full" label="Product Base Price" name="base price" type="number"
-									          v-model="form.base_price"
-									          v-validate="'required|min_value:0'"/>
+								<div class="vx-col md:w-3/12 mb-3">
+									<vs-input
+										class="w-full"
+										label="Product Base Price"
+										name="base price"
+										type="number"
+										v-model="form.base_price"
+										min="0"
+										v-validate="'required|min_value:0'"/>
 									<span class="text-danger text-sm" v-show="errors.has('base price')">{{ errors.first('base price') }}</span>
 
 								</div>
 								<div class="vx-col md:w-6/6 w-full mt-3">
-									<vs-textarea label="Description" v-model="form.description"/>
+									<vs-textarea
+										name="Description"
+										v-validate="'required'"
+										label="Description"
+										v-model="form.description"/>
+									<span class="text-danger text-sm" v-show="errors.has('Description')">{{ errors.first('Description') }}</span>
+								
 								</div>
 							</div>
 						</vx-card>
@@ -145,6 +165,9 @@
             create() {
                 this.$validator.validateAll().then(result => {
                     if (result) {
+                        this.$vs.loading();
+
+
                         // if form have no errors
                         this.is_requesting = true;
 
@@ -180,15 +203,19 @@
                             })
                             .catch(error => {
                                 console.log(error);
-                                this.$vs.notify({
-                                    title: 'Error',
-                                    text: error.response.data,
-                                    iconPack: 'feather',
-                                    icon: 'icon-alert-circle',
-                                    color: 'danger'
-                                });
+                                for (const [key, value] of Object.entries(error.response.data.errors)){
+                                    this.$vs.notify({
+                                        title: key,
+                                        text: value[0],
+                                        iconPack: 'feather',
+                                        icon: 'icon-alert-circle',
+                                        color: 'danger'
+                                    });
+                                }
                                 this.is_requesting = false;
-                            });
+                            }).then(()=>{
+                            this.$vs.loading.close()
+                        })
                     } else {
                         this.$vs.notify({
                             title: 'Error',
