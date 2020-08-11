@@ -85,14 +85,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -405,14 +397,6 @@ var render = function() {
                                               _vm._s(criteria.criteria) +
                                               "\n                                "
                                           )
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("vs-td", [
-                                          _vm._v(
-                                            "\n                                    " +
-                                              _vm._s(criteria.price) +
-                                              "\n                                "
-                                          )
                                         ])
                                       ],
                                       1
@@ -423,18 +407,14 @@ var render = function() {
                             ],
                             null,
                             false,
-                            1558127240
+                            1663616730
                           )
                         },
                         [
                           _c(
                             "template",
                             { slot: "thead" },
-                            [
-                              _c("vs-th", [_vm._v("Criteria")]),
-                              _vm._v(" "),
-                              _c("vs-th", [_vm._v("Price")])
-                            ],
+                            [_c("vs-th", [_vm._v("Criteria")])],
                             1
                           )
                         ],

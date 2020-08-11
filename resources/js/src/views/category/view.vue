@@ -55,21 +55,13 @@
 
                             <template slot="thead">
                                 <vs-th>Criteria</vs-th>
-                                <vs-th>Price</vs-th>
                             </template>
 
                             <template slot-scope="{data}">
                                 <vs-tr :key="index" v-for="(criteria, index) in data">
-
                                     <vs-td>
                                         {{criteria.criteria}}
                                     </vs-td>
-
-
-                                    <vs-td>
-                                        {{criteria.price}}
-                                    </vs-td>
-
                                 </vs-tr>
                             </template>
                         </vs-table>

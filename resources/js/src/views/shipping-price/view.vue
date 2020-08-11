@@ -1,41 +1,24 @@
 <template>
 	<div>
 		<div class=" w-full mb-base" v-if="form">
-			<vx-card ref="edit"  title="Edit Shipping Method">
+			<vx-card ref="edit"  title="View Shipping Method">
 
 				<div class="vx-row">
 					<div class="vx-col sm:w-1/2 w-full mb-3">
-
-						<vs-input
-							class="w-full"
-							label="Shipping Method"
-							v-model="form.city.name"
-							disabled
-						/>
+						<h5 class="bold">City</h5>
+						<p>{{form.city.name}}</p>
 					</div>
 					<div class="vx-col sm:w-1/2 w-full mb-3">
-						<vs-input
-							class="w-full"
-							label="Shipping Method"
-							v-model="form.shipping_method.name"
-							disabled
-						/>
+						<h5 class="bold">Shipping Method</h5>
+						<p>{{form.shipping_method.name}}</p>
 					</div>
 					<div class="vx-col sm:w-1/2 w-full mb-3">
-						<vs-input
-							class="w-full"
-							label="Price"
-							v-model="form.price"
-							disabled
-						/>
+						<h5 class="bold">Price</h5>
+						<p>{{form.price}}</p>
 					</div>
 					<div class="vx-col sm:w-1/2 w-full mb-3">
-						<vs-input
-							class="w-full"
-							label="Days"
-							v-model="form.days"
-							disabled
-						/>
+						<h5 class="bold">Days</h5>
+						<p>{{form.days}}</p>
 					</div>
 				</div>
 

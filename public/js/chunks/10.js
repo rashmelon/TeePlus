@@ -185,17 +185,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -837,7 +826,7 @@ var render = function() {
                                           "div",
                                           {
                                             staticClass:
-                                              "vx-col md:w-8/12 w-full mb-3"
+                                              "vx-col md:w-10/12 w-full mb-3"
                                           },
                                           [
                                             _c("vs-input", {
@@ -889,74 +878,6 @@ var render = function() {
                                                   _vm._s(
                                                     _vm.errors.first(
                                                       "criteria-" + index
-                                                    )
-                                                  )
-                                                )
-                                              ]
-                                            )
-                                          ],
-                                          1
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "vx-col md:w-2/12 w-full mb-3"
-                                          },
-                                          [
-                                            _c("vs-input", {
-                                              directives: [
-                                                {
-                                                  name: "validate",
-                                                  rawName: "v-validate",
-                                                  value: "required|min_value:0",
-                                                  expression:
-                                                    "'required|min_value:0'"
-                                                }
-                                              ],
-                                              staticClass: "w-full",
-                                              attrs: {
-                                                name: "criteria-price-" + index,
-                                                label: "Price",
-                                                type: "number",
-                                                W: ""
-                                              },
-                                              model: {
-                                                value: criteria.price,
-                                                callback: function($$v) {
-                                                  _vm.$set(
-                                                    criteria,
-                                                    "price",
-                                                    $$v
-                                                  )
-                                                },
-                                                expression: "criteria.price"
-                                              }
-                                            }),
-                                            _vm._v(" "),
-                                            _c(
-                                              "span",
-                                              {
-                                                directives: [
-                                                  {
-                                                    name: "show",
-                                                    rawName: "v-show",
-                                                    value: _vm.errors.has(
-                                                      "criteria-price-" + index
-                                                    ),
-                                                    expression:
-                                                      "errors.has('criteria-price-'+index)"
-                                                  }
-                                                ],
-                                                staticClass:
-                                                  "text-danger text-sm"
-                                              },
-                                              [
-                                                _vm._v(
-                                                  _vm._s(
-                                                    _vm.errors.first(
-                                                      "criteria-price-" + index
                                                     )
                                                   )
                                                 )

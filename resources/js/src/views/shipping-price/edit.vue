@@ -93,10 +93,13 @@
                         this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'})
                     })
             },
+	        
             edit(){
                 this.$validator.validateAll().then(result => {
                     if (result) {
-						// if form have no errors
+                        this.$vs.loading();
+
+                        // if form have no errors
                         this.is_requesting = true;
 
                         let form_data = new FormData();
@@ -112,8 +115,29 @@
                                 this.is_requesting = false;
 
                             })
-                            .catch(error => {console.log(error);this.$vs.notify({title: 'Error', text: error.response.data.errors[Object.keys(error.response.data.errors)[0]][0], iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});this.is_requesting = false;});
-
+                            .catch(error => {
+                                for (const [key, value] of Object.entries(error.response.data.errors)){
+                                    this.$vs.notify({
+                                        title: key,
+                                        text: value[0],
+                                        iconPack: 'feather',
+                                        icon: 'icon-alert-circle',
+                                        color: 'danger'
+                                    });
+                                }
+                            })
+                            .then(()=>{
+                                this.$vs.loading.close()
+                            })
+							
+                    } else {
+                        this.$vs.notify({
+                            title: 'Error',
+                            text: 'Fix form validation errors',
+                            iconPack: 'feather',
+                            icon: 'icon-alert-circle',
+                            color: 'danger'
+                        });
                     }
                 })
 

@@ -9,6 +9,14 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 //
 //
 //
@@ -85,8 +93,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "create",
   mounted: function mounted() {
-    this.getCities();
-    this.getShippingMethod();
+    var _this = this;
+
+    alert('loading');
+    this.$vs.loading();
+    Promise.all([this.getCities(), this.getShippingMethod()]).then(function () {
+      _this.$vs.loading.close();
+    });
   },
   data: function data() {
     return {
@@ -104,50 +117,64 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getCities: function getCities() {
-      var _this = this;
+      var _this2 = this;
 
       this.$store.dispatch('city/getData', this.payload).then(function (response) {
-        _this.cities = response.data.data;
+        _this2.cities = response.data.data;
       }).catch(function (error) {
-        _this.$vs.notify({
-          title: 'Error',
-          text: error.response.data.error,
-          iconPack: 'feather',
-          icon: 'icon-alert-circle',
-          color: 'danger'
-        });
+        for (var _i = 0, _Object$entries = Object.entries(error.response.data.errors); _i < _Object$entries.length; _i++) {
+          var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+              key = _Object$entries$_i[0],
+              value = _Object$entries$_i[1];
+
+          _this2.$vs.notify({
+            title: key,
+            text: value[0],
+            iconPack: 'feather',
+            icon: 'icon-alert-circle',
+            color: 'danger'
+          });
+        }
       });
     },
     getShippingMethod: function getShippingMethod() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.$store.dispatch('shipping/getData', this.payload).then(function (response) {
-        _this2.shipping = response.data.data;
+        _this3.shipping = response.data.data;
       }).catch(function (error) {
-        _this2.$vs.notify({
-          title: 'Error',
-          text: error.response.data.error,
-          iconPack: 'feather',
-          icon: 'icon-alert-circle',
-          color: 'danger'
-        });
+        for (var _i2 = 0, _Object$entries2 = Object.entries(error.response.data.errors); _i2 < _Object$entries2.length; _i2++) {
+          var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2),
+              key = _Object$entries2$_i[0],
+              value = _Object$entries2$_i[1];
+
+          _this3.$vs.notify({
+            title: key,
+            text: value[0],
+            iconPack: 'feather',
+            icon: 'icon-alert-circle',
+            color: 'danger'
+          });
+        }
       });
     },
     create: function create() {
-      var _this3 = this;
+      var _this4 = this;
 
       this.$validator.validateAll().then(function (result) {
         if (result) {
-          // if form have no errors
-          _this3.is_requesting = true;
+          _this4.$vs.loading(); // if form have no errors
+
+
+          _this4.is_requesting = true;
           var form_data = new FormData();
 
-          for (var key in _this3.form) {
-            form_data.append(key, _this3.form[key]);
+          for (var key in _this4.form) {
+            form_data.append(key, _this4.form[key]);
           }
 
-          _this3.$store.dispatch('shippingPrice/create', form_data).then(function (response) {
-            _this3.$vs.notify({
+          _this4.$store.dispatch('shippingPrice/create', form_data).then(function (response) {
+            _this4.$vs.notify({
               title: 'Success',
               text: response.data.message,
               iconPack: 'feather',
@@ -155,23 +182,35 @@ __webpack_require__.r(__webpack_exports__);
               color: 'success'
             });
 
-            _this3.$router.push({
+            _this4.$router.push({
               name: 'shipping-price'
             });
 
-            _this3.is_requesting = false;
+            _this4.is_requesting = false;
           }).catch(function (error) {
-            console.log(error);
+            for (var _i3 = 0, _Object$entries3 = Object.entries(error.response.data.errors); _i3 < _Object$entries3.length; _i3++) {
+              var _Object$entries3$_i = _slicedToArray(_Object$entries3[_i3], 2),
+                  _key = _Object$entries3$_i[0],
+                  value = _Object$entries3$_i[1];
 
-            _this3.$vs.notify({
-              title: 'Error',
-              text: error.response.data.errors[Object.keys(error.response.data.errors)[0]][0],
-              iconPack: 'feather',
-              icon: 'icon-alert-circle',
-              color: 'danger'
-            });
-
-            _this3.is_requesting = false;
+              _this4.$vs.notify({
+                title: _key,
+                text: value[0],
+                iconPack: 'feather',
+                icon: 'icon-alert-circle',
+                color: 'danger'
+              });
+            }
+          }).then(function () {
+            _this4.$vs.loading.close();
+          });
+        } else {
+          _this4.$vs.notify({
+            title: 'Error',
+            text: 'Fix form validation errors',
+            iconPack: 'feather',
+            icon: 'icon-alert-circle',
+            color: 'danger'
           });
         }
       });

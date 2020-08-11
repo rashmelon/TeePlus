@@ -63,6 +63,7 @@ __webpack_require__.r(__webpack_exports__);
     getStatus: function getStatus() {
       var _this = this;
 
+      this.$vs.loading();
       this.$store.dispatch('status/view', this.$route.params.id).then(function (response) {
         _this.form = response.data.data;
       }).catch(function (error) {
@@ -75,6 +76,8 @@ __webpack_require__.r(__webpack_exports__);
           icon: 'icon-alert-circle',
           color: 'danger'
         });
+      }).then(function () {
+        _this.$vs.loading.close();
       });
     },
     create: function create() {
@@ -82,7 +85,9 @@ __webpack_require__.r(__webpack_exports__);
 
       this.$validator.validateAll().then(function (result) {
         if (result) {
-          // if form have no errors
+          _this2.$vs.loading(); // if form have no errors
+
+
           _this2.is_requesting = true;
           var form_data = new FormData();
 
@@ -117,6 +122,8 @@ __webpack_require__.r(__webpack_exports__);
             });
 
             _this2.is_requesting = false;
+          }).then(function () {
+            _this2.$vs.loading.close();
           });
         }
       });
@@ -195,7 +202,7 @@ var render = function() {
       "div",
       { staticClass: " w-full mb-base" },
       [
-        _c("vx-card", { ref: "edit", attrs: { title: "Create Status" } }, [
+        _c("vx-card", { ref: "edit", attrs: { title: "Edit Status" } }, [
           _c(
             "div",
             { staticClass: "vx-col sm:w-2/2 w-full mb-3" },

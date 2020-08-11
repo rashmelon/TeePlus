@@ -7,7 +7,6 @@
 
 				<template slot="thead">
 					<vs-th>Criteria</vs-th>
-					<vs-th>Price</vs-th>
 					<vs-th>Action</vs-th>
 				</template>
 
@@ -22,15 +21,6 @@
 							/>
 						</vs-td>
 
-
-						<vs-td>
-							<vs-input
-								label-placeholder="Price"
-								class="w-full"
-								v-model="criteria.price"
-								type="number"
-							/>
-						</vs-td>
 
 						<vs-td>
 							<vs-row>

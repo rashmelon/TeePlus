@@ -610,16 +610,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ShowSingle",
@@ -1446,27 +1436,6 @@ var render = function() {
                           _c(
                             "vs-td",
                             [
-                              _c("vs-input", {
-                                staticClass: "w-full",
-                                attrs: {
-                                  "label-placeholder": "Price",
-                                  type: "number"
-                                },
-                                model: {
-                                  value: criteria.price,
-                                  callback: function($$v) {
-                                    _vm.$set(criteria, "price", $$v)
-                                  },
-                                  expression: "criteria.price"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "vs-td",
-                            [
                               _c("vs-row", [
                                 _c("div", { staticClass: "flex mb-4" }, [
                                   _c(
@@ -1547,8 +1516,6 @@ var render = function() {
                 { slot: "thead" },
                 [
                   _c("vs-th", [_vm._v("Criteria")]),
-                  _vm._v(" "),
-                  _c("vs-th", [_vm._v("Price")]),
                   _vm._v(" "),
                   _c("vs-th", [_vm._v("Action")])
                 ],

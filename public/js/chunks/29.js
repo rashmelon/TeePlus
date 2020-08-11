@@ -38,23 +38,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "edit",
   mounted: function mounted() {
@@ -166,84 +149,34 @@ var render = function() {
           [
             _c(
               "vx-card",
-              { ref: "edit", attrs: { title: "Edit Shipping Method" } },
+              { ref: "edit", attrs: { title: "View Shipping Method" } },
               [
                 _c("div", { staticClass: "vx-row" }, [
-                  _c(
-                    "div",
-                    { staticClass: "vx-col sm:w-1/2 w-full mb-3" },
-                    [
-                      _c("vs-input", {
-                        staticClass: "w-full",
-                        attrs: { label: "Shipping Method", disabled: "" },
-                        model: {
-                          value: _vm.form.city.name,
-                          callback: function($$v) {
-                            _vm.$set(_vm.form.city, "name", $$v)
-                          },
-                          expression: "form.city.name"
-                        }
-                      })
-                    ],
-                    1
-                  ),
+                  _c("div", { staticClass: "vx-col sm:w-1/2 w-full mb-3" }, [
+                    _c("h5", { staticClass: "bold" }, [_vm._v("City")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(_vm.form.city.name))])
+                  ]),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "vx-col sm:w-1/2 w-full mb-3" },
-                    [
-                      _c("vs-input", {
-                        staticClass: "w-full",
-                        attrs: { label: "Shipping Method", disabled: "" },
-                        model: {
-                          value: _vm.form.shipping_method.name,
-                          callback: function($$v) {
-                            _vm.$set(_vm.form.shipping_method, "name", $$v)
-                          },
-                          expression: "form.shipping_method.name"
-                        }
-                      })
-                    ],
-                    1
-                  ),
+                  _c("div", { staticClass: "vx-col sm:w-1/2 w-full mb-3" }, [
+                    _c("h5", { staticClass: "bold" }, [
+                      _vm._v("Shipping Method")
+                    ]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(_vm.form.shipping_method.name))])
+                  ]),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "vx-col sm:w-1/2 w-full mb-3" },
-                    [
-                      _c("vs-input", {
-                        staticClass: "w-full",
-                        attrs: { label: "Price", disabled: "" },
-                        model: {
-                          value: _vm.form.price,
-                          callback: function($$v) {
-                            _vm.$set(_vm.form, "price", $$v)
-                          },
-                          expression: "form.price"
-                        }
-                      })
-                    ],
-                    1
-                  ),
+                  _c("div", { staticClass: "vx-col sm:w-1/2 w-full mb-3" }, [
+                    _c("h5", { staticClass: "bold" }, [_vm._v("Price")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(_vm.form.price))])
+                  ]),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "vx-col sm:w-1/2 w-full mb-3" },
-                    [
-                      _c("vs-input", {
-                        staticClass: "w-full",
-                        attrs: { label: "Days", disabled: "" },
-                        model: {
-                          value: _vm.form.days,
-                          callback: function($$v) {
-                            _vm.$set(_vm.form, "days", $$v)
-                          },
-                          expression: "form.days"
-                        }
-                      })
-                    ],
-                    1
-                  )
+                  _c("div", { staticClass: "vx-col sm:w-1/2 w-full mb-3" }, [
+                    _c("h5", { staticClass: "bold" }, [_vm._v("Days")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(_vm.form.days))])
+                  ])
                 ])
               ]
             )

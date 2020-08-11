@@ -9,6 +9,14 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 //
 //
 //
@@ -112,7 +120,9 @@ __webpack_require__.r(__webpack_exports__);
 
       this.$validator.validateAll().then(function (result) {
         if (result) {
-          // if form have no errors
+          _this2.$vs.loading(); // if form have no errors
+
+
           _this2.is_requesting = true;
           var form_data = new FormData();
 
@@ -138,17 +148,29 @@ __webpack_require__.r(__webpack_exports__);
 
             _this2.is_requesting = false;
           }).catch(function (error) {
-            console.log(error);
+            for (var _i = 0, _Object$entries = Object.entries(error.response.data.errors); _i < _Object$entries.length; _i++) {
+              var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+                  _key = _Object$entries$_i[0],
+                  value = _Object$entries$_i[1];
 
-            _this2.$vs.notify({
-              title: 'Error',
-              text: error.response.data.errors[Object.keys(error.response.data.errors)[0]][0],
-              iconPack: 'feather',
-              icon: 'icon-alert-circle',
-              color: 'danger'
-            });
-
-            _this2.is_requesting = false;
+              _this2.$vs.notify({
+                title: _key,
+                text: value[0],
+                iconPack: 'feather',
+                icon: 'icon-alert-circle',
+                color: 'danger'
+              });
+            }
+          }).then(function () {
+            _this2.$vs.loading.close();
+          });
+        } else {
+          _this2.$vs.notify({
+            title: 'Error',
+            text: 'Fix form validation errors',
+            iconPack: 'feather',
+            icon: 'icon-alert-circle',
+            color: 'danger'
           });
         }
       });
