@@ -66,8 +66,7 @@ __webpack_require__.r(__webpack_exports__);
           _this.is_requesting = true;
 
           _this.$vs.loading({
-            container: _this.$refs.create.content,
-            scale: 0.5
+            container: _this.$refs.create.content
           });
 
           var form_data = new FormData();

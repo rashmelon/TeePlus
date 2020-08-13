@@ -56,7 +56,7 @@
         },
         methods: {
             getEmployeeData() {
-                this.$vs.loading({container: this.$refs.view.$refs.content, scale: 0.5});
+                this.$vs.loading({container: this.$refs.view.$refs.content});
                 this.$store.dispatch('user/view', this.$store.getters['auth/userData'].id)
                     .then(response => {
                         this.employee = response.data.data;

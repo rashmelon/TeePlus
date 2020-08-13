@@ -93,8 +93,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.$vs.loading({
-        container: this.$refs.browse,
-        scale: 0.5
+        container: this.$refs.browse
       });
       this.$store.dispatch('user/getData', '').then(function (response) {
         _this.$vs.loading.close(_this.$refs.browse);

@@ -57,7 +57,7 @@
         //Get All Roles
         getPermissions()
         {
-            this.$vs.loading({container: this.$refs.edit.$refs.content, scale: 0.5});
+            this.$vs.loading({container: this.$refs.edit.$refs.content});
             this.$store.dispatch('rolesAndPermissions/getPermissions')
                 .then(response => {
                     this.permissions = response.data.data;

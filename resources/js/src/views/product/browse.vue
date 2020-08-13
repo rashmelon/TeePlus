@@ -125,7 +125,7 @@
 
         methods: {
             getProducts() {
-                this.$vs.loading({container: this.$refs.browse.$el, scale: 0.5});
+                this.$vs.loading({container: this.$refs.browse.$el});
                 let payload = this.payload
                 if (this.$store.getters['auth/userData'].roles[0].name=='Seller'){
                     payload = '?seller='+this.$store.getters['auth/userData'].id

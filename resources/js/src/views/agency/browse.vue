@@ -66,7 +66,7 @@
         },
         methods: {
             getAgenciesData(InitialTime){
-                this.$vs.loading({container: this.$refs.browse, scale: 0.5});
+                this.$vs.loading({container: this.$refs.browse});
                 this.$store.dispatch('agency/getData', '')
                     .then(response => {
                         this.$vs.loading.close(this.$refs.browse);

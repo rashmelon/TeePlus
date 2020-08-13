@@ -75,8 +75,7 @@ vee_validate__WEBPACK_IMPORTED_MODULE_0__["Validator"].localize('en', dict);
       var _this = this;
 
       this.$vs.loading({
-        container: this.$refs.create.$refs.content,
-        scale: 0.5
+        container: this.$refs.create.$refs.content
       });
       this.$store.dispatch('rolesAndPermissions/getPermissions').then(function (response) {
         _this.$vs.loading.close(_this.$refs.create.$refs.content);

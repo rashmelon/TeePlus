@@ -293,8 +293,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       // get all categories
       this.$vs.loading({
-        container: this.$refs.create.$el,
-        scale: 0.5
+        container: this.$refs.create.$el
       });
       this.$store.dispatch('category/getData', this.payload).then(function (response) {
         _this3.categories = response.data.data;

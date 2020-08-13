@@ -392,8 +392,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this3 = this;
 
       this.$vs.loading({
-        container: this.$refs.edit.$el,
-        scale: 0.5
+        container: this.$refs.edit.$el
       });
       this.$store.dispatch('shippingPrice/getData', this.payload).then(function (response) {
         _this3.shippingPrices = response.data.data;
@@ -470,8 +469,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this7 = this;
 
       this.$vs.loading({
-        container: this.$refs.edit.$el,
-        scale: 0.5
+        container: this.$refs.edit.$el
       });
       this.$store.dispatch('status/getData', this.payload).then(function (response) {
         _this7.statuses = response.data.data;
@@ -491,8 +489,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this8 = this;
 
       this.$vs.loading({
-        container: this.$refs.edit.$el,
-        scale: 0.5
+        container: this.$refs.edit.$el
       });
       var payload = this.payload;
 

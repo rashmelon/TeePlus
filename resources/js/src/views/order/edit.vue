@@ -368,7 +368,7 @@
 	        
 	        
             getShippingPrice() {
-                this.$vs.loading({container: this.$refs.edit.$el, scale: 0.5});
+                this.$vs.loading({container: this.$refs.edit.$el});
                 this.$store.dispatch('shippingPrice/getData', this.payload)
                     .then(response => {
                         this.shippingPrices = response.data.data;
@@ -431,7 +431,7 @@
                         this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});});
             },
             getStatuses() {
-                this.$vs.loading({container: this.$refs.edit.$el, scale: 0.5});
+                this.$vs.loading({container: this.$refs.edit.$el});
                 this.$store.dispatch('status/getData', this.payload)
                     .then(response => {
                         this.statuses = response.data.data;
@@ -443,7 +443,7 @@
                     .then(()=>{this.$vs.loading.close(this.$refs.edit.$el);});
             },
             getDesigns() {
-                this.$vs.loading({container: this.$refs.edit.$el, scale: 0.5});
+                this.$vs.loading({container: this.$refs.edit.$el});
                 let payload = this.payload;
                 if (this.$store.getters['auth/userData'].roles[0].name==='Seller'){
                     payload = '?seller='+this.$store.getters['auth/userData'].id

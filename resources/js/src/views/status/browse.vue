@@ -94,7 +94,7 @@
 
         methods: {
             getStatuses() {
-                this.$vs.loading({container: this.$refs.browse.$el, scale: 0.5});
+                this.$vs.loading({container: this.$refs.browse.$el});
                 this.$store.dispatch('status/getData', this.payload)
                     .then(response => {
                         this.statuses = response.data.data;

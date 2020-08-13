@@ -8,7 +8,7 @@
 					vs-align="flex-start"
 					vs-type="flex" vs-justify="center" vs-w="12">
 					<vs-col  vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">
-						<label for="source"><h2>Stock</h2></label>
+						<label for="source"><h2>Returned</h2></label>
 					</vs-col>
 					<vs-col  vs-type="flex" vs-justify="center" vs-align="center" vs-w="2">
 						<vs-switch id="source" v-model="sourceOfProducts"/>
@@ -214,7 +214,7 @@
 								:state="item.id?'success':'primary'"
 							>
 								<vs-td>
-									{{ item.id?'Stock':'New'}}
+									{{ item.id?'Returned':'New'}}
 								</vs-td>
 								
 								<vs-td>
@@ -237,7 +237,7 @@
 									<vs-button
 							           radius color="danger" type="border"
 							           icon-pack="feather" icon="icon-trash"
-							           @click="tempProducts.splice(index,1)"></vs-button>
+							           @click="removeFromCart(item,index)"></vs-button>
 								
 								</vs-td>
 								
@@ -425,7 +425,16 @@
                 tempProducts: [],
 	            
 	            order: {
-                    orderProducts: []
+                    orderProducts: [],
+                    customer_name: 'Customer Name Here',
+                    phone_number: '0151684201316163',
+                    additional_number: '05656568',
+                    address: 'Mansoura',
+                    shipping_note: 'Behind the street',
+                    discount: 125,
+                    additional_fees: 255,
+                    additional_fees_details: 'additional fee details here',
+                    external_tracking: 'ARAMEX-102'
 	            },
 	            statuses: [],
                 shippingPrices: [],
@@ -445,13 +454,42 @@
             },
         },
         methods: {
+	        
+	        
+	        
+
             selectFromStock(){
                 console.log(this.selectedFromStock)
-	            this.selectedFromStock.priceCombination = this.selectedFromStock.price_combination;
-	            
+                this.selectedFromStock.priceCombination = this.selectedFromStock.price_combination;
+
+
                 this.tempProducts.push(this.selectedFromStock)
+
+                this.returns = this.returns.filter(item =>item.id !== this.selectedFromStock.id);
+
                 this.selectedFromStock = {}
             },
+            addToCart(){
+                this.tempProducts.push(this.cartItem);
+                this.designs = []
+                this.cartItem= {
+                    quantity: 0,
+                    category:'',
+                    product:'',
+                    priceCombination:'',
+                    design: null
+                }
+                
+	        },
+			removeFromCart(item,index){
+                // from Returns products
+                if (item.id){
+                    this.returns.push(item)
+                }
+                this.tempProducts.splice(index,1)
+			},
+	        
+	        
             getReturned() {
                 this.$vs.loading();
                 this.$store.dispatch('restoredItem/getData', this.payload)
@@ -465,7 +503,109 @@
                     this.$vs.loading.close();
                 })
             },
-	        
+            getShippingPrice() {
+                this.$vs.loading();
+                this.$store.dispatch('shippingPrice/getData', this.payload)
+                    .then(response => {
+                        this.shippingPrices = response.data.data;
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'})
+
+                    })
+                    .then(() => {this.$vs.loading.close();});
+            },
+            getCategories() {
+                this.$vs.loading();
+
+                this.designs = [];
+                
+                // get all categories
+                this.$store.dispatch('category/getData', this.payload)
+                    .then(response => {
+                        this.categories = response.data.data
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        // this.$vs.loading.close(this.$refs.browse);
+                        this.$vs.notify({
+                            title: 'Error',
+                            text: error.response.data.error,
+                            iconPack: 'feather',
+                            icon: 'icon-alert-circle',
+                            color: 'danger'
+                        });
+                    }).then(()=>{this.$vs.loading.close()})
+            },
+	        getProducts(){
+                this.$vs.loading();
+
+                this.$store.dispatch('product/getData', `?category=${this.cartItem.category.id}`)
+                    .then(response => {
+                        this.products = response.data.data
+	                    console.log(this.products)
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        this.$vs.notify({
+                            title: 'Error',
+                            text: error.response.data.error,
+                            iconPack: 'feather',
+                            icon: 'icon-alert-circle',
+                            color: 'danger'
+                        });
+                    }).then(()=>{this.$vs.loading.close()})
+                
+            },
+            getCombinations() {
+                this.$vs.loading();
+                this.$store.dispatch('combination/getData', `?category=${this.cartItem.category.id}`)
+                    .then(response => {
+                        this.combinations = response.data.data;
+	                    console.log(this.combinations)
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'})
+                    }).then(()=>{this.$vs.loading.close()})
+
+            },
+            getStatuses() {
+                this.$vs.loading();
+                this.$store.dispatch('status/getData', this.payload)
+                    .then(response => {
+                        this.statuses = response.data.data;
+                    })
+                    .catch(error => {
+                        this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'})
+
+                    })
+                    .then(()=>{this.$vs.loading.close()})
+            },
+            getDesigns() {
+                this.$vs.loading();
+                let payload = this.payload;
+                if (this.$store.getters['auth/userData'].roles[0].name==='Seller'){
+                    payload = `?seller=${this.$store.getters['auth/userData'].id}&category=${this.cartItem.category}`
+                } else {
+                    payload = `?category=${this.cartItem.category.id}`
+                }
+                this.$store.dispatch('design/getData', payload)
+                    .then(response => {
+                        this.designs = response.data.data;
+                        console.log('designs: ',this.designs)
+                        
+                        this.$vs.loading.close(this.$refs.create.$el);
+                    })
+                    .catch(error => {
+                        this.$vs.loading.close(this.$refs.create.$el);
+                        this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});
+                    })
+	                .then(()=>{this.$vs.loading.close()})
+            },
+
+
             create() {
                 this.$validator.validateAll().then(result => {
                     if (result) {
@@ -474,9 +614,14 @@
                         // if form have no errors
                         this.is_requesting = true;
 
-                        console.log(this.tempProducts)
+                        // empty item before appending new items again ( in case of fail )
+                        this.order.orderProducts = [];
+                        
                         for (let i = 0; i < this.tempProducts.length; i++) {
-							let item = {};
+                            let item = {};
+                            if (this.tempProducts[i].id){
+                                item.id = this.tempProducts[i].id;
+                            }
                             item.quantity = this.tempProducts[i].quantity?this.tempProducts[i].quantity:1;
                             item.product_id = this.tempProducts[i].product.id;
                             item.price_combination_id = this.tempProducts[i].priceCombination.id;
@@ -484,10 +629,10 @@
 
                             this.order.orderProducts.push(item);
                         }
-                        
-                        
-                        
-                        
+
+
+
+
                         let sentObject = {...this.order}
 
                         // create new object for sending object without extra data
@@ -535,119 +680,6 @@
                 })
 
 
-            },
-	        
-	        addToCart(){
-                this.tempProducts.push(this.cartItem);
-                this.designs = []
-                this.cartItem= {
-                    quantity: 0,
-                    category:'',
-                    product:'',
-                    priceCombination:'',
-                    design: null
-                }
-                
-	        },
-
-
-            getShippingPrice() {
-                this.$vs.loading({container: this.$refs.create.$el, scale: 0.5});
-                this.$store.dispatch('shippingPrice/getData', this.payload)
-                    .then(response => {
-                        this.shippingPrices = response.data.data;
-                    })
-                    .catch(error => {
-                        console.log(error);
-                        this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'})
-
-                    })
-                    .then(() => {
-                        this.$vs.loading.close(this.$refs.create.$el);
-                    });
-            },
-            getCategories() {
-
-                this.designs = [];
-                
-                // get all categories
-                this.$store.dispatch('category/getData', this.payload)
-                    .then(response => {
-                        this.categories = response.data.data
-                    })
-                    .catch(error => {
-                        console.log(error);
-                        // this.$vs.loading.close(this.$refs.browse);
-                        this.$vs.notify({
-                            title: 'Error',
-                            text: error.response.data.error,
-                            iconPack: 'feather',
-                            icon: 'icon-alert-circle',
-                            color: 'danger'
-                        });
-                    });
-            },
-	        getProducts(){
-
-                this.$store.dispatch('product/getData', `?category=${this.cartItem.category.id}`)
-                    .then(response => {
-                        this.products = response.data.data
-	                    console.log(this.products)
-                    })
-                    .catch(error => {
-                        console.log(error);
-                        this.$vs.notify({
-                            title: 'Error',
-                            text: error.response.data.error,
-                            iconPack: 'feather',
-                            icon: 'icon-alert-circle',
-                            color: 'danger'
-                        });
-                    });
-                
-            },
-            getCombinations() {
-                console.log('asasd')
-                this.$store.dispatch('combination/getData', `?category=${this.cartItem.category.id}`)
-                    .then(response => {
-                        this.combinations = response.data.data;
-	                    console.log(this.combinations)
-                    })
-                    .catch(error => {
-                        console.log(error);
-                        this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});});
-            },
-            getStatuses() {
-                this.$vs.loading({container: this.$refs.create.$el, scale: 0.5});
-                this.$store.dispatch('status/getData', this.payload)
-                    .then(response => {
-                        this.statuses = response.data.data;
-                    })
-                    .catch(error => {
-                        this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'})
-
-                    })
-                    .then(()=>{this.$vs.loading.close(this.$refs.create.$el);});
-            },
-            getDesigns() {
-                this.$vs.loading({container: this.$refs.create.$el, scale: 0.5});
-                let payload = this.payload;
-                if (this.$store.getters['auth/userData'].roles[0].name==='Seller'){
-                    payload = `?seller=${this.$store.getters['auth/userData'].id}&category=${this.cartItem.category}`
-                } else {
-                    payload = `?category=${this.cartItem.category.id}`
-                }
-                this.$store.dispatch('design/getData', payload)
-                    .then(response => {
-                        this.designs = response.data.data;
-                        console.log('designs: ',this.designs)
-                        
-                        this.$vs.loading.close(this.$refs.create.$el);
-                    })
-                    .catch(error => {
-                        this.$vs.loading.close(this.$refs.create.$el);
-                        this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});
-                    });
             },
         }
     }

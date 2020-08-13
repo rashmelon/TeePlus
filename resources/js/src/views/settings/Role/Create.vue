@@ -65,7 +65,7 @@ export default {
     methods: {
         //Get All Permissions
         getPermissions() {
-            this.$vs.loading({container: this.$refs.create.$refs.content, scale: 0.5});
+            this.$vs.loading({container: this.$refs.create.$refs.content});
             this.$store.dispatch('rolesAndPermissions/getPermissions')
               .then(response => {
                   this.$vs.loading.close(this.$refs.create.$refs.content);

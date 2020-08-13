@@ -99,8 +99,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.$vs.loading({
-        container: document.getElementById('loading-container'),
-        scale: 0.5
+        container: document.getElementById('loading-container')
       });
       this.$store.dispatch('rolesAndPermissions/getRoles', '').then(function (response) {
         _this.roles = response.data.data;

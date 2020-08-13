@@ -259,7 +259,7 @@
 
             getCategories() {
                 // get all categories
-                this.$vs.loading({container: this.$refs.create.$el, scale: 0.5});
+                this.$vs.loading({container: this.$refs.create.$el});
                 this.$store.dispatch('category/getData', this.payload)
                     .then(response => {
                         this.categories = response.data.data

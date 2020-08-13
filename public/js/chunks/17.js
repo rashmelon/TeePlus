@@ -450,7 +450,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       },
       tempProducts: [],
       order: {
-        orderProducts: []
+        orderProducts: [],
+        customer_name: 'Customer Name Here',
+        phone_number: '0151684201316163',
+        additional_number: '05656568',
+        address: 'Mansoura',
+        shipping_note: 'Behind the street',
+        discount: 125,
+        additional_fees: 255,
+        additional_fees_details: 'additional fee details here',
+        external_tracking: 'ARAMEX-102'
       },
       statuses: [],
       shippingPrices: [],
@@ -469,108 +478,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {
     selectFromStock: function selectFromStock() {
+      var _this = this;
+
       console.log(this.selectedFromStock);
       this.selectedFromStock.priceCombination = this.selectedFromStock.price_combination;
       this.tempProducts.push(this.selectedFromStock);
+      this.returns = this.returns.filter(function (item) {
+        return item.id !== _this.selectedFromStock.id;
+      });
       this.selectedFromStock = {};
-    },
-    getReturned: function getReturned() {
-      var _this = this;
-
-      this.$vs.loading();
-      this.$store.dispatch('restoredItem/getData', this.payload).then(function (response) {
-        _this.returns = response.data.data;
-        console.log(_this.returns);
-      }).catch(function (error) {
-        _this.$vs.notify({
-          title: 'Error',
-          text: error.response.data.error,
-          iconPack: 'feather',
-          icon: 'icon-alert-circle',
-          color: 'danger'
-        });
-      }).then(function () {
-        _this.$vs.loading.close();
-      });
-    },
-    create: function create() {
-      var _this2 = this;
-
-      this.$validator.validateAll().then(function (result) {
-        if (result) {
-          _this2.$vs.loading(); // if form have no errors
-
-
-          _this2.is_requesting = true;
-          console.log(_this2.tempProducts);
-
-          for (var i = 0; i < _this2.tempProducts.length; i++) {
-            var item = {};
-            item.quantity = _this2.tempProducts[i].quantity ? _this2.tempProducts[i].quantity : 1;
-            item.product_id = _this2.tempProducts[i].product.id;
-            item.price_combination_id = _this2.tempProducts[i].priceCombination.id;
-            item.design_id = _this2.tempProducts[i].design.id;
-
-            _this2.order.orderProducts.push(item);
-          }
-
-          var sentObject = _objectSpread({}, _this2.order); // create new object for sending object without extra data
-
-
-          var form_data = new FormData();
-
-          for (var key in sentObject) {
-            if (key === 'orderProducts') {
-              form_data.append(key, JSON.stringify(sentObject[key]));
-            } else {
-              form_data.append(key, sentObject[key]);
-            }
-          }
-
-          _this2.$store.dispatch('order/create', form_data).then(function (response) {
-            _this2.$vs.notify({
-              title: 'Success',
-              text: response.data.message,
-              iconPack: 'feather',
-              icon: 'icon-check',
-              color: 'success'
-            }); // this.$router.push({name: 'order'});
-
-
-            _this2.is_requesting = false;
-
-            _this2.$router.push({
-              name: 'order'
-            });
-          }).catch(function (error) {
-            for (var _i = 0, _Object$entries = Object.entries(error.response.data.errors); _i < _Object$entries.length; _i++) {
-              var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
-                  _key = _Object$entries$_i[0],
-                  value = _Object$entries$_i[1];
-
-              _this2.$vs.notify({
-                title: _key,
-                text: value[0],
-                iconPack: 'feather',
-                icon: 'icon-alert-circle',
-                color: 'danger'
-              });
-            }
-
-            _this2.is_requesting = false;
-          }).then(function () {
-            _this2.$vs.loading.close();
-          });
-        } else {
-          _this2.$vs.notify({
-            title: 'Error',
-            text: 'Fix form validation errors',
-            iconPack: 'feather',
-            icon: 'icon-alert-circle',
-            color: 'danger'
-          });
-        }
-      });
     },
     addToCart: function addToCart() {
       this.tempProducts.push(this.cartItem);
@@ -583,13 +499,37 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         design: null
       };
     },
+    removeFromCart: function removeFromCart(item, index) {
+      // from Returns products
+      if (item.id) {
+        this.returns.push(item);
+      }
+
+      this.tempProducts.splice(index, 1);
+    },
+    getReturned: function getReturned() {
+      var _this2 = this;
+
+      this.$vs.loading();
+      this.$store.dispatch('restoredItem/getData', this.payload).then(function (response) {
+        _this2.returns = response.data.data;
+        console.log(_this2.returns);
+      }).catch(function (error) {
+        _this2.$vs.notify({
+          title: 'Error',
+          text: error.response.data.error,
+          iconPack: 'feather',
+          icon: 'icon-alert-circle',
+          color: 'danger'
+        });
+      }).then(function () {
+        _this2.$vs.loading.close();
+      });
+    },
     getShippingPrice: function getShippingPrice() {
       var _this3 = this;
 
-      this.$vs.loading({
-        container: this.$refs.create.$el,
-        scale: 0.5
-      });
+      this.$vs.loading();
       this.$store.dispatch('shippingPrice/getData', this.payload).then(function (response) {
         _this3.shippingPrices = response.data.data;
       }).catch(function (error) {
@@ -603,12 +543,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           color: 'danger'
         });
       }).then(function () {
-        _this3.$vs.loading.close(_this3.$refs.create.$el);
+        _this3.$vs.loading.close();
       });
     },
     getCategories: function getCategories() {
       var _this4 = this;
 
+      this.$vs.loading();
       this.designs = []; // get all categories
 
       this.$store.dispatch('category/getData', this.payload).then(function (response) {
@@ -623,11 +564,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           icon: 'icon-alert-circle',
           color: 'danger'
         });
+      }).then(function () {
+        _this4.$vs.loading.close();
       });
     },
     getProducts: function getProducts() {
       var _this5 = this;
 
+      this.$vs.loading();
       this.$store.dispatch('product/getData', "?category=".concat(this.cartItem.category.id)).then(function (response) {
         _this5.products = response.data.data;
         console.log(_this5.products);
@@ -641,12 +585,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           icon: 'icon-alert-circle',
           color: 'danger'
         });
+      }).then(function () {
+        _this5.$vs.loading.close();
       });
     },
     getCombinations: function getCombinations() {
       var _this6 = this;
 
-      console.log('asasd');
+      this.$vs.loading();
       this.$store.dispatch('combination/getData', "?category=".concat(this.cartItem.category.id)).then(function (response) {
         _this6.combinations = response.data.data;
         console.log(_this6.combinations);
@@ -660,15 +606,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           icon: 'icon-alert-circle',
           color: 'danger'
         });
+      }).then(function () {
+        _this6.$vs.loading.close();
       });
     },
     getStatuses: function getStatuses() {
       var _this7 = this;
 
-      this.$vs.loading({
-        container: this.$refs.create.$el,
-        scale: 0.5
-      });
+      this.$vs.loading();
       this.$store.dispatch('status/getData', this.payload).then(function (response) {
         _this7.statuses = response.data.data;
       }).catch(function (error) {
@@ -680,16 +625,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           color: 'danger'
         });
       }).then(function () {
-        _this7.$vs.loading.close(_this7.$refs.create.$el);
+        _this7.$vs.loading.close();
       });
     },
     getDesigns: function getDesigns() {
       var _this8 = this;
 
-      this.$vs.loading({
-        container: this.$refs.create.$el,
-        scale: 0.5
-      });
+      this.$vs.loading();
       var payload = this.payload;
 
       if (this.$store.getters['auth/userData'].roles[0].name === 'Seller') {
@@ -713,6 +655,93 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           icon: 'icon-alert-circle',
           color: 'danger'
         });
+      }).then(function () {
+        _this8.$vs.loading.close();
+      });
+    },
+    create: function create() {
+      var _this9 = this;
+
+      this.$validator.validateAll().then(function (result) {
+        if (result) {
+          _this9.$vs.loading(); // if form have no errors
+
+
+          _this9.is_requesting = true; // empty item before appending new items again ( in case of fail )
+
+          _this9.order.orderProducts = [];
+
+          for (var i = 0; i < _this9.tempProducts.length; i++) {
+            var item = {};
+
+            if (_this9.tempProducts[i].id) {
+              item.id = _this9.tempProducts[i].id;
+            }
+
+            item.quantity = _this9.tempProducts[i].quantity ? _this9.tempProducts[i].quantity : 1;
+            item.product_id = _this9.tempProducts[i].product.id;
+            item.price_combination_id = _this9.tempProducts[i].priceCombination.id;
+            item.design_id = _this9.tempProducts[i].design.id;
+
+            _this9.order.orderProducts.push(item);
+          }
+
+          var sentObject = _objectSpread({}, _this9.order); // create new object for sending object without extra data
+
+
+          var form_data = new FormData();
+
+          for (var key in sentObject) {
+            if (key === 'orderProducts') {
+              form_data.append(key, JSON.stringify(sentObject[key]));
+            } else {
+              form_data.append(key, sentObject[key]);
+            }
+          }
+
+          _this9.$store.dispatch('order/create', form_data).then(function (response) {
+            _this9.$vs.notify({
+              title: 'Success',
+              text: response.data.message,
+              iconPack: 'feather',
+              icon: 'icon-check',
+              color: 'success'
+            }); // this.$router.push({name: 'order'});
+
+
+            _this9.is_requesting = false;
+
+            _this9.$router.push({
+              name: 'order'
+            });
+          }).catch(function (error) {
+            for (var _i = 0, _Object$entries = Object.entries(error.response.data.errors); _i < _Object$entries.length; _i++) {
+              var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+                  _key = _Object$entries$_i[0],
+                  value = _Object$entries$_i[1];
+
+              _this9.$vs.notify({
+                title: _key,
+                text: value[0],
+                iconPack: 'feather',
+                icon: 'icon-alert-circle',
+                color: 'danger'
+              });
+            }
+
+            _this9.is_requesting = false;
+          }).then(function () {
+            _this9.$vs.loading.close();
+          });
+        } else {
+          _this9.$vs.notify({
+            title: 'Error',
+            text: 'Fix form validation errors',
+            iconPack: 'feather',
+            icon: 'icon-alert-circle',
+            color: 'danger'
+          });
+        }
       });
     }
   }
@@ -814,7 +843,7 @@ var render = function() {
                 },
                 [
                   _c("label", { attrs: { for: "source" } }, [
-                    _c("h2", [_vm._v("Stock")])
+                    _c("h2", [_vm._v("Returned")])
                   ])
                 ]
               ),
@@ -1408,7 +1437,7 @@ var render = function() {
                                     _c("vs-td", [
                                       _vm._v(
                                         "\n\t\t\t\t\t\t\t\t" +
-                                          _vm._s(item.id ? "Stock" : "New") +
+                                          _vm._s(item.id ? "Returned" : "New") +
                                           "\n\t\t\t\t\t\t\t"
                                       )
                                     ]),
@@ -1460,9 +1489,9 @@ var render = function() {
                                           },
                                           on: {
                                             click: function($event) {
-                                              return _vm.tempProducts.splice(
-                                                index,
-                                                1
+                                              return _vm.removeFromCart(
+                                                item,
+                                                index
                                               )
                                             }
                                           }
@@ -1479,7 +1508,7 @@ var render = function() {
                         ],
                         null,
                         false,
-                        1248432742
+                        3025082823
                       )
                     },
                     [

@@ -118,8 +118,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.$vs.loading({
-        container: this.$refs.browse.$el,
-        scale: 0.5
+        container: this.$refs.browse.$el
       });
       this.$store.dispatch('category/getData', this.payload).then(function (response) {
         _this.categories = response.data.data;

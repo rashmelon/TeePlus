@@ -44,7 +44,7 @@
         },
         methods: {
             getUserData() {
-                this.$vs.loading({container: this.$refs.view.$refs.content, scale: 0.5});
+                this.$vs.loading({container: this.$refs.view.$refs.content});
                 this.$store.dispatch('user/view', this.$route.params.id)
                     .then(response => {
                         this.User = response.data.data;

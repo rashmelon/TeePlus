@@ -68,8 +68,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.$vs.loading({
-        container: this.$refs.edit.$refs.content,
-        scale: 0.5
+        container: this.$refs.edit.$refs.content
       });
       this.$store.dispatch('rolesAndPermissions/getPermissions').then(function (response) {
         _this.permissions = response.data.data;
