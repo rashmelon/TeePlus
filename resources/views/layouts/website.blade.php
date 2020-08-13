@@ -9,6 +9,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+<<<<<<< HEAD
         <title>@yield('title') {{ config('app.name', 'Pack\'N Go') }}</title>
         <!-- favicon -->
         <link rel=icon href="../../assets/images/website/favicon.png" sizes="20x20" type="image/png">
@@ -31,6 +32,10 @@
         <!-- responsive css -->
         <link rel="stylesheet" href="{{ asset(mix('css/website/responsive.css'))}}">
         <script src="{{ asset(mix('js/website/jquery-2.2.4.min.js')) }}"></script>--}}
+=======
+        <title>@yield('title') {{ config('app.name', 'TeePlus') }}</title>
+        <link rel="stylesheet" href="{{ asset(mix('css/main.css'))}}">
+>>>>>>> restore-item
     </head>
     <body>
 
@@ -54,24 +59,6 @@
                 @include('partials.footer')
             </div>
         </div>
-
-        <!-- Additional plugin js -->
-        <script src="{{ asset(mix('js/website/popper.min.js')) }}"></script>
-        <script src="{{ asset(mix('js/website/bootstrap.min.js')) }}"></script>
-        <script src="{{ asset(mix('js/website/jquery.magnific-popup.js')) }}"></script>
-        <script src="{{ asset(mix('js/website/owl.carousel.min.js')) }}"></script>
-        <script src="{{ asset(mix('js/website/wow.min.js')) }}"></script>
-        <script src="{{ asset(mix('js/website/slick.js')) }}"></script>
-        <script src="{{ asset(mix('js/website/waypoints.min.js')) }}"></script>
-        <script src="{{ asset(mix('js/website/jquery.counterup.min.js')) }}"></script>
-        <script src="{{ asset(mix('js/website/imagesloaded.pkgd.min.js')) }}"></script>
-        <script src="{{ asset(mix('js/website/isotope.pkgd.min.js')) }}"></script>
-        <script src="{{ asset(mix('js/website/swiper.min.js')) }}"></script>
-        <script src="{{ asset(mix('js/website/jquery.nice-select.min.js')) }}"></script>
-        <script src="{{ asset(mix('js/website/jquery-ui.min.js')) }}"></script>
-
-        <!-- main js -->
-        <script src="{{ asset(mix('js/website/main.js')) }}"></script>
 
     </body>
 </html>

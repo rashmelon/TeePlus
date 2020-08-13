@@ -13,6 +13,7 @@ use App\Transformers\OrderProductTransformer;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 class OrderProductController extends Controller
 {
@@ -30,16 +31,6 @@ class OrderProductController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param OrderProductRequest $request
@@ -52,13 +43,29 @@ class OrderProductController extends Controller
 
         $data = $request->validated();
 
+        DB::beginTransaction();
+
         $order_product = OrderProduct::create([
             'quantity' => $data['quantity'],
         ]);
-        Product::find($data['product_id'])->orderProducts()->save($order_product);
+
+        $product = Product::find($data['product_id']);
+        if ($product->quantity - $product->sold() < $data['quantity']){
+            DB::rollBack();
+
+            return ApiResponse::setMessage('The given data was invalid.')->setErrors([
+                "product" => [
+                    "the amount chosen for product '$product->name' is greater than our stock"
+                ]
+            ])->setStatusCode(422)->execute();
+        }
+        $product->orderProducts()->save($order_product);
+
         PriceCombination::find($data['price_combination_id'])->orderProducts()->save($order_product);
         Design::find($data['design_id'])->orderProducts()->save($order_product);
         Order::find($data['order_id'])->orderProducts()->save($order_product);
+
+        DB::commit();
 
         $order_product->load('product', 'priceCombination', 'design', 'order');
 
@@ -80,17 +87,6 @@ class OrderProductController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param OrderProductRequest $request
@@ -107,7 +103,18 @@ class OrderProductController extends Controller
         $order_product->update($data);
 
         if (array_key_exists('product_id', $data)){
-            Product::find($data['product_id'])->orderProducts()->save($order_product);
+
+            $product = Product::find($data['product_id']);
+            if ($product->quantity - $product->sold() < $data['quantity']){
+                DB::rollBack();
+
+                return ApiResponse::setMessage('The given data was invalid.')->setErrors([
+                    "product" => [
+                        "the amount chosen for product '$product->name' is greater than our stock"
+                    ]
+                ])->setStatusCode(422)->execute();
+            }
+            $product->orderProducts()->save($order_product);
         }
 
         if (array_key_exists('price_combination_id', $data)){

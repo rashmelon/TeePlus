@@ -16,6 +16,15 @@ export default [
     },
 
     {
+        url: "/returned",
+        name: "Returned",
+        icon: "CornerLeftDownIcon",
+        i18n: "Returned",
+        slug: "returned",
+        permission: 'browse-order'
+    },
+
+    {
         url: "/category",
         name: "Category",
         icon: "ArchiveIcon",

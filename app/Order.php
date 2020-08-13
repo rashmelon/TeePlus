@@ -17,6 +17,11 @@ class Order extends Model
         return $this->belongsTo(Status::class);
     }
 
+    public function seller()
+    {
+        return $this->belongsTo(User::class, 'seller_id');
+    }
+
     public function paymentType()
     {
         return $this->belongsTo(PaymentType::class);
@@ -45,5 +50,10 @@ class Order extends Model
     public function orderProducts()
     {
         return $this->hasMany(OrderProduct::class);
+    }
+
+    public function restoredItems()
+    {
+        return $this->hasMany(RestoredItem::class);
     }
 }

@@ -24,7 +24,7 @@ class ProductController extends Controller
     {
         $this->authorize('index', Product::class);
 
-        return ApiResponse::fluentIndexRespond(Product::query(), ProductTransformer::class)->execute();
+        return ApiResponse::fluentIndexRespond(Product::inStock(), ProductTransformer::class)->execute();
     }
 
     /**

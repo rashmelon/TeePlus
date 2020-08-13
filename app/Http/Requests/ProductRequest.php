@@ -30,6 +30,7 @@ class ProductRequest extends FormRequest
                 'description' => 'required',
                 'image' => 'required',
                 'base_price' => 'required',
+                'quantity' => 'required',
                 'category_id' => 'required|exists:categories,id',
                 'priceCombinations' => '',
                 'priceCombinations.*' => 'required_with:priceCombinations|exists:price_combinations,id',
@@ -41,6 +42,7 @@ class ProductRequest extends FormRequest
                 'description' => '',
                 'image' => '',
                 'base_price' => '',
+                'quantity' => '',
                 'priceCombinations' => '',
                 'priceCombinations.*' => 'required_with:priceCombinations|exists:price_combinations,id',
             ];

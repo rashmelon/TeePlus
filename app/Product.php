@@ -4,10 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Product extends Model
 {
-    protected $fillable = ['name', 'description', 'base_price'];
+    protected $fillable = ['name', 'description', 'base_price', 'quantity'];
 
     protected $hidden = ['pivot'];
 
@@ -39,6 +40,21 @@ class Product extends Model
     public function orderProducts()
     {
         return $this->hasMany(OrderProduct::class);
+    }
+
+    public function restoredItems()
+    {
+        return $this->hasMany(RestoredItem::class);
+    }
+
+    public function sold()
+    {
+        return $this->orderProducts()->sum('quantity');
+    }
+
+    public function scopeInStock(Builder $query)
+    {
+        return $query->where('quantity', '>', $this->sold());
     }
 
     public function scopeSeller(Builder $query, $value)

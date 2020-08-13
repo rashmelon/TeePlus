@@ -481,6 +481,23 @@ const router = new Router({
 
 
                 {
+                    path: '/returned',
+                    name: 'returned',
+                    component: () => import('./views/order/brawse-returned'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Returned', active: true, i18n: 'Returned'},
+                        ],
+                        pageTitle: 'Browse Returned',
+                        pageTitle_i18n: 'Browse Returned',
+                        permission: 'browse-order'
+                    }
+                },
+
+
+                {
                     path: '/order',
                     name: 'order',
                     component: () => import('./views/order/browse.vue'),

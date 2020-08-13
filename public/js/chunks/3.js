@@ -6864,6 +6864,13 @@ __webpack_require__.r(__webpack_exports__);
   slug: "order",
   permission: 'browse-order'
 }, {
+  url: "/returned",
+  name: "Returned",
+  icon: "CornerLeftDownIcon",
+  i18n: "Returned",
+  slug: "returned",
+  permission: 'browse-order'
+}, {
   url: "/category",
   name: "Category",
   icon: "ArchiveIcon",

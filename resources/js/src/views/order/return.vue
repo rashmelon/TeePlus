@@ -6,8 +6,8 @@
 				<vx-card class="mt-4" ref="cart" v-if="tempProducts.length">
 					<vs-table
 						:data="tempProducts"
-						multiple
-						v-model="returnProducts"
+						
+						v-model="form"
 					>
 						
 						<template slot="thead">
@@ -51,13 +51,21 @@
 							</vs-tr>
 						</template>
 					</vs-table>
+					
+					<vs-textarea
+						class="mb-0"
+						label="Notes"
+						name="notes"
+						v-model="notes"
+					/>
 				</vx-card>
 				
 				
 				<div class="text-center mt-4">
-					<vs-button :disabled="!returnProducts.length" @click="returnProd" color="primary" type="filled">Return selected products</vs-button>
+					<vs-button :disabled="!form.id" @click="returnProd" color="primary" type="filled">Return selected products</vs-button>
 				</div>
 			
+				
 			
 			</div>
 		</div>
@@ -81,7 +89,8 @@
         },
         data: function () {
             return {
-                returnProducts: [],
+                form: {},
+                notes: '',
                 tempProducts: [],
                 order: {
                     orderProducts: []
@@ -99,7 +108,38 @@
         },
         methods: {
             returnProd() {
-                console.log(this.returnProducts)
+                console.log(this.form)
+                this.$vs.loading();
+
+	            this.form.user_id = this.order.seller_id;
+	            this.form.notes = this.notes;
+	            
+                let form_data = new FormData();
+
+
+                for (let key in this.form) {
+                    form_data.append(key, this.form[key]);
+                }
+                
+                this.$store.dispatch('restoredItem/create', form_data)
+                    .then(response => {
+                        this.order = response.data.data;
+                        
+                        this.$router.push({name: 'returned'})
+                    })
+                    .catch(error => {
+                        for (const [key, value] of Object.entries(error.response.data.errors)){
+                            this.$vs.notify({
+                                title: key,
+                                text: value[0],
+                                iconPack: 'feather',
+                                icon: 'icon-alert-circle',
+                                color: 'danger'
+                            });
+                        }
+                    }).then(()=>{
+                    this.$vs.loading.close()
+                })
             },
 
 
@@ -108,17 +148,10 @@
                 this.$store.dispatch('order/view', this.$route.params.id)
                     .then(response => {
                         this.order = response.data.data;
-
-                        console.log(this.order.order_products)
-                        
-	                    
-                        
-	                    // get current order products
-
+                        console.log(this.order)
                         // this.tempProducts = this.order.order_products
 	                     for (let j = 0; j < this.order.order_products.length; j++) {
                             for (let i = 0; i < this.order.order_products[j].quantity; i++) {
-                                
                                 // counter variable to make every object different
 	                            this.tempProducts.push({
 		                            ...this.order.order_products[j],

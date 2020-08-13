@@ -14,13 +14,13 @@
 							<h2>{{this.form.name}} - <small>({{this.form.category}})</small></h2>
 						</div>
 						<div class="vx-col w-12/12 w-full  mb-3">
-							<h5 v-if="form.category_id"></h5>
+							Base Price: <h5>{{this.form.base_price}}</h5>
 						</div>
 						<div class="vx-col w-12/12 w-full  mb-3">
-							<h5>{{this.form.base_price}}</h5>
+							Quantity: <h5>{{this.form.quantity}}</h5>
 						</div>
 						<div class="vx-col w-6/6 w-full mt-3">
-							<h5>{{this.form.description}}</h5>
+							Description: <h5>{{this.form.description}}</h5>
 						</div>
 					</div>
 
