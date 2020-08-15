@@ -126,23 +126,12 @@
 								<transition-group mode="out-in" name="slide-down">
 									<div :key="2">
 										<div class="vx-row" v-for="(criteria,index) in form.printCriterias">
-											<div class="vx-col md:w-8/12 w-full mb-3">
+											<div class="vx-col md:w-10/12 w-full mb-3">
 												<vs-input :name="'criteria-'+index" class="w-full" label="Criteria"
 												          v-model="criteria.criteria"
 												          v-validate="'required'"
 												/>
 												<span class="text-danger text-sm" v-show="errors.has('criteria-'+index)">{{errors.first('criteria-'+index)}}</span>
-											</div>
-
-											<div class="vx-col md:w-2/12 w-full mb-3">
-												<vs-input :name="'criteria-price-'+index" class="w-full" label="Price" type="number"
-												          v-model="criteria.price"W
-												          v-validate="'required|min_value:0'"
-												/>
-												<span class="text-danger text-sm"
-												      v-show="errors.has('criteria-price-'+index)">{{errors.first('criteria-price-'+index)
-													}}</span>
-
 											</div>
 
 											<div class="vx-col md:w-2/12 w-full mb-3">
@@ -239,6 +228,7 @@
           if (result) {
             // if form have no errors
             this.is_requesting = true;
+             this.$vs.loading();
 
             let form_data = new FormData();
 
@@ -263,16 +253,19 @@
 
               })
               .catch(error => {
-                console.log(error);
-                this.$vs.notify({
-                  title: 'Error',
-                  text: error.response.data.errors[Object.keys(error.response.data.errors)[0]][0],
-                  iconPack: 'feather',
-                  icon: 'icon-alert-circle',
-                  color: 'danger'
-                });
+                  for (const [key, value] of Object.entries(error.response.data.errors)){
+                      this.$vs.notify({
+                          title: key,
+                          text: value[0],
+                          iconPack: 'feather',
+                          icon: 'icon-alert-circle',
+                          color: 'danger'
+                      });
+                  }
                 this.is_requesting = false;
-              });
+              }).then(()=>{
+                this.$vs.loading.close()
+            })
           } else {
             this.$vs.notify({
               title: 'Error',

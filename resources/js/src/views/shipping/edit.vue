@@ -62,7 +62,8 @@
         },
         methods: {
             getShippingMethod(){
-                // this.$vs.loading({container: this.$refs.loadingContainer.$el, scale: 0.5});
+                this.$vs.loading();
+	
                 this.$store.dispatch('shipping/view', this.$route.params.id)
                     .then(response => {
                         this.form = response.data.data;
@@ -71,9 +72,13 @@
                     .catch(error => {
                         console.log(error);
                         this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});
-                    })
+                    }).then(()=>{
+                    this.$vs.loading.close()
+                })
             },
             edit(){
+                this.$vs.loading();
+
                 // if form have no errors
                 this.is_requesting = true;
 
@@ -89,7 +94,19 @@
                         this.is_requesting = false;
 
                     })
-                    .catch(error => {console.log(error);this.$vs.notify({title: 'Error', text: error.response.data.errors[Object.keys(error.response.data.errors)[0]][0], iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});this.is_requesting = false;});
+                    .catch(error => {
+                        for (const [key, value] of Object.entries(error.response.data.errors)){
+                            this.$vs.notify({
+                                title: key,
+                                text: value[0],
+                                iconPack: 'feather',
+                                icon: 'icon-alert-circle',
+                                color: 'danger'
+                            });
+                        }
+                    }).then(()=>{
+                    this.$vs.loading.close()
+                })
 
 
             }

@@ -29,6 +29,7 @@
                     <vs-th>Name</vs-th>
                     <vs-th>Description</vs-th>
                     <vs-th>Base price</vs-th>
+                    <vs-th>Quantity</vs-th>
                     <vs-th>Created At</vs-th>
                     <vs-th>Action</vs-th>
                 </template>
@@ -56,6 +57,10 @@
 
                         <vs-td :data="product.base_price">
                             {{ product.base_price}}
+                        </vs-td>
+
+                        <vs-td :data="product.quantity">
+                            {{ product.quantity}}
                         </vs-td>
 
                         <vs-td :data="product.created_at">
@@ -120,7 +125,7 @@
 
         methods: {
             getProducts() {
-                this.$vs.loading({container: this.$refs.browse.$el, scale: 0.5});
+                this.$vs.loading({container: this.$refs.browse.$el});
                 let payload = this.payload
                 if (this.$store.getters['auth/userData'].roles[0].name=='Seller'){
                     payload = '?seller='+this.$store.getters['auth/userData'].id

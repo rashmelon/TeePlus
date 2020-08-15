@@ -11,19 +11,15 @@
 									<img
 										:src="image.url"
 										class="preview-large img-fluid vx-col md:w-3/12 w-full mb-2 px-2"
-										v-for="image in form.images"
-										v-if="uploadedImages.length === 0"
-									>
-									<img
-										:src="image.url"
-										class="preview-large img-fluid vx-col md:w-3/12 w-full mb-2 px-2"
 										v-for="image in uploadedImages"
 										v-if="uploadedImages"
 									>
 								</div>
 							</div>
 							<div class="d-block mt-3">
+								
 								<input @change="uploadImages" class="form-control d-none" id="img-upload" multiple type="file">
+								<div class="small text-danger">old images will be deleted</div>
 								<vs-button icon="icon-upload" icon-pack="feather" onclick="document.getElementById('img-upload').click()" size="small"
 								           type="gradient">Upload Photos
 								</vs-button>
@@ -42,7 +38,7 @@
 						
 						
 						
-						<div class="vx-col md:w-12/12 w-full">
+						<div class="vx-col md:w-12/12 w-full mt-4" v-if="can('browse-design-price')">
 							<vx-card>
 								<DesignPrintPrice :designId="$route.params.id"/>
 								
@@ -52,6 +48,18 @@
 							</vx-card>
 						</div>
 					</div>
+					
+					
+					<vs-button
+						@click="update"
+						class="my-4 ml-auto"
+						color="primary"
+						icon="icon-save"
+						icon-pack="feather"
+						type="filled"
+					>Update
+					</vs-button>
+				
 				
 				</vx-card>
 			
@@ -109,6 +117,8 @@
                 this.$store.dispatch('design/view', this.$route.params.id)
                     .then(response => {
                         this.form = response.data.data;
+                        this.uploadedImages = this.form.images;
+                        this.form.images = [];
                     })
                     .catch(error => {
                         this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});
@@ -119,9 +129,8 @@
                     if (result) {
                         // if form have no errors
                         this.is_requesting = true;
-
+                        
                         // create new object for sending object without extra data
-
                         let form_data = new FormData();
 
                         for (let key in this.form) {

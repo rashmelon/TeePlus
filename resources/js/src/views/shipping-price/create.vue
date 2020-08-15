@@ -76,8 +76,18 @@
     export default {
         name: "create",
         mounted() {
-			this.getCities();
-			this.getShippingMethod();
+            alert('loading')
+            this.$vs.loading();
+
+
+            Promise.all([
+                this.getCities(),
+                this.getShippingMethod()
+            ])
+            .then(()=>{
+                this.$vs.loading.close()
+            })
+	        
         },
         data: function () {
             return {
@@ -100,7 +110,15 @@
                         this.cities = response.data.data;
                     })
                     .catch(error => {
-                        this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'})
+                        for (const [key, value] of Object.entries(error.response.data.errors)){
+                            this.$vs.notify({
+                                title: key,
+                                text: value[0],
+                                iconPack: 'feather',
+                                icon: 'icon-alert-circle',
+                                color: 'danger'
+                            });
+                        }
                     })
             },
 	        getShippingMethod(){
@@ -109,13 +127,23 @@
                         this.shipping = response.data.data;
                     })
                     .catch(error => {
-                        this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'})
+                        for (const [key, value] of Object.entries(error.response.data.errors)){
+                            this.$vs.notify({
+                                title: key,
+                                text: value[0],
+                                iconPack: 'feather',
+                                icon: 'icon-alert-circle',
+                                color: 'danger'
+                            });
+                        }
                     })
 
             },
             create(){
                 this.$validator.validateAll().then(result => {
                     if (result) {
+                        this.$vs.loading();
+
                         // if form have no errors
                         this.is_requesting = true;
 
@@ -133,7 +161,28 @@
                                 this.is_requesting = false;
 
                             })
-                            .catch(error => {console.log(error);this.$vs.notify({title: 'Error', text: error.response.data.errors[Object.keys(error.response.data.errors)[0]][0], iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});this.is_requesting = false;});
+                            .catch(error => {
+                                for (const [key, value] of Object.entries(error.response.data.errors)){
+                                    this.$vs.notify({
+                                        title: key,
+                                        text: value[0],
+                                        iconPack: 'feather',
+                                        icon: 'icon-alert-circle',
+                                        color: 'danger'
+                                    });
+                                }
+                            }).then(()=>{
+                            this.$vs.loading.close()
+                        })
+
+                    } else {
+                        this.$vs.notify({
+                            title: 'Error',
+                            text: 'Fix form validation errors',
+                            iconPack: 'feather',
+                            icon: 'icon-alert-circle',
+                            color: 'danger'
+                        });
 
                     }
                 });

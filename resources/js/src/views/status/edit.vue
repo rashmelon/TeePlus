@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class=" w-full mb-base">
-			<vx-card ref="edit" title="Create Status">
+			<vx-card ref="edit" title="Edit Status">
 
 				<div class="vx-col sm:w-2/2 w-full mb-3">
 					<vs-input
@@ -54,6 +54,7 @@
         },
         methods: {
             getStatus() {
+                this.$vs.loading();
                 this.$store.dispatch('status/view', this.$route.params.id)
                     .then(response => {
                         this.form = response.data.data;
@@ -61,12 +62,15 @@
                     .catch(error => {
                         console.log(error);
                         this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});
-                    })
+                    }).then(()=>{
+                    this.$vs.loading.close()
+                })
 
             },
             create() {
                 this.$validator.validateAll().then(result => {
                     if (result) {
+                        this.$vs.loading();
                         // if form have no errors
                         this.is_requesting = true;
 
@@ -85,7 +89,9 @@
                             .catch(error => {
                                 this.$vs.notify({title: 'Error', text: error.response.data.errors[Object.keys(error.response.data.errors)[0]][0], iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});
                                 this.is_requesting = false;
-                            })
+                            }).then(()=>{
+                            this.$vs.loading.close()
+                        })
                     }
                 });
 

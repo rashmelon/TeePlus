@@ -40,12 +40,26 @@
 						<div class="vx-col md:w-2/12 mb-3">
 							<vs-input class="w-full" label="Product Base Price" name="base price" type="number"
 							          v-model="form.base_price"
+							          min="0"
 							          v-validate="'required|min_value:0'"/>
 							<span class="text-danger text-sm" v-show="errors.has('base price')">{{ errors.first('base price') }}</span>
-
 						</div>
+
+                        <div class="vx-col md:w-2/12 mb-3">
+                            <vs-input class="w-full" label="Quantity" name="quantity" type="number"
+                                      v-model="form.quantity"
+                                      v-validate="'required|min_value:0'"/>
+                            <span class="text-danger text-sm" v-show="errors.has('quantity')">{{ errors.first('quantity') }}</span>
+                        </div>
 						<div class="vx-col md:w-6/6 w-full mt-3">
-							<vs-textarea label="Description" v-model="form.description"/>
+							<vs-textarea
+								label="Description"
+								v-model="form.description"
+								name="Description"
+								v-validate="'required'"
+							/>
+							<span class="text-danger text-sm" v-show="errors.has('Description')">{{ errors.first('Description') }}</span>
+						
 						</div>
 					</div>
 
@@ -116,6 +130,7 @@
                     .catch(error => {this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});});
             },
             getProduct() {
+                this.$vs.loading();
                 this.$store.dispatch('product/view', this.$route.params.id)
                     .then(response => {
                         this.form = response.data.data;
@@ -142,12 +157,17 @@
                             icon: 'icon-alert-circle',
                             color: 'danger'
                         });
-                    })
+                    }).then(()=>{
+                    this.$vs.loading.close()
+                })
 
             },
             edit() {
+
                 this.$validator.validateAll().then(result => {
                     if (result) {
+                        this.$vs.loading();
+
                         // if form have no errors
                         this.is_requesting = true;
 
@@ -165,10 +185,10 @@
                                 form_data.append(key, this.form[key]);
                             }
                         }
-                        console.log()
 
                         this.$store.dispatch('product/update', {id: this.$route.params.id, data: form_data})
                             .then(response => {
+                                this.$vs.loading.close()
                                 this.$vs.notify({
                                     title: 'Success',
                                     text: response.data.message,
@@ -181,16 +201,18 @@
 
                             })
                             .catch(error => {
-                                console.log(error);
-                                this.$vs.notify({
-                                    title: 'Error',
-                                    text: error.response.data,
-                                    iconPack: 'feather',
-                                    icon: 'icon-alert-circle',
-                                    color: 'danger'
-                                });
+                                this.$vs.loading.close()
+                                for (const [key, value] of Object.entries(error.response.data.errors)){
+                                    this.$vs.notify({
+                                        title: key,
+                                        text: value[0],
+                                        iconPack: 'feather',
+                                        icon: 'icon-alert-circle',
+                                        color: 'danger'
+                                    });
+                                }
                                 this.is_requesting = false;
-                            });
+                            })
                     } else {
                         this.$vs.notify({
                             title: 'Error',

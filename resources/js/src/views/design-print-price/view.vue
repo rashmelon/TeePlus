@@ -1,5 +1,5 @@
 <template>
-	<div class="edit-design-print-price">
+	<div class="edit-design-print-price" v-if="can('browse-design-price')">
 		
 		<vs-list>
 			<vs-list-item

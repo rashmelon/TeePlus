@@ -22,7 +22,6 @@
 						icon="icon-save"
 						icon-pack="feather"
 						type="filled"
-						v-if="form.name"
 					>Create
 					</vs-button>
 				</div>
@@ -61,24 +60,48 @@
         },
         methods: {
             create(){
-                // if form have no errors
-                this.is_requesting = true;
+                this.$validator.validateAll().then(result => {
+                    if (result) {
+                        this.$vs.loading();
 
-                let form_data = new FormData();
+                        // if form have no errors
+                        this.is_requesting = true;
 
-                for (let key in this.form) {
-                    form_data.append(key, this.form[key]);
-                }
-                this.$store.dispatch('shipping/create', form_data)
-                    .then(response => {
-                        this.$vs.notify({title: 'Success', text: response.data.message, iconPack: 'feather', icon: 'icon-check', color: 'success'});
-                        this.$router.push({name: 'shipping'});
-                        this.is_requesting = false;
+                        let form_data = new FormData();
 
-                    })
-                    .catch(error => {console.log(error);this.$vs.notify({title: 'Error', text: error.response.data.errors[Object.keys(error.response.data.errors)[0]][0], iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});this.is_requesting = false;});
+                        for (let key in this.form) {
+                            form_data.append(key, this.form[key]);
+                        }
+                        this.$store.dispatch('shipping/create', form_data)
+                            .then(response => {
+                                this.$vs.notify({title: 'Success', text: response.data.message, iconPack: 'feather', icon: 'icon-check', color: 'success'});
+                                this.$router.push({name: 'shipping'});
+                                this.is_requesting = false;
 
-
+                            })
+                            .catch(error => {
+                                for (const [key, value] of Object.entries(error.response.data.errors)) {
+                                    this.$vs.notify({
+                                        title: key,
+                                        text: value[0],
+                                        iconPack: 'feather',
+                                        icon: 'icon-alert-circle',
+                                        color: 'danger'
+                                    });
+                                }
+                            }).then(()=>{
+                            this.$vs.loading.close()
+                        })
+                    } else {
+                        this.$vs.notify({
+                            title: 'Error',
+                            text: 'Fix form validation errors',
+                            iconPack: 'feather',
+                            icon: 'icon-alert-circle',
+                            color: 'danger'
+                        });
+                    }
+                })
             }
         }
     }

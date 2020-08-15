@@ -24,6 +24,7 @@
 								v-model="catId"
 							/>
 							<vs-input
+								label-placeholder="Criteria"
 								:name="'criteria-'+index"
 								class="w-full"
 								v-model="attr.criteria"
@@ -36,6 +37,7 @@
 
 						<div class="vx-col md:w-2/12 w-full mb-3">
 							<vs-input
+								label-placeholder="Price"
 								:name="'price-'+index"
 								class="w-full"
 								type="number"

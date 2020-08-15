@@ -112,7 +112,7 @@
 
         methods: {
             getShippingPrice() {
-                this.$vs.loading({container: this.$refs.browse.$el, scale: 0.5});
+                this.$vs.loading({container: this.$refs.browse.$el});
                 this.$store.dispatch('shippingPrice/getData', this.payload)
                     .then(response => {
                         this.shippingPrices = response.data.data;

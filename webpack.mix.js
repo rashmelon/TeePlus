@@ -38,15 +38,6 @@ mix.js('resources/js/app.js', 'public/js')
     .copy('node_modules/prismjs/themes/prism-tomorrow.css', 'public/css/prism-tomorrow.css') // Prism Tomorrow theme css
     .copyDirectory('resources/assets/images', 'public/images') // Copy all images from resources to public folder
 
-    // .copy('resources/assets/js/website/jquery.mixitup.min.js', 'public/js/website/jquery.mixitup.min.js') // website jquery mixitup js
-    // .copy('resources/assets/js/website/form-validator.min.js', 'public/js/website/form-validator.min.js') // website form validator js
-    // .copy('resources/assets/js/website/contact-form-script.js', 'public/js/website/contact-form-script.js') // website contact form js
-
-    // .copyDirectory('resources/assets/css/website', 'public/css/website') // Copy all website css files from resources to public folder
-    // .copyDirectory('resources/assets/fonts/website', 'public/fonts/website') // Copy all website fonts files from resources to public folder
-    // .copyDirectory('resources/assets/js/website', 'public/js/website') // Copy all website js files from resources to public folder
-    // .copyDirectory('resources/assets/sass/website', 'public/sass/website'); // Copy all website sass files from resources to public folder
-
 
 // Change below options according to your requirement
 if (mix.inProduction()) {

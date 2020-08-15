@@ -187,8 +187,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.$vs.loading({
-        container: this.$refs.view.$refs.content,
-        scale: 0.5
+        container: this.$refs.view.$refs.content
       });
       this.$store.dispatch('user/view', this.$store.getters['auth/userData'].id).then(function (response) {
         _this.employee = response.data.data;

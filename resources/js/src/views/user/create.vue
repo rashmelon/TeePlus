@@ -81,7 +81,7 @@
             //Get A List Of All Roles.
             getRoles()
             {
-                this.$vs.loading({container: this.$refs.create.$refs.content, scale: 0.5});
+                this.$vs.loading({container: this.$refs.create.$refs.content});
                 this.$store.dispatch('rolesAndPermissions/getRoles', '')
                     .then(response => {
                         this.$vs.loading.close(this.$refs.create.$refs.content);

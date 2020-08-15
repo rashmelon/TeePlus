@@ -68,7 +68,7 @@ export default {
   		//Get A List Of All Roles.
         getRoles()
   		{
-            this.$vs.loading({container: this.$refs.roles.$refs.content, scale: 0.5});
+            this.$vs.loading({container: this.$refs.roles.$refs.content});
             this.$store.dispatch('rolesAndPermissions/getRoles', '')
                 .then(response => {
                     this.$vs.loading.close(this.$refs.roles.$refs.content);

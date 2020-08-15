@@ -16,6 +16,7 @@
 
 						<vs-td>
 							<vs-input
+								label-placeholder="Combination"
 								class="w-full"
 								v-model="combination.combination"
 							/>
@@ -24,6 +25,7 @@
 
 						<vs-td>
 							<vs-input
+								label-placeholder="Price"
 								class="w-full"
 								v-model="combination.price"
 								type="number"

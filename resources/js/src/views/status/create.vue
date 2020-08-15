@@ -56,7 +56,7 @@
                         // if form have no errors
                         this.is_requesting = true;
 
-                        this.$vs.loading({container: this.$refs.create.content, scale: 0.5});
+                        this.$vs.loading({container: this.$refs.create.content});
 
                         let form_data = new FormData();
 

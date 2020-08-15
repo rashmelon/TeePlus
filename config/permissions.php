@@ -375,4 +375,32 @@ return [
             'display_name' => 'Delete Order',
         ],
     ],
+
+    'Restored Item' => [
+        [
+            'name' => 'create-restored-item',
+            'guard_name' => 'api',
+            'display_name' => 'Create Restored Item',
+        ],
+        [
+            'name' => 'browse-restored-item',
+            'guard_name' => 'api',
+            'display_name' => 'Browse Restored Item',
+        ],
+        [
+            'name' => 'view-restored-item',
+            'guard_name' => 'api',
+            'display_name' => 'View Restored Item',
+        ],
+        [
+            'name' => 'edit-restored-item',
+            'guard_name' => 'api',
+            'display_name' => 'Edit Restored Item',
+        ],
+        [
+            'name' => 'delete-restored-item',
+            'guard_name' => 'api',
+            'display_name' => 'Delete Restored Item',
+        ],
+    ],
 ];

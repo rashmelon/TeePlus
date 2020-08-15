@@ -55,6 +55,8 @@ Route::middleware('auth:api')->post('order/{order}', 'OrderController@update');
 Route::middleware('auth:api')->resource('order-product', 'OrderProductController');
 Route::middleware('auth:api')->post('order-product/{order_product}', 'OrderProductController@update');
 
+Route::middleware('auth:api')->resource('restored-item', 'RestoredItemController');
+
 Route::group(['prefix' => 'role', 'middleware' => 'auth:api'], function () {
     Route::post('{id}', 'RoleController@update');
     Route::get('{id}', 'RoleController@show');

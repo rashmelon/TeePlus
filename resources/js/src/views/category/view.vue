@@ -55,21 +55,13 @@
 
                             <template slot="thead">
                                 <vs-th>Criteria</vs-th>
-                                <vs-th>Price</vs-th>
                             </template>
 
                             <template slot-scope="{data}">
                                 <vs-tr :key="index" v-for="(criteria, index) in data">
-
                                     <vs-td>
                                         {{criteria.criteria}}
                                     </vs-td>
-
-
-                                    <vs-td>
-                                        {{criteria.price}}
-                                    </vs-td>
-
                                 </vs-tr>
                             </template>
                         </vs-table>
@@ -105,7 +97,7 @@
         },
         methods: {
             getCategory(){
-                // this.$vs.loading({container: this.$refs.loadingContainer.$el, scale: 0.5});
+                this.$vs.loading();
                 this.$store.dispatch('category/view', this.$route.params.id)
                   .then(response => {
                       this.form = response.data.data;
@@ -128,7 +120,9 @@
                           icon: 'icon-alert-circle',
                           color: 'danger'
                       });
-                  })
+                  }).then(()=>{
+                    this.$vs.loading.close()
+                })
 
             },
             getCombinations(){
