@@ -48,7 +48,7 @@
 									>
 										<vs-select-item
 											:key="item.id"
-											:text='item.criteria'
+											:text='item.category.name+" - "+item.criteria'
 											:value="item"
 											v-for="(item,index) in printCriterias"/>
 									</vs-select>
@@ -59,8 +59,8 @@
 												v-for="(price,index) in form.designPrintPrice"
 												:key="index+1"
 												icon="check"
-											:title="price.criteria">
-												
+											:title="price.category.name+' - '+price.criteria">
+
 												<vs-input
 													class="w-full"
 													label="Price"
@@ -81,8 +81,8 @@
 								</div>
 							</vx-card>
 						</div>
-						
-						
+
+
 						<vs-button
 							@click="create"
 							class="mb-4 ml-auto"
@@ -92,7 +92,7 @@
 							type="filled"
 						>Create
 						</vs-button>
-						
+
 					</div>
 
 				</vx-card>
@@ -154,13 +154,13 @@
                     if (result) {
                         // if form have no errors
                         this.is_requesting = true;
-                        
-                        
+
+
 	                    // assign print_criteria_id to each criteriarequest
 	                    this.form.designPrintPrice.forEach(item=>{
 	                        item.print_criteria_id = item.id;
                         });
-	                    
+
 
                         // create new object for sending object without extra data
 

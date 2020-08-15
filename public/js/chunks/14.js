@@ -470,7 +470,13 @@ var render = function() {
                                 ) {
                                   return _c("vs-select-item", {
                                     key: item.id,
-                                    attrs: { text: item.criteria, value: item }
+                                    attrs: {
+                                      text:
+                                        item.category.name +
+                                        " - " +
+                                        item.criteria,
+                                      value: item
+                                    }
                                   })
                                 }),
                                 1
@@ -497,7 +503,10 @@ var render = function() {
                                           key: index + 1,
                                           attrs: {
                                             icon: "check",
-                                            title: price.criteria
+                                            title:
+                                              price.category.name +
+                                              " - " +
+                                              price.criteria
                                           }
                                         },
                                         [

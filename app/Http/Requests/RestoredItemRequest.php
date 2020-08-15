@@ -28,7 +28,7 @@ class RestoredItemRequest extends FormRequest
             'user_id' => 'required|exists:users,id',
             'product_id' => 'required|exists:products,id',
             'price_combination_id' => 'required|exists:price_combinations,id',
-            'design_id' => 'required|exists:designs,id',
+            'design_print_price_id' => 'required|exists:design_print_prices,id',
             'order_id' => 'required|exists:orders,id',
         ];
     }

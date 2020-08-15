@@ -518,8 +518,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                     .catch(error => {
                         this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'});
                     });
-                
-            }
+             }
         })
     }*/
 
@@ -1166,7 +1165,7 @@ var render = function() {
                           key: index,
                           attrs: {
                             name: "criteria",
-                            text: item.criteria,
+                            text: item.category.name + " - " + item.criteria,
                             value: item.id
                           }
                         })

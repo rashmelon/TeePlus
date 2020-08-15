@@ -275,11 +275,13 @@ var render = function() {
                                 ),
                                 _vm._v(" "),
                                 _c("vs-td", [
-                                  order.design.images[0].url
+                                  order.design_print_price.design.images[0].url
                                     ? _c("img", {
                                         staticClass: "preview-large",
                                         attrs: {
-                                          src: order.design.images[0].url
+                                          src:
+                                            order.design_print_price.design
+                                              .images[0].url
                                         }
                                       })
                                     : _vm._e()
@@ -355,7 +357,7 @@ var render = function() {
                     ],
                     null,
                     false,
-                    113107260
+                    1597443324
                   )
                 },
                 [

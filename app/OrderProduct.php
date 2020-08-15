@@ -8,7 +8,7 @@ class OrderProduct extends Model
 {
     protected $fillable = ['quantity'];
 
-    protected $with = ['product', 'priceCombination', 'design'];
+    protected $with = ['product', 'priceCombination', 'designPrintPrice'];
 
     public function order()
     {
@@ -25,9 +25,9 @@ class OrderProduct extends Model
         return $this->belongsTo(PriceCombination::class);
     }
 
-    public function design()
+    public function designPrintPrice()
     {
-        return $this->belongsTo(Design::class);
+        return $this->belongsTo(DesignPrintPrice::class);
     }
 
     public function scopeOrder($query, $value)

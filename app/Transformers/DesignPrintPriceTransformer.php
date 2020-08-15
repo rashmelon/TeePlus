@@ -13,7 +13,7 @@ class DesignPrintPriceTransformer extends TransformerAbstract
      * @var array
      */
     protected $defaultIncludes = [
-        'print_criteria'
+        'print_criteria', 'design'
     ];
 
     /**

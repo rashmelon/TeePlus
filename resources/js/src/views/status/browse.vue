@@ -49,19 +49,19 @@
 										           icon-pack="feather" radius
 										           type="border"></vs-button>
 									</div>-->
-									<div class="w-1/3 mx-2" v-if="can('edit-status')">
-										<vs-button :id="`btn-edit-${shipping.id}`" @click=editStatus(shipping.id) class="vs-con-loading__container" color="warning"
-										           icon="icon-edit"
-										           icon-pack="feather" radius
-										           type="border"></vs-button>
-									</div>
-									<div class="w-1/3 mx-3" v-if="can('delete-status')">
-										<vs-button :id="`btn-delete-${shipping.id}`" @click="is_requesting?$store.dispatch('viewWaitMessage', $vs):confirmDeleteStatus(shipping)" class="vs-con-loading__container"
-										           color="danger"
-										           icon="icon-trash"
-										           icon-pack="feather" radius
-										           type="border"></vs-button>
-									</div>
+<!--									<div class="w-1/3 mx-2" v-if="can('edit-status')">-->
+<!--										<vs-button :id="`btn-edit-${shipping.id}`" @click=editStatus(shipping.id) class="vs-con-loading__container" color="warning"-->
+<!--										           icon="icon-edit"-->
+<!--										           icon-pack="feather" radius-->
+<!--										           type="border"></vs-button>-->
+<!--									</div>-->
+<!--									<div class="w-1/3 mx-3" v-if="can('delete-status')">-->
+<!--										<vs-button :id="`btn-delete-${shipping.id}`" @click="is_requesting?$store.dispatch('viewWaitMessage', $vs):confirmDeleteStatus(shipping)" class="vs-con-loading__container"-->
+<!--										           color="danger"-->
+<!--										           icon="icon-trash"-->
+<!--										           icon-pack="feather" radius-->
+<!--										           type="border"></vs-button>-->
+<!--									</div>-->
 								</div>
 							</vs-row>
 						</vs-td>

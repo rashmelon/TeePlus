@@ -227,22 +227,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -375,7 +359,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
         _this2.tempProducts = _this2.order.order_products; // set current design
 
-        _this2.cartItem.design = _this2.order.order_products[0].design;
+        _this2.cartItem.design = _this2.order.order_products[0].designPrintPrice;
       }).catch(function (error) {
         console.log(error);
 
@@ -587,35 +571,8 @@ var render = function() {
     _c("div", { staticClass: " w-full mb-base" }, [
       _c(
         "div",
-        { ref: "edit", attrs: { title: "Create product" } },
+        { ref: "edit", attrs: { title: "Update product" } },
         [
-          _c("vx-card", [
-            _c(
-              "div",
-              [
-                _vm.cartItem.quantity &&
-                _vm.cartItem.priceCombination.id &&
-                _vm.cartItem.design.id
-                  ? _c(
-                      "vs-button",
-                      {
-                        staticClass: "mb-4",
-                        attrs: {
-                          color: "primary",
-                          icon: "icon-save",
-                          "icon-pack": "feather",
-                          type: "filled"
-                        },
-                        on: { click: _vm.addToCart }
-                      },
-                      [_vm._v("Add to cart\n\t\t\t\t\t")]
-                    )
-                  : _vm._e()
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
           _vm.tempProducts.length
             ? _c(
                 "vx-card",
@@ -640,50 +597,66 @@ var render = function() {
                                       _c("img", {
                                         staticClass: "preview-large",
                                         attrs: {
-                                          src: item.design.images[0].url
+                                          src:
+                                            item.design_print_price.design
+                                              .images[0].url
                                         }
                                       })
                                     ]),
                                     _vm._v(" "),
                                     _c("vs-td", [
                                       _vm._v(
-                                        "\n\t\t\t\t\t\t\t\t" +
-                                          _vm._s(item.product.name) +
-                                          "\n\t\t\t\t\t\t\t"
-                                      )
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("vs-td", [
-                                      _vm._v(
-                                        "\n\t\t\t\t\t\t\t\t" +
+                                        "\n                                    " +
                                           _vm._s(item.product.category.name) +
-                                          "\n\t\t\t\t\t\t\t"
+                                          "\n                                "
                                       )
                                     ]),
                                     _vm._v(" "),
                                     _c("vs-td", [
                                       _vm._v(
-                                        "\n\t\t\t\t\t\t\t\t" +
-                                          _vm._s(item.design.name) +
-                                          "\n\t\t\t\t\t\t\t"
+                                        "\n\t\t\t\t\t\t\t\t\t" +
+                                          _vm._s(item.product.name) +
+                                          "\n\t\t\t\t\t\t\t\t"
                                       )
                                     ]),
                                     _vm._v(" "),
                                     _c("vs-td", [
                                       _vm._v(
-                                        "\n\t\t\t\t\t\t\t\t" +
+                                        "\n\t\t\t\t\t\t\t\t\t" +
+                                          _vm._s(
+                                            item.design_print_price.design.name
+                                          ) +
+                                          "\n\t\t\t\t\t\t\t\t"
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("vs-td", [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t\t" +
+                                          _vm._s(
+                                            item.design_print_price.price
+                                          ) +
+                                          "\n\t\t\t\t\t\t\t\t"
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("vs-td", [
+                                      _vm._v(
+                                        "\n                                    " +
                                           _vm._s(
                                             item.price_combination.combination
                                           ) +
-                                          "\n\t\t\t\t\t\t\t"
+                                          " (" +
+                                          _vm._s(item.price_combination.price) +
+                                          ")\n\t\t\t\t\t\t\t\t"
                                       )
                                     ]),
                                     _vm._v(" "),
                                     _c("vs-td", [
                                       _vm._v(
-                                        "\n\t\t\t\t\t\t\t\t" +
+                                        "\n\t\t\t\t\t\t\t\t\t" +
                                           _vm._s(item.quantity) +
-                                          "\n\t\t\t\t\t\t\t"
+                                          "\n\t\t\t\t\t\t\t\t"
                                       )
                                     ])
                                   ],
@@ -695,7 +668,7 @@ var render = function() {
                         ],
                         null,
                         false,
-                        4099654862
+                        740471757
                       )
                     },
                     [
@@ -707,11 +680,13 @@ var render = function() {
                             _vm._v("Image")
                           ]),
                           _vm._v(" "),
-                          _c("vs-th", [_vm._v("Product")]),
-                          _vm._v(" "),
                           _c("vs-th", [_vm._v("Category")]),
                           _vm._v(" "),
+                          _c("vs-th", [_vm._v("Product")]),
+                          _vm._v(" "),
                           _c("vs-th", [_vm._v("Design")]),
+                          _vm._v(" "),
+                          _c("vs-th", [_vm._v("Design Price")]),
                           _vm._v(" "),
                           _c("vs-th", [_vm._v("Price Combination")]),
                           _vm._v(" "),
@@ -1027,7 +1002,7 @@ var render = function() {
             },
             on: { click: _vm.edit }
           },
-          [_vm._v("Update order\n\t\t")]
+          [_vm._v("Update order\n\t\t\t")]
         )
       ],
       1

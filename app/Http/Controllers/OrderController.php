@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Design;
+use App\DesignPrintPrice;
 use App\Http\Requests\OrderRequest;
 use App\Http\Responses\Facades\ApiResponse;
 use App\Order;
@@ -66,7 +66,7 @@ class OrderController extends Controller
 
         $order->update($data);
 
-        Status::find($data['status_id'])->orders()->save($order);
+        Status::where('name', 'pending')->first()->orders()->save($order);
         $request->user()->orders()->save($order);
         PaymentType::where('name', 'cash')->first()->orders()->save($order);
         ShippingPrice::find($data['shipping_price_id'])->orders()->save($order);
@@ -95,7 +95,7 @@ class OrderController extends Controller
             }
             $product->orderProducts()->save($order_product);
             PriceCombination::find($data->price_combination_id)->orderProducts()->save($order_product);
-            Design::find($data->design_id)->orderProducts()->save($order_product);
+            DesignPrintPrice::find($data->design_print_price_id)->orderProducts()->save($order_product);
             $order->orderProducts()->save($order_product);
         }
 
