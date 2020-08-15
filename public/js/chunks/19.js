@@ -295,14 +295,18 @@ var render = function() {
                                       "vs-td",
                                       {
                                         attrs: {
-                                          data: item.design.images[0].url
+                                          data:
+                                            item.design_print_price.design
+                                              .images[0].url
                                         }
                                       },
                                       [
                                         _c("img", {
                                           staticClass: "preview-large",
                                           attrs: {
-                                            src: item.design.images[0].url
+                                            src:
+                                              item.design_print_price.design
+                                                .images[0].url
                                           }
                                         })
                                       ]
@@ -327,7 +331,9 @@ var render = function() {
                                     _c("vs-td", [
                                       _vm._v(
                                         "\n\t\t\t\t\t\t\t\t" +
-                                          _vm._s(item.design.name) +
+                                          _vm._s(
+                                            item.design_print_price.design.name
+                                          ) +
                                           "\n\t\t\t\t\t\t\t"
                                       )
                                     ]),
@@ -358,7 +364,7 @@ var render = function() {
                         ],
                         null,
                         false,
-                        185203993
+                        3839398361
                       ),
                       model: {
                         value: _vm.form,

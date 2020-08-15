@@ -24,7 +24,7 @@ class PrintCriteriaController extends Controller
     {
         $this->authorize('index', PrintCriteria::class);
 
-        return ApiResponse::fluentIndexRespond(PrintCriteria::query(), PrintCriteriaTransformer::class)->execute();
+        return ApiResponse::fluentIndexRespond(PrintCriteria::with('category'), PrintCriteriaTransformer::class, ['category'])->execute();
     }
 
     /**

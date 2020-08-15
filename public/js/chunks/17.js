@@ -397,23 +397,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -421,7 +404,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   name: "create",
   mounted: function mounted() {
     this.getCategories();
-    this.getStatuses();
     this.getShippingPrice();
     this.getReturned();
   },
@@ -446,7 +428,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         category: {},
         product: {},
         priceCombination: {},
-        design: {}
+        design_print_price: {}
       },
       tempProducts: [],
       order: {
@@ -461,7 +443,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         additional_fees_details: 'additional fee details here',
         external_tracking: 'ARAMEX-102'
       },
-      statuses: [],
       shippingPrices: [],
       is_requesting: false
     };
@@ -496,7 +477,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         category: '',
         product: '',
         priceCombination: '',
-        design: null
+        design_print_price: null
       };
     },
     removeFromCart: function removeFromCart(item, index) {
@@ -572,7 +553,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this5 = this;
 
       this.$vs.loading();
-      this.$store.dispatch('product/getData', "?category=".concat(this.cartItem.category.id)).then(function (response) {
+      var payload = this.payload;
+
+      if (this.$store.getters['auth/userData'].roles[0].name === 'Seller') {
+        payload = "?seller=".concat(this.$store.getters['auth/userData'].id, "&category=").concat(this.cartItem.category.id);
+      } else {
+        payload = "?category=".concat(this.cartItem.category.id);
+      }
+
+      this.$store.dispatch('product/getData', payload).then(function (response) {
         _this5.products = response.data.data;
         console.log(_this5.products);
       }).catch(function (error) {
@@ -593,7 +582,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this6 = this;
 
       this.$vs.loading();
-      this.$store.dispatch('combination/getData', "?category=".concat(this.cartItem.category.id)).then(function (response) {
+      this.$store.dispatch('combination/getData', "?product=".concat(this.cartItem.product.id)).then(function (response) {
         _this6.combinations = response.data.data;
         console.log(_this6.combinations);
       }).catch(function (error) {
@@ -610,13 +599,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this6.$vs.loading.close();
       });
     },
-    getStatuses: function getStatuses() {
+    getDesigns: function getDesigns() {
       var _this7 = this;
 
       this.$vs.loading();
-      this.$store.dispatch('status/getData', this.payload).then(function (response) {
-        _this7.statuses = response.data.data;
+      this.$store.dispatch('designPrintPrice/getData', "?category=".concat(this.cartItem.category.id)).then(function (response) {
+        _this7.designs = response.data.data;
+        console.log('designs: ', _this7.designs);
+
+        _this7.$vs.loading.close(_this7.$refs.create.$el);
       }).catch(function (error) {
+        _this7.$vs.loading.close(_this7.$refs.create.$el);
+
         _this7.$vs.notify({
           title: 'Error',
           text: error.response.data.error,
@@ -628,65 +622,34 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this7.$vs.loading.close();
       });
     },
-    getDesigns: function getDesigns() {
-      var _this8 = this;
-
-      this.$vs.loading();
-      var payload = this.payload;
-
-      if (this.$store.getters['auth/userData'].roles[0].name === 'Seller') {
-        payload = "?seller=".concat(this.$store.getters['auth/userData'].id, "&category=").concat(this.cartItem.category);
-      } else {
-        payload = "?category=".concat(this.cartItem.category.id);
-      }
-
-      this.$store.dispatch('design/getData', payload).then(function (response) {
-        _this8.designs = response.data.data;
-        console.log('designs: ', _this8.designs);
-
-        _this8.$vs.loading.close(_this8.$refs.create.$el);
-      }).catch(function (error) {
-        _this8.$vs.loading.close(_this8.$refs.create.$el);
-
-        _this8.$vs.notify({
-          title: 'Error',
-          text: error.response.data.error,
-          iconPack: 'feather',
-          icon: 'icon-alert-circle',
-          color: 'danger'
-        });
-      }).then(function () {
-        _this8.$vs.loading.close();
-      });
-    },
     create: function create() {
-      var _this9 = this;
+      var _this8 = this;
 
       this.$validator.validateAll().then(function (result) {
         if (result) {
-          _this9.$vs.loading(); // if form have no errors
+          _this8.$vs.loading(); // if form have no errors
 
 
-          _this9.is_requesting = true; // empty item before appending new items again ( in case of fail )
+          _this8.is_requesting = true; // empty item before appending new items again ( in case of fail )
 
-          _this9.order.orderProducts = [];
+          _this8.order.orderProducts = [];
 
-          for (var i = 0; i < _this9.tempProducts.length; i++) {
+          for (var i = 0; i < _this8.tempProducts.length; i++) {
             var item = {};
 
-            if (_this9.tempProducts[i].id) {
-              item.id = _this9.tempProducts[i].id;
+            if (_this8.tempProducts[i].id) {
+              item.id = _this8.tempProducts[i].id;
             }
 
-            item.quantity = _this9.tempProducts[i].quantity ? _this9.tempProducts[i].quantity : 1;
-            item.product_id = _this9.tempProducts[i].product.id;
-            item.price_combination_id = _this9.tempProducts[i].priceCombination.id;
-            item.design_id = _this9.tempProducts[i].design.id;
+            item.quantity = _this8.tempProducts[i].quantity ? _this8.tempProducts[i].quantity : 1;
+            item.product_id = _this8.tempProducts[i].product.id;
+            item.price_combination_id = _this8.tempProducts[i].priceCombination.id;
+            item.design_print_price_id = _this8.tempProducts[i].design_print_price.id;
 
-            _this9.order.orderProducts.push(item);
+            _this8.order.orderProducts.push(item);
           }
 
-          var sentObject = _objectSpread({}, _this9.order); // create new object for sending object without extra data
+          var sentObject = _objectSpread({}, _this8.order); // create new object for sending object without extra data
 
 
           var form_data = new FormData();
@@ -699,8 +662,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
           }
 
-          _this9.$store.dispatch('order/create', form_data).then(function (response) {
-            _this9.$vs.notify({
+          _this8.$store.dispatch('order/create', form_data).then(function (response) {
+            _this8.$vs.notify({
               title: 'Success',
               text: response.data.message,
               iconPack: 'feather',
@@ -709,9 +672,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }); // this.$router.push({name: 'order'});
 
 
-            _this9.is_requesting = false;
+            _this8.is_requesting = false;
 
-            _this9.$router.push({
+            _this8.$router.push({
               name: 'order'
             });
           }).catch(function (error) {
@@ -720,7 +683,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   _key = _Object$entries$_i[0],
                   value = _Object$entries$_i[1];
 
-              _this9.$vs.notify({
+              _this8.$vs.notify({
                 title: _key,
                 text: value[0],
                 iconPack: 'feather',
@@ -729,12 +692,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               });
             }
 
-            _this9.is_requesting = false;
+            _this8.is_requesting = false;
           }).then(function () {
-            _this9.$vs.loading.close();
+            _this8.$vs.loading.close();
           });
         } else {
-          _this9.$vs.notify({
+          _this8.$vs.notify({
             title: 'Error',
             text: 'Fix form validation errors',
             iconPack: 'feather',
@@ -930,11 +893,14 @@ var render = function() {
                                     ),
                                     _vm._v(" "),
                                     _c("vs-td", [
-                                      item.design.images[0].url
+                                      item.design_print_price.design.images[0]
+                                        .url
                                         ? _c("img", {
                                             staticClass: "preview-large",
                                             attrs: {
-                                              src: item.design.images[0].url
+                                              src:
+                                                item.design_print_price.design
+                                                  .images[0].url
                                             }
                                           })
                                         : _vm._e()
@@ -1016,7 +982,7 @@ var render = function() {
                         ],
                         null,
                         false,
-                        4265767336
+                        3847007176
                       ),
                       model: {
                         value: _vm.selectedFromStock,
@@ -1270,8 +1236,11 @@ var render = function() {
                                               {
                                                 name: "model",
                                                 rawName: "v-model",
-                                                value: _vm.cartItem.design,
-                                                expression: "cartItem.design"
+                                                value:
+                                                  _vm.cartItem
+                                                    .design_print_price,
+                                                expression:
+                                                  "cartItem.design_print_price"
                                               }
                                             ],
                                             attrs: {
@@ -1282,7 +1251,7 @@ var render = function() {
                                             domProps: {
                                               value: item,
                                               checked: _vm._q(
-                                                _vm.cartItem.design,
+                                                _vm.cartItem.design_print_price,
                                                 item
                                               )
                                             },
@@ -1290,7 +1259,7 @@ var render = function() {
                                               change: function($event) {
                                                 return _vm.$set(
                                                   _vm.cartItem,
-                                                  "design",
+                                                  "design_print_price",
                                                   item
                                                 )
                                               }
@@ -1351,7 +1320,7 @@ var render = function() {
                                           _c("img", {
                                             staticClass: "w-full h-full",
                                             attrs: {
-                                              src: item.images[0].url,
+                                              src: item.design.images[0].url,
                                               alt: ""
                                             }
                                           }),
@@ -1359,7 +1328,17 @@ var render = function() {
                                           _c(
                                             "p",
                                             { staticClass: "text-center" },
-                                            [_vm._v(_vm._s(item.name))]
+                                            [
+                                              _vm._v(
+                                                _vm._s(item.design.name) +
+                                                  " - " +
+                                                  _vm._s(
+                                                    item.print_criteria.criteria
+                                                  ) +
+                                                  " - " +
+                                                  _vm._s(item.price)
+                                              )
+                                            ]
                                           )
                                         ]
                                       )
@@ -1396,7 +1375,7 @@ var render = function() {
                           disabled: !(
                             _vm.cartItem.quantity &&
                             _vm.cartItem.priceCombination.id &&
-                            _vm.cartItem.design.id
+                            _vm.cartItem.design_print_price.id
                           )
                         },
                         on: { click: _vm.addToCart }
@@ -1445,7 +1424,9 @@ var render = function() {
                                     _c("vs-td", [
                                       _vm._v(
                                         "\n\t\t\t\t\t\t\t\t" +
-                                          _vm._s(item.design.name) +
+                                          _vm._s(
+                                            item.design_print_price.design.name
+                                          ) +
                                           "\n\t\t\t\t\t\t\t"
                                       )
                                     ]),
@@ -1508,7 +1489,7 @@ var render = function() {
                         ],
                         null,
                         false,
-                        3025082823
+                        3890692423
                       )
                     },
                     [
@@ -1722,42 +1703,6 @@ var render = function() {
                           expression: "order.external_tracking"
                         }
                       })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "vx-col md:w-12/12 w-full mb-3" },
-                    [
-                      _c(
-                        "vs-select",
-                        {
-                          staticClass: "w-full",
-                          attrs: {
-                            label: "Status",
-                            autocomplete: "",
-                            "label-placeholder": "Status",
-                            "icon-pack": "feather",
-                            icon: "icon-chevron-down",
-                            color: "primary"
-                          },
-                          model: {
-                            value: _vm.order.status_id,
-                            callback: function($$v) {
-                              _vm.$set(_vm.order, "status_id", $$v)
-                            },
-                            expression: "order.status_id"
-                          }
-                        },
-                        _vm._l(_vm.statuses, function(item, index) {
-                          return _c("vs-select-item", {
-                            key: index,
-                            attrs: { value: item.id, text: item.name }
-                          })
-                        }),
-                        1
-                      )
                     ],
                     1
                   ),

@@ -30,16 +30,6 @@ class Design extends Model
         return $this->belongsToMany(Order::class, 'order_products');
     }
 
-    public function orderProducts()
-    {
-        return $this->hasMany(OrderProduct::class);
-    }
-
-    public function restoredItems()
-    {
-        return $this->hasMany(RestoredItem::class);
-    }
-
     public function scopeCategory($query, $value)
     {
         $query->whereHas('printCriteria', function ($query) use ($value){

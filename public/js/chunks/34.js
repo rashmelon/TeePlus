@@ -324,9 +324,9 @@ var render = function() {
                               [
                                 _c("vs-td", { attrs: { data: shipping.id } }, [
                                   _vm._v(
-                                    "\n\t\t\t\t\t\t" +
+                                    "\n\t\t\t\t\t\t\t" +
                                       _vm._s(shipping.id) +
-                                      "\n\t\t\t\t\t"
+                                      "\n\t\t\t\t\t\t"
                                   )
                                 ]),
                                 _vm._v(" "),
@@ -335,9 +335,9 @@ var render = function() {
                                   { attrs: { data: shipping.name } },
                                   [
                                     _vm._v(
-                                      "\n\t\t\t\t\t\t" +
+                                      "\n\t\t\t\t\t\t\t" +
                                         _vm._s(shipping.name) +
-                                        "\n\t\t\t\t\t"
+                                        "\n\t\t\t\t\t\t"
                                     )
                                   ]
                                 ),
@@ -346,73 +346,7 @@ var render = function() {
                                   "vs-td",
                                   [
                                     _c("vs-row", [
-                                      _c("div", { staticClass: "flex mb-4" }, [
-                                        _vm.can("edit-status")
-                                          ? _c(
-                                              "div",
-                                              { staticClass: "w-1/3 mx-2" },
-                                              [
-                                                _c("vs-button", {
-                                                  staticClass:
-                                                    "vs-con-loading__container",
-                                                  attrs: {
-                                                    id:
-                                                      "btn-edit-" + shipping.id,
-                                                    color: "warning",
-                                                    icon: "icon-edit",
-                                                    "icon-pack": "feather",
-                                                    radius: "",
-                                                    type: "border"
-                                                  },
-                                                  on: {
-                                                    click: function($event) {
-                                                      return _vm.editStatus(
-                                                        shipping.id
-                                                      )
-                                                    }
-                                                  }
-                                                })
-                                              ],
-                                              1
-                                            )
-                                          : _vm._e(),
-                                        _vm._v(" "),
-                                        _vm.can("delete-status")
-                                          ? _c(
-                                              "div",
-                                              { staticClass: "w-1/3 mx-3" },
-                                              [
-                                                _c("vs-button", {
-                                                  staticClass:
-                                                    "vs-con-loading__container",
-                                                  attrs: {
-                                                    id:
-                                                      "btn-delete-" +
-                                                      shipping.id,
-                                                    color: "danger",
-                                                    icon: "icon-trash",
-                                                    "icon-pack": "feather",
-                                                    radius: "",
-                                                    type: "border"
-                                                  },
-                                                  on: {
-                                                    click: function($event) {
-                                                      _vm.is_requesting
-                                                        ? _vm.$store.dispatch(
-                                                            "viewWaitMessage",
-                                                            _vm.$vs
-                                                          )
-                                                        : _vm.confirmDeleteStatus(
-                                                            shipping
-                                                          )
-                                                    }
-                                                  }
-                                                })
-                                              ],
-                                              1
-                                            )
-                                          : _vm._e()
-                                      ])
+                                      _c("div", { staticClass: "flex mb-4" })
                                     ])
                                   ],
                                   1
@@ -426,7 +360,7 @@ var render = function() {
                     ],
                     null,
                     false,
-                    1745231936
+                    3650135929
                   )
                 },
                 [
@@ -447,7 +381,7 @@ var render = function() {
                                 "vs-w": "3"
                               }
                             },
-                            [_vm._v("Add Status\n\t\t\t\t")]
+                            [_vm._v("Add Status\n\t\t\t\t\t")]
                           )
                         ],
                         1

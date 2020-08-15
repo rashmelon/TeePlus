@@ -17,7 +17,7 @@
                 :data="returns"
             >
 
-    
+
                 <template slot="thead">
                     <vs-th>#</vs-th>
                     <vs-th>Image</vs-th>
@@ -27,40 +27,40 @@
                     <vs-th>Quantity</vs-th>
                     <vs-th>Created At</vs-th>
                 </template>
-    
+
                 <template slot-scope="{data}">
                     <vs-tr :key="index" v-for="(order, index) in data">
                         <vs-td :data="order.product.id">
                             {{ order.id }}
                         </vs-td>
-            
+
                         <vs-td>
                             <img
-                                v-if="order.design.images[0].url"
-                                :src="order.design.images[0].url"
+                                v-if="order.design_print_price.design.images[0].url"
+                                :src="order.design_print_price.design.images[0].url"
                                 class="preview-large">
                         </vs-td>
-            
+
                         <vs-td :data="order.product.name">
                             {{ order.product.name}}
                         </vs-td>
-            
+
                         <vs-td :data="order.product.description">
                             {{ order.product.description}}
                         </vs-td>
-            
+
                         <vs-td :data="order.product.base_price">
                             {{ order.product.base_price}}
                         </vs-td>
-            
+
                         <vs-td :data="order.product.quantity">
                             {{ order.product.quantity}}
                         </vs-td>
-            
+
                         <vs-td :data="order.created_at">
                             {{ order.created_at}}
                         </vs-td>
-            
+
                     </vs-tr>
                 </template>
             </vs-table>
@@ -95,7 +95,7 @@
                 // if (this.$store.getters['auth/userData'].roles[0].name==='Seller'){
                 //     payload = '?seller='+this.$store.getters['auth/userData'].id
                 // }
-                
+
                     this.$store.dispatch('restoredItem/getData', this.payload)
                     .then(response => {
                         this.returns = response.data.data;

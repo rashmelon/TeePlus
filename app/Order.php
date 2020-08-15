@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
@@ -55,5 +56,10 @@ class Order extends Model
     public function restoredItems()
     {
         return $this->hasMany(RestoredItem::class);
+    }
+
+    public function scopeSeller(Builder $query, $value)
+    {
+        return $query->where('seller_id', $value);
     }
 }

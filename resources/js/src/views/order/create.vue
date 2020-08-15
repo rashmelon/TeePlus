@@ -2,7 +2,7 @@
 	<div>
 		<div class=" w-full mb-base">
 			<div ref="create" title="Create product">
-				
+
 				<vs-row
 					class="mb-5"
 					vs-align="flex-start"
@@ -17,10 +17,10 @@
 						<label for="source"><h2>New</h2></label>
 					</vs-col>
 				</vs-row>
-				
-				
+
+
 				<vx-card v-if="!sourceOfProducts">
-					
+
 					<vs-table
 						pagination
 						search
@@ -28,8 +28,8 @@
 						v-model="selectedFromStock"
 						:data="returns"
 					>
-						
-						
+
+
 						<template slot="thead">
 							<vs-th>#</vs-th>
 							<vs-th>Image</vs-th>
@@ -39,45 +39,45 @@
 							<vs-th>Quantity</vs-th>
 							<vs-th>Created At</vs-th>
 						</template>
-						
+
 						<template slot-scope="{data}">
 							<vs-tr :data="item" :key="index" v-for="(item, index) in data">
 								<vs-td :data="item.product.id">
 									{{ item.id }}
 								</vs-td>
-								
+
 								<vs-td>
 									<img
-										v-if="item.design.images[0].url"
-										:src="item.design.images[0].url"
+										v-if="item.design_print_price.design.images[0].url"
+										:src="item.design_print_price. design.images[0].url"
 										class="preview-large">
 								</vs-td>
-								
+
 								<vs-td :data="item.product.name">
 									{{ item.product.name}}
 								</vs-td>
-								
+
 								<vs-td :data="item.product.description">
 									{{ item.product.description}}
 								</vs-td>
-								
+
 								<vs-td :data="item.product.base_price">
 									{{ item.product.base_price}}
 								</vs-td>
-								
+
 								<vs-td :data="item.product.quantity">
 									{{ item.product.quantity}}
 								</vs-td>
-								
+
 								<vs-td :data="item.created_at">
 									{{ item.created_at}}
 								</vs-td>
-							
+
 							</vs-tr>
 						</template>
 					</vs-table>
-					
-					
+
+
 					<vs-button
 						:disabled="!selectedFromStock.id"
 						@click="selectFromStock"
@@ -88,12 +88,12 @@
 						type="filled"
 					>Add to cart
 					</vs-button>
-				
+
 				</vx-card>
-				
+
 				<vx-card v-if="sourceOfProducts">
 					<div class="vx-row">
-						
+
 						<div class="vx-col md:w-12/12 w-full my-3" v-if="categories.length">
 							<vs-select
 								@change="function(e) {this.getProducts();this.getDesigns()}.bind(this)"
@@ -106,8 +106,8 @@
 							</vs-select>
 
 						</div>
-						
-						
+
+
 						<div class="vx-col md:w-12/12 w-full my-3" v-if="products.length">
 							<vs-select
 								@change="getCombinations"
@@ -115,7 +115,7 @@
 								label="Product"
 								name="product"
 								v-model="cartItem.product"
-							
+
 							>
 								<vs-select-item :key="product.id" :text="`${product.base_price} - ${product.name} - ${product.description}`" :value="product" v-for="product in products"/>
 							</vs-select>
@@ -123,7 +123,7 @@
 						<div class="vx-col md:w-12/12 w-full my-3" v-else >
 							<div class="text-center p font-weight-bold w-full">No products to show in this category</div>
 						</div>
-						
+
 						<div class="vx-col md:w-12/12 w-full my-3" v-if="combinations.length">
 							<vs-select
 								class="w-full"
@@ -138,14 +138,14 @@
 									v-for="item in combinations"/>
 							</vs-select>
 						</div>
-						
-						
+
+
 						<div class="vx-col md:w-12/12 w-full my-3" v-if="combinations.length">
 							<div class="centerx pt-6">
 								<vs-input-number v-model="cartItem.quantity" min="1" label="Quantity:"/>
 							</div>
 						</div>
-						
+
 						<div
 							v-if="cartItem.category.id"
 							class="designs vx-col md:w-12/12 w-full mt-3 mb-5">
@@ -158,23 +158,23 @@
 									:key="item.id"
 								>
 									<label :for="`design-${item.id}`" class="w-full ">
-										<input type="radio" v-model="cartItem.design" :value="item" :id="`design-${item.id}`" name="design">
+										<input type="radio" v-model="cartItem.design_print_price" :value="item" :id="`design-${item.id}`" name="design">
 										<span class="overlay">
 											<span class="feather-icon feather-check-circle">
 												<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle "><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
 											</span>
 										</span>
-										<img :src="item.images[0].url" class="w-full h-full"  alt="">
-										<p class="text-center">{{item.name}}</p>
+										<img :src="item.design.images[0].url" class="w-full h-full"  alt="">
+										<p class="text-center">{{item.design.name}} - {{item.print_criteria.criteria}} - {{item.price}}</p>
 									</label>
 								</div>
 							</div>
 							<div v-else class="text-center p font-weight-bold w-full">No designs to show in this category</div>
 						</div>
-					
+
 					</div>
-					
-					
+
+
 					<div>
 						<vs-button
 							@click="addToCart"
@@ -183,21 +183,21 @@
 							icon="icon-save"
 							icon-pack="feather"
 							type="filled"
-							:disabled="!(cartItem.quantity && cartItem.priceCombination.id && cartItem.design.id)"
+							:disabled="!(cartItem.quantity && cartItem.priceCombination.id && cartItem.design_print_price.id)"
 						>Add to cart
 						</vs-button>
 					</div>
-					
+
 				</vx-card>
-				
-				
-				
-				
+
+
+
+
 				<vx-card ref="cart" v-if="tempProducts.length" class="mt-4">
 					<vs-table
 						:data="tempProducts"
 					>
-						
+
 						<template slot="thead">
 							<vs-th>Source</vs-th>
 							<vs-th>Design</vs-th>
@@ -206,7 +206,7 @@
 							<vs-th>Quantity</vs-th>
 							<vs-th>Remove</vs-th>
 						</template>
-						
+
 						<template slot-scope="{data}">
 							<vs-tr
 								:key="index"
@@ -216,38 +216,38 @@
 								<vs-td>
 									{{ item.id?'Returned':'New'}}
 								</vs-td>
-								
+
 								<vs-td>
-									{{ item.design.name  }}
+									{{ item.design_print_price.design.name  }}
 								</vs-td>
-								
+
 								<vs-td>
 									{{ item.priceCombination.combination }}
 								</vs-td>
-								
+
 								<vs-td>
 									{{ item.product.name }}
 								</vs-td>
-								
+
 								<vs-td>
 									{{ item.quantity  || 1}}
 								</vs-td>
-								
+
 								<vs-td>
 									<vs-button
 							           radius color="danger" type="border"
 							           icon-pack="feather" icon="icon-trash"
 							           @click="removeFromCart(item,index)"></vs-button>
-								
+
 								</vs-td>
-								
+
 							</vs-tr>
 						</template>
 					</vs-table>
 				</vx-card>
 
-				
-				
+
+
 				<vx-card ref="order" v-if="tempProducts.length" class="mt-4">
 					<div class="vx-row">
 						<div class="vx-col md:w-12/12 w-full mb-3">
@@ -257,7 +257,7 @@
 								v-model="order.customer_name"
 							/>
 						</div>
-						
+
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							<vs-input
 								label-placeholder="Phone number"
@@ -265,7 +265,7 @@
 								v-model="order.phone_number"
 							/>
 						</div>
-						
+
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							<vs-input
 								label-placeholder="Additional number"
@@ -273,7 +273,7 @@
 								v-model="order.additional_number"
 							/>
 						</div>
-						
+
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							<vs-input
 								label-placeholder="Address"
@@ -281,7 +281,7 @@
 								v-model="order.address"
 							/>
 						</div>
-						
+
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							<vs-input
 								label-placeholder="Shipping notes"
@@ -289,7 +289,7 @@
 								v-model="order.shipping_note"
 							/>
 						</div>
-						
+
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							<vs-input
 								label-placeholder="discount"
@@ -300,7 +300,7 @@
 								v-model="order.discount"
 							/>
 						</div>
-						
+
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							<vs-input
 								label-placeholder="Additional fees"
@@ -311,8 +311,8 @@
 								v-model="order.additional_fees"
 							/>
 						</div>
-						
-						
+
+
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							<vs-input
 								label-placeholder="Additional fees details"
@@ -320,7 +320,7 @@
 								v-model="order.additional_fees_details"
 							/>
 						</div>
-						
+
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							<vs-input
 								label-placeholder="External tracking number"
@@ -328,25 +328,8 @@
 								v-model="order.external_tracking"
 							/>
 						</div>
-						
-						
 						<div class="vx-col md:w-12/12 w-full mb-3">
-							
-							<vs-select
-								label="Status"
-								autocomplete
-								label-placeholder="Status"
-								icon-pack="feather"
-								icon="icon-chevron-down"
-								color="primary"
-								class="w-full"
-								v-model="order.status_id">
-								<vs-select-item :key="index" :value="item.id" :text="item.name" v-for="(item, index) in statuses" />
-							</vs-select>
-							
-						</div>
-						<div class="vx-col md:w-12/12 w-full mb-3">
-							
+
 							<vs-select
 								label="Shipping"
 								autocomplete
@@ -358,16 +341,16 @@
 								v-model="order.shipping_price_id">
 								<vs-select-item :key="index" :value="item.id" :text="`${item.shipping_method.name} - ${item.city.name} - ${item.price}`" v-for="(item, index) in shippingPrices" />
 							</vs-select>
-							
+
 						</div>
-						
+
 					</div>
 				</vx-card>
 
 			</div>
 		</div>
-		
-		
+
+
 		<div>
 			<vs-button
 				:disabled="!tempProducts.length"
@@ -380,7 +363,7 @@
 			>Create order
 			</vs-button>
 		</div>
-	
+
 	</div>
 </template>
 
@@ -393,7 +376,6 @@
         name: "create",
         mounted() {
             this.getCategories();
-	        this.getStatuses();
 	        this.getShippingPrice();
 
             this.getReturned();
@@ -420,10 +402,10 @@
                     category:{},
 		            product:{},
 		            priceCombination:{},
-                    design: {}
+                    design_print_price: {}
 	            },
                 tempProducts: [],
-	            
+
 	            order: {
                     orderProducts: [],
                     customer_name: 'Customer Name Here',
@@ -436,7 +418,6 @@
                     additional_fees_details: 'additional fee details here',
                     external_tracking: 'ARAMEX-102'
 	            },
-	            statuses: [],
                 shippingPrices: [],
                 is_requesting: false
             }
@@ -454,9 +435,9 @@
             },
         },
         methods: {
-	        
-	        
-	        
+
+
+
 
             selectFromStock(){
                 console.log(this.selectedFromStock)
@@ -477,9 +458,9 @@
                     category:'',
                     product:'',
                     priceCombination:'',
-                    design: null
+                    design_print_price: null
                 }
-                
+
 	        },
 			removeFromCart(item,index){
                 // from Returns products
@@ -488,8 +469,8 @@
                 }
                 this.tempProducts.splice(index,1)
 			},
-	        
-	        
+
+
             getReturned() {
                 this.$vs.loading();
                 this.$store.dispatch('restoredItem/getData', this.payload)
@@ -520,7 +501,7 @@
                 this.$vs.loading();
 
                 this.designs = [];
-                
+
                 // get all categories
                 this.$store.dispatch('category/getData', this.payload)
                     .then(response => {
@@ -540,8 +521,14 @@
             },
 	        getProducts(){
                 this.$vs.loading();
+                let payload = this.payload;
+                if (this.$store.getters['auth/userData'].roles[0].name==='Seller'){
+                    payload = `?seller=${this.$store.getters['auth/userData'].id}&category=${this.cartItem.category.id}`
+                } else {
+                    payload = `?category=${this.cartItem.category.id}`
+                }
 
-                this.$store.dispatch('product/getData', `?category=${this.cartItem.category.id}`)
+                this.$store.dispatch('product/getData', payload)
                     .then(response => {
                         this.products = response.data.data
 	                    console.log(this.products)
@@ -556,11 +543,11 @@
                             color: 'danger'
                         });
                     }).then(()=>{this.$vs.loading.close()})
-                
+
             },
             getCombinations() {
                 this.$vs.loading();
-                this.$store.dispatch('combination/getData', `?category=${this.cartItem.category.id}`)
+                this.$store.dispatch('combination/getData', `?product=${this.cartItem.product.id}`)
                     .then(response => {
                         this.combinations = response.data.data;
 	                    console.log(this.combinations)
@@ -571,31 +558,13 @@
                     }).then(()=>{this.$vs.loading.close()})
 
             },
-            getStatuses() {
-                this.$vs.loading();
-                this.$store.dispatch('status/getData', this.payload)
-                    .then(response => {
-                        this.statuses = response.data.data;
-                    })
-                    .catch(error => {
-                        this.$vs.notify({title: 'Error', text: error.response.data.error, iconPack: 'feather', icon: 'icon-alert-circle', color: 'danger'})
-
-                    })
-                    .then(()=>{this.$vs.loading.close()})
-            },
             getDesigns() {
                 this.$vs.loading();
-                let payload = this.payload;
-                if (this.$store.getters['auth/userData'].roles[0].name==='Seller'){
-                    payload = `?seller=${this.$store.getters['auth/userData'].id}&category=${this.cartItem.category}`
-                } else {
-                    payload = `?category=${this.cartItem.category.id}`
-                }
-                this.$store.dispatch('design/getData', payload)
+                this.$store.dispatch('designPrintPrice/getData', `?category=${this.cartItem.category.id}`)
                     .then(response => {
                         this.designs = response.data.data;
                         console.log('designs: ',this.designs)
-                        
+
                         this.$vs.loading.close(this.$refs.create.$el);
                     })
                     .catch(error => {
@@ -616,7 +585,7 @@
 
                         // empty item before appending new items again ( in case of fail )
                         this.order.orderProducts = [];
-                        
+
                         for (let i = 0; i < this.tempProducts.length; i++) {
                             let item = {};
                             if (this.tempProducts[i].id){
@@ -625,7 +594,7 @@
                             item.quantity = this.tempProducts[i].quantity?this.tempProducts[i].quantity:1;
                             item.product_id = this.tempProducts[i].product.id;
                             item.price_combination_id = this.tempProducts[i].priceCombination.id;
-                            item.design_id = this.tempProducts[i].design.id;
+                            item.design_print_price_id = this.tempProducts[i].design_print_price.id;
 
                             this.order.orderProducts.push(item);
                         }
@@ -688,17 +657,17 @@
 <style lang="scss">
 	.single-design {
 		position: relative;
-		
+
 		img{
 			border: 1px solid #888;
 			padding: 5px;
 			border-radius: 10px
 		}
-		
+
 		input{
 			display: none;
 		}
-		
+
 		.overlay{
 			position: absolute;
 			z-index: 1;
@@ -711,17 +680,17 @@
 			opacity: 0;
 			display: flex;
 			justify-content: center;
-	
+
 			svg{
 				width: 100px;
 				height: 100px;
 				color: white;
 			}
 		}
-		
-		
-		
-		
+
+
+
+
 		input:checked  ~  .overlay{
 			opacity: 1!important;
 		}

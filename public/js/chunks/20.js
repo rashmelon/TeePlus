@@ -194,6 +194,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -352,50 +367,74 @@ var render = function() {
                                       _c("img", {
                                         staticClass: "preview-large",
                                         attrs: {
-                                          src: item.design.images[0].url
+                                          src:
+                                            item.design_print_price.design
+                                              .images[0].url
                                         }
                                       })
                                     ]),
                                     _vm._v(" "),
                                     _c("vs-td", [
                                       _vm._v(
-                                        "\n\t\t\t\t\t\t\t\t" +
+                                        "\n                                    " +
                                           _vm._s(item.product.category.name) +
-                                          "\n\t\t\t\t\t\t\t"
+                                          "\n                                "
                                       )
                                     ]),
                                     _vm._v(" "),
                                     _c("vs-td", [
                                       _vm._v(
-                                        "\n\t\t\t\t\t\t\t\t" +
-                                          _vm._s(item.design.name) +
-                                          "\n\t\t\t\t\t\t\t"
+                                        "\n\t\t\t\t\t\t\t\t\t" +
+                                          _vm._s(item.product.name) +
+                                          "\n\t\t\t\t\t\t\t\t"
                                       )
                                     ]),
                                     _vm._v(" "),
                                     _c("vs-td", [
                                       _vm._v(
-                                        "\n\t\t\t\t\t\t\t\t" +
+                                        "\n\t\t\t\t\t\t\t\t\t" +
+                                          _vm._s(
+                                            item.design_print_price.design.name
+                                          ) +
+                                          "\n\t\t\t\t\t\t\t\t"
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("vs-td", [
+                                      _vm._v(
+                                        "\n                                    " +
+                                          _vm._s(
+                                            item.design_print_price.price
+                                          ) +
+                                          "\n                                "
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("vs-td", [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t\t\t\t" +
                                           _vm._s(
                                             item.price_combination.combination
                                           ) +
-                                          "\n\t\t\t\t\t\t\t"
+                                          " (" +
+                                          _vm._s(item.price_combination.price) +
+                                          ")\n\t\t\t\t\t\t\t\t"
                                       )
                                     ]),
                                     _vm._v(" "),
                                     _c("vs-td", [
                                       _vm._v(
-                                        "\n\t\t\t\t\t\t\t\t" +
+                                        "\n\t\t\t\t\t\t\t\t\t" +
                                           _vm._s(item.product.name) +
-                                          "\n\t\t\t\t\t\t\t"
+                                          "\n\t\t\t\t\t\t\t\t"
                                       )
                                     ]),
                                     _vm._v(" "),
                                     _c("vs-td", [
                                       _vm._v(
-                                        "\n\t\t\t\t\t\t\t\t" +
+                                        "\n\t\t\t\t\t\t\t\t\t" +
                                           _vm._s(item.quantity) +
-                                          "\n\t\t\t\t\t\t\t"
+                                          "\n\t\t\t\t\t\t\t\t"
                                       )
                                     ])
                                   ],
@@ -407,7 +446,7 @@ var render = function() {
                         ],
                         null,
                         false,
-                        2561319598
+                        2375205822
                       )
                     },
                     [
@@ -421,7 +460,11 @@ var render = function() {
                           _vm._v(" "),
                           _c("vs-th", [_vm._v("Category")]),
                           _vm._v(" "),
+                          _c("vs-th", [_vm._v("Product")]),
+                          _vm._v(" "),
                           _c("vs-th", [_vm._v("Design")]),
+                          _vm._v(" "),
+                          _c("vs-th", [_vm._v("Design Price")]),
                           _vm._v(" "),
                           _c("vs-th", [_vm._v("Price Combination")]),
                           _vm._v(" "),
@@ -442,6 +485,16 @@ var render = function() {
           _vm.order
             ? _c("vx-card", { ref: "order", staticClass: "mt-4" }, [
                 _c("div", { staticClass: "vx-row" }, [
+                  _c("label", [_vm._v("Price Info")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "vx-col md:w-12/12 w-full mb-3" }, [
+                    _c("span", {
+                      domProps: {
+                        innerHTML: _vm._s(_vm.order.total_price_info)
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
                   _c(
                     "div",
                     { staticClass: "vx-col md:w-12/12 w-full mb-3" },

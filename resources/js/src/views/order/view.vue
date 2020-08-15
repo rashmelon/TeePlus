@@ -2,57 +2,72 @@
 	<div>
 		<div class=" w-full mb-base">
 			<div ref="edit" title="Create product">
-				
+
 				<vx-card ref="cart" v-if="tempProducts.length" class="mt-4">
 					<vs-table
 						:data="tempProducts"
 					>
-						
+
 						<template slot="thead">
 							<vs-th width="200px">Image</vs-th>
 							<vs-th>Category</vs-th>
+							<vs-th>Product</vs-th>
 							<vs-th>Design</vs-th>
+                            <vs-th>Design Price</vs-th>
 							<vs-th>Price Combination</vs-th>
 							<vs-th>Product</vs-th>
 							<vs-th>Quantity</vs-th>
 						</template>
-						
+
 						<template slot-scope="{data}">
 							<vs-tr :key="index" v-for="(item, index) in data">
 								<vs-td>
 									<img
-										:src="item.design.images[0].url"
+										:src="item.design_print_price.design.images[0].url"
 										class="preview-large">
 								</vs-td>
-								<vs-td>
-									{{ item.product.category.name }}
-								</vs-td>
-								
-								<vs-td>
-									{{ item.design.name }}
-								</vs-td>
-								
-								<vs-td>
-									{{ item.price_combination.combination}}
-								</vs-td>
-								
+
+                                <vs-td>
+                                    {{ item.product.category.name }}
+                                </vs-td>
+
 								<vs-td>
 									{{ item.product.name }}
 								</vs-td>
-								
+
+								<vs-td>
+									{{ item.design_print_price.design.name }}
+								</vs-td>
+
+                                <vs-td>
+                                    {{ item.design_print_price.price }}
+                                </vs-td>
+
+								<vs-td>
+									{{ item.price_combination.combination}} ({{ item.price_combination.price}})
+								</vs-td>
+
+								<vs-td>
+									{{ item.product.name }}
+								</vs-td>
+
 								<vs-td>
 									{{ item.quantity }}
 								</vs-td>
-								
+
 							</vs-tr>
 						</template>
 					</vs-table>
 				</vx-card>
 
-				
-				
+
+
 				<vx-card ref="order" class="mt-4" v-if="order">
 					<div class="vx-row">
+                        <label>Price Info</label>
+                        <div class="vx-col md:w-12/12 w-full mb-3">
+                            <span v-html="order.total_price_info"/>
+                        </div>
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							<vs-input
 								label-placeholder="Customer name"
@@ -60,7 +75,7 @@
 								v-model="order.customer_name"
 							/>
 						</div>
-						
+
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							<vs-input
 								label-placeholder="Phone number"
@@ -68,7 +83,7 @@
 								v-model="order.phone_number"
 							/>
 						</div>
-						
+
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							<vs-input
 								label-placeholder="Additional number"
@@ -76,7 +91,7 @@
 								v-model="order.additional_number"
 							/>
 						</div>
-						
+
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							<vs-input
 								label-placeholder="Address"
@@ -84,7 +99,7 @@
 								v-model="order.address"
 							/>
 						</div>
-						
+
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							<vs-input
 								label-placeholder="Shipping notes"
@@ -92,7 +107,7 @@
 								v-model="order.shipping_note"
 							/>
 						</div>
-						
+
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							<vs-input
 								label-placeholder="discount"
@@ -103,7 +118,7 @@
 								v-model="order.discount"
 							/>
 						</div>
-						
+
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							<vs-input
 								label-placeholder="Additional fees"
@@ -114,8 +129,8 @@
 								v-model="order.additional_fees"
 							/>
 						</div>
-						
-						
+
+
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							<vs-input
 								label-placeholder="Additional fees details"
@@ -123,9 +138,9 @@
 								v-model="order.additional_fees_details"
 							/>
 						</div>
-						
-						
-						
+
+
+
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							<vs-input
 								label-placeholder="Internal tracking number"
@@ -134,8 +149,8 @@
 								:value="order.internal_tracking"
 							/>
 						</div>
-						
-						
+
+
 						<div class="vx-col md:w-12/12 w-full mb-3">
 							<vs-input
 								label-placeholder="External tracking number"
@@ -143,9 +158,9 @@
 								v-model="order.external_tracking"
 							/>
 						</div>
-						
-						
-						
+
+
+
 						<div class="vx-col md:w-12/12 w-full mb-3" v-if="order.status">
 							<vs-input
 								label-placeholder="Status"
@@ -154,9 +169,9 @@
 							/>
 						</div
 						>
-						
-						
-						
+
+
+
 						<div class="vx-col md:w-12/12 w-full mb-3" v-if="order.shipping_price">
 							<vs-input
 								label-placeholder="Shipping"
@@ -164,17 +179,17 @@
 								:value="`${order.shipping_price.shipping_method.name} - ${order.shipping_price.city.name} - ${order.shipping_price.price}`"
 							/>
 						</div>
-						
+
 					</div>
-					
-					
-				
+
+
+
 				</vx-card>
 
 			</div>
 		</div>
-		
-		
+
+
 	</div>
 </template>
 
@@ -201,7 +216,7 @@
 	            products: [],
 	            designs: [],
                 tempProducts: [],
-	            
+
 	            order: {
                     orderProducts: []
 	            },
@@ -231,8 +246,8 @@
                     .then(response => {
                         this.order = response.data.data;
                         console.log('order: ',this.order)
-	                    
-	                    
+
+
 	                    // get current order products
 	                    this.tempProducts = this.order.order_products;
                     })
@@ -247,17 +262,17 @@
 <style lang="scss">
 	.single-design {
 		position: relative;
-		
+
 		img{
 			border: 1px solid #888;
 			padding: 5px;
 			border-radius: 10px
 		}
-		
+
 		input{
 			display: none;
 		}
-		
+
 		.overlay{
 			position: absolute;
 			z-index: 1;
@@ -270,17 +285,17 @@
 			opacity: 0;
 			display: flex;
 			justify-content: center;
-	
+
 			svg{
 				width: 100px;
 				height: 100px;
 				color: white;
 			}
 		}
-		
-		
-		
-		
+
+
+
+
 		input:checked  ~  .overlay{
 			opacity: 1!important;
 		}

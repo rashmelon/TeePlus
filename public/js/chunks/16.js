@@ -144,6 +144,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -698,9 +706,34 @@ var render = function() {
                                     ])
                                   ],
                                   1
-                                )
+                                ),
+                                _vm._v(" "),
+                                _c("template", { slot: "expand" }, [
+                                  _c("div", [
+                                    _vm._v(
+                                      "\n                            Total Price: "
+                                    ),
+                                    _c("span", {
+                                      domProps: {
+                                        innerHTML: _vm._s(order.total_price)
+                                      }
+                                    }),
+                                    _c("br"),
+                                    _vm._v(
+                                      "\n                            Total Price Info: "
+                                    ),
+                                    _c("br"),
+                                    _c("span", {
+                                      domProps: {
+                                        innerHTML: _vm._s(
+                                          order.total_price_info
+                                        )
+                                      }
+                                    })
+                                  ])
+                                ])
                               ],
-                              1
+                              2
                             )
                           })
                         }
@@ -708,7 +741,7 @@ var render = function() {
                     ],
                     null,
                     false,
-                    3757752988
+                    1002328797
                   )
                 },
                 [

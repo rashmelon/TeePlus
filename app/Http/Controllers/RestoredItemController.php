@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Design;
+use App\DesignPrintPrice;
 use App\Http\Requests\RestoredItemRequest;
 use App\Http\Responses\Facades\ApiResponse;
 use App\Order;
@@ -41,11 +41,11 @@ class RestoredItemController extends Controller
         $restoredItem = RestoredItem::create($data);
         Product::find($data['product_id'])->restoredItems()->save($restoredItem);
         PriceCombination::find($data['price_combination_id'])->restoredItems()->save($restoredItem);
-        Design::find($data['design_id'])->restoredItems()->save($restoredItem);
+        DesignPrintPrice::find($data['design_print_price_id'])->restoredItems()->save($restoredItem);
         Order::find($data['order_id'])->restoredItems()->save($restoredItem);
         $request->user()->restoredItems()->save($restoredItem);
 
-        $restoredItem->load('product', 'priceCombination', 'design', 'order');
+        $restoredItem->load('product', 'priceCombination', 'designPrintPrice', 'order');
 
         return ApiResponse::createRespond($restoredItem, RestoredItemTransformer::class)->execute();
     }

@@ -34,7 +34,6 @@ class OrderRequest extends FormRequest
                 'discount' => '',
                 'additional_fees' => '',
                 'additional_fees_details' => '',
-                'status_id' => 'required|exists:statuses,id',
                 'shipping_price_id' => 'required|exists:shipping_prices,id',
                 'orderProducts' => 'required',
                 'external_tracking' => ''

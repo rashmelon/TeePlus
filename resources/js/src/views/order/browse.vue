@@ -38,6 +38,7 @@
                 </template>
 
                 <template slot-scope="{data}">
+
                     <vs-tr
                         :key="index"
                         v-for="(order, index) in data"
@@ -48,51 +49,51 @@
                         <vs-td :data="order.id">
                             {{ order.id }}
                         </vs-td>
-                        
+
                         <vs-td :data="order.status.name" class="text-capitalize">
                             {{ order.status.name }}
                         </vs-td>
-    
-                        
+
+
                         <vs-td :data="order.shipping_price.shipping_method.name" class="text-capitalize">
                             {{ order.shipping_price.shipping_method.name }}
                         </vs-td>
-    
-                        
+
+
                         <vs-td :data="order.customer_name" class="text-capitalize">
                             {{ order.customer_name }}
                         </vs-td>
-    
-                        
+
+
                         <vs-td :data="order.address" class="text-capitalize">
                             {{ order.address }}
                         </vs-td>
-    
-                        
+
+
                         <vs-td :data="order.phone_number" class="text-capitalize">
                             {{ order.phone_number }}/ {{order.additional_number}}
                         </vs-td>
-    
+
                         <vs-td :data="order.internal_tracking" class="text-capitalize">
                             {{ order.internal_tracking }}
                         </vs-td>
-    
-    
+
+
                         <vs-td :data="order.external_tracking" class="text-capitalize">
                             {{ order.external_tracking }}
                         </vs-td>
-    
-    
+
+
                         <vs-td :data="order.created_at" class="text-capitalize">
                             {{ order.created_at }}
                         </vs-td>
-    
-    
+
+
                         <vs-td :data="order.updated_at" class="text-capitalize">
                             {{ order.updated_at }}
                         </vs-td>
-                        
-    
+
+
                         <vs-td>
                             <vs-row>
                                 <div class="flex mb-4">
@@ -126,6 +127,13 @@
                                 </div>
                             </vs-row>
                         </vs-td>
+
+                        <template slot="expand">
+                            <div>
+                                Total Price: <span v-html="order.total_price"></span><br>
+                                Total Price Info: <br><span v-html="order.total_price_info"></span>
+                            </div>
+                        </template>
                     </vs-tr>
                 </template>
             </vs-table>

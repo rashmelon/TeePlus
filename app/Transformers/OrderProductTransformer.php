@@ -13,7 +13,7 @@ class OrderProductTransformer extends TransformerAbstract
      * @var array
      */
     protected $defaultIncludes = [
-        'product', 'price_combination', 'design'
+        'product', 'price_combination', 'design_print_price'
     ];
 
     /**
@@ -22,7 +22,7 @@ class OrderProductTransformer extends TransformerAbstract
      * @var array
      */
     protected $availableIncludes = [
-        'product', 'price_combination', 'design'
+        'product', 'price_combination', 'design_print_price'
     ];
 
     /**
@@ -52,10 +52,10 @@ class OrderProductTransformer extends TransformerAbstract
         return $this->null();
     }
 
-    public function includeDesign(OrderProduct $orderProduct)
+    public function includeDesignPrintPrice(OrderProduct $orderProduct)
     {
-        if ($orderProduct->design){
-            return $this->item($orderProduct->design, new DesignTransformer(), 'no-data');
+        if ($orderProduct->designPrintPrice){
+            return $this->item($orderProduct->designPrintPrice, new DesignPrintPriceTransformer(), 'no-data');
         }
         return $this->null();
     }

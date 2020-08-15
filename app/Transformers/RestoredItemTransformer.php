@@ -13,7 +13,7 @@ class RestoredItemTransformer extends TransformerAbstract
      * @var array
      */
     protected $defaultIncludes = [
-        'product', 'price_combination', 'design'
+        'product', 'price_combination', 'design_print_price'
     ];
 
     /**
@@ -22,7 +22,7 @@ class RestoredItemTransformer extends TransformerAbstract
      * @var array
      */
     protected $availableIncludes = [
-        'product', 'price_combination', 'design'
+        'product', 'price_combination', 'design_print_price'
     ];
 
     /**
@@ -52,10 +52,10 @@ class RestoredItemTransformer extends TransformerAbstract
         return $this->null();
     }
 
-    public function includeDesign(RestoredItem $restoredItem)
+    public function includeDesignPrintPrice(RestoredItem $restoredItem)
     {
-        if ($restoredItem->design){
-            return $this->item($restoredItem->design, new DesignTransformer(), 'no-data');
+        if ($restoredItem->designPrintPrice){
+            return $this->item($restoredItem->designPrintPrice, new DesignPrintPriceTransformer(), 'no-data');
         }
         return $this->null();
     }
