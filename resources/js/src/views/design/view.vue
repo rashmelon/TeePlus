@@ -35,7 +35,7 @@
 						</div>
 						
 						
-						<div class="vx-col md:w-12/12 w-full">
+						<div class="vx-col md:w-12/12 w-full" v-if="can('browse-design-price')">
 							<vx-card>
 								<DesignPrintPrice :designId="$route.params.id"/>
 

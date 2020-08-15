@@ -64,13 +64,16 @@ class DesignController extends Controller
             $design->images()->save($image);
         }
 
-        foreach (json_decode($data['designPrintPrice']) as $temp){
-            $price = DesignPrintPrice::create([
-                'price' => $temp->price
-            ]);
-            $design->printPrices()->save($price);
-            PrintCriteria::find($temp->print_criteria_id)->designPrices()->save($price);
+        if (isset($data['designPrintPrice'])){
+            foreach (json_decode($data['designPrintPrice']) as $temp){
+                $price = DesignPrintPrice::create([
+                    'price' => $temp->price
+                ]);
+                $design->printPrices()->save($price);
+                PrintCriteria::find($temp->print_criteria_id)->designPrices()->save($price);
+            }
         }
+
 
         return ApiResponse::createRespond($design, DesignTransformer::class)->execute();
     }

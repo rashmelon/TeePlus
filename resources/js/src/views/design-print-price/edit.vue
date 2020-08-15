@@ -1,41 +1,6 @@
 <template>
 	<div class="design-print-price">
-		<div class="edit-design-print-price">
-		
-		
-		<!--
-		<ul class="center-x">
-			<li
-				v-for="(item ,index) in printCriterias"
-				:key="index"
-			>
-				<vs-checkbox
-					v-model="designPrintPrice"
-					:vs-value="addDesignPrintPrice(item)"
-					:checked="item.selected"
-				>{{item}}</vs-checkbox>
-			
-			</li>
-		</ul>-->
-		
-		<!--
-		<vs-select
-			class="w-full"
-			items="combinations"
-			label="Prices"
-			multiple
-			placeholder="Combinations"
-			v-model="designPrintPrice"
-		>
-			
-			<vs-select-item
-				:key="item.id"
-				:text='item.criteria'
-				:value="item"
-				v-for="item in printCriterias"
-				:is-selected.sync="item.selected"
-			/>
-		</vs-select>-->
+		<div class="edit-design-print-price" v-if="can('browse-design-price')">
 		
 		<vs-list>
 			<vs-list-item

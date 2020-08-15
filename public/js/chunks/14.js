@@ -112,6 +112,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "create",
@@ -335,240 +338,259 @@ var render = function() {
         { ref: "create", attrs: { title: "Create design" } },
         [
           _c("vx-card", [
-            _c("div", { staticClass: "vx-row" }, [
-              _c("div", { staticClass: "vx-col md:w-12/12 w-full mb-3" }, [
-                _c("div", { staticClass: "image-preview" }, [
+            _c(
+              "div",
+              { staticClass: "vx-row" },
+              [
+                _c("div", { staticClass: "vx-col md:w-12/12 w-full mb-3" }, [
+                  _c("div", { staticClass: "image-preview" }, [
+                    _c(
+                      "div",
+                      { staticClass: "vx-row" },
+                      _vm._l(_vm.uploadedImages, function(image) {
+                        return _vm.uploadedImages
+                          ? _c("img", {
+                              staticClass:
+                                "preview-large img-fluid vx-col md:w-3/12 w-full mb-2 px-2",
+                              attrs: { src: image.url }
+                            })
+                          : _vm._e()
+                      }),
+                      0
+                    )
+                  ]),
+                  _vm._v(" "),
                   _c(
                     "div",
-                    { staticClass: "vx-row" },
-                    _vm._l(_vm.uploadedImages, function(image) {
-                      return _vm.uploadedImages
-                        ? _c("img", {
-                            staticClass:
-                              "preview-large img-fluid vx-col md:w-3/12 w-full mb-2 px-2",
-                            attrs: { src: image.url }
-                          })
-                        : _vm._e()
-                    }),
-                    0
+                    { staticClass: "d-block mt-3" },
+                    [
+                      _c("input", {
+                        staticClass: "form-control d-none",
+                        attrs: { type: "file", id: "img-upload", multiple: "" },
+                        on: { change: _vm.uploadImages }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "vs-button",
+                        {
+                          attrs: {
+                            icon: "icon-upload",
+                            "icon-pack": "feather",
+                            onclick:
+                              "document.getElementById('img-upload').click()",
+                            size: "small",
+                            type: "gradient"
+                          }
+                        },
+                        [_vm._v("Upload Photos\n\t\t\t\t\t\t\t")]
+                      )
+                    ],
+                    1
                   )
                 ]),
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "d-block mt-3" },
+                  { staticClass: "vx-col md:w-12/12 w-full mb-3" },
                   [
-                    _c("input", {
-                      staticClass: "form-control d-none",
-                      attrs: { type: "file", id: "img-upload", multiple: "" },
-                      on: { change: _vm.uploadImages }
+                    _c("vs-input", {
+                      directives: [
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required",
+                          expression: "'required'"
+                        }
+                      ],
+                      staticClass: "w-full",
+                      attrs: { label: "Name", name: "name" },
+                      model: {
+                        value: _vm.form.name,
+                        callback: function($$v) {
+                          _vm.$set(_vm.form, "name", $$v)
+                        },
+                        expression: "form.name"
+                      }
                     }),
                     _vm._v(" "),
                     _c(
-                      "vs-button",
+                      "span",
                       {
-                        attrs: {
-                          icon: "icon-upload",
-                          "icon-pack": "feather",
-                          onclick:
-                            "document.getElementById('img-upload').click()",
-                          size: "small",
-                          type: "gradient"
-                        }
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.errors.has("name"),
+                            expression: "errors.has('name')"
+                          }
+                        ],
+                        staticClass: "text-danger text-sm"
                       },
-                      [_vm._v("Upload Photos\n\t\t\t\t\t\t\t")]
+                      [_vm._v(_vm._s(_vm.errors.first("name")))]
                     )
                   ],
                   1
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "vx-col md:w-12/12 w-full mb-3" },
-                [
-                  _c("vs-input", {
-                    directives: [
-                      {
-                        name: "validate",
-                        rawName: "v-validate",
-                        value: "required",
-                        expression: "'required'"
-                      }
-                    ],
-                    staticClass: "w-full",
-                    attrs: { label: "Name", name: "name" },
-                    model: {
-                      value: _vm.form.name,
-                      callback: function($$v) {
-                        _vm.$set(_vm.form, "name", $$v)
-                      },
-                      expression: "form.name"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "span",
-                    {
-                      directives: [
-                        {
-                          name: "show",
-                          rawName: "v-show",
-                          value: _vm.errors.has("name"),
-                          expression: "errors.has('name')"
-                        }
-                      ],
-                      staticClass: "text-danger text-sm"
-                    },
-                    [_vm._v(_vm._s(_vm.errors.first("name")))]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "vx-col md:w-12/12 w-full" },
-                [
-                  _c("vx-card", [
-                    _c(
+                ),
+                _vm._v(" "),
+                _vm.can("create-design-price")
+                  ? _c(
                       "div",
-                      { staticClass: "vx-col md:w-1/1 w-full mt-3" },
+                      { staticClass: "vx-col md:w-12/12 w-full mt-4" },
                       [
-                        _c(
-                          "vs-select",
-                          {
-                            staticClass: "w-full",
-                            attrs: {
-                              label: "Prices",
-                              multiple: "",
-                              items: "combinations",
-                              placeholder: "Combinations"
-                            },
-                            model: {
-                              value: _vm.form.designPrintPrice,
-                              callback: function($$v) {
-                                _vm.$set(_vm.form, "designPrintPrice", $$v)
-                              },
-                              expression: "form.designPrintPrice"
-                            }
-                          },
-                          _vm._l(_vm.printCriterias, function(item, index) {
-                            return _c("vs-select-item", {
-                              key: item.id,
-                              attrs: { text: item.criteria, value: item }
-                            })
-                          }),
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "vs-list",
-                          [
-                            _c(
-                              "transition-group",
-                              { attrs: { mode: "out-in", name: "slide-down" } },
-                              _vm._l(_vm.form.designPrintPrice, function(
-                                price,
-                                index
-                              ) {
-                                return _c(
-                                  "vs-list-item",
-                                  {
-                                    key: index + 1,
-                                    attrs: {
-                                      icon: "check",
-                                      title: price.criteria
-                                    }
+                        _c("vx-card", [
+                          _c(
+                            "div",
+                            { staticClass: "vx-col md:w-1/1 w-full mt-3" },
+                            [
+                              _c(
+                                "vs-select",
+                                {
+                                  staticClass: "w-full",
+                                  attrs: {
+                                    label: "Prices",
+                                    multiple: "",
+                                    items: "combinations",
+                                    placeholder: "Combinations"
                                   },
-                                  [
-                                    _c("vs-input", {
-                                      directives: [
-                                        {
-                                          name: "validate",
-                                          rawName: "v-validate",
-                                          value: "required|min_value:0",
-                                          expression: "'required|min_value:0'"
-                                        }
-                                      ],
-                                      staticClass: "w-full",
+                                  model: {
+                                    value: _vm.form.designPrintPrice,
+                                    callback: function($$v) {
+                                      _vm.$set(
+                                        _vm.form,
+                                        "designPrintPrice",
+                                        $$v
+                                      )
+                                    },
+                                    expression: "form.designPrintPrice"
+                                  }
+                                },
+                                _vm._l(_vm.printCriterias, function(
+                                  item,
+                                  index
+                                ) {
+                                  return _c("vs-select-item", {
+                                    key: item.id,
+                                    attrs: { text: item.criteria, value: item }
+                                  })
+                                }),
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "vs-list",
+                                [
+                                  _c(
+                                    "transition-group",
+                                    {
                                       attrs: {
-                                        label: "Price",
-                                        name: "price-" + index,
-                                        type: "number"
-                                      },
-                                      model: {
-                                        value: price.price,
-                                        callback: function($$v) {
-                                          _vm.$set(price, "price", $$v)
-                                        },
-                                        expression: "price.price"
+                                        mode: "out-in",
+                                        name: "slide-down"
                                       }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "span",
-                                      {
-                                        directives: [
-                                          {
-                                            name: "show",
-                                            rawName: "v-show",
-                                            value: _vm.errors.has(
-                                              "price-" + index
-                                            ),
-                                            expression:
-                                              "errors.has('price-'+index)"
+                                    },
+                                    _vm._l(_vm.form.designPrintPrice, function(
+                                      price,
+                                      index
+                                    ) {
+                                      return _c(
+                                        "vs-list-item",
+                                        {
+                                          key: index + 1,
+                                          attrs: {
+                                            icon: "check",
+                                            title: price.criteria
                                           }
-                                        ],
-                                        staticClass: "text-danger text-sm"
-                                      },
-                                      [
-                                        _vm._v(
-                                          _vm._s(
-                                            _vm.errors.first("price-" + index)
+                                        },
+                                        [
+                                          _c("vs-input", {
+                                            directives: [
+                                              {
+                                                name: "validate",
+                                                rawName: "v-validate",
+                                                value: "required|min_value:0",
+                                                expression:
+                                                  "'required|min_value:0'"
+                                              }
+                                            ],
+                                            staticClass: "w-full",
+                                            attrs: {
+                                              label: "Price",
+                                              name: "price-" + index,
+                                              type: "number"
+                                            },
+                                            model: {
+                                              value: price.price,
+                                              callback: function($$v) {
+                                                _vm.$set(price, "price", $$v)
+                                              },
+                                              expression: "price.price"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "span",
+                                            {
+                                              directives: [
+                                                {
+                                                  name: "show",
+                                                  rawName: "v-show",
+                                                  value: _vm.errors.has(
+                                                    "price-" + index
+                                                  ),
+                                                  expression:
+                                                    "errors.has('price-'+index)"
+                                                }
+                                              ],
+                                              staticClass: "text-danger text-sm"
+                                            },
+                                            [
+                                              _vm._v(
+                                                _vm._s(
+                                                  _vm.errors.first(
+                                                    "price-" + index
+                                                  )
+                                                )
+                                              )
+                                            ]
                                           )
-                                        )
-                                      ]
-                                    )
-                                  ],
-                                  1
-                                )
-                              }),
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "vx-col md:w-1/1 w-full mt-4" },
-                      [
-                        _c(
-                          "vs-button",
-                          {
-                            staticClass: "mb-4 ml-auto",
-                            attrs: {
-                              color: "primary",
-                              icon: "icon-save",
-                              "icon-pack": "feather",
-                              type: "filled"
-                            },
-                            on: { click: _vm.create }
-                          },
-                          [_vm._v("Create\n\t\t\t\t\t\t\t\t")]
-                        )
+                                        ],
+                                        1
+                                      )
+                                    }),
+                                    1
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("div", {
+                            staticClass: "vx-col md:w-1/1 w-full mt-4"
+                          })
+                        ])
                       ],
                       1
                     )
-                  ])
-                ],
-                1
-              )
-            ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "vs-button",
+                  {
+                    staticClass: "mb-4 ml-auto",
+                    attrs: {
+                      color: "primary",
+                      icon: "icon-save",
+                      "icon-pack": "feather",
+                      type: "filled"
+                    },
+                    on: { click: _vm.create }
+                  },
+                  [_vm._v("Create\n\t\t\t\t\t")]
+                )
+              ],
+              1
+            )
           ])
         ],
         1

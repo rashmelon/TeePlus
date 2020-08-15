@@ -28,7 +28,7 @@ class DesignRequest extends FormRequest
             return [
                 'name' => 'required',
                 'images' => 'required',
-                'designPrintPrice' => 'required',
+                'designPrintPrice' => '',
 //                'designPrintPrice.*.price' => 'required',
 //                'designPrintPrice.*.print_criteria_id' => 'required|exists:print_criterias,id',
             ];

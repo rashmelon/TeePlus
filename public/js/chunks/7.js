@@ -247,42 +247,47 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "edit-design-print-price" },
-    [
-      _c(
-        "vs-list",
-        _vm._l(_vm.designPrintPrice, function(price) {
-          return _vm.designPrintPrice.length
-            ? _c(
-                "vs-list-item",
-                {
-                  key: price.id,
-                  attrs: { title: price.print_criteria.criteria, icon: "check" }
-                },
-                [
-                  _c("vs-input", {
-                    staticClass: "w-full",
-                    attrs: { label: "Price", type: "number" },
-                    model: {
-                      value: price.price,
-                      callback: function($$v) {
-                        _vm.$set(price, "price", $$v)
-                      },
-                      expression: "price.price"
-                    }
-                  })
-                ],
-                1
-              )
-            : _vm._e()
-        }),
+  return _vm.can("browse-design-price")
+    ? _c(
+        "div",
+        { staticClass: "edit-design-print-price" },
+        [
+          _c(
+            "vs-list",
+            _vm._l(_vm.designPrintPrice, function(price) {
+              return _vm.designPrintPrice.length
+                ? _c(
+                    "vs-list-item",
+                    {
+                      key: price.id,
+                      attrs: {
+                        title: price.print_criteria.criteria,
+                        icon: "check"
+                      }
+                    },
+                    [
+                      _c("vs-input", {
+                        staticClass: "w-full",
+                        attrs: { label: "Price", type: "number" },
+                        model: {
+                          value: price.price,
+                          callback: function($$v) {
+                            _vm.$set(price, "price", $$v)
+                          },
+                          expression: "price.price"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                : _vm._e()
+            }),
+            1
+          )
+        ],
         1
       )
-    ],
-    1
-  )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -388,22 +393,24 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "vx-col md:w-12/12 w-full" },
-                [
-                  _c(
-                    "vx-card",
+              _vm.can("browse-design-price")
+                ? _c(
+                    "div",
+                    { staticClass: "vx-col md:w-12/12 w-full" },
                     [
-                      _c("DesignPrintPrice", {
-                        attrs: { designId: _vm.$route.params.id }
-                      })
+                      _c(
+                        "vx-card",
+                        [
+                          _c("DesignPrintPrice", {
+                            attrs: { designId: _vm.$route.params.id }
+                          })
+                        ],
+                        1
+                      )
                     ],
                     1
                   )
-                ],
-                1
-              )
+                : _vm._e()
             ])
           ])
         ],

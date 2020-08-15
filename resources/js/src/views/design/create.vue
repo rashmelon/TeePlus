@@ -35,8 +35,8 @@
 						</div>
 
 
-						<div class="vx-col md:w-12/12 w-full">
-							<vx-card>
+						<div class="vx-col md:w-12/12 w-full mt-4" v-if="can('create-design-price')">
+							<vx-card >
 								<div class="vx-col md:w-1/1 w-full mt-3">
 									<vs-select
 										class="w-full"
@@ -78,18 +78,21 @@
 
 								<div class="vx-col md:w-1/1 w-full mt-4">
 
-									<vs-button
-										@click="create"
-										class="mb-4 ml-auto"
-										color="primary"
-										icon="icon-save"
-										icon-pack="feather"
-										type="filled"
-									>Create
-									</vs-button>
 								</div>
 							</vx-card>
 						</div>
+						
+						
+						<vs-button
+							@click="create"
+							class="mb-4 ml-auto"
+							color="primary"
+							icon="icon-save"
+							icon-pack="feather"
+							type="filled"
+						>Create
+						</vs-button>
+						
 					</div>
 
 				</vx-card>
