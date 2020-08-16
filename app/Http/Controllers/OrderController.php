@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DesignPrintPrice;
 use App\Http\Requests\OrderRequest;
 use App\Http\Responses\Facades\ApiResponse;
+use App\Invoice;
 use App\Order;
 use App\OrderProduct;
 use App\PaymentType;
@@ -36,16 +37,6 @@ class OrderController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param OrderRequest $request
@@ -72,19 +63,20 @@ class OrderController extends Controller
         ShippingPrice::find($data['shipping_price_id'])->orders()->save($order);
 
         foreach (json_decode($data['orderProducts']) as $data){
+            if (isset($data->id)){
+                RestoredItem::find($data->id)->delete();
+                $data->from_restored = 1;
+            }
+            else{
+                $data->from_restored = 0;
+            }
             $order_product = OrderProduct::create([
                 'quantity' => $data->quantity,
+                'from_restored' => $data->from_restored,
             ]);
             $product = Product::find($data->product_id);
-            if (isset($data->id)){
-                $product->fill([
-                    'quantity' => $product->quantity+1
-                ]);
-                $product->save();
-                RestoredItem::find($data->id)->delete();
-            }
 
-            if ($product->quantity - $product->sold() < $data->quantity){
+            if (!$order_product->from_restored && $product->quantity - $product->sold() < $data->quantity){
                 DB::rollBack();
 
                 return ApiResponse::setMessage('The given data was invalid.')->setErrors([
@@ -123,17 +115,6 @@ class OrderController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param OrderRequest $request
@@ -150,7 +131,26 @@ class OrderController extends Controller
         $order->update($data);
 
         if (array_key_exists('status_id', $data)){
-            Status::find($data['status_id'])->orders()->save($order);
+            $status = Status::find($data['status_id']);
+            $status->orders()->save($order);
+            if ($status->name == 'canceled after printing' || $status->name == 'returned'){
+                $transformed_order = fractal($order, new OrderTransformer())->toArray()['data'];
+                $invoice = Invoice::create([
+                    'amount' => $transformed_order['total_price'],
+                    'description' => $transformed_order['total_price_info']
+                ]);
+                $order->invoice()->save($invoice);
+                $order->seller->invoices()->save($invoice);
+            }
+            else if ($status->name == 'delivered'){
+                $invoice = Invoice::create([
+                    'amount' => $order->additional_fees-$order->discount,
+                    'description' => "for delivered items you get the additional fees($order->additional_fees) - discount($order->discount) = "
+                        .((int)$order->additional_fees-(int)$order->discount)
+                ]);
+                $order->invoice()->save($invoice);
+                $order->seller->invoices()->save($invoice);
+            }
         }
 
         if (array_key_exists('shipping_price_id', $data)){

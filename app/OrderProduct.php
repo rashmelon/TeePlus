@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrderProduct extends Model
 {
-    protected $fillable = ['quantity'];
+    protected $fillable = ['quantity', 'from_restored'];
 
     protected $with = ['product', 'priceCombination', 'designPrintPrice'];
 

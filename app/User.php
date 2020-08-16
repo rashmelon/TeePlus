@@ -57,6 +57,16 @@ class User extends Authenticatable
         return $this->hasMany(Order::class, 'seller_id');
     }
 
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class, 'seller_id');
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class, 'seller_id');
+    }
+
     public function scopeEmployees($query)
     {
         return $query->whereHas('roles', function ($query) {

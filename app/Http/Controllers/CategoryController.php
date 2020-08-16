@@ -31,16 +31,6 @@ class CategoryController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param CategoryRequest $request
@@ -96,17 +86,6 @@ class CategoryController extends Controller
         $this->authorize('show', Category::class);
 
         return ApiResponse::showRespond($category, CategoryTransformer::class)->execute();
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
