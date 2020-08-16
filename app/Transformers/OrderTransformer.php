@@ -33,23 +33,24 @@ class OrderTransformer extends TransformerAbstract
      */
     public function transform(Order $order)
     {
-        if ($order->status){
-            if ($order->status->name == 'pending' || $order->status->name == 'canceled before printing'){
-                $order->total_price = 0;
-                $order->total_price_info = "";
+        $data = $order->toArray();
+        if ($data['status']){
+            if ($data['status']['name'] == 'pending' || $data['status']['name'] == 'canceled before printing'){
+                $data['total_price'] = 0;
+                $data['total_price_info'] = "";
             }
-            else if($order->status->name == 'printing'
-                || $order->status->name == 'canceled after printing'
-                ||$order->status->name == 'ready for shipping'
-                ||$order->status->name == 'shipped'
-                ||$order->status->name == 'delivered'
-                ||$order->status->name == 'returned'
+            else if($data['status']['name'] == 'printing'
+                || $data['status']['name'] == 'canceled after printing'
+                ||$data['status']['name'] == 'ready for shipping'
+                ||$data['status']['name'] == 'shipped'
+                ||$data['status']['name'] == 'delivered'
+                ||$data['status']['name'] == 'returned'
             ){
-                $order->total_price = 0;
-                $order->total_price_info = "";
+                $data['total_price'] = 0;
+                $data['total_price_info'] = "";
                 foreach ($order->orderProducts as $orderProduct){
-                    $order->total_price += ($orderProduct->designPrintPrice->price + $orderProduct->product->base_price + $orderProduct->priceCombination->price) * $orderProduct->quantity;
-                    $order->total_price_info .=
+                    $data['total_price'] += ($orderProduct->designPrintPrice->price + $orderProduct->product->base_price + $orderProduct->priceCombination->price) * $orderProduct->quantity;
+                    $data['total_price_info'] .=
                         "+(".($orderProduct->designPrintPrice->price + $orderProduct->product->base_price + $orderProduct->priceCombination->price)." * ".$orderProduct->quantity.") "
                         .$orderProduct->quantity." items ".$orderProduct->product->name."(".$orderProduct->product->base_price.
                         " with the combination of ".$orderProduct->priceCombination->combination."(".$orderProduct->priceCombination->price.")".
@@ -57,18 +58,18 @@ class OrderTransformer extends TransformerAbstract
                         .$orderProduct->designPrintPrice->printCriteria->criteria."(".$orderProduct->designPrintPrice->price.")<br>";
                 }
             }
-            if($order->status->name == 'shipped' || $order->status->name == 'delivered' ||$order->status->name == 'returned'){
-                $order->total_price += $order->shippingPrice->price +$order->additional_fees - $order->discount;
-                $order->total_price_info .= "+(".$order->shippingPrice->price.") Shipping Price"
+            if($data['status']['name'] == 'shipped' || $data['status']['name'] == 'delivered' ||$data['status']['name'] == 'returned'){
+                $data['total_price'] += $order->shippingPrice->price +$data['additional_fees'] - $data['discount'];
+                $data['total_price_info'] .= "+(".$order->shippingPrice->price.") Shipping Price"
                     ." to ".$order->shippingPrice->city->name
                     ." with method of ".$order->shippingPrice->shippingMethod->name."<br>";
-                $order->total_price_info .= "+(".$order->additional_fees.") additional fees for ".$order->additional_fees_details."<br>";
-                $order->total_price_info .= "-(".$order->discount.") discount<br>";
+                $data['total_price_info'] .= "+(".$data['additional_fees'].") additional fees for ".$data['additional_fees_details']."<br>";
+                $data['total_price_info'] .= "-(".$data['discount'].") discount<br>";
             }
-            $order->total_price_info .= "=(".$order->total_price.") total";
+            $data['total_price_info'] .= "=(".$data['total_price'].") total";
 
         }
-        return $order->toArray();
+        return $data;
     }
 
     public function includeStatus(Order $order)

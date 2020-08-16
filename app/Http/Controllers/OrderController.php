@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DesignPrintPrice;
 use App\Http\Requests\OrderRequest;
 use App\Http\Responses\Facades\ApiResponse;
+use App\Invoice;
 use App\Order;
 use App\OrderProduct;
 use App\PaymentType;
@@ -150,7 +151,17 @@ class OrderController extends Controller
         $order->update($data);
 
         if (array_key_exists('status_id', $data)){
-            Status::find($data['status_id'])->orders()->save($order);
+            $status = Status::find($data['status_id']);
+            $status->orders()->save($order);
+            if ($status->name == 'canceled after printing' || $status->name == 'delivered'){
+                $transformed_order = fractal($order, new OrderTransformer())->toArray()['data'];
+                $invoice = Invoice::create([
+                    'amount' => $transformed_order['total_price'],
+                    'description' => $transformed_order['total_price_info']
+                ]);
+                $order->invoice()->save($invoice);
+                $order->seller->invoices()->save($invoice);
+            }
         }
 
         if (array_key_exists('shipping_price_id', $data)){
