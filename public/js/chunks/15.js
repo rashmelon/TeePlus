@@ -74,11 +74,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -327,18 +322,6 @@ var render = function() {
                                 _vm._v(" "),
                                 _c(
                                   "vs-td",
-                                  { attrs: { data: order.product.quantity } },
-                                  [
-                                    _vm._v(
-                                      "\n                        " +
-                                        _vm._s(order.product.quantity) +
-                                        "\n                    "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "vs-td",
                                   { attrs: { data: order.created_at } },
                                   [
                                     _vm._v(
@@ -357,7 +340,7 @@ var render = function() {
                     ],
                     null,
                     false,
-                    1597443324
+                    1375082242
                   )
                 },
                 [
@@ -374,8 +357,6 @@ var render = function() {
                       _c("vs-th", [_vm._v("Description")]),
                       _vm._v(" "),
                       _c("vs-th", [_vm._v("Base price")]),
-                      _vm._v(" "),
-                      _c("vs-th", [_vm._v("Quantity")]),
                       _vm._v(" "),
                       _c("vs-th", [_vm._v("Created At")])
                     ],
