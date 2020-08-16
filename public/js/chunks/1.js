@@ -458,18 +458,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "CreatePrintCriteria",
   props: ['catId'],
@@ -481,8 +469,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     addAttribute: function addAttribute() {
       this.printCriterias.push({
-        criteria: '',
-        price: ''
+        criteria: ''
       });
     },
     removeAttribute: function removeAttribute(index) {
@@ -499,7 +486,6 @@ __webpack_require__.r(__webpack_exports__);
           for (var i in _this.printCriterias) {
             var form_data = new FormData();
             form_data.append('criteria', _this.printCriterias[i].criteria);
-            form_data.append('price', _this.printCriterias[i].price);
             form_data.append('category_id', _this.catId);
 
             _this.$store.dispatch('criteria/create', form_data).then(function (response) {
@@ -1257,53 +1243,6 @@ var render = function() {
                           staticClass: "text-danger text-sm"
                         },
                         [_vm._v(_vm._s(_vm.errors.first("criteria-" + index)))]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "vx-col md:w-2/12 w-full mb-3" },
-                    [
-                      _c("vs-input", {
-                        directives: [
-                          {
-                            name: "validate",
-                            rawName: "v-validate",
-                            value: "required|min_value:0",
-                            expression: "'required|min_value:0'"
-                          }
-                        ],
-                        staticClass: "w-full",
-                        attrs: {
-                          "label-placeholder": "Price",
-                          name: "price-" + index,
-                          type: "number"
-                        },
-                        model: {
-                          value: attr.price,
-                          callback: function($$v) {
-                            _vm.$set(attr, "price", $$v)
-                          },
-                          expression: "attr.price"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.errors.has("price-" + index),
-                              expression: "errors.has('price-'+index)"
-                            }
-                          ],
-                          staticClass: "text-danger text-sm"
-                        },
-                        [_vm._v(_vm._s(_vm.errors.first("price-" + index)))]
                       )
                     ],
                     1

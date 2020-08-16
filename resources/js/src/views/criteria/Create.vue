@@ -36,18 +36,6 @@
 						</div>
 
 						<div class="vx-col md:w-2/12 w-full mb-3">
-							<vs-input
-								label-placeholder="Price"
-								:name="'price-'+index"
-								class="w-full"
-								type="number"
-								v-model="attr.price"
-								v-validate="'required|min_value:0'"
-							/>
-							<span class="text-danger text-sm" v-show="errors.has('price-'+index)">{{errors.first('price-'+index)}}</span>
-						</div>
-
-						<div class="vx-col md:w-2/12 w-full mb-3">
 							<div class="attribute-actions">
 								<vs-button
 									@click="removeAttribute(index)"
@@ -98,7 +86,6 @@
       addAttribute() {
         this.printCriterias.push({
           criteria: '',
-          price: ''
         })
 
       },
@@ -115,7 +102,6 @@
               let form_data = new FormData();
 
               form_data.append('criteria', this.printCriterias[i].criteria);
-              form_data.append('price', this.printCriterias[i].price);
               form_data.append('category_id', this.catId);
 
               this.$store.dispatch('criteria/create', form_data)
