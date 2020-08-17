@@ -148,6 +148,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.$store.dispatch('criteria/getData', this.payload).then(function (response) {
+        console.log(response);
         _this.printCriterias = response.data.data;
       }).catch(function (error) {
         _this.$vs.notify({

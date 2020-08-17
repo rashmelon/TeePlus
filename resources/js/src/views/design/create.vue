@@ -137,6 +137,7 @@
             getPrintCriterias(){
                 this.$store.dispatch('criteria/getData', this.payload)
                     .then(response => {
+                        console.log(response)
                         this.printCriterias = response.data.data;
                     })
                     .catch(error => {
