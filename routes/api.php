@@ -62,6 +62,8 @@ Route::middleware('auth:api')->resource('invoice', 'InvoiceController');
 Route::middleware('auth:api')->resource('transaction', 'TransactionController');
 Route::middleware('auth:api')->post('transaction/{transaction}', 'TransactionController@update');
 
+Route::middleware('auth:api')->get('revenue/{user}', 'RevenueController@show');
+
 Route::group(['prefix' => 'role', 'middleware' => 'auth:api'], function () {
     Route::post('{id}', 'RoleController@update');
     Route::get('{id}', 'RoleController@show');

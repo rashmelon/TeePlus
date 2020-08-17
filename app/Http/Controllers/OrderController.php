@@ -136,7 +136,7 @@ class OrderController extends Controller
             if ($status->name == 'canceled after printing' || $status->name == 'returned'){
                 $transformed_order = fractal($order, new OrderTransformer())->toArray()['data'];
                 $invoice = Invoice::create([
-                    'amount' => $transformed_order['total_price'],
+                    'amount' => -1 * $transformed_order['total_price'],
                     'description' => $transformed_order['total_price_info']
                 ]);
                 $order->invoice()->save($invoice);
