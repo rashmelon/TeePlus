@@ -43,8 +43,7 @@ class PrintCriteriaController extends Controller
         $category = Category::find($data['category_id']);
 
         $criteria = PrintCriteria::create([
-            'criteria' => $data['criteria'],
-            'price' => $data['price']
+            'criteria' => $data['criteria']
         ]);
         $category->printCriterias()->save($criteria);
 

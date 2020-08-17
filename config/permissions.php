@@ -403,4 +403,60 @@ return [
             'display_name' => 'Delete Restored Item',
         ],
     ],
+
+    'Invoice' => [
+        [
+            'name' => 'create-invoice',
+            'guard_name' => 'api',
+            'display_name' => 'Create Invoice',
+        ],
+        [
+            'name' => 'browse-invoice',
+            'guard_name' => 'api',
+            'display_name' => 'Browse Invoice',
+        ],
+        [
+            'name' => 'view-invoice',
+            'guard_name' => 'api',
+            'display_name' => 'View Invoice',
+        ],
+        [
+            'name' => 'edit-invoice',
+            'guard_name' => 'api',
+            'display_name' => 'Edit Invoice',
+        ],
+        [
+            'name' => 'delete-invoice',
+            'guard_name' => 'api',
+            'display_name' => 'Delete Invoice',
+        ],
+    ],
+
+    'Transaction' => [
+        [
+            'name' => 'create-transaction',
+            'guard_name' => 'api',
+            'display_name' => 'Create Transaction',
+        ],
+        [
+            'name' => 'browse-transaction',
+            'guard_name' => 'api',
+            'display_name' => 'Browse Transaction',
+        ],
+        [
+            'name' => 'view-transaction',
+            'guard_name' => 'api',
+            'display_name' => 'View Transaction',
+        ],
+        [
+            'name' => 'edit-transaction',
+            'guard_name' => 'api',
+            'display_name' => 'Edit Transaction',
+        ],
+        [
+            'name' => 'delete-transaction',
+            'guard_name' => 'api',
+            'display_name' => 'Delete Transaction',
+        ],
+    ],
 ];

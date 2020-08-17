@@ -26,16 +26,6 @@ class StatusController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param StatusRequest $request
@@ -61,17 +51,6 @@ class StatusController extends Controller
         $this->authorize('show', Status::class);
 
         return ApiResponse::showRespond($status, StatusTransformer::class)->execute();
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**

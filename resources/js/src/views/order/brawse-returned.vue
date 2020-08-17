@@ -24,7 +24,6 @@
                     <vs-th>Name</vs-th>
                     <vs-th>Description</vs-th>
                     <vs-th>Base price</vs-th>
-                    <vs-th>Quantity</vs-th>
                     <vs-th>Created At</vs-th>
                 </template>
 
@@ -51,10 +50,6 @@
 
                         <vs-td :data="order.product.base_price">
                             {{ order.product.base_price}}
-                        </vs-td>
-
-                        <vs-td :data="order.product.quantity">
-                            {{ order.product.quantity}}
                         </vs-td>
 
                         <vs-td :data="order.created_at">

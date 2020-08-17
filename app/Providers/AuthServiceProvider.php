@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Invoice;
 use App\Order;
+use App\Policies\InvoicePolicy;
 use App\Policies\OrderPolicy;
 use App\Policies\PriceCombinationPolicy;
 use App\Policies\PrintCriteriaPolicy;
@@ -10,6 +12,7 @@ use App\Policies\ProductPolicy;
 use App\Policies\RestoredItemPolicy;
 use App\Policies\ShippingMethodPolicy;
 use App\Policies\StatusPolicy;
+use App\Policies\TransactionPolicy;
 use App\Policies\UserPolicy;
 use App\Policies\PermissionPolicy;
 use App\Policies\RolePolicy;
@@ -20,6 +23,7 @@ use App\Product;
 use App\RestoredItem;
 use App\ShippingMethod;
 use App\Status;
+use App\Transaction;
 use App\User;
 use App\UserProduct;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -47,6 +51,8 @@ class AuthServiceProvider extends ServiceProvider
         Status::class => StatusPolicy::class,
         Order::class => OrderPolicy::class,
         RestoredItem::class => RestoredItemPolicy::class,
+        Invoice::class => InvoicePolicy::class,
+        Transaction::class => TransactionPolicy::class,
     ];
 
     /**

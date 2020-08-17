@@ -58,6 +58,11 @@ class Order extends Model
         return $this->hasMany(RestoredItem::class);
     }
 
+    public function invoice()
+    {
+        return $this->hasOne(Invoice::class);
+    }
+
     public function scopeSeller(Builder $query, $value)
     {
         return $query->where('seller_id', $value);
