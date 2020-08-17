@@ -86,20 +86,24 @@
                         password: this.password
                     }
                 };
-
+    
                 this.$store.dispatch('auth/loginJWT', payload)
                     .then(() => {
-                        this.$vs.loading.close() })
+            
+                    })
                     .catch(error => {
-                        console.log(error.response.data.error)
-                        this.$vs.notify({
-                            title: 'Error',
-                            text: error.response.data.error,
-                            iconPack: 'feather',
-                            icon: 'icon-alert-circle',
-                            color: 'danger'
-                        });
-                    });
+                        for (const [key, value] of Object.entries(error.response.data.errors)){
+                            this.$vs.notify({
+                                title: key,
+                                text: value[0],
+                                iconPack: 'feather',
+                                icon: 'icon-alert-circle',
+                                color: 'danger'
+                            });
+                        }
+                    }).then(() => {
+                    this.$vs.loading.close()
+                })
             }
         }
     }

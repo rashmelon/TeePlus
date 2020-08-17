@@ -116,7 +116,105 @@ const router = new Router({
                         permission: 'edit-seller-product'
                     }
                 },
+                {
+                    path: '/user/:id/invoice',
+                    name: 'browse-user-invoices',
+                    component: () => import('./views/invoice/browse'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'User', url: '/user', i18n: 'User'},
+                            {title: 'user invoice', active: true, i18n: 'user invoice'},
+                        ],
+                        pageTitle: 'User Invoices',
+                        pageTitle_i18n: 'User Invoices',
+                        permission: 'browse-invoice'
+                    }
+                },
 
+                {
+                    path: '/invoice/:id',
+                    name: 'view-invoice',
+                    component: () => import('./views/invoice/view'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Invoice', active: true, i18n: 'Invoice'},
+                        ],
+                        pageTitle: 'Invoice',
+                        pageTitle_i18n: 'Invoice',
+                        permission: 'view-invoice'
+                    }
+                },
+
+                {
+                    path: '/user/:id/transaction',
+                    name: 'browse-user-transactions',
+                    component: () => import('./views/transaction/browse'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'User', url: '/user', i18n: 'User'},
+                            {title: 'user transaction', active: true, i18n: 'user transaction'},
+                        ],
+                        pageTitle: 'User Transaction',
+                        pageTitle_i18n: 'User Transaction',
+                        permission: 'browse-transaction'
+                    }
+                },
+
+
+                {
+                    path: '/transaction',
+                    name: 'browse-transaction',
+                    component: () => import('./views/transaction/browse'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Browse transaction', active: true, i18n: 'Browse transaction'},
+                        ],
+                        pageTitle: 'Browse Transaction',
+                        pageTitle_i18n: 'Browse Transaction',
+                        permission: 'browse-transaction'
+                    }
+                },
+
+                {
+                    path: '/transaction/:id/edit',
+                    name: 'edit-transaction',
+                    component: () => import('./views/transaction/edit'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Transaction', url: '/transaction', i18n: 'Transaction'},
+                            {title: 'Edit transaction', active: true, i18n: 'Edit transaction'},
+                        ],
+                        pageTitle: 'Edit Transaction',
+                        pageTitle_i18n: 'Edit Transaction',
+                        permission: 'edit-transaction'
+                    }
+                },
+
+                {
+                    path: '/transaction/create',
+                    name: 'create-transaction',
+                    component: () => import('./views/transaction/create'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Create transaction', active: true, i18n: 'Create transaction'},
+                        ],
+                        pageTitle: 'Create Transaction',
+                        pageTitle_i18n: 'Create Transaction',
+                        permission: 'create-transaction'
+                    }
+                },
 
 
 

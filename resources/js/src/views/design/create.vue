@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div v-if="can('create-design')">
 		<div class=" w-full mb-base">
 			<div ref="create" title="Create design">
 
@@ -137,6 +137,7 @@
             getPrintCriterias(){
                 this.$store.dispatch('criteria/getData', this.payload)
                     .then(response => {
+                        console.log(response)
                         this.printCriterias = response.data.data;
                     })
                     .catch(error => {

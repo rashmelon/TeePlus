@@ -9,6 +9,8 @@ class Transaction extends Model
 {
     protected $fillable = ['type', 'amount', 'date'];
 
+    protected $with = ['seller'];
+
     public function seller()
     {
         return $this->belongsTo(User::class, 'seller_id');

@@ -56,7 +56,7 @@
                         <vs-td>
                             <vs-row>
                                 <div class="flex mb-4">
-                                    <div class="w-1/3 mx-2"><!--v-if="can('view-design')"-->
+                                    <div class="w-1/3 mx-2">
                                         <vs-button
                                             v-if="can('view-design')"
                                             :id="`btn-view-${design.id}`" class="vs-con-loading__container" radius color="success" type="border"
