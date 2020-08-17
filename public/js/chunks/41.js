@@ -40,6 +40,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 // TODO: import product broswe , payload user = kaza ( userID)
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "viewData",
@@ -265,6 +270,36 @@ var render = function() {
                                 _vm._v(
                                   "\n                        " +
                                     _vm._s(_vm.User.email) +
+                                    "\n                    "
+                                )
+                              ]
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "vs-row",
+                          { staticClass: "mb-2" },
+                          [
+                            _c(
+                              "vs-col",
+                              {
+                                attrs: {
+                                  "vs-type": "flex",
+                                  "vs-justify": "center",
+                                  "vs-align": "center",
+                                  "vs-w": "12"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                        Balance: " +
+                                    _vm._s(
+                                      _vm.User.invoice_sum -
+                                        _vm.User.withdraw +
+                                        _vm.User.deposit
+                                    ) +
                                     "\n                    "
                                 )
                               ]

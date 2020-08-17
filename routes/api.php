@@ -77,3 +77,7 @@ Route::group(['prefix' => 'notification', 'middleware' => 'auth:api'], function 
     Route::get('', 'NotificationController@index');
     Route::post('mark-as-read', 'NotificationController@markAsRead');
 });
+
+Route::get('test', function (){
+    return \App\User::where('id', 1)->get();
+});

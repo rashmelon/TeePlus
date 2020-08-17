@@ -4,6 +4,9 @@ export default {
         //filters=?paginate=5&sortAsc=id
         return axios.get(`invoice${filters}`)
     },
+    getRevenue(id) {
+        return axios.get(`revenue/${id}`)
+    },
 
     view(id) {
         return axios.get(`invoice/${id}`)

@@ -88,6 +88,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -410,6 +414,22 @@ var render = function() {
                           },
                           [_vm._v(_vm._s(user.email))]
                         )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "text-left vx-col w-full" }, [
+                        _c("i", { staticClass: "fas fa-dollar-sign" }),
+                        _vm._v(
+                          " " +
+                            _vm._s(_vm.$t("Balance") || "Balance") +
+                            "\n\t\t\t\t\t\t\t"
+                        ),
+                        _c("p", { staticClass: "text-grey txt-hover" }, [
+                          _vm._v(
+                            _vm._s(
+                              user.invoice_sum - user.withdraw + user.deposit
+                            )
+                          )
+                        ])
                       ]),
                       _vm._v(" "),
                       _c("br"),

@@ -72512,6 +72512,9 @@ __webpack_require__.r(__webpack_exports__);
     //filters=?paginate=5&sortAsc=id
     return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("invoice".concat(filters));
   },
+  getRevenue: function getRevenue(id) {
+    return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("revenue/".concat(id));
+  },
   view: function view(id) {
     return _axios_index_js__WEBPACK_IMPORTED_MODULE_0__["default"].get("invoice/".concat(id));
   },
@@ -73604,6 +73607,27 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     }, {
       path: '/transaction/create',
       name: 'create-transaction',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 47).then(__webpack_require__.bind(null, /*! ./views/transaction/create */ "./resources/js/src/views/transaction/create.vue"));
+      },
+      beforeEnter: guard,
+      meta: {
+        breadcrumb: [{
+          title: 'Home',
+          url: '',
+          i18n: 'Home'
+        }, {
+          title: 'Create transaction',
+          active: true,
+          i18n: 'Create transaction'
+        }],
+        pageTitle: 'Create Transaction',
+        pageTitle_i18n: 'Create Transaction',
+        permission: 'create-transaction'
+      }
+    }, {
+      path: '/transaction/:id/create',
+      name: 'create-user-transaction',
       component: function component() {
         return __webpack_require__.e(/*! import() */ 47).then(__webpack_require__.bind(null, /*! ./views/transaction/create */ "./resources/js/src/views/transaction/create.vue"));
       },
@@ -75993,9 +76017,25 @@ __webpack_require__.r(__webpack_exports__);
       });
     });
   },
-  view: function view(_ref2, id) {
+  getRevenue: function getRevenue(_ref2, id) {
     var commit = _ref2.commit,
         dispatch = _ref2.dispatch;
+    return new Promise(function (resolve, reject) {
+      _http_requests_invoice_index__WEBPACK_IMPORTED_MODULE_0__["default"].getRevenue(id).then(function (response) {
+        resolve(response);
+      }).catch(function (error) {
+        dispatch('handleError', {
+          reject: reject,
+          error: error
+        }, {
+          root: true
+        });
+      });
+    });
+  },
+  view: function view(_ref3, id) {
+    var commit = _ref3.commit,
+        dispatch = _ref3.dispatch;
     return new Promise(function (resolve, reject) {
       _http_requests_invoice_index__WEBPACK_IMPORTED_MODULE_0__["default"].view(id).then(function (response) {
         resolve(response);
@@ -76009,9 +76049,9 @@ __webpack_require__.r(__webpack_exports__);
       });
     });
   },
-  delete: function _delete(_ref3, id) {
-    var commit = _ref3.commit,
-        dispatch = _ref3.dispatch;
+  delete: function _delete(_ref4, id) {
+    var commit = _ref4.commit,
+        dispatch = _ref4.dispatch;
     return new Promise(function (resolve, reject) {
       _http_requests_invoice_index__WEBPACK_IMPORTED_MODULE_0__["default"].delete(id).then(function (response) {
         resolve(response);
@@ -78337,9 +78377,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuesax__WEBPACK_IMPORTED_MODULE_1
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\TeePlus\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\TeePlus\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! D:\TeePlus\resources\assets\css\main.css */"./resources/assets/css/main.css");
+__webpack_require__(/*! D:\Work\Tee Plus\Tee Plus\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\Work\Tee Plus\Tee Plus\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! D:\Work\Tee Plus\Tee Plus\resources\assets\css\main.css */"./resources/assets/css/main.css");
 
 
 /***/ })

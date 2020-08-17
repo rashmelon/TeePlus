@@ -23,6 +23,11 @@
                             {{User.email}}
                         </vs-col>
                     </vs-row>
+                    <vs-row class="mb-2">
+                        <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="12">
+                            Balance: {{User.invoice_sum - User.withdraw + User.deposit}}
+                        </vs-col>
+                    </vs-row>
                 </vs-row>
             </vx-card>
         </div>

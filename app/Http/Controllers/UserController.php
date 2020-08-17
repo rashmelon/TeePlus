@@ -25,7 +25,7 @@ class UserController extends Controller
     {
         $this->authorize('index', User::class);
 
-        $builder = User::employees();
+        $builder = User::employees()->finance();
         $user = \request()->user();
 
         if ($user && $user->hasRole('Agency Admin')){
@@ -88,7 +88,7 @@ class UserController extends Controller
     {
         $this->authorize('show', User::class);
 
-        return ApiResponse::showRespond($user, UserTransformer::class)->execute();
+        return ApiResponse::showRespond(User::finance()->find($user->id), UserTransformer::class)->execute();
     }
 
     /**

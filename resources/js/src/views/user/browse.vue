@@ -13,7 +13,7 @@
 					</vs-col>
 				</vs-row>
 			</div>
-			
+
 			<!-- USER PROFILE CARD 2 - MINIMAL -->
 			<div class="vx-row" ref="browse">
 				<div class="vx-col w-full md:w-1/2 lg:w-1/3 mb-base" v-for="user in users">
@@ -28,10 +28,14 @@
 							<i class="fas fa-envelope"></i> {{ $t('Email') || 'Email' }}
 							<p @click="copyToClipboard(user.email)" class="text-grey txt-hover">{{ user.email }}</p>
 						</div>
+						<div class="text-left vx-col w-full">
+							<i class="fas fa-dollar-sign"></i> {{ $t('Balance') || 'Balance' }}
+							<p class="text-grey txt-hover">{{ user.invoice_sum - user.withdraw + user.deposit }}</p>
+						</div>
 						<br>
 						<template slot="footer">
 							<vs-divider/>
-							
+
 						<div class="flex justify-between">
                             <span class="flex items-center" v-if="can('browse-invoice')">
                                 <vx-tooltip text="Invoices">

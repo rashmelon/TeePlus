@@ -113,6 +113,10 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
+    if (this.$route.params.id) {
+      this.form.seller_id = this.$route.params.id;
+    }
+
     this.getUsers();
   },
   methods: {
@@ -158,9 +162,18 @@ __webpack_require__.r(__webpack_exports__);
               color: 'success'
             });
 
-            _this2.$router.push({
-              name: 'browse-transaction'
-            });
+            if (_this2.$route.params.id) {
+              _this2.$router.push({
+                name: 'browse-user-transactions',
+                params: {
+                  id: _this2.$route.params.id
+                }
+              });
+            } else {
+              _this2.$router.push({
+                name: 'browse-transaction'
+              });
+            }
 
             _this2.is_requesting = false;
           }).catch(function (error) {
@@ -217,50 +230,52 @@ var render = function() {
             ? _c(
                 "vx-card",
                 [
-                  _c(
-                    "vs-select",
-                    {
-                      directives: [
+                  !_vm.form.seller_id
+                    ? _c(
+                        "vs-select",
                         {
-                          name: "validate",
-                          rawName: "v-validate",
-                          value: "required",
-                          expression: "'required'"
-                        }
-                      ],
-                      staticClass: "w-full mt-5",
-                      attrs: {
-                        label: "Seller",
-                        items: "users",
-                        placeholder: "Seller",
-                        name: "seller"
-                      },
-                      model: {
-                        value: _vm.form.seller_id,
-                        callback: function($$v) {
-                          _vm.$set(_vm.form, "seller_id", $$v)
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
+                          staticClass: "w-full mt-5",
+                          attrs: {
+                            label: "Seller",
+                            items: "users",
+                            placeholder: "Seller",
+                            name: "seller"
+                          },
+                          model: {
+                            value: _vm.form.seller_id,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "seller_id", $$v)
+                            },
+                            expression: "form.seller_id"
+                          }
                         },
-                        expression: "form.seller_id"
-                      }
-                    },
-                    [
-                      _c("vs-select-item", {
-                        attrs: {
-                          selected: "",
-                          value: null,
-                          text: "Choose seller"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm._l(_vm.users, function(item, index) {
-                        return _c("vs-select-item", {
-                          key: item.id,
-                          attrs: { text: item.name, value: item.id }
-                        })
-                      })
-                    ],
-                    2
-                  ),
+                        [
+                          _c("vs-select-item", {
+                            attrs: {
+                              selected: "",
+                              value: null,
+                              text: "Choose seller"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm._l(_vm.users, function(item, index) {
+                            return _c("vs-select-item", {
+                              key: item.id,
+                              attrs: { text: item.name, value: item.id }
+                            })
+                          })
+                        ],
+                        2
+                      )
+                    : _vm._e(),
                   _vm._v(" "),
                   _c(
                     "span",

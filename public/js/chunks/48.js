@@ -133,7 +133,10 @@ __webpack_require__.r(__webpack_exports__);
             });
 
             _this2.$router.push({
-              name: 'browse-transaction'
+              name: 'browse-user-transactions',
+              params: {
+                id: _this2.form.seller_id
+              }
             });
 
             _this2.is_requesting = false;

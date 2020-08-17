@@ -7,8 +7,8 @@
 				</vs-col>
 			</vs-row>
 		</div>
-		
-		
+
+
 		<vx-card ref="browse">
 			<vs-table
 				pagination
@@ -16,13 +16,13 @@
 				max-items="50"
 				:data="transactions"
 			>
-				
+
 				<template slot="header"  v-if="can('create-transaction')">
-					<vs-button :to="{name: 'create-transaction'}"  color="primary" type="filled" icon-pack="feather"
+					<vs-button :to="{name: 'create-user-transaction', params:{id:seller_id}}"  color="primary" type="filled" icon-pack="feather"
 					           icon="icon-plus">Create transaction
 					</vs-button>
 				</template>
-				
+
 				<template slot="thead">
 					<vs-th>Date</vs-th>
 					<vs-th>Seller</vs-th>
@@ -32,13 +32,13 @@
 					<vs-th>Updated at</vs-th>
 					<vs-th>Actions</vs-th>
 				</template>
-				
+
 				<template slot-scope="{data}">
 					<vs-tr
 						:state="transaction.type === 'withdraw'?'warning':'success'"
-						
+
 						:key="index" v-for="(transaction, index) in data">
-						
+
 						<vs-td :data="transaction.date">
 							{{ transaction.date}}
 						</vs-td>
@@ -59,14 +59,6 @@
 						</vs-td>
 						<vs-td>
 							<div class="flex justify-between">
-	                            <!--<span class="flex items-center" v-if="can('view-transaction')">
-	                                <vx-tooltip position="top" text="View Transaction">
-										<vs-button :id="`btn-view-${transaction.id}`" class="vs-con-loading__container" radius color="primary" type="border"
-										           icon-pack="feather" icon="icon-eye"
-										           @click="viewTransaction(transaction.id)"></vs-button>
-	                                </vx-tooltip>
-	                            </span>-->
-								
 								<span class="flex items-center" v-if="can('edit-transaction')">
 	                                <vx-tooltip position="top" text="Update Transaction">
 									<vs-button :id="`btn-edit-${transaction.id}`" class="vs-con-loading__container" radius color="warning" type="border"
@@ -74,7 +66,7 @@
 									           @click=editTransaction(transaction.id)></vs-button>
 	                                </vx-tooltip>
 	                            </span>
-								
+
 								<span class="flex items-center" v-if="can('delete-transaction')">
 	                                <vx-tooltip position="top" text="Delete Transaction">
 										<vs-button :id="`btn-delete-${transaction.id}`" class="vs-con-loading__container" radius color="danger" type="border"
@@ -84,15 +76,15 @@
 	                            </span>
 							</div>
 						</vs-td>
-					
+
 					</vs-tr>
 				</template>
 			</vs-table>
-		
+
 		</vx-card>
-		
-		
-		
+
+
+
 	</div>
 
 </template>
@@ -106,6 +98,7 @@
                 resultTime: 0,
                 is_requesting: false,
                 transactions: [],
+                seller_id: null
             }
         },
         mounted() {
@@ -119,11 +112,13 @@
 
                 let seller = '';
                 if (this.$route.params.id){
+                    this.seller_id = this.$route.params.id;
                     seller = `?seller=${this.$route.params.id}`
                 } else if (this.$store.state.auth.AppActiveUser.roles[0].name === 'Seller') {
+                    this.seller_id = this.$store.state.auth.AppActiveUser.id;
                     seller = `?seller=${this.$store.state.auth.AppActiveUser.id}`
                 }
-                
+
                 this.$store.dispatch('transaction/getData', seller)
                     .then(response => {
                         this.transactions = response.data.data;

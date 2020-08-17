@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -72,6 +73,17 @@ class User extends Authenticatable
         return $query->whereHas('roles', function ($query) {
             $query->where('is_core', 0);
         });
+    }
+
+    public function scopeFinance($query)
+    {
+        return $query->withCount(['transactions as withdraw' => function($query) {
+            $query->where('type', 'withdraw')->select(DB::raw('sum(amount)'));
+        }])->withCount(['transactions as deposit' => function($query) {
+            $query->where('type', 'deposit')->select(DB::raw('sum(amount)'));
+        }])->withCount(['invoices as invoice_sum' => function($query) {
+            $query->select(DB::raw('sum(amount)'));
+        }]);
     }
 
     public function productsToSell()

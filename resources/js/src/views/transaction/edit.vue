@@ -1,8 +1,8 @@
 <template>
 	<div  v-if="can('edit-transaction')">
 		<vx-card v-if="form.amount">
-			
-			
+
+
 			<vs-input
 				v-if="form.seller"
 				class="w-full mt-5"
@@ -10,18 +10,18 @@
 				disabled
 				v-model="form.seller.name"
 			/>
-			
-			
-			
+
+
+
 			<vs-input
 				class="w-full mt-5"
 				label="Operation"
 				disabled
 				v-model="form.type"
 			/>
-			
-			
-			
+
+
+
 			<vs-input
 				class="w-full mt-5"
 				label="Amount"
@@ -31,18 +31,18 @@
 				v-validate="'required|min_value:1'"
 			/>
 			<span class="text-danger text-sm" v-show="errors.has('amount')">{{ errors.first('amount') }}</span>
-			
-			
-			
+
+
+
 			<vs-input
 				class="w-full mt-5"
 				label="Date"
 				disabled
 				v-model="form.date"
 			/>
-			
-			
-			
+
+
+
 			<vs-button
 				@click="edit"
 				class="mt-5 ml-auto"
@@ -52,9 +52,9 @@
 				type="filled"
 			>Edit
 			</vs-button>
-		
+
 		</vx-card>
-	
+
 	</div>
 </template>
 
@@ -74,7 +74,7 @@
         },
         mounted() {
 			this.getTransaction();
-			
+
         },
         methods: {
             getTransaction(){
@@ -105,9 +105,9 @@
                         let form_data = new FormData();
 
                         form_data.append('amount', this.form['amount']);
-                        
-                        
-                        
+
+
+
                         this.$store.dispatch('transaction/update', {id: this.$route.params.id,data: form_data})
                             .then(response => {
                                 this.$vs.notify({
@@ -117,7 +117,7 @@
                                     icon: 'icon-check',
                                     color: 'success'
                                 });
-                                this.$router.push({name: 'browse-transaction'});
+                                this.$router.push({name: 'browse-user-transactions', params:{id:this.form.seller_id}});
                                 this.is_requesting = false;
 
                             })
@@ -145,7 +145,7 @@
                 })
             }
         }
-        
+
     }
 </script>
 

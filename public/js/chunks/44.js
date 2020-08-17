@@ -271,7 +271,14 @@ var render = function() {
                                   [
                                     _c(
                                       "vs-chip",
-                                      { attrs: { color: "success" } },
+                                      {
+                                        attrs: {
+                                          color:
+                                            invoice.amount >= 0
+                                              ? "success"
+                                              : "danger"
+                                        }
+                                      },
                                       [
                                         _c(
                                           "h3",
@@ -380,7 +387,7 @@ var render = function() {
                     ],
                     null,
                     false,
-                    3381723760
+                    2682573518
                   )
                 },
                 [
