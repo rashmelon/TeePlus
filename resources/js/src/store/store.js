@@ -28,6 +28,8 @@ import moduleDesign from "./design/moduleDesign";
 import moduleDesignPrintPrice from "./design-print-price/moduleDesignPrintPrice";
 import moduleOrder from "./order/moduleOrder";
 import moduleRestoredItem from "./restored-item/moduleRestoredItem";
+import moduleInvoice from "./invoice/moduleInvoice";
+import moduleTransaction from "./transaction/moduleTransaction";
 
 
 const vuexLocal = new VuexPersistence({
@@ -59,6 +61,8 @@ export default new Vuex.Store({
         designPrintPrice: moduleDesignPrintPrice,
         order: moduleOrder,
         restoredItem: moduleRestoredItem,
+        invoice: moduleInvoice,
+        transaction: moduleTransaction,
     },
     plugins: [vuexLocal.plugin],
     strict: process.env.NODE_ENV !== 'production'

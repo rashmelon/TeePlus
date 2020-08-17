@@ -10,7 +10,7 @@
         <feather-icon class="sm:inline-flex xl:hidden cursor-pointer p-2" icon="MenuIcon" @click.stop="showSidebar" />
 
 <!--        <bookmarks :navbarColor="navbarColor" v-if="windowWidth >= 992" />-->
-
+        <revenue></revenue>
         <vs-spacer />
 <!--
 
@@ -34,7 +34,8 @@ import Bookmarks            from "./components/Bookmarks.vue"
 import SearchBar            from "./components/SearchBar.vue"
 import NotificationDropDown from "./components/NotificationDropDown.vue"
 import ProfileDropDown      from "./components/ProfileDropDown.vue"
-import ToggleDarkmode      from "./components/ToggleDarkmode.vue"
+import ToggleDarkmode       from "./components/ToggleDarkmode.vue"
+import revenue              from "../../../views/invoice/revenue";
 
 export default {
   name: "the-navbar-vertical",
@@ -45,6 +46,7 @@ export default {
     },
   },
   components: {
+      revenue,
     Bookmarks,
     SearchBar,
     NotificationDropDown,

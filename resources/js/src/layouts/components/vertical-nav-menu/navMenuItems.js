@@ -97,6 +97,16 @@ export default [
 
 
     {
+        url: "/transaction",
+        name: "Transaction",
+        slug: "transaction",
+        icon: "RepeatIcon",
+        i18n: "Transaction",
+        permission: 'browse-transaction'
+    },
+
+
+    {
         name: "Settings",
         icon: "SettingsIcon",
         i18n: "Settings",

@@ -149,12 +149,19 @@
 						<div
 							v-if="cartItem.category.id"
 							class="designs vx-col md:w-12/12 w-full mt-3 mb-5">
+							
+							<vs-input
+								label-placeholder="Search Designs"
+								class="w-full my-5"
+								v-model="searchText"
+							/>
+							
 							<div
 								v-if="designs.length"
-								class="vx-row">
+								class="designs-container flex flex-wrap">
 								<div
-									class="vx-col md:w-4/12 lg:w-3/12  single-design"
-									v-for="(item,index) in designs"
+									class="single-design"
+									v-for="(item,index) in filterDesigns"
 									:key="item.id"
 								>
 									<label :for="`design-${item.id}`" class="w-full ">
@@ -164,7 +171,7 @@
 												<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle "><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
 											</span>
 										</span>
-										<img :src="item.design.images[0].url" class="w-full h-full"  alt="">
+										<img :src="item.design.images[0].url" class=""  alt="">
 										<p class="text-center">{{item.design.name}} - {{item.print_criteria.criteria}} - {{item.price}}</p>
 									</label>
 								</div>
@@ -385,6 +392,14 @@
             validateForm() {
                 return !this.errors.any()
             },
+
+            filterDesigns(){
+                return this.designs.filter(design => {
+                    if (design.design.name.indexOf(this.searchText) >= 0){
+                        return design;
+                    }
+                });
+            }
         },
         data: function () {
             return {
@@ -392,7 +407,7 @@
                 resultTime: 0,
                 searchText: "",
                 returns: [],
-                sourceOfProducts: false,
+                sourceOfProducts: true,
                 combinations: [],
                 categories: [],
 	            products: [],
@@ -650,6 +665,7 @@
 
 
             },
+	        
         }
     }
 </script>
@@ -657,11 +673,15 @@
 <style lang="scss">
 	.single-design {
 		position: relative;
-
+		height: 120px;
+		margin-right: 10px;
+		
 		img{
 			border: 1px solid #888;
 			padding: 5px;
-			border-radius: 10px
+			border-radius: 10px;
+			width: auto;
+			height: 100px;
 		}
 
 		input{
@@ -672,10 +692,10 @@
 			position: absolute;
 			z-index: 1;
 			top: 0;
-			right: 15px;
-			left: 15px;
-			border-radius: 10px;
+			right: 0;
+			left: 0;
 			bottom: 0;
+			border-radius: 10px;
 			background: rgba(24, 100, 120, 0.65);
 			opacity: 0;
 			display: flex;

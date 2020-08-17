@@ -20,6 +20,14 @@ class InvoicePolicy
         return request()->user()->hasPermissionTo('create-invoice');
     }
 
+    public function revenue(User $user, User $userToView)
+    {
+        if ($user->roles[0]->is_core == 1){
+            return true;
+        }
+        return request()->user()->hasPermissionTo('view-invoice') && $user->id == $userToView->id;
+    }
+
     public function show(User $user, Invoice $invoice)
     {
         if ($user->roles[0]->is_core == 1){
