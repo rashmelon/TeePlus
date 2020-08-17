@@ -13,7 +13,7 @@ class TransactionTransformer extends TransformerAbstract
      * @var array
      */
     protected $defaultIncludes = [
-        //
+        'seller'
     ];
 
     /**
@@ -22,7 +22,7 @@ class TransactionTransformer extends TransformerAbstract
      * @var array
      */
     protected $availableIncludes = [
-        //
+        'seller'
     ];
 
     /**
@@ -34,5 +34,10 @@ class TransactionTransformer extends TransformerAbstract
     public function transform(Transaction $transaction)
     {
         return $transaction->toArray();
+    }
+
+    public function includeSeller(Transaction $transaction)
+    {
+        return $this->item($transaction->seller, new UserTransformer(), 'no-data');
     }
 }
