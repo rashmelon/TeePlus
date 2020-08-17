@@ -397,6 +397,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -410,6 +417,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   computed: {
     validateForm: function validateForm() {
       return !this.errors.any();
+    },
+    filterDesigns: function filterDesigns() {
+      var _this = this;
+
+      return this.designs.filter(function (design) {
+        if (design.design.name.indexOf(_this.searchText) >= 0) {
+          return design;
+        }
+      });
     }
   },
   data: function data() {
@@ -418,7 +434,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       resultTime: 0,
       searchText: "",
       returns: [],
-      sourceOfProducts: false,
+      sourceOfProducts: true,
       combinations: [],
       categories: [],
       products: [],
@@ -459,13 +475,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {
     selectFromStock: function selectFromStock() {
-      var _this = this;
+      var _this2 = this;
 
       console.log(this.selectedFromStock);
       this.selectedFromStock.priceCombination = this.selectedFromStock.price_combination;
       this.tempProducts.push(this.selectedFromStock);
       this.returns = this.returns.filter(function (item) {
-        return item.id !== _this.selectedFromStock.id;
+        return item.id !== _this2.selectedFromStock.id;
       });
       this.selectedFromStock = {};
     },
@@ -489,33 +505,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.tempProducts.splice(index, 1);
     },
     getReturned: function getReturned() {
-      var _this2 = this;
-
-      this.$vs.loading();
-      this.$store.dispatch('restoredItem/getData', this.payload).then(function (response) {
-        _this2.returns = response.data.data;
-        console.log(_this2.returns);
-      }).catch(function (error) {
-        _this2.$vs.notify({
-          title: 'Error',
-          text: error.response.data.error,
-          iconPack: 'feather',
-          icon: 'icon-alert-circle',
-          color: 'danger'
-        });
-      }).then(function () {
-        _this2.$vs.loading.close();
-      });
-    },
-    getShippingPrice: function getShippingPrice() {
       var _this3 = this;
 
       this.$vs.loading();
-      this.$store.dispatch('shippingPrice/getData', this.payload).then(function (response) {
-        _this3.shippingPrices = response.data.data;
+      this.$store.dispatch('restoredItem/getData', this.payload).then(function (response) {
+        _this3.returns = response.data.data;
+        console.log(_this3.returns);
       }).catch(function (error) {
-        console.log(error);
-
         _this3.$vs.notify({
           title: 'Error',
           text: error.response.data.error,
@@ -527,16 +523,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this3.$vs.loading.close();
       });
     },
-    getCategories: function getCategories() {
+    getShippingPrice: function getShippingPrice() {
       var _this4 = this;
 
       this.$vs.loading();
-      this.designs = []; // get all categories
-
-      this.$store.dispatch('category/getData', this.payload).then(function (response) {
-        _this4.categories = response.data.data;
+      this.$store.dispatch('shippingPrice/getData', this.payload).then(function (response) {
+        _this4.shippingPrices = response.data.data;
       }).catch(function (error) {
-        console.log(error); // this.$vs.loading.close(this.$refs.browse);
+        console.log(error);
 
         _this4.$vs.notify({
           title: 'Error',
@@ -549,23 +543,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this4.$vs.loading.close();
       });
     },
-    getProducts: function getProducts() {
+    getCategories: function getCategories() {
       var _this5 = this;
 
       this.$vs.loading();
-      var payload = this.payload;
+      this.designs = []; // get all categories
 
-      if (this.$store.getters['auth/userData'].roles[0].name === 'Seller') {
-        payload = "?seller=".concat(this.$store.getters['auth/userData'].id, "&category=").concat(this.cartItem.category.id);
-      } else {
-        payload = "?category=".concat(this.cartItem.category.id);
-      }
-
-      this.$store.dispatch('product/getData', payload).then(function (response) {
-        _this5.products = response.data.data;
-        console.log(_this5.products);
+      this.$store.dispatch('category/getData', this.payload).then(function (response) {
+        _this5.categories = response.data.data;
       }).catch(function (error) {
-        console.log(error);
+        console.log(error); // this.$vs.loading.close(this.$refs.browse);
 
         _this5.$vs.notify({
           title: 'Error',
@@ -578,13 +565,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this5.$vs.loading.close();
       });
     },
-    getCombinations: function getCombinations() {
+    getProducts: function getProducts() {
       var _this6 = this;
 
       this.$vs.loading();
-      this.$store.dispatch('combination/getData', "?product=".concat(this.cartItem.product.id)).then(function (response) {
-        _this6.combinations = response.data.data;
-        console.log(_this6.combinations);
+      var payload = this.payload;
+
+      if (this.$store.getters['auth/userData'].roles[0].name === 'Seller') {
+        payload = "?seller=".concat(this.$store.getters['auth/userData'].id, "&category=").concat(this.cartItem.category.id);
+      } else {
+        payload = "?category=".concat(this.cartItem.category.id);
+      }
+
+      this.$store.dispatch('product/getData', payload).then(function (response) {
+        _this6.products = response.data.data;
+        console.log(_this6.products);
       }).catch(function (error) {
         console.log(error);
 
@@ -599,17 +594,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this6.$vs.loading.close();
       });
     },
-    getDesigns: function getDesigns() {
+    getCombinations: function getCombinations() {
       var _this7 = this;
 
       this.$vs.loading();
-      this.$store.dispatch('designPrintPrice/getData', "?category=".concat(this.cartItem.category.id)).then(function (response) {
-        _this7.designs = response.data.data;
-        console.log('designs: ', _this7.designs);
-
-        _this7.$vs.loading.close(_this7.$refs.create.$el);
+      this.$store.dispatch('combination/getData', "?product=".concat(this.cartItem.product.id)).then(function (response) {
+        _this7.combinations = response.data.data;
+        console.log(_this7.combinations);
       }).catch(function (error) {
-        _this7.$vs.loading.close(_this7.$refs.create.$el);
+        console.log(error);
 
         _this7.$vs.notify({
           title: 'Error',
@@ -622,34 +615,57 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this7.$vs.loading.close();
       });
     },
-    create: function create() {
+    getDesigns: function getDesigns() {
       var _this8 = this;
+
+      this.$vs.loading();
+      this.$store.dispatch('designPrintPrice/getData', "?category=".concat(this.cartItem.category.id)).then(function (response) {
+        _this8.designs = response.data.data;
+        console.log('designs: ', _this8.designs);
+
+        _this8.$vs.loading.close(_this8.$refs.create.$el);
+      }).catch(function (error) {
+        _this8.$vs.loading.close(_this8.$refs.create.$el);
+
+        _this8.$vs.notify({
+          title: 'Error',
+          text: error.response.data.error,
+          iconPack: 'feather',
+          icon: 'icon-alert-circle',
+          color: 'danger'
+        });
+      }).then(function () {
+        _this8.$vs.loading.close();
+      });
+    },
+    create: function create() {
+      var _this9 = this;
 
       this.$validator.validateAll().then(function (result) {
         if (result) {
-          _this8.$vs.loading(); // if form have no errors
+          _this9.$vs.loading(); // if form have no errors
 
 
-          _this8.is_requesting = true; // empty item before appending new items again ( in case of fail )
+          _this9.is_requesting = true; // empty item before appending new items again ( in case of fail )
 
-          _this8.order.orderProducts = [];
+          _this9.order.orderProducts = [];
 
-          for (var i = 0; i < _this8.tempProducts.length; i++) {
+          for (var i = 0; i < _this9.tempProducts.length; i++) {
             var item = {};
 
-            if (_this8.tempProducts[i].id) {
-              item.id = _this8.tempProducts[i].id;
+            if (_this9.tempProducts[i].id) {
+              item.id = _this9.tempProducts[i].id;
             }
 
-            item.quantity = _this8.tempProducts[i].quantity ? _this8.tempProducts[i].quantity : 1;
-            item.product_id = _this8.tempProducts[i].product.id;
-            item.price_combination_id = _this8.tempProducts[i].priceCombination.id;
-            item.design_print_price_id = _this8.tempProducts[i].design_print_price.id;
+            item.quantity = _this9.tempProducts[i].quantity ? _this9.tempProducts[i].quantity : 1;
+            item.product_id = _this9.tempProducts[i].product.id;
+            item.price_combination_id = _this9.tempProducts[i].priceCombination.id;
+            item.design_print_price_id = _this9.tempProducts[i].design_print_price.id;
 
-            _this8.order.orderProducts.push(item);
+            _this9.order.orderProducts.push(item);
           }
 
-          var sentObject = _objectSpread({}, _this8.order); // create new object for sending object without extra data
+          var sentObject = _objectSpread({}, _this9.order); // create new object for sending object without extra data
 
 
           var form_data = new FormData();
@@ -662,8 +678,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
           }
 
-          _this8.$store.dispatch('order/create', form_data).then(function (response) {
-            _this8.$vs.notify({
+          _this9.$store.dispatch('order/create', form_data).then(function (response) {
+            _this9.$vs.notify({
               title: 'Success',
               text: response.data.message,
               iconPack: 'feather',
@@ -672,9 +688,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }); // this.$router.push({name: 'order'});
 
 
-            _this8.is_requesting = false;
+            _this9.is_requesting = false;
 
-            _this8.$router.push({
+            _this9.$router.push({
               name: 'order'
             });
           }).catch(function (error) {
@@ -683,7 +699,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   _key = _Object$entries$_i[0],
                   value = _Object$entries$_i[1];
 
-              _this8.$vs.notify({
+              _this9.$vs.notify({
                 title: _key,
                 text: value[0],
                 iconPack: 'feather',
@@ -692,12 +708,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               });
             }
 
-            _this8.is_requesting = false;
+            _this9.is_requesting = false;
           }).then(function () {
-            _this8.$vs.loading.close();
+            _this9.$vs.loading.close();
           });
         } else {
-          _this8.$vs.notify({
+          _this9.$vs.notify({
             title: 'Error',
             text: 'Fix form validation errors',
             iconPack: 'feather',
@@ -724,7 +740,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".single-design {\n  position: relative;\n}\n[dir] .single-design img {\n  border: 1px solid #888;\n  padding: 5px;\n  border-radius: 10px;\n}\n.single-design input {\n  display: none;\n}\n.single-design .overlay {\n  position: absolute;\n  z-index: 1;\n  top: 0;\n  bottom: 0;\n  opacity: 0;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n}\n[dir] .single-design .overlay {\n  border-radius: 10px;\n  background: rgba(24, 100, 120, 0.65);\n}\n[dir=ltr] .single-design .overlay {\n  right: 15px;\n  left: 15px;\n}\n[dir=rtl] .single-design .overlay {\n  left: 15px;\n  right: 15px;\n}\n.single-design .overlay svg {\n  width: 100px;\n  height: 100px;\n  color: white;\n}\n.single-design input:checked ~ .overlay {\n  opacity: 1 !important;\n}\n.vs-input-number {\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n}\n.attribute-actions {\n  -webkit-box-align: baseline;\n          align-items: baseline;\n  display: -webkit-box;\n  display: flex;\n}", ""]);
+exports.push([module.i, ".single-design {\n  position: relative;\n  height: 120px;\n}[dir=ltr] .single-design {\n  margin-right: 10px;\n}[dir=rtl] .single-design {\n  margin-left: 10px;\n}\n.single-design img {\n  width: auto;\n  height: 100px;\n}\n[dir] .single-design img {\n  border: 1px solid #888;\n  padding: 5px;\n  border-radius: 10px;\n}\n.single-design input {\n  display: none;\n}\n.single-design .overlay {\n  position: absolute;\n  z-index: 1;\n  top: 0;\n  bottom: 0;\n  opacity: 0;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n}\n[dir] .single-design .overlay {\n  border-radius: 10px;\n  background: rgba(24, 100, 120, 0.65);\n}\n[dir=ltr] .single-design .overlay {\n  right: 0;\n  left: 0;\n}\n[dir=rtl] .single-design .overlay {\n  left: 0;\n  right: 0;\n}\n.single-design .overlay svg {\n  width: 100px;\n  height: 100px;\n  color: white;\n}\n.single-design input:checked ~ .overlay {\n  opacity: 1 !important;\n}\n.vs-input-number {\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n}\n.attribute-actions {\n  -webkit-box-align: baseline;\n          align-items: baseline;\n  display: -webkit-box;\n  display: flex;\n}", ""]);
 
 // exports
 
@@ -1211,17 +1227,34 @@ var render = function() {
                             "designs vx-col md:w-12/12 w-full mt-3 mb-5"
                         },
                         [
+                          _c("vs-input", {
+                            staticClass: "w-full my-5",
+                            attrs: { "label-placeholder": "Search Designs" },
+                            model: {
+                              value: _vm.searchText,
+                              callback: function($$v) {
+                                _vm.searchText = $$v
+                              },
+                              expression: "searchText"
+                            }
+                          }),
+                          _vm._v(" "),
                           _vm.designs.length
                             ? _c(
                                 "div",
-                                { staticClass: "vx-row" },
-                                _vm._l(_vm.designs, function(item, index) {
+                                {
+                                  staticClass:
+                                    "designs-container flex flex-wrap"
+                                },
+                                _vm._l(_vm.filterDesigns, function(
+                                  item,
+                                  index
+                                ) {
                                   return _c(
                                     "div",
                                     {
                                       key: item.id,
-                                      staticClass:
-                                        "vx-col md:w-4/12 lg:w-3/12  single-design"
+                                      staticClass: "single-design"
                                     },
                                     [
                                       _c(
@@ -1318,7 +1351,6 @@ var render = function() {
                                           ),
                                           _vm._v(" "),
                                           _c("img", {
-                                            staticClass: "w-full h-full",
                                             attrs: {
                                               src: item.design.images[0].url,
                                               alt: ""
@@ -1355,7 +1387,8 @@ var render = function() {
                                 },
                                 [_vm._v("No designs to show in this category")]
                               )
-                        ]
+                        ],
+                        1
                       )
                     : _vm._e()
                 ]),

@@ -114,6 +114,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getUsers();
+    var today = new Date(); // set the date = today
+
+    this.form.date = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);
   },
   methods: {
     getUsers: function getUsers() {
