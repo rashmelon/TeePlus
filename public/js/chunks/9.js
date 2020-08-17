@@ -125,7 +125,9 @@ __webpack_require__.r(__webpack_exports__);
 
         _this.$vs.loading.close(_this.$refs.browse.$el);
       }).catch(function (error) {
-        console.log(error); // this.$vs.loading.close(this.$refs.browse);
+        console.log(error);
+
+        _this.$vs.loading.close(_this.$refs.browse);
 
         _this.$vs.notify({
           title: 'Error',

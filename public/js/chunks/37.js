@@ -73,6 +73,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -225,7 +240,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".txt-hover:hover{\n  color: black !important;\n}[dir] .txt-hover:hover{\n  cursor: pointer;\n}\n", ""]);
+exports.push([module.i, ".txt-hover:hover {\n  color: black !important;\n}[dir] .txt-hover:hover {\n  cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -282,7 +297,7 @@ var render = function() {
         _c("div", [
           _c(
             "div",
-            { staticClass: "centerx" },
+            { staticClass: "centerx mb-5" },
             [
               _c(
                 "vs-row",
@@ -291,9 +306,9 @@ var render = function() {
                     "vs-col",
                     {
                       attrs: {
-                        "vs-type": "flex",
-                        "vs-justify": "center",
                         "vs-align": "center",
+                        "vs-justify": "center",
+                        "vs-type": "flex",
                         "vs-w": "9"
                       }
                     },
@@ -314,9 +329,9 @@ var render = function() {
                         "vs-col",
                         {
                           attrs: {
-                            "vs-type": "flex",
-                            "vs-justify": "center",
                             "vs-align": "center",
+                            "vs-justify": "center",
+                            "vs-type": "flex",
                             "vs-w": "3"
                           }
                         },
@@ -326,14 +341,14 @@ var render = function() {
                             {
                               attrs: {
                                 to: { name: "add-user" },
-                                "vs-w": "3",
                                 color: "primary",
-                                type: "filled",
+                                icon: "icon-user-plus",
                                 "icon-pack": "feather",
-                                icon: "icon-user-plus"
+                                type: "filled",
+                                "vs-w": "3"
                               }
                             },
-                            [_vm._v("  Add User")]
+                            [_vm._v("  Add User\n\t\t\t\t\t\t")]
                           )
                         ],
                         1
@@ -361,8 +376,8 @@ var render = function() {
                       _c("vs-avatar", {
                         staticClass: "mx-auto mb-6 block",
                         attrs: {
-                          size: "80px",
-                          src: user.image ? user.image.url : ""
+                          src: user.image ? user.image.url : "",
+                          size: "80px"
                         }
                       }),
                       _vm._v(" "),
@@ -381,7 +396,7 @@ var render = function() {
                         _vm._v(
                           " " +
                             _vm._s(_vm.$t("Email") || "Email") +
-                            "\r\n                        "
+                            "\n\t\t\t\t\t\t\t"
                         ),
                         _c(
                           "p",
@@ -406,23 +421,88 @@ var render = function() {
                           _c("vs-divider"),
                           _vm._v(" "),
                           _c("div", { staticClass: "flex justify-between" }, [
+                            _vm.can("browse-invoice")
+                              ? _c(
+                                  "span",
+                                  { staticClass: "flex items-center" },
+                                  [
+                                    _c(
+                                      "vx-tooltip",
+                                      { attrs: { text: "Invoices" } },
+                                      [
+                                        _c("vs-button", {
+                                          attrs: {
+                                            to: {
+                                              name: "browse-user-invoices",
+                                              params: { id: user.id }
+                                            },
+                                            color: "primary",
+                                            icon: "icon-clipboard",
+                                            "icon-pack": "feather",
+                                            type: "filled"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.can("browse-transaction")
+                              ? _c(
+                                  "span",
+                                  { staticClass: "flex items-center" },
+                                  [
+                                    _c(
+                                      "vx-tooltip",
+                                      { attrs: { text: "Transactions" } },
+                                      [
+                                        _c("vs-button", {
+                                          attrs: {
+                                            to: {
+                                              name: "browse-user-transactions",
+                                              params: { id: user.id }
+                                            },
+                                            color: "dark",
+                                            icon: "icon-repeat",
+                                            "icon-pack": "feather",
+                                            type: "filled"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
                             _vm.can("create-seller-product")
                               ? _c(
                                   "span",
                                   { staticClass: "flex items-center" },
                                   [
-                                    _c("vs-button", {
-                                      attrs: {
-                                        to: {
-                                          name: "edit-user-product",
-                                          params: { id: user.id }
-                                        },
-                                        color: "success",
-                                        type: "filled",
-                                        "icon-pack": "fa",
-                                        icon: "fa-tags"
-                                      }
-                                    })
+                                    _c(
+                                      "vx-tooltip",
+                                      { attrs: { text: "Edit user products" } },
+                                      [
+                                        _c("vs-button", {
+                                          attrs: {
+                                            to: {
+                                              name: "edit-user-product",
+                                              params: { id: user.id }
+                                            },
+                                            color: "success",
+                                            icon: "fa-tags",
+                                            "icon-pack": "fa",
+                                            type: "filled"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    )
                                   ],
                                   1
                                 )
@@ -433,26 +513,34 @@ var render = function() {
                                   "span",
                                   { staticClass: "flex items-center" },
                                   [
-                                    _c("vs-button", {
-                                      staticClass: "vs-con-loading__container",
-                                      attrs: {
-                                        id: "btn-delete-" + user.id,
-                                        color: "danger",
-                                        type: "filled",
-                                        "icon-pack": "feather",
-                                        icon: "icon-trash"
-                                      },
-                                      on: {
-                                        click: function($event) {
-                                          _vm.is_requesting
-                                            ? _vm.$store.dispatch(
-                                                "viewWaitMessage",
-                                                _vm.$vs
-                                              )
-                                            : _vm.confirmDeleteUser(user)
-                                        }
-                                      }
-                                    })
+                                    _c(
+                                      "vx-tooltip",
+                                      { attrs: { text: "Delete user" } },
+                                      [
+                                        _c("vs-button", {
+                                          staticClass:
+                                            "vs-con-loading__container",
+                                          attrs: {
+                                            id: "btn-delete-" + user.id,
+                                            color: "danger",
+                                            icon: "icon-trash",
+                                            "icon-pack": "feather",
+                                            type: "filled"
+                                          },
+                                          on: {
+                                            click: function($event) {
+                                              _vm.is_requesting
+                                                ? _vm.$store.dispatch(
+                                                    "viewWaitMessage",
+                                                    _vm.$vs
+                                                  )
+                                                : _vm.confirmDeleteUser(user)
+                                            }
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    )
                                   ],
                                   1
                                 )
@@ -465,15 +553,22 @@ var render = function() {
                                   "span",
                                   { staticClass: "flex items-center" },
                                   [
-                                    _c("vs-button", {
-                                      attrs: {
-                                        to: "/user/" + user.id + "/edit",
-                                        color: "warning",
-                                        type: "filled",
-                                        "icon-pack": "feather",
-                                        icon: "icon-edit"
-                                      }
-                                    })
+                                    _c(
+                                      "vx-tooltip",
+                                      { attrs: { text: "Edit user" } },
+                                      [
+                                        _c("vs-button", {
+                                          attrs: {
+                                            to: "/user/" + user.id + "/edit",
+                                            color: "warning",
+                                            icon: "icon-edit",
+                                            "icon-pack": "feather",
+                                            type: "filled"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    )
                                   ],
                                   1
                                 )
@@ -487,20 +582,19 @@ var render = function() {
                                   { staticClass: "flex items-center" },
                                   [
                                     _c(
-                                      "vs-button",
-                                      {
-                                        attrs: {
-                                          to: "/user/" + user.id,
-                                          type: "gradient",
-                                          "icon-pack": "feather",
-                                          icon: "icon-eye"
-                                        }
-                                      },
+                                      "vx-tooltip",
+                                      { attrs: { text: "View user" } },
                                       [
-                                        _vm._v(
-                                          "View\r\n                                "
-                                        )
-                                      ]
+                                        _c("vs-button", {
+                                          attrs: {
+                                            to: "/user/" + user.id,
+                                            icon: "icon-eye",
+                                            "icon-pack": "feather",
+                                            type: "gradient"
+                                          }
+                                        })
+                                      ],
+                                      1
                                     )
                                   ],
                                   1

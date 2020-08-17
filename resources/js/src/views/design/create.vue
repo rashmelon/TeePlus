@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div v-if="can('create-design')">
 		<div class=" w-full mb-base">
 			<div ref="create" title="Create design">
 

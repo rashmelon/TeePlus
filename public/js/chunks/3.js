@@ -6924,6 +6924,13 @@ __webpack_require__.r(__webpack_exports__);
   i18n: "User",
   permission: 'browse-user'
 }, {
+  url: "/transaction",
+  name: "Transaction",
+  slug: "transaction",
+  icon: "RepeatIcon",
+  i18n: "Transaction",
+  permission: 'browse-transaction'
+}, {
   name: "Settings",
   icon: "SettingsIcon",
   i18n: "Settings",
