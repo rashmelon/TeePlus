@@ -24,7 +24,13 @@ class ProductController extends Controller
     {
         $this->authorize('index', Product::class);
 
-        return ApiResponse::fluentIndexRespond(Product::inStock(), ProductTransformer::class)->execute();
+        $query = Product::query();
+
+        if (!request()->user()->roles[0]->name == 'Super Admin'){
+            $query = $query->inStock();
+        }
+
+        return ApiResponse::fluentIndexRespond($query, ProductTransformer::class)->execute();
     }
 
     /**
