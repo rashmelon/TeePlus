@@ -1,6 +1,6 @@
 <template>
 	<div class="vx-col w-full mb-base" v-if="can('browse-invoice')">
-		
+
 		<div class="centerx">
 			<vs-row>
 				<vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="9">
@@ -8,7 +8,7 @@
 				</vs-col>
 			</vs-row>
 		</div>
-		
+
 		<vx-card ref="browse">
 			<vs-table
 				pagination
@@ -16,22 +16,22 @@
 				max-items="50"
 				:data="invoices"
 			>
-				
+
 				<template slot="thead">
 					<vs-th>ID</vs-th>
 					<vs-th>Amount</vs-th>
 					<vs-th>Description</vs-th>
 					<vs-th>Actions</vs-th>
 				</template>
-				
+
 				<template slot-scope="{data}">
 					<vs-tr :key="index" v-for="(invoice, index) in data">
-						
+
 						<vs-td :data="invoice.id">
 							{{ invoice.id}}
 						</vs-td>
 						<vs-td :data="invoice.amount">
-							<vs-chip color="success">
+							<vs-chip :color="invoice.amount >= 0? 'success':'danger'">
 								<h3 class="text-white">{{invoice.amount}}</h3>
 							</vs-chip>
 						</vs-td>
@@ -54,11 +54,11 @@
 								</div>
 							</vs-row>
 						</vs-td>
-						
+
 					</vs-tr>
 				</template>
 			</vs-table>
-		
+
 		</vx-card>
 	</div>
 

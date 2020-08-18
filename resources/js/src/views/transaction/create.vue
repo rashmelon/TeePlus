@@ -1,8 +1,8 @@
 <template>
 	<div  v-if="can('create-transaction')">
 		<vx-card v-if="users.length">
-			
-			<vs-select
+
+			<vs-select v-if="!form.seller_id"
 				class="w-full mt-5"
 				label="Seller"
 				items="users"
@@ -24,7 +24,7 @@
 			</vs-select>
 			<span class="text-danger text-sm" v-show="errors.has('seller')">{{ errors.first('seller') }}</span>
 
-			
+
 			<vs-select
 				class="w-full mt-5"
 				label="Operation"
@@ -39,10 +39,10 @@
 					:value="item.value"
 					v-for="item in operations"/>
 			</vs-select>
-			
+
 			<span class="text-danger text-sm" v-show="errors.has('type')">{{ errors.first('type') }}</span>
-			
-			
+
+
 			<vs-input
 				class="w-full mt-5"
 				label="Amount"
@@ -52,8 +52,8 @@
 				v-validate="'required|min_value:1'"
 			/>
 			<span class="text-danger text-sm" v-show="errors.has('amount')">{{ errors.first('amount') }}</span>
-		
-		
+
+
 			<vs-input
 				class="w-full mt-5"
 				label="Date"
@@ -63,9 +63,9 @@
 				v-validate="'required'"
 			/>
 			<span class="text-danger text-sm" v-show="errors.has('date')">{{ errors.first('date') }}</span>
-			
-			
-			
+
+
+
 			<vs-button
 				@click="create"
 				class="mt-5 ml-auto"
@@ -75,9 +75,9 @@
 				type="filled"
 			>Create
 			</vs-button>
-		
+
 		</vx-card>
-	
+
 	</div>
 </template>
 
@@ -106,6 +106,9 @@
             }
         },
         mounted() {
+            if (this.$route.params.id){
+                this.form.seller_id =  this.$route.params.id;
+            }
 			this.getUsers();
 
 
@@ -139,8 +142,8 @@
                         for (let key in this.form) {
                             form_data.append(key, this.form[key]);
                         }
-                        
-                        
+
+
                         this.$store.dispatch('transaction/create', form_data)
                             .then(response => {
                                 this.$vs.notify({
@@ -150,7 +153,12 @@
                                     icon: 'icon-check',
                                     color: 'success'
                                 });
-                                this.$router.push({name: 'browse-transaction'});
+                                if (this.$route.params.id){
+                                    this.$router.push({name: 'browse-user-transactions', params:{id:this.$route.params.id}});
+                                }
+                                else{
+                                    this.$router.push({name: 'browse-transaction'});
+                                }
                                 this.is_requesting = false;
 
                             })
@@ -177,10 +185,7 @@
                     }
                 })
             }
-        },
-	    
-	    
-        
+        }
     }
 </script>
 

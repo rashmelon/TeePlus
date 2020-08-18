@@ -100,14 +100,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "browse",
   data: function data() {
@@ -115,7 +107,8 @@ __webpack_require__.r(__webpack_exports__);
       searchText: "",
       resultTime: 0,
       is_requesting: false,
-      transactions: []
+      transactions: [],
+      seller_id: null
     };
   },
   mounted: function mounted() {
@@ -129,8 +122,10 @@ __webpack_require__.r(__webpack_exports__);
       var seller = '';
 
       if (this.$route.params.id) {
+        this.seller_id = this.$route.params.id;
         seller = "?seller=".concat(this.$route.params.id);
       } else if (this.$store.state.auth.AppActiveUser.roles[0].name === 'Seller') {
+        this.seller_id = this.$store.state.auth.AppActiveUser.id;
         seller = "?seller=".concat(this.$store.state.auth.AppActiveUser.id);
       }
 
@@ -499,7 +494,10 @@ var render = function() {
                             "vs-button",
                             {
                               attrs: {
-                                to: { name: "create-transaction" },
+                                to: {
+                                  name: "create-user-transaction",
+                                  params: { id: _vm.seller_id }
+                                },
                                 color: "primary",
                                 type: "filled",
                                 "icon-pack": "feather",

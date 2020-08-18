@@ -13,6 +13,17 @@ export default {
                 })
         })
     },
+    getRevenue({ commit, dispatch }, id) {
+        return new Promise((resolve, reject) => {
+            category.getRevenue(id)
+                .then(response => {
+                    resolve(response)
+                })
+                .catch(error => {
+                    dispatch('handleError', {reject: reject, error: error}, {root: true});
+                })
+        })
+    },
 
     view({ commit, dispatch }, id) {
         return new Promise((resolve, reject) => {

@@ -216,6 +216,22 @@ const router = new Router({
                     }
                 },
 
+                {
+                    path: '/transaction/:id/create',
+                    name: 'create-user-transaction',
+                    component: () => import('./views/transaction/create'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Create transaction', active: true, i18n: 'Create transaction'},
+                        ],
+                        pageTitle: 'Create Transaction',
+                        pageTitle_i18n: 'Create Transaction',
+                        permission: 'create-transaction'
+                    }
+                },
+
 
 
 
