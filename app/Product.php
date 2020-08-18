@@ -54,7 +54,8 @@ class Product extends Model
 
     public function scopeInStock(Builder $query)
     {
-        return $query->whereRaw('products.quantity > (select sum(order_products.quantity) from order_products where order_products.product_id = products.id)');
+        return $query->whereRaw('(products.quantity > (select sum(order_products.quantity) from order_products where order_products.product_id = products.id))'
+        .'or (select count(order_products.id) from order_products where order_products.product_id = products.id) = 0');
     }
 
     public function scopeSeller(Builder $query, $value)
