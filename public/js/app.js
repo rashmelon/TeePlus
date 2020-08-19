@@ -73671,7 +73671,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/category/create',
       name: 'create-category',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(54), __webpack_require__.e(12)]).then(__webpack_require__.bind(null, /*! ./views/category/create.vue */ "./resources/js/src/views/category/create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(12)]).then(__webpack_require__.bind(null, /*! ./views/category/create.vue */ "./resources/js/src/views/category/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73768,7 +73768,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/product/create',
       name: 'create-product',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(54), __webpack_require__.e(24)]).then(__webpack_require__.bind(null, /*! ./views/product/create.vue */ "./resources/js/src/views/product/create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(24)]).then(__webpack_require__.bind(null, /*! ./views/product/create.vue */ "./resources/js/src/views/product/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -74220,7 +74220,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/order/create',
       name: 'create-order',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(54), __webpack_require__.e(19)]).then(__webpack_require__.bind(null, /*! ./views/order/create.vue */ "./resources/js/src/views/order/create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(19)]).then(__webpack_require__.bind(null, /*! ./views/order/create.vue */ "./resources/js/src/views/order/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -74245,7 +74245,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/order/view/:id',
       name: 'view-order',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(54), __webpack_require__.e(22)]).then(__webpack_require__.bind(null, /*! ./views/order/view.vue */ "./resources/js/src/views/order/view.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(22)]).then(__webpack_require__.bind(null, /*! ./views/order/view.vue */ "./resources/js/src/views/order/view.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -74270,7 +74270,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/order/edit/:id',
       name: 'edit-order',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(54), __webpack_require__.e(20)]).then(__webpack_require__.bind(null, /*! ./views/order/edit.vue */ "./resources/js/src/views/order/edit.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(20)]).then(__webpack_require__.bind(null, /*! ./views/order/edit.vue */ "./resources/js/src/views/order/edit.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -74435,6 +74435,31 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     // FULL PAGE LAYOUTS
     // =============================================================================
     {
+      path: '/order/print-invoice/:id',
+      name: 'print-invoice-order',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 54).then(__webpack_require__.bind(null, /*! ./views/order/print-invoice */ "./resources/js/src/views/order/print-invoice.vue"));
+      },
+      beforeEnter: guard,
+      meta: {
+        breadcrumb: [{
+          title: 'Home',
+          url: '',
+          i18n: 'Home'
+        }, {
+          title: 'Order',
+          url: '/order',
+          i18n: 'Order'
+        }, {
+          title: 'Print Invoice',
+          active: true,
+          i18n: 'Print Invoice'
+        }],
+        pageTitle: 'Print Invoice',
+        pageTitle_i18n: 'Print Invoice',
+        permission: 'view-invoice'
+      }
+    }, {
       path: '',
       component: function component() {
         return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! @/layouts/full-page/FullPage.vue */ "./resources/js/src/layouts/full-page/FullPage.vue"));

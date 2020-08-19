@@ -21,7 +21,7 @@ export default {
                 router.push(router.currentRoute.query.to || '/');
 
                 resolve(response)
-            }else {
+            } else {
                 reject({message: "Wrong Email or Password"})
             }
 

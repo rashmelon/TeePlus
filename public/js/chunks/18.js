@@ -152,6 +152,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -585,7 +595,33 @@ var render = function() {
                                       _c("div", { staticClass: "flex mb-4" }, [
                                         _c(
                                           "div",
-                                          { staticClass: "w-1/4 mx-2" },
+                                          { staticClass: "w-1/5 mx-2" },
+                                          [
+                                            _vm.can("view-invoice")
+                                              ? _c("vs-button", {
+                                                  staticClass:
+                                                    "vs-con-loading__container",
+                                                  attrs: {
+                                                    radius: "",
+                                                    color: "dark",
+                                                    type: "border",
+                                                    "icon-pack": "feather",
+                                                    icon: "icon-clipboard",
+                                                    to: {
+                                                      name:
+                                                        "print-invoice-order",
+                                                      params: { id: order.id }
+                                                    }
+                                                  }
+                                                })
+                                              : _vm._e()
+                                          ],
+                                          1
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "div",
+                                          { staticClass: "w-1/5 mx-2" },
                                           [
                                             _vm.can("view-order")
                                               ? _c("vs-button", {
@@ -601,6 +637,7 @@ var render = function() {
                                                   },
                                                   on: {
                                                     click: function($event) {
+                                                      $event.stopPropagation()
                                                       return _vm.viewOrder(
                                                         order.id
                                                       )
@@ -614,7 +651,7 @@ var render = function() {
                                         _vm._v(" "),
                                         _c(
                                           "div",
-                                          { staticClass: "w-1/4 mx-2" },
+                                          { staticClass: "w-1/5 mx-2" },
                                           [
                                             _vm.can("edit-order")
                                               ? _c("vs-button", {
@@ -630,6 +667,7 @@ var render = function() {
                                                   },
                                                   on: {
                                                     click: function($event) {
+                                                      $event.stopPropagation()
                                                       return _vm.editOrder(
                                                         order.id
                                                       )
@@ -643,7 +681,7 @@ var render = function() {
                                         _vm._v(" "),
                                         _c(
                                           "div",
-                                          { staticClass: "w-1/4 mx-2" },
+                                          { staticClass: "w-1/5 mx-2" },
                                           [
                                             _c("vs-button", {
                                               staticClass:
@@ -658,6 +696,7 @@ var render = function() {
                                               },
                                               on: {
                                                 click: function($event) {
+                                                  $event.stopPropagation()
                                                   return _vm.returnOrder(
                                                     order.id
                                                   )
@@ -670,7 +709,7 @@ var render = function() {
                                         _vm._v(" "),
                                         _c(
                                           "div",
-                                          { staticClass: "w-1/4 mx-3" },
+                                          { staticClass: "w-1/5 mx-3" },
                                           [
                                             _vm.can("delete-order")
                                               ? _c("vs-button", {
@@ -687,6 +726,7 @@ var render = function() {
                                                   },
                                                   on: {
                                                     click: function($event) {
+                                                      $event.stopPropagation()
                                                       _vm.is_requesting
                                                         ? _vm.$store.dispatch(
                                                             "viewWaitMessage",
@@ -741,7 +781,7 @@ var render = function() {
                     ],
                     null,
                     false,
-                    1002328797
+                    4036322855
                   )
                 },
                 [

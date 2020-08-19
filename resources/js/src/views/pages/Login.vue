@@ -88,22 +88,45 @@
                 };
     
                 this.$store.dispatch('auth/loginJWT', payload)
-                    .then(() => {
-            
+                    .then((response) => {
+                        this.$vs.loading.close()
+                        
+                        console.log(response)
+                        
+                        if (response.errors){
+                            for (const [key, value] of Object.entries(response.errors)){
+                                this.$vs.notify({
+                                    title: key,
+                                    text: value[0],
+                                    iconPack: 'feather',
+                                    icon: 'icon-alert-circle',
+                                    color: 'danger'
+                                });
+                            }
+                        }
                     })
                     .catch(error => {
-                        for (const [key, value] of Object.entries(error.response.data.errors)){
+                        this.$vs.loading.close()
+                        if (error.response){
+                            for (const [key, value] of Object.entries(error.response.data.errors)){
+                                this.$vs.notify({
+                                    title: key,
+                                    text: value[0],
+                                    iconPack: 'feather',
+                                    icon: 'icon-alert-circle',
+                                    color: 'danger'
+                                });
+                            }
+                        } else {
                             this.$vs.notify({
-                                title: key,
-                                text: value[0],
+                                title: 'error',
+                                text: error.message,
                                 iconPack: 'feather',
                                 icon: 'icon-alert-circle',
                                 color: 'danger'
                             });
                         }
-                    }).then(() => {
-                    this.$vs.loading.close()
-                })
+                    })
             }
         }
     }
