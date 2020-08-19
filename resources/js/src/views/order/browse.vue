@@ -12,15 +12,36 @@
         <vx-card ref="browse">
             <vs-table
                 pagination
+                multiple
+                v-model="exported.data"
                 search
                 max-items="50"
                 :data="orders"
             >
 
-                <template slot="header"  v-if="can('create-order')">
-                    <vs-button :to="{name: 'create-order'}" vs-w="3" color="primary" type="filled" icon-pack="feather"
+                <template slot="header">
+                    <vs-button  :to="{name: 'create-order'}" vs-w="3" color="primary" type="filled" icon-pack="feather"
                                icon="icon-plus">Add Order
                     </vs-button>
+                        <JsonExcel
+                            :name           = "`orders ${nowDateTime}.xls`"
+                            :data           = "exported.data"
+                            :exportFields   = "exported.fields"
+                        >
+                            <vs-button
+                                :disabled="!exported.data.length"
+                                @click="exportSelectedOrders"
+                                class="ml-4"
+                                vs-w="3"
+                                color="primary"
+                                type="filled"
+                                icon-pack="feather"
+                                icon="icon-share"
+                            >
+                            Export
+                            </vs-button>
+                        </JsonExcel>
+
                 </template>
 
                 <template slot="thead">
@@ -40,6 +61,7 @@
                 <template slot-scope="{data}">
 
                     <vs-tr
+                        :data="order"
                         :key="index"
                         v-for="(order, index) in data"
                         :state="order.status.name === 'pending' || order.status.name === 'printing' || order.status.name === 'ready for shipping'?'warning':
@@ -137,13 +159,13 @@
                                 </div>
                             </vs-row>
                         </vs-td>
-
+<!--
                         <template slot="expand">
                             <div>
                                 Total Price: <span v-html="order.total_price"></span><br>
                                 Total Price Info: <br><span v-html="order.total_price_info"></span>
                             </div>
-                        </template>
+                        </template>-->
                     </vs-tr>
                 </template>
             </vs-table>
@@ -152,14 +174,43 @@
 </template>
 
 <script>
+    import JsonExcel from 'vue-json-excel'
+    
     export default {
+        components:{
+            JsonExcel
+        },
         data() {
             return {
                 searchText: "",
                 resultTime: 0,
                 orders: [],
-                is_requesting: false
+                is_requesting: false,
+                exported: {
+                    data: [],
+                    fields: {
+                        'id':'id',
+                        'status':'status.name',
+                        'shipping method':'shipping_price.shipping_method.name',
+                        'customer name':'customer_name',
+                        'address':'address',
+                        'phone_number':'phone_number',
+                        'external number':'additional_number',
+                        'internal tracking':'internal_tracking',
+                        'external tracking':'external_tracking',
+                        'created_at':'created_at',
+                        'updated_at':'updated_at',
+                    },
+                    headers: {}
+                }
             }
+        },
+        computed:{
+            nowDateTime(){
+              let today = new Date();
+              return today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2) + ' @ ' + today.getHours() +'-'+today.getMinutes();
+    
+          }
         },
         props: {
             payload: {
@@ -172,6 +223,9 @@
         },
 
         methods: {
+            exportSelectedOrders(){
+                console.log(this.exported)
+            },
             getOrders() {
                 this.$vs.loading({container: this.$refs.browse.$el});
                 let payload = this.payload

@@ -85,6 +85,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.12.0",
         "vue-form-wizard": "^0.8.4",
+        "vue-json-excel": "^0.2.98",
         "vuex-persist": "^2.2.0"
     }
 }

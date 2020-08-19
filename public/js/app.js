@@ -74199,7 +74199,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/order',
       name: 'order',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/order/browse.vue */ "./resources/js/src/views/order/browse.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(18), __webpack_require__.e(55)]).then(__webpack_require__.bind(null, /*! ./views/order/browse.vue */ "./resources/js/src/views/order/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
