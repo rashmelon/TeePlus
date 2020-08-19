@@ -73671,7 +73671,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/category/create',
       name: 'create-category',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(12)]).then(__webpack_require__.bind(null, /*! ./views/category/create.vue */ "./resources/js/src/views/category/create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(54), __webpack_require__.e(12)]).then(__webpack_require__.bind(null, /*! ./views/category/create.vue */ "./resources/js/src/views/category/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -73768,7 +73768,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/product/create',
       name: 'create-product',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(24)]).then(__webpack_require__.bind(null, /*! ./views/product/create.vue */ "./resources/js/src/views/product/create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(54), __webpack_require__.e(24)]).then(__webpack_require__.bind(null, /*! ./views/product/create.vue */ "./resources/js/src/views/product/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -74220,7 +74220,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/order/create',
       name: 'create-order',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(19)]).then(__webpack_require__.bind(null, /*! ./views/order/create.vue */ "./resources/js/src/views/order/create.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(54), __webpack_require__.e(19)]).then(__webpack_require__.bind(null, /*! ./views/order/create.vue */ "./resources/js/src/views/order/create.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -74245,7 +74245,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/order/view/:id',
       name: 'view-order',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(22)]).then(__webpack_require__.bind(null, /*! ./views/order/view.vue */ "./resources/js/src/views/order/view.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(54), __webpack_require__.e(22)]).then(__webpack_require__.bind(null, /*! ./views/order/view.vue */ "./resources/js/src/views/order/view.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -74270,7 +74270,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/order/edit/:id',
       name: 'edit-order',
       component: function component() {
-        return Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(20)]).then(__webpack_require__.bind(null, /*! ./views/order/edit.vue */ "./resources/js/src/views/order/edit.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(54), __webpack_require__.e(20)]).then(__webpack_require__.bind(null, /*! ./views/order/edit.vue */ "./resources/js/src/views/order/edit.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -78377,9 +78377,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuesax__WEBPACK_IMPORTED_MODULE_1
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Work\Tee Plus\Tee Plus\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\Work\Tee Plus\Tee Plus\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! D:\Work\Tee Plus\Tee Plus\resources\assets\css\main.css */"./resources/assets/css/main.css");
+__webpack_require__(/*! D:\TeePlus\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\TeePlus\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! D:\TeePlus\resources\assets\css\main.css */"./resources/assets/css/main.css");
 
 
 /***/ })

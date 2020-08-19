@@ -143,6 +143,53 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "browse",
   data: function data() {
@@ -155,6 +202,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getInvoice();
+  },
+  computed: {
+    totalProductsPrice: function totalProductsPrice() {
+      var total = 0;
+      this.invoice.order.order_products.forEach(function (item) {
+        total += Number(item.product.base_price) + Number(item.design_print_price.price) + Number(item.price_combination.price) * item.quantity;
+      });
+      return total;
+    }
   },
   methods: {
     getInvoice: function getInvoice() {
@@ -210,6 +266,109 @@ var render = function() {
           _vm._v(" "),
           _vm.invoice.order
             ? _c(
+                "vx-card",
+                { ref: "cart", staticClass: "my-4" },
+                [
+                  _c(
+                    "vs-table",
+                    {
+                      attrs: { data: _vm.invoice.order.order_products },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "default",
+                            fn: function(ref) {
+                              var data = ref.data
+                              return _vm._l(data, function(item, index) {
+                                return _c(
+                                  "vs-tr",
+                                  { key: index },
+                                  [
+                                    _c("vs-td", [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t" +
+                                          _vm._s(item.product.name) +
+                                          "(" +
+                                          _vm._s(item.product.base_price) +
+                                          ")\n\t\t\t\t\t"
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("vs-td", [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t" +
+                                          _vm._s(
+                                            item.design_print_price.design.name
+                                          ) +
+                                          "\t- " +
+                                          _vm._s(
+                                            item.design_print_price
+                                              .print_criteria.criteria
+                                          ) +
+                                          "(" +
+                                          _vm._s(
+                                            item.design_print_price.price
+                                          ) +
+                                          ")\n\t\t\t\t\t"
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("vs-td", [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t" +
+                                          _vm._s(
+                                            item.price_combination.combination
+                                          ) +
+                                          " (" +
+                                          _vm._s(item.price_combination.price) +
+                                          ")\n\t\t\t\t\t"
+                                      )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("vs-td", [
+                                      _vm._v(
+                                        "\n\t\t\t\t\t\t" +
+                                          _vm._s(item.quantity) +
+                                          "\n\t\t\t\t\t"
+                                      )
+                                    ])
+                                  ],
+                                  1
+                                )
+                              })
+                            }
+                          }
+                        ],
+                        null,
+                        false,
+                        407361485
+                      )
+                    },
+                    [
+                      _c(
+                        "template",
+                        { slot: "thead" },
+                        [
+                          _c("vs-th", [_vm._v("Product")]),
+                          _vm._v(" "),
+                          _c("vs-th", [_vm._v("Design")]),
+                          _vm._v(" "),
+                          _c("vs-th", [_vm._v("Price Combination")]),
+                          _vm._v(" "),
+                          _c("vs-th", [_vm._v("Quantity")])
+                        ],
+                        1
+                      )
+                    ],
+                    2
+                  )
+                ],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.invoice.order
+            ? _c(
                 "vs-table",
                 { attrs: { data: _vm.invoice } },
                 [
@@ -235,7 +394,7 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("vs-td", [
-                          _c("b", [_vm._v(_vm._s(_vm.invoice.order.products))])
+                          _c("b", [_vm._v(_vm._s(_vm.totalProductsPrice))])
                         ]),
                         _vm._v(" "),
                         _c("vs-td")
@@ -348,7 +507,7 @@ var render = function() {
                       "vs-tr",
                       [
                         _c("vs-td", { attrs: { colspan: "3" } }, [
-                          _c("div", {
+                          _c("b", {
                             domProps: {
                               innerHTML: _vm._s(
                                 _vm.invoice.order.total_price_info
@@ -437,6 +596,29 @@ var render = function() {
                             _c("b", [
                               _vm._v(
                                 _vm._s(_vm.invoice.order.external_tracking)
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", [
+                            _vm._v("\n\t\t\t\t\tShipment method: "),
+                            _c("b", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.invoice.order.shipping_price
+                                    .shipping_method.name
+                                )
+                              )
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", [
+                            _vm._v("\n\t\t\t\t\tCity: "),
+                            _c("b", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm.invoice.order.shipping_price.city.name
+                                )
                               )
                             ])
                           ])

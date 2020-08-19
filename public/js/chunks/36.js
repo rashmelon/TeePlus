@@ -71,18 +71,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -324,9 +312,9 @@ var render = function() {
                               [
                                 _c("vs-td", { attrs: { data: shipping.id } }, [
                                   _vm._v(
-                                    "\n\t\t\t\t\t\t\t" +
+                                    "\n\t\t\t\t\t\t" +
                                       _vm._s(shipping.id) +
-                                      "\n\t\t\t\t\t\t"
+                                      "\n\t\t\t\t\t"
                                   )
                                 ]),
                                 _vm._v(" "),
@@ -335,9 +323,9 @@ var render = function() {
                                   { attrs: { data: shipping.name } },
                                   [
                                     _vm._v(
-                                      "\n\t\t\t\t\t\t\t" +
+                                      "\n\t\t\t\t\t\t" +
                                         _vm._s(shipping.name) +
-                                        "\n\t\t\t\t\t\t"
+                                        "\n\t\t\t\t\t"
                                     )
                                   ]
                                 ),
@@ -346,7 +334,43 @@ var render = function() {
                                   "vs-td",
                                   [
                                     _c("vs-row", [
-                                      _c("div", { staticClass: "flex mb-4" })
+                                      _c("div", { staticClass: "flex mb-4" }, [
+                                        _vm.can("delete-status") && index >= 8
+                                          ? _c(
+                                              "div",
+                                              { staticClass: "w-1/3 mx-3" },
+                                              [
+                                                _c("vs-button", {
+                                                  staticClass:
+                                                    "vs-con-loading__container",
+                                                  attrs: {
+                                                    id:
+                                                      "btn-delete-" +
+                                                      shipping.id,
+                                                    color: "danger",
+                                                    icon: "icon-trash",
+                                                    "icon-pack": "feather",
+                                                    radius: "",
+                                                    type: "border"
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      _vm.is_requesting
+                                                        ? _vm.$store.dispatch(
+                                                            "viewWaitMessage",
+                                                            _vm.$vs
+                                                          )
+                                                        : _vm.confirmDeleteStatus(
+                                                            shipping
+                                                          )
+                                                    }
+                                                  }
+                                                })
+                                              ],
+                                              1
+                                            )
+                                          : _vm._e()
+                                      ])
                                     ])
                                   ],
                                   1
@@ -360,7 +384,7 @@ var render = function() {
                     ],
                     null,
                     false,
-                    3650135929
+                    452798675
                   )
                 },
                 [
@@ -381,7 +405,7 @@ var render = function() {
                                 "vs-w": "3"
                               }
                             },
-                            [_vm._v("Add Status\n\t\t\t\t\t")]
+                            [_vm._v("Add Status\n\t\t\t\t")]
                           )
                         ],
                         1

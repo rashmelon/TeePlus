@@ -53,6 +53,7 @@ class OrderTransformer extends TransformerAbstract
             }
             if($status_name == 'shipped'
                 || $status_name == 'delivered'
+                || $status_name == 'ready for shipping'
                 ||$status_name == 'returned'){
                 $this->appendShipping($order, $data);
             }

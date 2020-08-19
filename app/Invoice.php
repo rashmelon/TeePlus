@@ -9,7 +9,7 @@ class Invoice extends Model
 {
     protected $fillable = ['amount', 'description'];
 
-    protected $with  = ['order'];
+    protected $with  = ['order','order.orderProducts'];
 
     public function order()
     {

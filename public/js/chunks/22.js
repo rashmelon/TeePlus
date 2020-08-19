@@ -209,6 +209,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -339,6 +360,24 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: " w-full mb-base" }, [
+      _vm.tempProducts.length
+        ? _c(
+            "div",
+            { staticClass: "status my-5" },
+            [
+              _c("vs-button", { attrs: { color: "primary", type: "filled" } }, [
+                _c("h2", { staticClass: "text-white" }, [
+                  _vm._v("Order state: "),
+                  _c("span", { staticClass: "capitalize" }, [
+                    _vm._v(_vm._s(_vm.order.status.name))
+                  ])
+                ])
+              ])
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _c(
         "div",
         { ref: "edit", attrs: { title: "Create product" } },
@@ -436,6 +475,40 @@ var render = function() {
                                           _vm._s(item.quantity) +
                                           "\n\t\t\t\t\t\t\t\t"
                                       )
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("vs-td", { attrs: { width: "10%" } }, [
+                                      _c(
+                                        "div",
+                                        { staticClass: "designs" },
+                                        _vm._l(
+                                          item.design_print_price.design.images,
+                                          function(link, index) {
+                                            return _c(
+                                              "div",
+                                              { staticClass: "single-design" },
+                                              [
+                                                _c(
+                                                  "a",
+                                                  {
+                                                    attrs: {
+                                                      href: link.url,
+                                                      target: "_blank"
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "Design " +
+                                                        _vm._s(index + 1)
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            )
+                                          }
+                                        ),
+                                        0
+                                      )
                                     ])
                                   ],
                                   1
@@ -446,7 +519,7 @@ var render = function() {
                         ],
                         null,
                         false,
-                        2375205822
+                        1957043508
                       )
                     },
                     [
@@ -470,7 +543,9 @@ var render = function() {
                           _vm._v(" "),
                           _c("vs-th", [_vm._v("Product")]),
                           _vm._v(" "),
-                          _c("vs-th", [_vm._v("Quantity")])
+                          _c("vs-th", [_vm._v("Quantity")]),
+                          _vm._v(" "),
+                          _c("vs-th", [_vm._v("Designs")])
                         ],
                         1
                       )
