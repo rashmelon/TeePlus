@@ -168,6 +168,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "profile",
@@ -817,9 +841,118 @@ var render = function() {
                     ],
                     1
                   )
-                : _vm._e()
+                : _vm._e(),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c(
+                "template",
+                { slot: "footer" },
+                [
+                  _c("vs-divider"),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex justify-around" }, [
+                    _vm.can("browse-invoice")
+                      ? _c(
+                          "span",
+                          { staticClass: "flex items-center" },
+                          [
+                            _c(
+                              "vx-tooltip",
+                              { attrs: { text: "Invoices" } },
+                              [
+                                _c("vs-button", {
+                                  attrs: {
+                                    to: {
+                                      name: "browse-user-invoices",
+                                      params: {
+                                        id:
+                                          _vm.$store.state.auth.AppActiveUser.id
+                                      }
+                                    },
+                                    color: "primary",
+                                    icon: "icon-clipboard",
+                                    "icon-pack": "feather",
+                                    type: "filled"
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.can("browse-transaction")
+                      ? _c(
+                          "span",
+                          { staticClass: "flex items-center" },
+                          [
+                            _c(
+                              "vx-tooltip",
+                              { attrs: { text: "Transactions" } },
+                              [
+                                _c("vs-button", {
+                                  attrs: {
+                                    to: {
+                                      name: "browse-user-transactions",
+                                      params: {
+                                        id:
+                                          _vm.$store.state.auth.AppActiveUser.id
+                                      }
+                                    },
+                                    color: "dark",
+                                    icon: "icon-repeat",
+                                    "icon-pack": "feather",
+                                    type: "filled"
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.can("create-seller-product")
+                      ? _c(
+                          "span",
+                          { staticClass: "flex items-center" },
+                          [
+                            _c(
+                              "vx-tooltip",
+                              { attrs: { text: "Edit user products" } },
+                              [
+                                _c("vs-button", {
+                                  attrs: {
+                                    to: {
+                                      name: "edit-user-product",
+                                      params: {
+                                        id:
+                                          _vm.$store.state.auth.AppActiveUser.id
+                                      }
+                                    },
+                                    color: "success",
+                                    icon: "fa-tags",
+                                    "icon-pack": "fa",
+                                    type: "filled"
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      : _vm._e()
+                  ])
+                ],
+                1
+              )
             ],
-            1
+            2
           )
         ],
         1

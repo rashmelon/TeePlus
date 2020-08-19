@@ -30,6 +30,30 @@
                         </vs-col>
                     </vs-row>
                 </vs-row>
+    
+    
+                <br>
+                <template slot="footer">
+                    <vs-divider/>
+        
+                    <div class="flex justify-around">
+                            <span class="flex items-center" v-if="can('browse-invoice')">
+                                <vx-tooltip text="Invoices">
+                                    <vs-button :to="{name: 'browse-user-invoices',params:{id: $store.state.auth.AppActiveUser.id}}" color="primary" icon="icon-clipboard" icon-pack="feather" type="filled"></vs-button>
+                                </vx-tooltip>
+                            </span>
+                        <span class="flex items-center" v-if="can('browse-transaction')">
+                                <vx-tooltip text="Transactions">
+                                    <vs-button :to="{name: 'browse-user-transactions',params:{id: $store.state.auth.AppActiveUser.id}}" color="dark" icon="icon-repeat" icon-pack="feather" type="filled"></vs-button>
+                                </vx-tooltip>
+                            </span>
+                        <span class="flex items-center" v-if="can('create-seller-product')">
+                                <vx-tooltip text="Edit user products">
+                                    <vs-button :to="{name: 'edit-user-product',params:{id: $store.state.auth.AppActiveUser.id}}" color="success" icon="fa-tags" icon-pack="fa" type="filled"></vs-button>
+                                </vx-tooltip>
+                            </span>
+                    </div>
+                </template>
 
             </vx-card>
         </div>
