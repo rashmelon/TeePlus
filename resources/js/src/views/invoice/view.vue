@@ -2,6 +2,47 @@
 	<div class="vx-col w-full mb-base" v-if="can('view-invoice')">
 		<img src="../../../../assets/images/logo/logo.png"/>
 		
+		
+		<vx-card ref="cart" v-if="invoice.order" class="my-4">
+			
+			
+			<vs-table
+				:data="invoice.order.order_products"
+			>
+				
+				<template slot="thead">
+					<vs-th>Product</vs-th>
+					<vs-th>Design</vs-th>
+					<vs-th>Price Combination</vs-th>
+					<vs-th>Quantity</vs-th>
+				</template>
+				
+				<template slot-scope="{data}">
+					<vs-tr :key="index" v-for="(item, index) in data">
+						<vs-td>
+							{{ item.product.name }}({{item.product.base_price}})
+						</vs-td>
+						
+						<vs-td>
+							{{ item.design_print_price.design.name }}	- {{ item.design_print_price.print_criteria.criteria}}({{ item.design_print_price.price}})
+						</vs-td>
+						
+						<vs-td>
+							{{ item.price_combination.combination}} ({{ item.price_combination.price}})
+						</vs-td>
+						
+						
+						<vs-td>
+							{{ item.quantity }}
+						</vs-td>
+					
+					</vs-tr>
+				</template>
+			</vs-table>
+		</vx-card>
+		
+
+		
 		<vs-table v-if="invoice.order" :data="invoice">
 			<template slot="thead">
 				<vs-th>Type</vs-th>
@@ -17,7 +58,7 @@
 						Order products
 					</vs-td>
 					<vs-td>
-						<b>{{invoice.order.products}}</b>
+						<b>{{totalProductsPrice}}</b>
 					</vs-td>
 					<vs-td>
 					
@@ -87,7 +128,7 @@
 				
 				<vs-tr>
 					<vs-td colspan="3">
-						<div v-html="invoice.order.total_price_info"></div>
+						<b v-html="invoice.order.total_price_info"></b>
 					</vs-td>
 				</vs-tr>
 			</template>
@@ -116,6 +157,12 @@
 					</div>
 					<div>
 						Shipment Tracking Number: <b>{{invoice.order.external_tracking}}</b>
+					</div>
+					<div>
+						Shipment method: <b>{{invoice.order.shipping_price.shipping_method.name}}</b>
+					</div>
+					<div>
+						City: <b>{{invoice.order.shipping_price.city.name}}</b>
 					</div>
 				</vs-col>
 				
@@ -146,6 +193,15 @@
         mounted() {
             this.getInvoice();
         },
+	    computed:{
+            totalProductsPrice(){
+                let total = 0;
+                this.invoice.order.order_products.forEach(item=>{
+                    total += (Number(item.product.base_price)+Number(item.design_print_price.price)+Number(item.price_combination.price) * item.quantity)
+                });
+                return total
+            }
+	    },
         methods: {
             getInvoice() {
                 console.log('id= ', this.$route.params.id);

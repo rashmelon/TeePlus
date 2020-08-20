@@ -76,9 +76,7 @@
     export default {
         name: "create",
         mounted() {
-            alert('loading')
             this.$vs.loading();
-
 
             Promise.all([
                 this.getCities(),

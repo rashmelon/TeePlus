@@ -668,6 +668,7 @@ const router = new Router({
 
 
 
+
                 {
                     path: '/order/edit/:id',
                     name: 'edit-order',
@@ -797,6 +798,24 @@ const router = new Router({
                 // =============================================================================
                 // FULL PAGE LAYOUTS
                 // =============================================================================
+
+                {
+                    path: '/order/print-invoice/:id',
+                    name: 'print-invoice-order',
+                    component: () => import('./views/order/print-invoice'),
+                    beforeEnter: guard,
+                    meta: {
+                        breadcrumb: [
+                            {title: 'Home', url: '', i18n: 'Home'},
+                            {title: 'Order', url: '/order', i18n: 'Order'},
+                            {title: 'Print Invoice', active: true, i18n: 'Print Invoice'},
+                        ],
+                        pageTitle: 'Print Invoice',
+                        pageTitle_i18n: 'Print Invoice',
+                        permission: 'view-invoice'
+                    }
+                },
+
                 {
                     path: '',
                     component: () => import('@/layouts/full-page/FullPage.vue'),

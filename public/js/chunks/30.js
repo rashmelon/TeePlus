@@ -95,7 +95,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
   mounted: function mounted() {
     var _this = this;
 
-    alert('loading');
     this.$vs.loading();
     Promise.all([this.getCities(), this.getShippingMethod()]).then(function () {
       _this.$vs.loading.close();

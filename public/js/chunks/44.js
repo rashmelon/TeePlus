@@ -105,22 +105,52 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
           password: this.password
         }
       };
-      this.$store.dispatch('auth/loginJWT', payload).then(function () {}).catch(function (error) {
-        for (var _i = 0, _Object$entries = Object.entries(error.response.data.errors); _i < _Object$entries.length; _i++) {
-          var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
-              key = _Object$entries$_i[0],
-              value = _Object$entries$_i[1];
+      this.$store.dispatch('auth/loginJWT', payload).then(function (response) {
+        _this.$vs.loading.close();
 
+        console.log(response);
+
+        if (response.errors) {
+          for (var _i = 0, _Object$entries = Object.entries(response.errors); _i < _Object$entries.length; _i++) {
+            var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+                key = _Object$entries$_i[0],
+                value = _Object$entries$_i[1];
+
+            _this.$vs.notify({
+              title: key,
+              text: value[0],
+              iconPack: 'feather',
+              icon: 'icon-alert-circle',
+              color: 'danger'
+            });
+          }
+        }
+      }).catch(function (error) {
+        _this.$vs.loading.close();
+
+        if (error.response) {
+          for (var _i2 = 0, _Object$entries2 = Object.entries(error.response.data.errors); _i2 < _Object$entries2.length; _i2++) {
+            var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2),
+                key = _Object$entries2$_i[0],
+                value = _Object$entries2$_i[1];
+
+            _this.$vs.notify({
+              title: key,
+              text: value[0],
+              iconPack: 'feather',
+              icon: 'icon-alert-circle',
+              color: 'danger'
+            });
+          }
+        } else {
           _this.$vs.notify({
-            title: key,
-            text: value[0],
+            title: 'error',
+            text: error.message,
             iconPack: 'feather',
             icon: 'icon-alert-circle',
             color: 'danger'
           });
         }
-      }).then(function () {
-        _this.$vs.loading.close();
       });
     }
   }

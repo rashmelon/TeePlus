@@ -422,7 +422,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       return this.designs.filter(function (design) {
-        if (design.design.name.indexOf(_this.searchText) >= 0) {
+        var searchedText = "".concat(design.design.name, " ").concat(design.print_criteria.criteria, " ").concat(design.price);
+
+        if (searchedText.toLowerCase().indexOf(_this.searchText.toLowerCase()) >= 0) {
           return design;
         }
       });
@@ -740,7 +742,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".single-design {\n  position: relative;\n  height: 120px;\n}[dir=ltr] .single-design {\n  margin-right: 10px;\n}[dir=rtl] .single-design {\n  margin-left: 10px;\n}\n.single-design img {\n  width: auto;\n  height: 100px;\n}\n[dir] .single-design img {\n  border: 1px solid #888;\n  padding: 5px;\n  border-radius: 10px;\n}\n.single-design input {\n  display: none;\n}\n.single-design .overlay {\n  position: absolute;\n  z-index: 1;\n  top: 0;\n  bottom: 0;\n  opacity: 0;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n}\n[dir] .single-design .overlay {\n  border-radius: 10px;\n  background: rgba(24, 100, 120, 0.65);\n}\n[dir=ltr] .single-design .overlay {\n  right: 0;\n  left: 0;\n}\n[dir=rtl] .single-design .overlay {\n  left: 0;\n  right: 0;\n}\n.single-design .overlay svg {\n  width: 100px;\n  height: 100px;\n  color: white;\n}\n.single-design input:checked ~ .overlay {\n  opacity: 1 !important;\n}\n.vs-input-number {\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n}\n.attribute-actions {\n  -webkit-box-align: baseline;\n          align-items: baseline;\n  display: -webkit-box;\n  display: flex;\n}", ""]);
+exports.push([module.i, ".single-design {\n  position: relative;\n  height: auto;\n  width: 120px;\n}[dir=ltr] .single-design {\n  margin-right: 10px;\n}[dir=rtl] .single-design {\n  margin-left: 10px;\n}\n.single-design img {\n  width: auto;\n  max-width: 100%;\n}\n[dir] .single-design img {\n  border: 1px solid #888;\n  padding: 5px;\n  border-radius: 10px;\n}\n.single-design input {\n  display: none;\n}\n.single-design .overlay {\n  position: absolute;\n  z-index: 1;\n  top: 0;\n  bottom: 0;\n  opacity: 0;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n}\n[dir] .single-design .overlay {\n  border-radius: 10px;\n  background: rgba(24, 100, 120, 0.65);\n}\n[dir=ltr] .single-design .overlay {\n  right: 0;\n  left: 0;\n}\n[dir=rtl] .single-design .overlay {\n  left: 0;\n  right: 0;\n}\n.single-design .overlay svg {\n  width: 100px;\n  height: 100px;\n  color: white;\n}\n.single-design input:checked ~ .overlay {\n  opacity: 1 !important;\n}\n.vs-input-number {\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n}\n.attribute-actions {\n  -webkit-box-align: baseline;\n          align-items: baseline;\n  display: -webkit-box;\n  display: flex;\n}", ""]);
 
 // exports
 
@@ -1254,7 +1256,7 @@ var render = function() {
                                     "div",
                                     {
                                       key: item.id,
-                                      staticClass: "single-design"
+                                      staticClass: "single-design mb-5"
                                     },
                                     [
                                       _c(

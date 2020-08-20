@@ -74199,7 +74199,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/order',
       name: 'order',
       component: function component() {
-        return __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./views/order/browse.vue */ "./resources/js/src/views/order/browse.vue"));
+        return Promise.all(/*! import() */[__webpack_require__.e(18), __webpack_require__.e(55)]).then(__webpack_require__.bind(null, /*! ./views/order/browse.vue */ "./resources/js/src/views/order/browse.vue"));
       },
       beforeEnter: guard,
       meta: {
@@ -74435,6 +74435,31 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     // FULL PAGE LAYOUTS
     // =============================================================================
     {
+      path: '/order/print-invoice/:id',
+      name: 'print-invoice-order',
+      component: function component() {
+        return __webpack_require__.e(/*! import() */ 54).then(__webpack_require__.bind(null, /*! ./views/order/print-invoice */ "./resources/js/src/views/order/print-invoice.vue"));
+      },
+      beforeEnter: guard,
+      meta: {
+        breadcrumb: [{
+          title: 'Home',
+          url: '',
+          i18n: 'Home'
+        }, {
+          title: 'Order',
+          url: '/order',
+          i18n: 'Order'
+        }, {
+          title: 'Print Invoice',
+          active: true,
+          i18n: 'Print Invoice'
+        }],
+        pageTitle: 'Print Invoice',
+        pageTitle_i18n: 'Print Invoice',
+        permission: 'view-invoice'
+      }
+    }, {
       path: '',
       component: function component() {
         return __webpack_require__.e(/*! import() */ 4).then(__webpack_require__.bind(null, /*! @/layouts/full-page/FullPage.vue */ "./resources/js/src/layouts/full-page/FullPage.vue"));
@@ -78377,9 +78402,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuesax__WEBPACK_IMPORTED_MODULE_1
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Work\Tee Plus\Tee Plus\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! D:\Work\Tee Plus\Tee Plus\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! D:\Work\Tee Plus\Tee Plus\resources\assets\css\main.css */"./resources/assets/css/main.css");
+__webpack_require__(/*! D:\TeePlus\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\TeePlus\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! D:\TeePlus\resources\assets\css\main.css */"./resources/assets/css/main.css");
 
 
 /***/ })
