@@ -43,7 +43,7 @@
                             {{ packageData.home_page}}
                         </vs-td>
 
-                        <div class="vx-col md:w-1/2 w-full mt-5"v-if="$store.state.auth.AppActiveUser.roles[0].name == 'Agency Admin'">
+                        <div class="vx-col md:w-1/2 w-full mt-5"v-if="`.roles[0].name == 'Agency Admin'">
                             <ul class="switch-container">
                                 <li>
                                     <vs-switch color="danger" v-model="packageData.agency_close" @click="agencyClose(index)">

@@ -12,15 +12,36 @@
         <vx-card ref="browse">
             <vs-table
                 pagination
+                multiple
+                v-model="exported.data"
                 search
                 max-items="50"
                 :data="orders"
             >
 
-                <template slot="header"  v-if="can('create-order')">
-                    <vs-button :to="{name: 'create-order'}" vs-w="3" color="primary" type="filled" icon-pack="feather"
+                <template slot="header">
+                    <vs-button  :to="{name: 'create-order'}" vs-w="3" color="primary" type="filled" icon-pack="feather"
                                icon="icon-plus">Add Order
                     </vs-button>
+                        <JsonExcel
+                            :name           = "`orders ${nowDateTime}.xls`"
+                            :data           = "exported.data"
+                            :exportFields   = "exported.fields"
+                        >
+                            <vs-button
+                                :disabled="!exported.data.length"
+                                @click="exportSelectedOrders"
+                                class="ml-4"
+                                vs-w="3"
+                                color="primary"
+                                type="filled"
+                                icon-pack="feather"
+                                icon="icon-share"
+                            >
+                            Export
+                            </vs-button>
+                        </JsonExcel>
+
                 </template>
 
                 <template slot="thead">
@@ -40,6 +61,7 @@
                 <template slot-scope="{data}">
 
                     <vs-tr
+                        :data="order"
                         :key="index"
                         v-for="(order, index) in data"
                         :state="order.status.name === 'pending' || order.status.name === 'printing' || order.status.name === 'ready for shipping'?'warning':
@@ -97,43 +119,53 @@
                         <vs-td>
                             <vs-row>
                                 <div class="flex mb-4">
-                                    <div class="w-1/4 mx-2">
+                                    <div class="w-1/5 mx-2">
+                                        <vs-button
+                                            v-if="can('view-invoice')"
+                                            class="vs-con-loading__container"
+                                            radius
+                                            color="dark" type="border"
+                                           icon-pack="feather" icon="icon-clipboard"
+                                           :to="{name: 'print-invoice-order',params:{id: order.id}}"
+                                        ></vs-button>
+                                    </div>
+                                    <div class="w-1/5 mx-2">
                                         <vs-button
                                             v-if="can('view-order')"
                                             :id="`btn-view-${order.id}`" class="vs-con-loading__container" radius color="success" type="border"
                                            icon-pack="feather" icon="icon-eye"
-                                           @click=viewOrder(order.id)></vs-button>
+                                           @click.stop=viewOrder(order.id)></vs-button>
                                     </div>
-                                    <div class="w-1/4 mx-2">
+                                    <div class="w-1/5 mx-2">
                                         <vs-button :id="`btn-edit-${order.id}`" class="vs-con-loading__container"
                                                    v-if="can('edit-order')"
                                                    radius color="warning" type="border"
                                                    icon-pack="feather" icon="icon-edit"
-                                                   @click=editOrder(order.id)></vs-button>
+                                                   @click.stop=editOrder(order.id)></vs-button>
                                     </div>
-                                    <div class="w-1/4 mx-2"><!--v-if="can('edit-order')"-->
+                                    <div class="w-1/5 mx-2"><!--v-if="can('edit-order')"-->
                                         <vs-button :id="`btn-return-${order.id}`" class="vs-con-loading__container"
                                                    radius color="primary" type="border"
                                                    icon-pack="feather" icon="icon-corner-left-down"
-                                                   @click=returnOrder(order.id)></vs-button>
+                                                   @click.stop=returnOrder(order.id)></vs-button>
                                     </div>
-                                    <div class="w-1/4 mx-3">
+                                    <div class="w-1/5 mx-3">
                                         <vs-button :id="`btn-delete-${order.id}`" class="vs-con-loading__container"
                                                    v-if="can('delete-order')"
                                                    radius color="danger" type="border"
                                                    icon-pack="feather" icon="icon-trash"
-                                                   @click="is_requesting?$store.dispatch('viewWaitMessage', $vs):confirmDeleteOrder(order)"></vs-button>
+                                                   @click.stop="is_requesting?$store.dispatch('viewWaitMessage', $vs):confirmDeleteOrder(order)"></vs-button>
                                     </div>
                                 </div>
                             </vs-row>
                         </vs-td>
-
+<!--
                         <template slot="expand">
                             <div>
                                 Total Price: <span v-html="order.total_price"></span><br>
                                 Total Price Info: <br><span v-html="order.total_price_info"></span>
                             </div>
-                        </template>
+                        </template>-->
                     </vs-tr>
                 </template>
             </vs-table>
@@ -142,14 +174,43 @@
 </template>
 
 <script>
+    import JsonExcel from 'vue-json-excel'
+    
     export default {
+        components:{
+            JsonExcel
+        },
         data() {
             return {
                 searchText: "",
                 resultTime: 0,
                 orders: [],
-                is_requesting: false
+                is_requesting: false,
+                exported: {
+                    data: [],
+                    fields: {
+                        'id':'id',
+                        'status':'status.name',
+                        'shipping method':'shipping_price.shipping_method.name',
+                        'customer name':'customer_name',
+                        'address':'address',
+                        'phone_number':'phone_number',
+                        'external number':'additional_number',
+                        'internal tracking':'internal_tracking',
+                        'external tracking':'external_tracking',
+                        'created_at':'created_at',
+                        'updated_at':'updated_at',
+                    },
+                    headers: {}
+                }
             }
+        },
+        computed:{
+            nowDateTime(){
+              let today = new Date();
+              return today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2) + ' @ ' + today.getHours() +'-'+today.getMinutes();
+    
+          }
         },
         props: {
             payload: {
@@ -162,6 +223,9 @@
         },
 
         methods: {
+            exportSelectedOrders(){
+                console.log(this.exported)
+            },
             getOrders() {
                 this.$vs.loading({container: this.$refs.browse.$el});
                 let payload = this.payload

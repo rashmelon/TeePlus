@@ -1,9 +1,17 @@
 <template>
 	<div>
 		<div class=" w-full mb-base">
+			<div class="status my-5" v-if="tempProducts.length" >
+				<vs-button color="primary" type="filled"><h2 class="text-white" >Order state: <span class="capitalize">{{order.status.name}}</span></h2></vs-button>
+				
+			</div>
+			
 			<div ref="edit" title="Create product">
-
+				
+				
 				<vx-card ref="cart" v-if="tempProducts.length" class="mt-4">
+					
+				
 					<vs-table
 						:data="tempProducts"
 					>
@@ -17,6 +25,7 @@
 							<vs-th>Price Combination</vs-th>
 							<vs-th>Product</vs-th>
 							<vs-th>Quantity</vs-th>
+							<vs-th>Designs</vs-th>
 						</template>
 
 						<template slot-scope="{data}">
@@ -53,6 +62,19 @@
 
 								<vs-td>
 									{{ item.quantity }}
+								</vs-td>
+								<vs-td width="10%">
+									<div class="designs">
+										<div
+											class="single-design"
+											v-for="(link ,index) in item.design_print_price.design.images"
+										>
+											<a
+												:href="link.url"
+												target="_blank"
+											>Design {{index+1}}</a>
+										</div>
+									</div>
 								</vs-td>
 
 							</vs-tr>
@@ -167,8 +189,7 @@
 								class="w-full"
 								v-model="order.status.name"
 							/>
-						</div
-						>
+						</div>
 
 
 

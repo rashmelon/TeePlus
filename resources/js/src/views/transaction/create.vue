@@ -112,7 +112,7 @@
 			this.getUsers();
 
 
-            var today = new Date();
+            let today = new Date();
 
             // set the date = today
 	        this.form.date = today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2);

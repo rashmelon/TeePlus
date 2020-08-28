@@ -160,7 +160,7 @@
 								v-if="designs.length"
 								class="designs-container flex flex-wrap">
 								<div
-									class="single-design"
+									class="single-design mb-5"
 									v-for="(item,index) in filterDesigns"
 									:key="item.id"
 								>
@@ -395,7 +395,8 @@
 
             filterDesigns(){
                 return this.designs.filter(design => {
-                    if (design.design.name.indexOf(this.searchText) >= 0){
+                    let searchedText = `${design.design.name} ${design.print_criteria.criteria} ${design.price}`;
+                    if (searchedText.toLowerCase().indexOf(this.searchText.toLowerCase()) >= 0){
                         return design;
                     }
                 });
@@ -673,7 +674,8 @@
 <style lang="scss">
 	.single-design {
 		position: relative;
-		height: 120px;
+		height: auto;
+		width: 120px;
 		margin-right: 10px;
 		
 		img{
@@ -681,7 +683,7 @@
 			padding: 5px;
 			border-radius: 10px;
 			width: auto;
-			height: 100px;
+			max-width: 100%;
 		}
 
 		input{
