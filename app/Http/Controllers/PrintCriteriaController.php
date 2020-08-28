@@ -24,7 +24,9 @@ class PrintCriteriaController extends Controller
     {
         $this->authorize('index', PrintCriteria::class);
 
-        return ApiResponse::fluentIndexRespond(PrintCriteria::whereNotNull('category_id')->with('category'), PrintCriteriaTransformer::class, ['category'])->execute();
+        return ApiResponse::fluentIndexRespond(PrintCriteria::whereHas('category', function ($query){
+            return $query->whereNotNull('id');
+        })->with('category'), PrintCriteriaTransformer::class, ['category'])->execute();
     }
 
     /**
