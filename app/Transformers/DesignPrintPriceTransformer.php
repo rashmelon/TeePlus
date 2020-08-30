@@ -38,11 +38,17 @@ class DesignPrintPriceTransformer extends TransformerAbstract
 
     public function includePrintCriteria(DesignPrintPrice $printPrice)
     {
-        return $this->item($printPrice->printCriteria, new PrintCriteriaTransformer(), 'no-data');
+        if ($printPrice->printCriteria){
+            return $this->item($printPrice->printCriteria, new PrintCriteriaTransformer(), 'no-data');
+        }
+        return $this->null();
     }
 
     public function includeDesign(DesignPrintPrice $printPrice)
     {
-        return $this->item($printPrice->design, new DesignTransformer(), 'no-data');
+        if ($printPrice->design){
+            return $this->item($printPrice->design, new DesignTransformer(), 'no-data');
+        }
+        return $this->null();
     }
 }

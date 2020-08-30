@@ -128,6 +128,11 @@ class OrderController extends Controller
 
         $data = $request->validated();
 
+        if (array_key_exists('status_id', $data)){
+            $status = Status::find($data['status_id']);
+            $this->calculateTotalPrice($order, $data, $status->name);
+        }
+
         $order->update($data);
 
         if (array_key_exists('status_id', $data)){
@@ -176,5 +181,66 @@ class OrderController extends Controller
         $order->delete();
 
         return ApiResponse::deleteRespond()->execute();
+    }
+
+    public function calculateTotalPrice($order, &$data, $status_name)
+    {
+        if ($status_name == 'pending'
+            || $status_name == 'canceled before printing'
+        ){
+            $data['total_price'] = 0;
+            $data['total_price_info'] = "";
+        }
+        else if($status_name == 'printing'
+            || $status_name == 'canceled after printing'
+            ||$status_name == 'ready for shipping'
+            ||$status_name == 'shipped'
+            ||$status_name == 'delivered'
+            ||$status_name == 'returned'
+        ){
+            $this->appendProducts($order, $data);
+        }
+        if($status_name == 'shipped'
+            || $status_name == 'delivered'
+            || $status_name == 'ready for shipping'
+            ||$status_name == 'returned'){
+            $this->appendShipping($order, $data);
+        }
+        $data['total_price_info'] .= "=(".$data['total_price'].") total";
+    }
+
+    public function appendProducts($order, &$data)
+    {
+        $data['total_price'] = 0;
+        $data['total_price_info'] = "";
+        foreach ($order->orderProducts as $orderProduct){
+            if (!$orderProduct->from_restored && $orderProduct->designPrintPrice && $orderProduct->product && $orderProduct->priceCombination){
+                $data['total_price'] += (
+                        $orderProduct->designPrintPrice->price
+                        + $orderProduct->product->base_price
+                        + $orderProduct->priceCombination->price
+                    ) * $orderProduct->quantity;
+                $data['total_price_info'] .=
+                    "+(".(
+                        $orderProduct->designPrintPrice->price
+                        + $orderProduct->product->base_price
+                        + $orderProduct->priceCombination->price
+                    )." * ".$orderProduct->quantity.") "
+                    .$orderProduct->quantity." items ".$orderProduct->product->name."(".$orderProduct->product->base_price.
+                    " with the combination of ".$orderProduct->priceCombination->combination."(".$orderProduct->priceCombination->price.")".
+                    " with printing type of "
+                    .$orderProduct->designPrintPrice->printCriteria->criteria."(".$orderProduct->designPrintPrice->price.")<br>";
+            }
+        }
+    }
+
+    public function appendShipping($order, &$data)
+    {
+        $data['total_price'] += $order->shippingPrice->price +$order['additional_fees'] - $order['discount'];
+        $data['total_price_info'] .= "+(".$order->shippingPrice->price.") Shipping Price"
+            ." to ".$order->shippingPrice->city->name
+            ." with method of ".$order->shippingPrice->shippingMethod->name."<br>";
+        $data['total_price_info'] .= "+(".$order['additional_fees'].") additional fees for ".$order['additional_fees_details']."<br>";
+        $data['total_price_info'] .= "-(".$order['discount'].") discount<br>";
     }
 }
