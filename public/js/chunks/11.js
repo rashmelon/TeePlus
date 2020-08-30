@@ -210,7 +210,7 @@ __webpack_require__.r(__webpack_exports__);
     totalProductsPrice: function totalProductsPrice() {
       var total = 0;
       this.tempProducts.forEach(function (item) {
-        total += Number(item.product.base_price) + Number(item.design_print_price.price) + Number(item.price_combination.price) * item.quantity;
+        total += Number(item.product ? item.product.base_price : 0) + Number(item.design_print_price.price) + Number(item.price_combination.price) * item.quantity;
       });
       return total;
     }
@@ -376,9 +376,17 @@ var render = function() {
                                     _c("vs-td", [
                                       _vm._v(
                                         "\n\t\t\t\t\t\t\t\t" +
-                                          _vm._s(item.product.name) +
+                                          _vm._s(
+                                            item.product
+                                              ? item.product.name
+                                              : "Deleted"
+                                          ) +
                                           "(" +
-                                          _vm._s(item.product.base_price) +
+                                          _vm._s(
+                                            item.product
+                                              ? item.product.base_price
+                                              : 0
+                                          ) +
                                           ")\n\t\t\t\t\t\t\t"
                                       )
                                     ]),
@@ -430,7 +438,7 @@ var render = function() {
                         ],
                         null,
                         false,
-                        3755429069
+                        282840000
                       )
                     },
                     [

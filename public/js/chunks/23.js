@@ -226,10 +226,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -416,7 +412,11 @@ var render = function() {
                                     _c("vs-td", [
                                       _vm._v(
                                         "\n                                    " +
-                                          _vm._s(item.product.category.name) +
+                                          _vm._s(
+                                            item.product
+                                              ? item.product.category.name
+                                              : "Product deleted"
+                                          ) +
                                           "\n                                "
                                       )
                                     ]),
@@ -424,7 +424,11 @@ var render = function() {
                                     _c("vs-td", [
                                       _vm._v(
                                         "\n\t\t\t\t\t\t\t\t\t" +
-                                          _vm._s(item.product.name) +
+                                          _vm._s(
+                                            item.product
+                                              ? item.product.name
+                                              : "Product deleted"
+                                          ) +
                                           "\n\t\t\t\t\t\t\t\t"
                                       )
                                     ]),
@@ -458,14 +462,6 @@ var render = function() {
                                           " (" +
                                           _vm._s(item.price_combination.price) +
                                           ")\n\t\t\t\t\t\t\t\t"
-                                      )
-                                    ]),
-                                    _vm._v(" "),
-                                    _c("vs-td", [
-                                      _vm._v(
-                                        "\n\t\t\t\t\t\t\t\t\t" +
-                                          _vm._s(item.product.name) +
-                                          "\n\t\t\t\t\t\t\t\t"
                                       )
                                     ]),
                                     _vm._v(" "),
@@ -519,7 +515,7 @@ var render = function() {
                         ],
                         null,
                         false,
-                        1957043508
+                        3777330151
                       )
                     },
                     [
@@ -540,8 +536,6 @@ var render = function() {
                           _c("vs-th", [_vm._v("Design Price")]),
                           _vm._v(" "),
                           _c("vs-th", [_vm._v("Price Combination")]),
-                          _vm._v(" "),
-                          _c("vs-th", [_vm._v("Product")]),
                           _vm._v(" "),
                           _c("vs-th", [_vm._v("Quantity")]),
                           _vm._v(" "),

@@ -894,113 +894,125 @@ var render = function() {
                             fn: function(ref) {
                               var data = ref.data
                               return _vm._l(data, function(item, index) {
-                                return _c(
-                                  "vs-tr",
-                                  { key: index, attrs: { data: item } },
-                                  [
-                                    _c(
-                                      "vs-td",
-                                      { attrs: { data: item.product.id } },
+                                return item.product
+                                  ? _c(
+                                      "vs-tr",
+                                      { key: index, attrs: { data: item } },
                                       [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t\t\t\t" +
-                                            _vm._s(item.id) +
-                                            "\n\t\t\t\t\t\t\t"
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c("vs-td", [
-                                      item.design_print_price.design.images[0]
-                                        .url
-                                        ? _c("img", {
-                                            staticClass: "preview-large",
+                                        _c(
+                                          "vs-td",
+                                          { attrs: { data: item.product.id } },
+                                          [
+                                            _vm._v(
+                                              "\n\t\t\t\t\t\t\t\t" +
+                                                _vm._s(item.id) +
+                                                "\n\t\t\t\t\t\t\t"
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c("vs-td", [
+                                          item.design_print_price.design
+                                            .images[0].url
+                                            ? _c("img", {
+                                                staticClass: "preview-large",
+                                                attrs: {
+                                                  src:
+                                                    item.design_print_price
+                                                      .design.images[0].url
+                                                }
+                                              })
+                                            : _vm._e()
+                                        ]),
+                                        _vm._v(" "),
+                                        _c(
+                                          "vs-td",
+                                          {
+                                            attrs: { data: item.product.name }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n\t\t\t\t\t\t\t\t" +
+                                                _vm._s(item.product.name) +
+                                                "\n\t\t\t\t\t\t\t"
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "vs-td",
+                                          {
                                             attrs: {
-                                              src:
-                                                item.design_print_price.design
-                                                  .images[0].url
+                                              data: item.product.description
                                             }
-                                          })
-                                        : _vm._e()
-                                    ]),
-                                    _vm._v(" "),
-                                    _c(
-                                      "vs-td",
-                                      { attrs: { data: item.product.name } },
-                                      [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t\t\t\t" +
-                                            _vm._s(item.product.name) +
-                                            "\n\t\t\t\t\t\t\t"
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n\t\t\t\t\t\t\t\t" +
+                                                _vm._s(
+                                                  item.product.description
+                                                ) +
+                                                "\n\t\t\t\t\t\t\t"
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "vs-td",
+                                          {
+                                            attrs: {
+                                              data: item.product.base_price
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n\t\t\t\t\t\t\t\t" +
+                                                _vm._s(
+                                                  item.product.base_price
+                                                ) +
+                                                "\n\t\t\t\t\t\t\t"
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "vs-td",
+                                          {
+                                            attrs: {
+                                              data: item.product.quantity
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n\t\t\t\t\t\t\t\t" +
+                                                _vm._s(item.product.quantity) +
+                                                "\n\t\t\t\t\t\t\t"
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                          "vs-td",
+                                          { attrs: { data: item.created_at } },
+                                          [
+                                            _vm._v(
+                                              "\n\t\t\t\t\t\t\t\t" +
+                                                _vm._s(item.created_at) +
+                                                "\n\t\t\t\t\t\t\t"
+                                            )
+                                          ]
                                         )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "vs-td",
-                                      {
-                                        attrs: {
-                                          data: item.product.description
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t\t\t\t" +
-                                            _vm._s(item.product.description) +
-                                            "\n\t\t\t\t\t\t\t"
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "vs-td",
-                                      {
-                                        attrs: { data: item.product.base_price }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t\t\t\t" +
-                                            _vm._s(item.product.base_price) +
-                                            "\n\t\t\t\t\t\t\t"
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "vs-td",
-                                      {
-                                        attrs: { data: item.product.quantity }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t\t\t\t" +
-                                            _vm._s(item.product.quantity) +
-                                            "\n\t\t\t\t\t\t\t"
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                      "vs-td",
-                                      { attrs: { data: item.created_at } },
-                                      [
-                                        _vm._v(
-                                          "\n\t\t\t\t\t\t\t\t" +
-                                            _vm._s(item.created_at) +
-                                            "\n\t\t\t\t\t\t\t"
-                                        )
-                                      ]
+                                      ],
+                                      1
                                     )
-                                  ],
-                                  1
-                                )
+                                  : _vm._e()
                               })
                             }
                           }
                         ],
                         null,
                         false,
-                        3847007176
+                        2599648999
                       ),
                       model: {
                         value: _vm.selectedFromStock,

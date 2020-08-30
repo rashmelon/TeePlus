@@ -24,13 +24,14 @@
 										:src="item.design_print_price.design.images[0].url"
 										class="preview-large">
 								</vs-td>
-
-                                <vs-td>
-                                    {{ item.product.category.name }}
-                                </vs-td>
-
+								
+								
 								<vs-td>
-									{{ item.product.name }}
+									{{ item.product?item.product.category.name:'Product deleted' }}
+								</vs-td>
+								
+								<vs-td>
+									{{ item.product?item.product.name:'Product deleted' }}
 								</vs-td>
 
 								<vs-td>

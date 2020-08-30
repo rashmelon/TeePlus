@@ -323,7 +323,11 @@ var render = function() {
                                     _c("vs-td", [
                                       _vm._v(
                                         "\n\t\t\t\t\t\t\t\t" +
-                                          _vm._s(item.product.category.name) +
+                                          _vm._s(
+                                            item.product
+                                              ? item.product.category.name
+                                              : "Deleted"
+                                          ) +
                                           "\n\t\t\t\t\t\t\t"
                                       )
                                     ]),
@@ -351,7 +355,11 @@ var render = function() {
                                     _c("vs-td", [
                                       _vm._v(
                                         "\n\t\t\t\t\t\t\t\t" +
-                                          _vm._s(item.product.name) +
+                                          _vm._s(
+                                            item.product
+                                              ? item.product.name
+                                              : "Deleted"
+                                          ) +
                                           "\n\t\t\t\t\t\t\t"
                                       )
                                     ])
@@ -364,7 +372,7 @@ var render = function() {
                         ],
                         null,
                         false,
-                        3839398361
+                        406964601
                       ),
                       model: {
                         value: _vm.form,
@@ -423,7 +431,7 @@ var render = function() {
                 "vs-button",
                 {
                   attrs: {
-                    disabled: !_vm.form.id,
+                    disabled: !this.form.id || !this.form.product_id,
                     color: "primary",
                     type: "filled"
                   },

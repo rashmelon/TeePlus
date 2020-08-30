@@ -29,7 +29,7 @@
 
                 <template slot-scope="{data}">
                     <vs-tr :key="index" v-for="(order, index) in data">
-                        <vs-td :data="order.product.id">
+                        <vs-td :data="order.id">
                             {{ order.id }}
                         </vs-td>
 
@@ -40,16 +40,16 @@
                                 class="preview-large">
                         </vs-td>
 
-                        <vs-td :data="order.product.name">
-                            {{ order.product.name}}
+                        <vs-td :data="order.product?order.product.name:''">
+                            {{ order.product?order.product.name:'Deleted'}}
                         </vs-td>
 
-                        <vs-td :data="order.product.description">
-                            {{ order.product.description}}
+                        <vs-td :data="order.product?order.product.description:''">
+                            {{ order.product?order.product.description:'Deleted'}}
                         </vs-td>
 
-                        <vs-td :data="order.product.base_price">
-                            {{ order.product.base_price}}
+                        <vs-td :data="order.product?order.product.base_price:''">
+                            {{ order.product?order.product.base_price:'Deleted'}}
                         </vs-td>
 
                         <vs-td :data="order.created_at">

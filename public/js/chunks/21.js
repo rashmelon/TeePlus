@@ -227,6 +227,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -606,16 +607,24 @@ var render = function() {
                                     _vm._v(" "),
                                     _c("vs-td", [
                                       _vm._v(
-                                        "\n                                    " +
-                                          _vm._s(item.product.category.name) +
-                                          "\n                                "
+                                        "\n\t\t\t\t\t\t\t\t\t" +
+                                          _vm._s(
+                                            item.product
+                                              ? item.product.category.name
+                                              : "Product deleted"
+                                          ) +
+                                          "\n\t\t\t\t\t\t\t\t"
                                       )
                                     ]),
                                     _vm._v(" "),
                                     _c("vs-td", [
                                       _vm._v(
                                         "\n\t\t\t\t\t\t\t\t\t" +
-                                          _vm._s(item.product.name) +
+                                          _vm._s(
+                                            item.product
+                                              ? item.product.name
+                                              : "Product deleted"
+                                          ) +
                                           "\n\t\t\t\t\t\t\t\t"
                                       )
                                     ]),
@@ -668,7 +677,7 @@ var render = function() {
                         ],
                         null,
                         false,
-                        740471757
+                        1680693637
                       )
                     },
                     [

@@ -257,17 +257,13 @@ var render = function() {
                               "vs-tr",
                               { key: index },
                               [
-                                _c(
-                                  "vs-td",
-                                  { attrs: { data: order.product.id } },
-                                  [
-                                    _vm._v(
-                                      "\n                        " +
-                                        _vm._s(order.id) +
-                                        "\n                    "
-                                    )
-                                  ]
-                                ),
+                                _c("vs-td", { attrs: { data: order.id } }, [
+                                  _vm._v(
+                                    "\n                        " +
+                                      _vm._s(order.id) +
+                                      "\n                    "
+                                  )
+                                ]),
                                 _vm._v(" "),
                                 _c("vs-td", [
                                   order.design_print_price.design.images[0].url
@@ -284,11 +280,21 @@ var render = function() {
                                 _vm._v(" "),
                                 _c(
                                   "vs-td",
-                                  { attrs: { data: order.product.name } },
+                                  {
+                                    attrs: {
+                                      data: order.product
+                                        ? order.product.name
+                                        : ""
+                                    }
+                                  },
                                   [
                                     _vm._v(
                                       "\n                        " +
-                                        _vm._s(order.product.name) +
+                                        _vm._s(
+                                          order.product
+                                            ? order.product.name
+                                            : "Deleted"
+                                        ) +
                                         "\n                    "
                                     )
                                   ]
@@ -297,12 +303,20 @@ var render = function() {
                                 _c(
                                   "vs-td",
                                   {
-                                    attrs: { data: order.product.description }
+                                    attrs: {
+                                      data: order.product
+                                        ? order.product.description
+                                        : ""
+                                    }
                                   },
                                   [
                                     _vm._v(
                                       "\n                        " +
-                                        _vm._s(order.product.description) +
+                                        _vm._s(
+                                          order.product
+                                            ? order.product.description
+                                            : "Deleted"
+                                        ) +
                                         "\n                    "
                                     )
                                   ]
@@ -310,11 +324,21 @@ var render = function() {
                                 _vm._v(" "),
                                 _c(
                                   "vs-td",
-                                  { attrs: { data: order.product.base_price } },
+                                  {
+                                    attrs: {
+                                      data: order.product
+                                        ? order.product.base_price
+                                        : ""
+                                    }
+                                  },
                                   [
                                     _vm._v(
                                       "\n                        " +
-                                        _vm._s(order.product.base_price) +
+                                        _vm._s(
+                                          order.product
+                                            ? order.product.base_price
+                                            : "Deleted"
+                                        ) +
                                         "\n                    "
                                     )
                                   ]
@@ -340,7 +364,7 @@ var render = function() {
                     ],
                     null,
                     false,
-                    1375082242
+                    3246051098
                   )
                 },
                 [

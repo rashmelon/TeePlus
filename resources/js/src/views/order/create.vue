@@ -41,7 +41,7 @@
 						</template>
 
 						<template slot-scope="{data}">
-							<vs-tr :data="item" :key="index" v-for="(item, index) in data">
+							<vs-tr :data="item" :key="index" v-for="(item, index) in data" v-if="item.product">
 								<vs-td :data="item.product.id">
 									{{ item.id }}
 								</vs-td>

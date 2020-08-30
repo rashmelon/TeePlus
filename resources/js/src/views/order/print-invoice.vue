@@ -25,7 +25,7 @@
 						<template slot-scope="{data}">
 							<vs-tr :key="index" v-for="(item, index) in data">
 								<vs-td>
-									{{ item.product.name }}({{item.product.base_price}})
+									{{ item.product?item.product.name:'Deleted' }}({{item.product?item.product.base_price:0}})
 								</vs-td>
 								
 								<vs-td>
@@ -204,7 +204,7 @@
             totalProductsPrice(){
                 let total = 0;
                 this.tempProducts.forEach(item=>{
-                    total += (Number(item.product.base_price)+Number(item.design_print_price.price)+Number(item.price_combination.price) * item.quantity)
+                    total += (Number(item.product?item.product.base_price:0)+Number(item.design_print_price.price)+Number(item.price_combination.price) * item.quantity)
                 });
                 return total
             }

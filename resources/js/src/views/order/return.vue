@@ -32,7 +32,7 @@
 								</vs-td>
 
 								<vs-td>
-									{{ item.product.category.name }}
+									{{ item.product?item.product.category.name:'Deleted' }}
 								</vs-td>
 
 								<vs-td>
@@ -44,7 +44,7 @@
 								</vs-td>
 
 								<vs-td>
-									{{ item.product.name }}
+									{{ item.product?item.product.name:'Deleted' }}
 								</vs-td>
 
 
@@ -62,7 +62,7 @@
 
 
 				<div class="text-center mt-4">
-					<vs-button :disabled="!form.id" @click="returnProd" color="primary" type="filled">Return selected products</vs-button>
+					<vs-button :disabled="!this.form.id || !this.form.product_id" @click="returnProd" color="primary" type="filled">Return selected products</vs-button>
 				</div>
 
 

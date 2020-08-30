@@ -23,7 +23,6 @@
 							<vs-th>Design</vs-th>
                             <vs-th>Design Price</vs-th>
 							<vs-th>Price Combination</vs-th>
-							<vs-th>Product</vs-th>
 							<vs-th>Quantity</vs-th>
 							<vs-th>Designs</vs-th>
 						</template>
@@ -37,11 +36,11 @@
 								</vs-td>
 
                                 <vs-td>
-                                    {{ item.product.category.name }}
+                                    {{ item.product?item.product.category.name:'Product deleted' }}
                                 </vs-td>
 
 								<vs-td>
-									{{ item.product.name }}
+									{{ item.product?item.product.name:'Product deleted' }}
 								</vs-td>
 
 								<vs-td>
@@ -56,9 +55,6 @@
 									{{ item.price_combination.combination}} ({{ item.price_combination.price}})
 								</vs-td>
 
-								<vs-td>
-									{{ item.product.name }}
-								</vs-td>
 
 								<vs-td>
 									{{ item.quantity }}
